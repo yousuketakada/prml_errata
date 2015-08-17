@@ -1,0 +1,747 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{bm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage[margin=2cm]{geometry}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{url}
+
+\newcommand{\erratum}[1]{\subsubsection*{#1}}
+
+\begin{document}
+
+\title{PRML Errata}
+\author{Yousuke Takada}
+\date{\today}
+\maketitle
+
+\section*{Preface}
+This report communicates some possible errata for PRML~\citep{Bishop:PRML}
+that are not listed in the official errata document~\citep{Svensen:PRML_errata}\footnote{\
+The last line but one of the bibliographic information page of the copy of PRML I have
+reads ``9 8 7 (corrected at 6th printing 2007).'' So I refer to Version~2 of the errata.}
+at the time of this writing.
+When specifying the location of an error, I follow the notational conventions adopted by
+\citet{Svensen:PRML_errata}.
+I have also included in this report some suggestions for improving the readability.
+
+\section*{Corrections}
+
+\erratum{Page~51}
+Equation~(1.98):
+Following the notation~(1.93), we should write the left hand side of (1.98) as
+$\operatorname{H}[X]$ instead of $\operatorname{H}[p]$.
+
+\erratum{Page~80}
+Equation~(2.52):
+We usually take eigenvectors~$\mathbf{u}_{i}$ to be the columns of $\mathbf{U}$ as in (C.37).
+If we follow this convention, Equation~(2.52) and the following text should read
+\begin{equation}
+\mathbf{y} = \mathbf{U}^{\operatorname{T}} (\mathbf{x} - \bm{\mu})
+\label{eq:change_of_variable_x_to_y}
+\end{equation}
+where $\mathbf{U}$ is a matrix whose columns are given by $\mathbf{u}_{i}$ so that
+$\mathbf{U} = \left( \mathbf{u}_{1}, \dots,  \mathbf{u}_{D}\right)$.
+From (2.46) it follows that $\mathbf{U}$ is an \emph{orthogonal} matrix, i.e.,
+it satisfies $\mathbf{U}^{\operatorname{T}}\mathbf{U} = \mathbf{I}$ and hence also
+$\mathbf{U}\mathbf{U}^{\operatorname{T}} = \mathbf{I}$ where $\mathbf{I}$ is the identity matrix.
+
+\erratum{Page~81}
+Equations~(2.53) and (2.54):
+If we write the change of variable from $\mathbf{x}$ to $\mathbf{y}$ as
+\eqref{eq:change_of_variable_x_to_y} instead of (2.52),
+the Jacobian matrix~$\mathbf{J} = \left( J_{ij} \right)$ we require is
+simply given by $\mathbf{U}$.
+Equation~(2.53) should read
+\begin{equation}
+J_{ij} = \frac{\partial x_i}{\partial y_j} = U_{ij}
+\end{equation}
+where $U_{ij}$ is the $(i, j)$-th element of the matrix $\mathbf{U}$.
+The square of the determinant of the Jacobian matrix~(2.54) can be evaluated as follows.
+\begin{equation}
+\left| \mathbf{J} \right|^{2} = \left| \mathbf{U} \right|^{2}
+= \left| \mathbf{U}^{\operatorname{T}} \right| \left| \mathbf{U} \right|
+= \left| \mathbf{U}^{\operatorname{T}} \mathbf{U} \right|
+= \left| \mathbf{I} \right| = 1.
+\end{equation}
+
+\erratum{Page~81}
+Line~$-1$:
+Since the determinant of the Jacobian, which is an orthonormal matrix here, can be negative,
+we should write $\left| \mathbf{J} \right| = \pm 1$
+instead of $\left| \mathbf{J} \right| = 1$.
+
+\erratum{Page~82}
+Equation~(2.56):
+We should take the absolute value of the determinant for the same reason given above;
+the factor~$\left| \mathbf{J} \right|$ should read
+$\left| \operatorname{det}\left( \mathbf{J} \right) \right|$.
+Note that we cannot write $\left|\left| \mathbf{J} \right|\right|$ to mean
+$\left| \operatorname{det}\left( \mathbf{J} \right) \right|$
+because it is confusingly similar to the matrix norm~$\left\| \mathbf{J} \right\|$,
+which usually refers to the largest singular value of $\mathbf{J}$ \citep{GvL:MC}.
+This notational inconsistency has been caused by the abuse of the notation~$|\cdot|$ for
+both the absolute value and the matrix determinant.
+If we always use $\operatorname{det}(\cdot)$ for the determinant, confusion will not arise
+and the notation be consistent.
+An alternative solution to this problem would be to explicitly define
+\begin{equation}
+\left| \mathbf{A} \right| \equiv \left| \operatorname{det}\left( \mathbf{A} \right) \right|
+\end{equation}
+for any square matrix $\mathbf{A}$.
+This notation is mostly consistent because we have
+$\left| \mathbf{A} \right| = \operatorname{det}\left( \mathbf{A} \right)$ for a positive
+semidefinite matrix $\mathbf{A}$ and
+most other matrices for which we take determinants are positive (semi)definite in PRML.
+
+\erratum{Page~104}
+The text after Equation~(2.160):
+The Gaussian~$\mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{\Lambda}\right)$
+should read $\mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{\Lambda}^{-1}\right)$.
+
+\erratum{Page~141}
+Equation~(3.13):
+The use of the gradient operator is not consistent here.
+As in Equation~(2.224), the gradient (of a scalar function) is a column vector
+so that Equation~(3.13) should read\footnote{\
+I have not got a right typeface for the data vector
+$\left( t_1, \dots, t_N \right)^{\operatorname{T}}$.}
+\begin{equation}
+\nabla \ln p \left( \mathbf{t} \middle| \mathbf{w}, \beta \right) =
+\beta \sum_{n=1}^{N}
+\left\{ t_n - \mathbf{w}^{\operatorname{T}} \bm{\phi}\left( \mathbf{x}_n \right) \right\}
+\bm{\phi}\left( \mathbf{x}_n \right) .
+\label{eq:gradient_of_linear_regression_likelihood}
+\end{equation}
+Moreover, I would like to also suggest that we should give a definition for the gradient
+before we use it or in an appendix.
+Although Appendix~C defines the vector derivative~$\frac{\partial}{\partial \mathbf{x}}$,
+which is used interchangeably with the gradient~$\nabla_{\mathbf{x}}$ in PRML,
+it has no mention of the gradient.
+
+\erratum{Page~142}
+Equation~(3.14):
+The left hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zero~$0$.
+Thus, Equation~(3.14) should read
+\begin{equation}
+\mathbf{0} =
+\sum_{n=1}^{N} t_n \bm{\phi}\left( \mathbf{x}_n \right)
+- \left( \sum_{n=1}^{N}
+\bm{\phi}\left(\mathbf{x}_n\right)\bm{\phi}\left(\mathbf{x}_n\right)^{\operatorname{T}} \right)
+\mathbf{w}
+\end{equation}
+where we have used the gradient of the form~\eqref{eq:gradient_of_linear_regression_likelihood}
+instead of (3.13).
+
+\erratum{Page~146}
+Equation~(3.31):
+The left hand side should be $\mathbf{y}\left(\mathbf{x}, \mathbf{W}\right)$ instead of
+$\mathbf{y}\left(\mathbf{x}, \mathbf{w}\right)$.
+
+\erratum{Page~166}
+The second paragraph, Line~1:
+`Gamma' should read `gamma' (without capitalization).
+
+\erratum{Pages~168--169, and 177}
+Equations~(3.88), (3.93), and (3.117) as well as the text before (3.93):
+The derivative operators should be partial differentials.
+For example, Equation~(3.117) should read
+\begin{equation}
+\frac{\partial}{\partial \alpha} \ln \left| \mathbf{A} \right| =
+\operatorname{Tr}\left( \mathbf{A}^{-1} \frac{\partial}{\partial \alpha} \mathbf{A} \right) .
+\end{equation}
+
+\erratum{Page~207}
+Equation~(4.92):
+On the right hand side, the gradient and the Hessian,
+which are in general functions of the parameter~$\mathbf{w}$,
+must be evaluated at the previous estimate~$\mathbf{w}^{\text{old}}$ for the parameter.
+Thus, Equation~(4.92) should read
+\begin{equation}
+\mathbf{w}^{\text{new}} = \mathbf{w}^{\text{old}} -
+  \left[ \mathbf{H} \left( \mathbf{w}^{\text{old}} \right) \right]^{-1}
+  \nabla E \left( \mathbf{w}^{\text{old}} \right)
+\end{equation}
+where $\mathbf{H}\left(\mathbf{w}\right) \equiv \nabla\nabla E\left(\mathbf{w}\right)$ is
+the Hessian matrix whose elements comprise the second derivatives of $E\left(\mathbf{w}\right)$
+with respect to the components of $\mathbf{w}$.
+
+\erratum{Page~210}
+Equation~(4.110):
+The left hand side of (4.110),
+which is obtained by taking the gradient of $\nabla_{\mathbf{w}_{j}} E$ given in (4.109)
+with respect to $\mathbf{w}_{k}$,
+refers to the $(k, j)$-th block of the Hessian, \emph{not} the $(j, k)$-th.
+Thus, Equation~(4.110) should read
+\begin{equation}
+\nabla_{\mathbf{w}_{k}} \nabla_{\mathbf{w}_{j}}
+E \left( \mathbf{w}_{1}, \dots, \mathbf{w}_{K} \right)
+  = \sum_{n=1}^{N} y_{nj} \left( I_{kj} - y_{nk} \right)
+    \bm{\phi}_{n} \bm{\phi}_{n}^{\operatorname{T}}.
+\end{equation}
+To be clear, we have used the following notation.
+If we group all the parameters~$\mathbf{w}_{1}$, $\dots$, $\mathbf{w}_{K}$ into
+a column vector
+\begin{equation}
+\mathbf{w} =
+  \begin{pmatrix}
+  \mathbf{w}_{1} \\
+  \vdots \\
+  \mathbf{w}_{K}
+  \end{pmatrix}
+\end{equation}
+the gradient and the Hessian of the error function~$E\left(\mathbf{w}\right)$ with respect to
+$\mathbf{w}$ are given by
+\begin{equation}
+\nabla_{\mathbf{w}} E =
+  \begin{pmatrix}
+  \nabla_{\mathbf{w}_{1}} E \\
+  \vdots \\
+  \nabla_{\mathbf{w}_{K}} E
+  \end{pmatrix} , \qquad
+\nabla_{\mathbf{w}} \nabla_{\mathbf{w}} E =
+  \begin{pmatrix}
+  \nabla_{\mathbf{w}_{1}} \nabla_{\mathbf{w}_{1}} E &
+  \cdots &
+  \nabla_{\mathbf{w}_{1}} \nabla_{\mathbf{w}_{K}} E \\
+  \vdots & \ddots & \vdots \\
+  \nabla_{\mathbf{w}_{K}} \nabla_{\mathbf{w}_{1}} E &
+  \cdots &
+  \nabla_{\mathbf{w}_{K}} \nabla_{\mathbf{w}_{K}} E
+  \end{pmatrix}
+\end{equation}
+respectively.
+
+\erratum{Page~239}
+Figure~5.6:
+The eigenvectors~$\mathbf{u}_{1}$ and $\mathbf{u}_{2}$ in Figure~5.6 are unit vectors;
+their orientations should be shown as in Figure~2.7.
+Or, the scaled vectors should be labeled as
+$\lambda_{1}^{-1/2}\mathbf{u}_{1}$ and $\lambda_{2}^{-1/2}\mathbf{u}_{2}$.
+
+\erratum{Page~251}
+The second paragraph:
+The approximation of the form~(5.84) is usually referred to as
+the ``\emph{Gauss--Newton}'' approximation, but not ``\emph{Levenberg--Marquardt}.''
+The Levenberg--Marquardt method is a method that improves
+the numerical stability of (Gauss--)Newton iterations
+by correcting the Hessian matrix so as to be more diagonal dominant~\citep{Press:NR}.
+
+\erratum{Page~275}
+The text after Equation~(5.154):
+The identity matrix~$\mathbf{I}$ should multiply $\sigma_{k}^{2}(\mathbf{x}_{n})$.
+
+\erratum{Page~277}
+Equation~(5.160):
+The factor~$L$ should multiply $\sigma_{k}^{2}(\mathbf{x})$ because we have
+\begin{align}
+s^2(\mathbf{x}) &=
+  \mathbb{E}\left[
+    \operatorname{Tr}\left\{
+      \left( \mathbf{t} - \mathbb{E}\left[ \mathbf{t} \middle| \mathbf{x} \right] \right)
+      \left( \mathbf{t} - \mathbb{E}\left[ \mathbf{t} \middle| \mathbf{x} \right]
+        \right)^{\operatorname{T}} \right\}
+  \middle| \mathbf{x} \right] \\
+&= \sum_{k=1}^{K} \pi_{k}(\mathbf{x})
+  \operatorname{Tr}\left\{ \sigma_{k}^{2}(\mathbf{x})\mathbf{I} +
+    \left( \bm{\mu}_{k}(\mathbf{x}) -
+      \mathbb{E}\left[ \mathbf{t} \middle| \mathbf{x} \right] \right)
+    \left( \bm{\mu}_{k}(\mathbf{x}) -
+      \mathbb{E}\left[ \mathbf{t} \middle| \mathbf{x} \right] \right)^{\operatorname{T}}
+  \right\} \\
+&= \sum_{k=1}^{K} \pi_{k}(\mathbf{x})
+  \left\{ L \sigma_{k}^{2}(\mathbf{x}) +
+    \left\| \bm{\mu}_{k}(\mathbf{x}) -
+      \mathbb{E}\left[ \mathbf{t} \middle| \mathbf{x} \right] \right\|^{2}
+  \right\}
+\end{align}
+where $L$ is the dimensionality of $\mathbf{t}$.
+
+\erratum{Page~295}
+Line~1:
+The vector~$\mathbf{x}$ should be a column vector so that
+$\mathbf{x} = \left( x_1, x_2 \right)^{\operatorname{T}}$.
+
+\erratum{Page~318}
+The text before Equation~(6.93) as well as Equations~(6.93) and (6.94):
+The text and the equations should read:
+We can evaluate the derivative of $a_n^{\star}$ with respect to $\theta_j$ by differentiating
+the relation~(6.84) with respect to $\theta_j$ to give
+\begin{equation}
+\frac{\partial \mathbf{a}_N^{\star}}{\partial \theta_j}
+ = \frac{\partial\mathbf{C}_N}{\partial \theta_j} \left( \mathbf{t}_N - \bm{\sigma}_N \right)
+   - \mathbf{C}_N \mathbf{W}_N \frac{\partial \mathbf{a}_N^{\star}}{\partial \theta_j}
+   \label{eq:jacobian_of_a_N_wrt_theta_j}
+\end{equation}
+where the derivatives are Jacobians defined by (C.16) for a vector and
+analogously for a matrix\footnote{\
+The Jacobian~$\frac{\partial\mathbf{A}}{\partial\theta}$ of
+a matrix~$\mathbf{A} = (A_{ij})$ with respect to a scalar~$\theta$ is
+a matrix with the same dimensionality as $\mathbf{A}$
+whose $(i, j)$-th element is given by $\frac{\partial A_{ij}}{\partial\theta}$.}.
+Rearranging \eqref{eq:jacobian_of_a_N_wrt_theta_j} then gives
+\begin{equation}
+\frac{\partial \mathbf{a}_N^{\star}}{\partial \theta_j}
+ = \left( \mathbf{I} + \mathbf{C}_N \mathbf{W}_N \right)^{-1}
+   \frac{\partial\mathbf{C}_N}{\partial \theta_j} \left( \mathbf{t}_N - \bm{\sigma}_N \right) .
+\end{equation}
+
+\erratum{Page~355}
+Equation~(7.117):
+The typeface of the vector~$\mathbf{y}$ in (7.117) should be that in (7.110).
+
+\erratum{Page~414}
+Figure~8.53, Line~6:
+The term~``max-product'' should be ``max-sum.''
+
+\erratum{Page~425}
+Equation~(9.3):
+The right hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zero~$0$.
+
+\erratum{Page~432}
+The text after Equation~(9.13):
+It should be noted for clarity that, as the prior~$p(\mathbf{z})$ over $\mathbf{z}$ is
+a multinomial distribution~(9.10),
+the posterior~$p \left( \mathbf{z} \middle| \mathbf{x} \right)$ over $\mathbf{z}$
+given $\mathbf{x}$ is again a multinomial of the form
+\begin{equation}
+p \left( \mathbf{z} \middle| \mathbf{x} \right) = \prod_{k=1}^{K} \gamma_k^{z_k}
+\end{equation}
+where we have written $\gamma_k \equiv \gamma(z_k)$,
+which can be directly confirmed by inspecting the functional form of the joint distribution
+\begin{equation}
+p \left( \mathbf{z} \right) p \left( \mathbf{x} \middle| \mathbf{z} \right) =
+ \prod_{k=1}^{K} \left\{ \pi_k \,
+ \mathcal{N} \left( \mathbf{x} \middle| \bm{\mu}_k, \bm{\Sigma}_k \right) \right\}^{z_k} .
+\end{equation}
+This observation helps the reader to understand that
+evaluating the responsibilities~$\gamma(z_k)$ indeed corresponds to
+the E~step of the general EM~algorithm.
+
+\erratum{Page~434}
+Equation~(9.15):
+Although the official errata~\citep{Svensen:PRML_errata} states that
+$\sigma_j$ on the right hand side should be raised to a power of $D$,
+the whole right hand side should be raised to $D$ so that Equation~(9.15) should read
+\begin{equation}
+\mathcal{N}\left( \mathbf{x}_n \middle| \mathbf{x}_n, \sigma_j^2 \mathbf{I} \right)
+ = \frac{1}{\left( 2 \pi \sigma_j^2 \right)^{D/2}} .
+\end{equation}
+
+\erratum{Page~435}
+Equation~(9.16):
+The right hand side should be a zero vector~$\mathbf{0}$.
+
+\erratum{Page~465}
+Equations~(10.6) and (10.7):
+In PRML, Equation (10.6) will be later recognized as ``a negative Kullback-Leibler divergence
+between $q_j(\mathbf{Z}_j)$ and $\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$''
+(Page~465, Line~$-2$).
+However, there is no point in taking a Kullback-Leibler divergence between two probability
+distributions over different sets of random variables; such a quantity is undefined.
+Moreover, the discussion here seems to be somewhat redundant.
+We actually do not have to introduce
+the probability~$\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$ other than $q_j^{\star}(\mathbf{Z}_j)$.
+Specifically, we can rewrite Equations~(10.6) and (10.7) into
+\begin{align}
+\mathcal{L}(q) &= \dots \\
+&= \int q_j \ln q_j^{\star} \mathrm{d}\mathbf{Z}_j - \int q_j \ln q_j \mathrm{d}\mathbf{Z}_j
+ + \text{const} \\
+&= - \operatorname{KL}\left( q_j \middle\| q_j^{\star} \right) + \text{const}
+\label{eq:variational_optimization_of_lower_bound_wrt_q_j}
+\end{align}
+where we have defined a new distribution $q_j^{\star}\left(\mathbf{Z}_j\right)$ by the relation
+\begin{equation}
+\ln q_j^{\star}\left(\mathbf{Z}_j\right) =
+\mathbb{E}_{i \neq j}\left[ \ln p\left(\mathbf{X}, \mathbf{Z}\right) \right] + \text{const}.
+\label{eq:optimal_solution_for_variational_bayes}
+\end{equation}
+It directly follows from \eqref{eq:variational_optimization_of_lower_bound_wrt_q_j} that,
+since the lower bound $\mathcal{L}(q)$ is the negative Kullback-Leibler divergence between
+$q_j(\mathbf{Z}_j)$ and $q_j^{\star}(\mathbf{Z}_j)$ up to some additive constant,
+the maximum of $\mathcal{L}(q)$ occurs when $q_j(\mathbf{Z}_j) = q_j^{\star}(\mathbf{Z}_j)$.
+
+\erratum{Page~465}
+The text before Equation~(10.8):
+The latent variable~$\mathbf{z}_i$ should read $\mathbf{Z}_i$.
+
+\erratum{Page~465}
+Line~$-1$:
+If we adopt the representation~\eqref{eq:variational_optimization_of_lower_bound_wrt_q_j},
+the probability~$\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$ should read
+$q_j^{\star}\left(\mathbf{Z}_j\right)$.
+
+\erratum{Page~466}
+Line~1:
+Again, $\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$ should read
+$q_j^{\star}\left(\mathbf{Z}_j\right)$.
+The sentence~``Thus we obtain...'' should read
+``Thus we see that we have already obtained a general expression for the optimal solution in
+\eqref{eq:optimal_solution_for_variational_bayes}.''
+
+\erratum{Page~468}
+The text after Equation~(10.16):
+The constant term in (10.16) is the \emph{negative} entropy of $p(\mathbf{Z})$.
+
+\erratum{Page~478}
+Equation~(10.63):
+The additive constant $+1$ on the right hand side should be omitted so that
+Equation~(10.63) should read
+\begin{equation}
+\nu_k = \nu_0 + N_k . \label{eq:reestimation_equation_for_nu}
+\end{equation}
+A quick check for the correctness of the re-estimation equations would be to consider
+a limit of $N \to 0$, in which the effective number of observations~$N_k$ also goes to
+zero and the re-estimation equations should reduce to identities.
+Equation~(10.63) does not reduces to $\nu_k = \nu_0$, failing the test.
+Note that the solution for Exercise~10.13 given by \citet{Svensen:PRML_web_solution} correctly
+derives the result~\eqref{eq:reestimation_equation_for_nu}.
+
+\erratum{Page~489}
+Equation~(10.107):
+The expectations~$\mathbb{E}_{\alpha}\left[ \ln q(\mathbf{w}) \right]_{\mathbf{w}}$ and
+$\mathbb{E}\left[ \ln q(\alpha) \right]$ should read
+$\mathbb{E}_{\mathbf{w}}\left[ \ln q(\mathbf{w}) \right]$ and
+$\mathbb{E}_{\alpha}\left[ \ln q(\alpha) \right]$, respectively,
+where the expectation~$\mathbb{E}_{\mathbf{Z}}[\cdot]$ is taken over $q\left(\mathbf{Z}\right)$.
+
+\erratum{Page~489}
+Equations~(10.108) through (10.112):
+The expectations are notationally inconsistent with (1.36);
+they should be of the forms shown in (10.107) or the ones corrected as above.
+
+\erratum{Page~490}
+The third paragraph, Line~2:
+A comma (,) should be inserted after the ellipsis so that the range of $n$ should read:
+$n = 1, \dots, N$.
+
+\erratum{Page~496}
+Equation~(10.140):
+In order to be consistent with the mathematical notations in PRML,
+the differential operator~$d$ in (10.140) should be upright~$\mathrm{d}$.
+Moreover, the derivative of $x$ with respect to $x^2$ should be written with parentheses as
+$\frac{\mathrm{d}x}{\mathrm{d}\left(x^2\right)}$,
+instead of $\frac{\mathrm{d}x}{\mathrm{d}x^2}$, to avoid ambiguity.
+
+\erratum{Page~501}
+The text after Equation~(10.162):
+The variational parameter $\lambda(\xi)$ is a monotonic function of $\xi$ for $\xi \ge 0$,
+but not that its derivative~$\lambda'(\xi)$ is.
+
+\erratum{Page~503}
+The text after Equation~(10.168):
+A period (.) should be added at the end of the sentence that follows (10.168).
+
+\erratum{Page~512}
+Equation~(10.222):
+The factor~$\left( 2 \pi v_n \right)^{D/2}$ in the denominator of the right hand side should be
+omitted because it has been already included in the Gaussian in (10.213).
+
+\erratum{Page~513}
+Equations~(10.223) and (10.224):
+The quantities $v^{\text{new}}$ and $\mathbf{m}^{\text{new}}$ in (10.223) and (10.224) are
+different from those in (10.217) and (10.218)\footnote{See \citet{Svensen:PRML_errata}
+for the errata for Equations~(10.217) and (10.218).}.
+Thus, we should introduce different notations, say, $v$ and $\mathbf{m}$, with appropriate
+definitions.
+Specifically, one can rewrite the approximation to the model evidence in the form
+\begin{equation}
+p(\mathcal{D}) \simeq \left( 2\pi v \right)^{D/2} \exp\left( B/2 \right)
+  \prod_{n=1}^{N} \left\{ s_n \left( 2\pi v_n \right)^{-D/2} \right\}
+\end{equation}
+where
+\begin{align}
+B &= \frac{\mathbf{m}^{\operatorname{T}}\mathbf{m}}{v}
+  - \sum_{n=1}^{N} \frac{\mathbf{m}_n^{\operatorname{T}}\mathbf{m}_n}{v_n} \\
+v^{-1} &= \sum_{n=1}^{N} v_n^{-1} \\
+v^{-1} \mathbf{m} &= \sum_{n=1}^{N} v_n^{-1} \mathbf{m}_n .
+\end{align}
+
+\erratum{Page~515}
+Equations~(10.228) and (10.229):
+Although \citet{Svensen:PRML_errata} correct (10.228) so that $q^{\backslash b}(\mathbf{x})$ is
+a normalized distribution,
+we do not need the normalization of $q^{\backslash b}(\mathbf{x})$ here and,
+even with this normalization, we cannot ensure that $\hat{p}(\mathbf{x})$ given by (10.229)
+is normalized.
+Similarly to (10.195), we can proceed with the unnormalized $q^{\backslash b}(\mathbf{x})$ given by
+the original (10.228) and, rather than correcting (10.228), we should correct (10.229) so that
+\begin{equation}
+\hat{p}(\mathbf{x}) \propto q^{\backslash b}(\mathbf{x}) f_b(x_2, x_3) = \dots
+\end{equation}
+implying that $\hat{p}(\mathbf{x})$ is a normalized distribution.
+
+\erratum{Page~515}
+The text after Equation~(10.229):
+The new distribution~$q^{\text{new}}(\mathbf{z})$ should read $q^{\text{new}}(\mathbf{x})$.
+
+\erratum{Page~516}
+Equation~(10.240):
+The subscript~$k$ of the product~$\displaystyle\prod_{k} \dots$ should read $k \neq j$
+because we have already removed the term~$\tilde{f}_j(\bm{\theta}_j)$.
+
+\erratum{Page~554}
+Equation~(11.72), Line~$-2$:
+If we write the expectation $\mathbb{E}_{\mathbf{z}}[\cdot]$ taken over
+some given distribution $q(\mathbf{z})$ explicitly as
+$\mathbb{E}_{q(\mathbf{z})}\left[\cdot\right]$,
+the expectation in the last line but one of (11.72) should read
+\begin{equation}
+\mathbb{E}_{p_{G}(\mathbf{z})} \left[ \exp\left(-E(\mathbf{z}) + G(\mathbf{z}) \right) \right]
+\end{equation}
+where we have written the argument~$\mathbf{z}$ for $E(\mathbf{z})$ and $G(\mathbf{z})$
+for clarity.
+
+\erratum{Page~556}
+Exercise~11.7:
+The interval should be $\left[ -\pi/2 , \pi/2 \right]$ instead of $[0, 1]$.
+
+\erratum{Page~557}
+Exercise~11.14, Line~2:
+The variance should be $\sigma_i^2$ instead of $\sigma_i$.
+
+\erratum{Page~564}
+The text after Equation~(12.12):
+The derivative we consider here is that with respect to $b_j$
+(\emph{not} that with respect to $b_i$).
+
+\erratum{Page~564}
+The text after Equation~(12.15):
+The zero should be a zero vector so that we have $\mathbf{u}_j = \mathbf{0}$.
+
+\erratum{Page~575}
+The third paragraph, Line~5:
+The zero vector should be a row vector instead of a column vector so that we have
+$\mathrm{v}^{\operatorname{T}}\mathbf{U} = \mathbf{0}^{\operatorname{T}}$.
+Or, the both sides are transposed to give $\mathbf{U}^{\operatorname{T}}\mathbf{v} = \mathbf{0}$.
+
+\erratum{Page~578}
+Equation~(12.53):
+As stated in the text preceding (12.53),
+we should substitute $\bm{\mu} = \bar{\mathbf{x}}$ into (12.53).
+
+\erratum{Page~578}
+The text before Equation~(12.56):
+For the maximization with respect to $\mathbf{W}$, we use (C.25) and (C.27) instead of (C.24).
+
+\erratum{Page~579}
+Line~5:
+The eigendecomposition requires $O(D^3)$ computation\emph{s}.
+
+\erratum{Page~599}
+Exercise~12.1, Line~$-1$:
+The quantity $\lambda_{M + 1}$ is an eigenvalue (not an eigenvector).
+
+\erratum{Page~602}
+Exercise~12.25, Line~2:
+The latent space distribution should read
+$p(\mathbf{z}) = \mathcal{N}\left( \mathbf{z} \middle| \mathbf{0}, \mathbf{I}\right)$.
+
+\erratum{Page~610}
+The first paragraph, Line~$-5$:
+The text~``our predictions ...'' should read: ``our predictions for $\mathbf{x}_{n + 1}$
+depend on all the previous observations.''
+
+\erratum{Page~620}
+The second paragraph and the following (unlabeled) equation:
+The last sentence before the equation and the equation each should terminate with a period (.).
+
+\erratum{Page~621}
+Figures~13.12 and 13.13:
+It should be clarified that, similarly to $\alpha(z_{nk})$ and $\beta(z_{nk})$,
+the notation~$p\left(\mathbf{x}_n \middle| z_{nk}\right)$ is used to denote
+the value of $p\left(\mathbf{x}_n \middle| \mathbf{z}_{n}\right)$ when $z_{nk} = 1$.
+
+\erratum{Page~622}
+The second paragraph, Line~$-1$:
+``we see'' should be omitted.
+
+\erratum{Page~623}
+The first paragraph, Line~$-2$:
+$z_{nk}$ should read $z_{n - 1, k}$.
+
+\erratum{Page~631}
+Equation~(13.73):
+The equation should read
+\begin{equation}
+\sum_{r=1}^{R} \ln \left\{
+  \frac{p\left(\mathbf{X}_{r}\middle|\bm{\theta}_{m_r}\right)p(m_r)}{
+    \sum_{l=1}^{M}p\left(\mathbf{X}_{r}\middle|\bm{\theta}_{l}\right)p(l)} \right\} .
+\end{equation}
+
+\erratum{Page~637}
+Equations~(13.81), (13.82), and (13.83):
+The distribution~(13.81) over $\mathbf{w}$ should read
+\begin{equation}
+p(\mathbf{w}) = \mathcal{N}\left(\mathbf{w}\middle|\mathbf{0}, \bm{\Gamma}\right)
+\end{equation}
+and so on.
+
+\erratum{Page~638}
+The first paragraph, Line~2:
+``conditional on'' should read ``conditioned on.''
+
+\erratum{Page~641}
+The text after Equation~(13.103):
+The form of the Gaussian is unclear.
+Since a multivariate Gaussian is usually defined over a column vector,
+we should construct a column vector from the concerned random variables to clearly define the mean
+and the covariance.
+Specifically, the text should read for example:
+\dots, we see that $\xi(\mathbf{z}_{n-1}, \mathbf{z}_{n})$ is a Gaussian of the form
+\begin{equation}
+\xi(\mathbf{z}_{n-1}, \mathbf{z}_{n}) =
+  \mathcal{N}\left(
+    \begin{pmatrix}
+      \mathbf{z}_{n-1} \\
+      \mathbf{z}_{n}
+    \end{pmatrix}
+  \middle|
+    \begin{pmatrix}
+    \hat{\bm{\mu}}_{n-1} \\
+    \hat{\bm{\mu}}_{n}
+    \end{pmatrix},
+    \begin{pmatrix}
+      \hat{\mathbf{V}}_{n-1} & \hat{\mathbf{V}}_{n-1, n} \\
+      \hat{\mathbf{V}}_{n-1, n}^{\operatorname{T}} & \hat{\mathbf{V}}_{n}
+    \end{pmatrix}
+  \right)
+\end{equation}
+where the mean $\hat{\bm{\mu}}_{n}$ and the covariance $\hat{\mathbf{V}}_{n}$ of
+$\mathbf{z}_{n}$ are given by (13.100) and (13.101), respectively;
+and the covariance $\hat{\mathbf{V}}_{n-1, n}$ between $\mathbf{z}_{n-1}$ and $\mathbf{z}_{n}$ 
+is given by
+\begin{equation}
+\hat{\mathbf{V}}_{n-1, n}
+  = \operatorname{cov}\left[\mathbf{z}_{n-1}, \mathbf{z}_{n}\right]
+  = \mathbf{J}_{n-1}\hat{\mathbf{V}}_{n} .
+\end{equation}
+
+\erratum{Pages~642 and 643}
+Equation~(13.109) and the following equations:
+If we follow the notation in Chapter~9, the typeface of the $Q$ function should be $\mathcal{Q}$.
+
+\erratum{Page~642}
+Equation~(13.109):
+If we follow the notation for a conditional expectation given by (1.37),
+Equation~(13.109) should read
+\begin{align}
+\mathcal{Q}\left(\bm{\theta}, \bm{\theta}^{\text{old}}\right)
+  &= \mathbb{E}_{\mathbf{Z}} \left[
+       \ln p \left( \mathbf{X}, \mathbf{Z} \middle| \bm{\theta} \right) \middle|
+       \mathbf{X}, \bm{\theta}^{\text{old}} \right] \\
+  &= \int \! \mathrm{d}\mathbf{Z} \;
+       p \left( \mathbf{Z} \middle| \mathbf{X}, \bm{\theta}^{\text{old}}\right)
+       \ln p \left( \mathbf{X}, \mathbf{Z} \middle| \bm{\theta} \right)
+\end{align}
+which corresponds to (9.30).
+
+\erratum{Page~643}
+Equation~(13.111):
+$\mathbf{V}_{0}^{\text{new}}$ should read $\mathbf{P}_{0}^{\text{new}}$.
+\citet{Svensen:PRML_errata} have failed to mention (13.111).
+
+\erratum{Page~643}
+Equation~(13.114): The size of the opening curly brace `$\{$' should match
+that of the closing curly brace `$\}$'.
+
+\erratum{Page~647}
+Figure~13.23, Line $-1$:
+$p(\mathbf{x}_{n+1}|\mathbf{z}_{n+1}^{(l)})$ should read $p(\mathbf{x}_{n+1}|{z}_{n+1}^{(l)})$.
+
+\erratum{Page~649}
+Exercise~13.14, Line 1: (8.67) should be (8.64).
+
+\erratum{Page~658}
+Figure~14.1, the equation below:
+The subscript of the summation in the right hand side should read $m = 1$.
+
+\erratum{Page~668}
+Equation~(14.37):
+The arguments of the probability are notationally inconsistent with those of (14.34), (14.35),
+and (14.36).
+Specifically, the conditioning on $\bm{\phi}_n$ should read that on $t_n$ and
+the probability~$p(k|\dots)$ be the value of $p(\mathbf{z}_{n}|\dots)$ when $z_{nk} = 1$,
+which we write $p(z_{nk} = 1|\dots)$.
+Moreover, strictly speaking,
+the old parameters~$\pi_k, \mathbf{w}_k, \beta$ should read
+$\pi_k^{\text{old}}, \mathbf{w}_k^{\text{old}}, \beta^{\text{old}} \in \bm{\theta}^{\text{old}}$.
+In order to solve these problems, we should rewrite Equation~(14.37) as, for example,
+\begin{equation}
+\gamma_{nk} = \mathbb{E}\left[ z_{nk} \middle| t_n, \bm{\theta}^{\text{old}} \right]
+\end{equation}
+where we have written the conditioning in the expectation explicitly and
+the expectation is given by
+\begin{equation}
+\mathbb{E}\left[ z_{nk} \middle| t_n, \bm{\theta} \right]
+  = p\left( z_{nk} = 1 \middle| t_n, \bm{\theta} \right)
+  = \frac{\pi_k \,
+      \mathcal{N}\left(t_n\middle|\mathbf{w}_k^{\operatorname{T}}\bm{\phi}_n, \beta^{-1}\right)}{
+    \sum_j \pi_j \,
+      \mathcal{N}\left(t_n\middle|\mathbf{w}_j^{\operatorname{T}}\bm{\phi}_n, \beta^{-1}\right)}.
+\end{equation}
+
+\erratum{Page~668}
+The unlabeled equation between (14.37) and (14.38):
+If we write the implicit conditioning in the expectation explicitly
+(similarly to the above equations), the unlabeled equation should read
+\begin{align}
+\mathcal{Q}\left(\bm{\theta}, \bm{\theta}^{\text{old}}\right)
+  &= \mathbb{E}_{\mathbf{Z}}\left[ \ln p(\mathbf{t}, \mathbf{Z}|\bm{\theta}) \middle|
+       \mathbf{t}, \bm{\theta}^{\text{old}} \right] \\
+  &= ...
+\end{align}
+where we have again used the typeface~$\mathcal{Q}$ for the $Q$ function so that the notation
+is consistent with that of Chapter~9.
+
+\erratum{Page~669}
+Equations~(14.40) and (14.41): The left hand sides should read a zero vector~$\mathbf{0}$.
+
+\erratum{Page~669}
+Equation~(14.41): $\bm{\Phi}$ is undefined.
+The text following (14.41) should read:
+\dots where $\mathbf{R}_k = \operatorname{diag}(\gamma_{nk})$ is
+a diagonal matrix of size $N \times N$ and
+$\bm{\Phi} = \left( \bm{\phi}_1, \dots, \bm{\phi}_N \right)^{\operatorname{T}}$ is
+an $N \times M$ matrix.
+Here, $N$ is the size of the data set and
+$M$ is the dimensionality of the feature vectors $\bm{\phi}_n$.
+
+\erratum{Page~669}
+Equation~(14.43): `$+\text{const}$' should be added to the right hand side.
+
+\erratum{Page~671}
+The text after Equation~(14.46):
+The text should read: \dots where we have omitted the dependence on $\{\bm{\phi}_n\}$ and
+defined $y_{nk} = \dots$.
+Or, $\bm{\phi}$ should have been omitted from the left hand side of (14.45).
+
+\erratum{Page~671}
+Equation~(14.48):
+The notation should be corrected similarly to the above erratum regarding (14.37).
+
+\erratum{Page~671}
+Equation~(14.49):
+The notation should be corrected similarly to the above erratum regarding the unlabeled equation
+between (14.37) and (14.38).
+
+\erratum{Page~672}
+Equation~(14.52):
+The negation must be removed so that $\mathbf{H}_k \equiv \nabla_k \nabla_k \mathcal{Q}$ where
+\begin{equation}
+\nabla_k \nabla_k \mathcal{Q}
+   = - \sum_{n=1}^{N} \gamma_{nk} y_{nk} (1 - y_{nk}) \bm{\phi}_n \bm{\phi}_n^{\operatorname{T}}.
+\end{equation}
+
+\erratum{Page~674}
+Exercise~14.1, Line~1:
+``of'' should be inserted after ``set.''
+
+\bibliographystyle{chicago}
+\bibliography{refs}
+
+\end{document}
