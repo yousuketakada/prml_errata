@@ -1,4 +1,5 @@
-# prml_errata
+prml_errata
+===========
 
 This is a report containing some additional errata for PRML (Bishop, 2006).
 
