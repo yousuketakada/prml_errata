@@ -761,6 +761,41 @@ Line~1: `positive-definite' should read `positive definite' (without hyphenation
 Equation~(B.49):
 $\mathbf{x}$ in the right hand side should read $\mathbf{x}_{a}$.
 
+\erratum{Page~690}
+Equation~(B.54):
+It should be noted that the distribution can also be written in terms of unnormalized probabilities
+$\tilde{\mu}_k \geq 0$, i.e.,
+\begin{equation}
+p\left(\mathbf{x}\middle|\tilde{\bm{\mu}}\right) =
+  {C(\tilde{\bm{\mu}})}^{-1} \prod_{k=1}^{K} {\tilde{\mu}_k}^{x_k}
+\end{equation}
+where we have defined the normalization constant as
+\begin{equation}
+C(\tilde{\bm{\mu}}) = \sum_{k=1}^{K} \tilde{\mu}_k
+\end{equation}
+so that we have $\mu_k = {C(\tilde{\bm{\mu}})}^{-1} \tilde{\mu}_k$.
+This observation helps the reader identify the functional form of this distribution in,
+e.g., the posterior distribution for the Gaussian mixture model of Section~9.2.
+
+\erratum{Page~692}
+Equation~(B.68):
+The multivariate Student's t-distribution is derived in Section~2.3.7
+by marginalizing over a gamma distributed scalar variable $\eta$ in (2.161),
+but not by marginalizing over the precision matrix that is generated from
+the conjugate Wishart distribution.
+I am not sure how one can marginalize over the precision matrix and
+the marginalized distribution is equivalent to (B.68).
+Some appropriate citation is needed if such details are omitted from the text.
+
+\erratum{Page~693}
+Equations~(B.78) to (B.82):
+Some appropriate citation is needed for the Wishart distribution
+because it is introduced in Section~2.3.6 without any proof for normalization
+as well as other statistics.
+
+\erratum{Page~693}
+Line~$-1$: $b = 1/2W$ should read $b = 1/(2W)$ for clarity.
+
 \bibliographystyle{chicago}
 \bibliography{refs}
 
