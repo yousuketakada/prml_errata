@@ -98,6 +98,10 @@ $\left| \mathbf{A} \right| = \operatorname{det}\left( \mathbf{A} \right)$ for a 
 semidefinite matrix $\mathbf{A}$ and
 most other matrices for which we take determinants are positive (semi)definite in PRML.
 
+\erratum{Page~102}
+Line~$-1$:
+`Gamma' should read `gamma' (without capitalization).
+
 \erratum{Page~104}
 The text after Equation~(2.160):
 The Gaussian~$\mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{\Lambda}\right)$
@@ -779,12 +783,19 @@ Thus, we have $\mu_k = C(\tilde{\bm{\mu}}) \tilde{\mu}_k$.
 
 \erratum{Page~692}
 Equation~(B.68):
-The multivariate Student's t-distribution is derived in Section~2.3.7
+This form of multivariate Student's t-distribution is derived in Section~2.3.7
 by marginalizing over a gamma distributed scalar variable $\eta$ in (2.161),
-but not by marginalizing over the precision matrix that is generated from
-the conjugate Wishart distribution.
-I am not sure how one can marginalize over the precision matrix and
-the marginalized distribution is equivalent to (B.68).
+but \emph{not} by marginalizing over the precision matrix that is generated from
+the conjugate Wishart distribution, which results in a distribution of the form
+\begin{equation}
+p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right) =
+  \int \mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \bm{\Lambda}^{-1}\right)
+    \mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}, \nu\right) \mathrm{d}\bm{\Lambda} .
+\label{eq:multivariate_t_marginalized_over_precision}
+\end{equation}
+I am not sure how we can marginalize over the precision matrix and, moreover,
+whether the marginalized distribution \eqref{eq:multivariate_t_marginalized_over_precision} is
+equivalent to (B.68).
 Some appropriate citation is needed if such details are omitted from the text.
 
 \erratum{Page~693}
