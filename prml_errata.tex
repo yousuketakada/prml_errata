@@ -763,19 +763,19 @@ $\mathbf{x}$ in the right hand side should read $\mathbf{x}_{a}$.
 
 \erratum{Page~690}
 Equation~(B.54):
-It should be noted that the distribution can also be written in terms of unnormalized probabilities
-$\tilde{\mu}_k \geq 0$, i.e.,
+I have found it helpful to identify the functional form of this distribution in,
+e.g., the posterior distribution for the Gaussian mixture model of Section~9.2
+if it is noted that the distribution can also be written in terms of unnormalized probabilities
+$\tilde{\mu}_k \geq 0$ so that
 \begin{equation}
-p\left(\mathbf{x}\middle|\tilde{\bm{\mu}}\right) =
-  {C(\tilde{\bm{\mu}})}^{-1} \prod_{k=1}^{K} {\tilde{\mu}_k}^{x_k}
+\operatorname{Mult}\left(\mathbf{x}\middle|\tilde{\bm{\mu}}\right) =
+  C(\tilde{\bm{\mu}}) \prod_{k=1}^{K} {\tilde{\mu}_k}^{x_k}
 \end{equation}
 where we have defined the normalization constant as
 \begin{equation}
-C(\tilde{\bm{\mu}}) = \sum_{k=1}^{K} \tilde{\mu}_k
+{C(\tilde{\bm{\mu}})}^{-1} = \sum_{k=1}^{K} \tilde{\mu}_k .
 \end{equation}
-so that we have $\mu_k = {C(\tilde{\bm{\mu}})}^{-1} \tilde{\mu}_k$.
-This observation helps the reader identify the functional form of this distribution in,
-e.g., the posterior distribution for the Gaussian mixture model of Section~9.2.
+Thus, we have $\mu_k = C(\tilde{\bm{\mu}}) \tilde{\mu}_k$.
 
 \erratum{Page~692}
 Equation~(B.68):
