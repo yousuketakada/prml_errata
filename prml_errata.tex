@@ -807,6 +807,177 @@ the normalization constant as well as other statistics.
 \erratum{Page~693}
 Line~$-1$: $b = 1/2W$ should read $b = 1/(2W)$ for clarity.
 
+\erratum{Page~696}
+Equation~(C.5):
+Replacing $\mathbf{B}^{\operatorname{T}}$ with $\mathbf{A}$, we obtain a more general identity
+\begin{equation}
+\left( \mathbf{P}^{-1} + \mathbf{A}\mathbf{R}^{-1}\mathbf{B} \right)^{-1}
+\mathbf{A}\mathbf{R}^{-1}
+=
+\mathbf{P}\mathbf{A}
+\left( \mathbf{B}\mathbf{P}\mathbf{A} + \mathbf{R} \right)^{-1}
+\label{eq:general_push_through_identity}
+\end{equation}
+which is necessary to show the \emph{push-through identity}~(C.6).
+As suggested in the text,
+the above identity~\eqref{eq:general_push_through_identity} can be
+directly verified by right multiplying both sides by
+$\left( \mathbf{B}\mathbf{P}\mathbf{A} + \mathbf{R} \right)$.
+However, I would prefer to prove
+the general push-through identity~\eqref{eq:general_push_through_identity}
+together with the Woodbury identity~(C.7) in terms of the inverse of a partitioned matrix,
+which we have already seen in Section~2.3.1.
+To this end, we first note that a partitioned matrix
+\begin{equation}
+\mathbf{M} =
+\begin{pmatrix}
+\mathbf{A} & \mathbf{B} \\
+\mathbf{C} & \mathbf{D}
+\end{pmatrix}
+\end{equation}
+can be block diagonalized as
+\begin{equation}
+\begin{pmatrix}
+\mathbf{I} & \mathbf{O} \\
+-\mathbf{C}\mathbf{A}^{-1} & \mathbf{I}
+\end{pmatrix}
+\begin{pmatrix}
+\mathbf{A} & \mathbf{B} \\
+\mathbf{C} & \mathbf{D}
+\end{pmatrix}
+\begin{pmatrix}
+\mathbf{I} & -\mathbf{A}^{-1}\mathbf{B} \\
+\mathbf{O} & \mathbf{I}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\mathbf{A} & \mathbf{O} \\
+\mathbf{O} & \mathbf{M}/\mathbf{A}
+\end{pmatrix}
+\label{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_A}
+\end{equation}
+or
+\begin{equation}
+\begin{pmatrix}
+\mathbf{I} & -\mathbf{B}\mathbf{D}^{-1} \\
+\mathbf{O} & \mathbf{I}
+\end{pmatrix}
+\begin{pmatrix}
+\mathbf{A} & \mathbf{B} \\
+\mathbf{C} & \mathbf{D}
+\end{pmatrix}
+\begin{pmatrix}
+\mathbf{I} & \mathbf{O} \\
+-\mathbf{D}^{-1}\mathbf{C} & \mathbf{I}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\mathbf{M}/\mathbf{D} & \mathbf{O} \\
+\mathbf{O} & \mathbf{D}
+\end{pmatrix}
+\label{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_D}
+\end{equation}
+if $\mathbf{A}$ or $\mathbf{D}$ is non-singular, respectively,
+where we have written the Schur complement of $\mathbf{M}$ with respect to
+$\mathbf{A}$ or $\mathbf{D}$ as
+\begin{equation}
+\mathbf{M}/\mathbf{A} \equiv \mathbf{D} - \mathbf{C}\mathbf{A}^{-1}\mathbf{B}
+\label{eq:Schur_complement_of_M_wrt_A}
+\end{equation}
+or
+\begin{equation}
+\mathbf{M}/\mathbf{D} \equiv \mathbf{A} - \mathbf{B}\mathbf{D}^{-1}\mathbf{C}
+\label{eq:Schur_complement_of_M_wrt_D}
+\end{equation}
+respectively.
+These identities~\eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_A}
+and \eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_D} yield
+two versions of the inverse partitioned matrix~$\mathbf{M}^{-1}$, i.e.,
+\begin{align}
+\begin{pmatrix}
+\mathbf{A} & \mathbf{B} \\
+\mathbf{C} & \mathbf{D}
+\end{pmatrix}^{-1}
+&=
+\begin{pmatrix}
+\mathbf{I} & -\mathbf{A}^{-1}\mathbf{B} \\
+\mathbf{O} & \mathbf{I}
+\end{pmatrix}
+\begin{pmatrix}
+\mathbf{A}^{-1} & \mathbf{O} \\
+\mathbf{O} & \left(\mathbf{M}/\mathbf{A}\right)^{-1}
+\end{pmatrix}
+\begin{pmatrix}
+\mathbf{I} & \mathbf{O} \\
+-\mathbf{C}\mathbf{A}^{-1} & \mathbf{I}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+\mathbf{A}^{-1} +
+\mathbf{A}^{-1}\mathbf{B} \left(\mathbf{M}/\mathbf{A}\right)^{-1} \mathbf{C}\mathbf{A}^{-1} &
+-\mathbf{A}^{-1}\mathbf{B} \left(\mathbf{M}/\mathbf{A}\right)^{-1} \\
+-\left(\mathbf{M}/\mathbf{A}\right)^{-1} \mathbf{C}\mathbf{A}^{-1} &
+\left(\mathbf{M}/\mathbf{A}\right)^{-1}
+\end{pmatrix}
+\end{align}
+and
+\begin{align}
+\begin{pmatrix}
+\mathbf{A} & \mathbf{B} \\
+\mathbf{C} & \mathbf{D}
+\end{pmatrix}^{-1}
+&=
+\begin{pmatrix}
+\mathbf{I} & \mathbf{O} \\
+-\mathbf{D}^{-1}\mathbf{C} & \mathbf{I}
+\end{pmatrix}
+\begin{pmatrix}
+\left(\mathbf{M}/\mathbf{D}\right)^{-1} & \mathbf{O} \\
+\mathbf{O} & \mathbf{D}^{-1}
+\end{pmatrix}
+\begin{pmatrix}
+\mathbf{I} & -\mathbf{B}\mathbf{D}^{-1} \\
+\mathbf{O} & \mathbf{I}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+\left(\mathbf{M}/\mathbf{D}\right)^{-1} &
+-\left(\mathbf{M}/\mathbf{D}\right)^{-1} \mathbf{B}\mathbf{D}^{-1} \\
+-\mathbf{D}^{-1}\mathbf{C} \left(\mathbf{M}/\mathbf{D}\right)^{-1} &
+\mathbf{D}^{-1} +
+\mathbf{D}^{-1}\mathbf{C} \left(\mathbf{M}/\mathbf{D}\right)^{-1} \mathbf{B}\mathbf{D}^{-1}
+\end{pmatrix}
+\end{align}
+respectively.
+Equating the right hand sides, we have, e.g.,
+\begin{equation}
+\left(\mathbf{M}/\mathbf{D}\right)^{-1} =
+\mathbf{A}^{-1} +
+\mathbf{A}^{-1}\mathbf{B} \left(\mathbf{M}/\mathbf{A}\right)^{-1} \mathbf{C}\mathbf{A}^{-1}
+\end{equation}
+and
+\begin{equation}
+-\left(\mathbf{M}/\mathbf{A}\right)^{-1} \mathbf{C}\mathbf{A}^{-1} =
+-\mathbf{D}^{-1}\mathbf{C} \left(\mathbf{M}/\mathbf{D}\right)^{-1} .
+\end{equation}
+Substituting \eqref{eq:Schur_complement_of_M_wrt_A} and \eqref{eq:Schur_complement_of_M_wrt_D}
+into both sides and
+replacing $\mathbf{D}$ with $-\mathbf{D}$,
+we finally have
+\begin{equation}
+\left(\mathbf{A} + \mathbf{B}\mathbf{D}^{-1}\mathbf{C}\right)^{-1} =
+\mathbf{A}^{-1} -
+\mathbf{A}^{-1}\mathbf{B}
+\left(\mathbf{D} + \mathbf{C}\mathbf{A}^{-1}\mathbf{B}\right)^{-1}
+\mathbf{C}\mathbf{A}^{-1}
+\end{equation}
+and
+\begin{equation}
+\left(\mathbf{D} + \mathbf{C}\mathbf{A}^{-1}\mathbf{B}\right)^{-1} \mathbf{C}\mathbf{A}^{-1} =
+\mathbf{D}^{-1}\mathbf{C} \left(\mathbf{A} + \mathbf{B}\mathbf{D}^{-1}\mathbf{C}\right)^{-1}
+\end{equation}
+which are equivalent to (C.7) and \eqref{eq:general_push_through_identity}, respectively.
+
 % TODO: Appendix C
 % TODO: Appendix D
 
