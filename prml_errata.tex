@@ -122,10 +122,11 @@ $\left( t_1, \dots, t_N \right)^{\operatorname{T}}$.}
 \label{eq:gradient_of_linear_regression_likelihood}
 \end{equation}
 Moreover, I would like to also suggest that we should give a definition for the gradient
-before we use it or in an appendix.
+before we use it or, at least, in an appendix.
 Although Appendix~C defines the vector derivative~$\frac{\partial}{\partial \mathbf{x}}$,
 which is used interchangeably with the gradient~$\nabla_{\mathbf{x}}$ in PRML,
-it has no mention of the gradient.
+there is no mention of the gradient.
+I will come back to this later in this report.
 
 \erratum{Page~142}
 Equation~(3.14):
@@ -818,7 +819,8 @@ Replacing $\mathbf{B}^{\operatorname{T}}$ with $\mathbf{A}$, we obtain a more ge
 \left( \mathbf{B}\mathbf{P}\mathbf{A} + \mathbf{R} \right)^{-1}
 \label{eq:general_push_through_identity}
 \end{equation}
-which is necessary to show the \emph{push-through identity}~(C.6).
+which is necessary to show the \emph{push-through identity}~(C.6) and also
+the determinant identity~(C.14).
 As suggested in the text,
 the above identity~\eqref{eq:general_push_through_identity} can be
 directly verified by right multiplying both sides by
@@ -889,8 +891,22 @@ or
 \mathbf{M}/\mathbf{D} \equiv \mathbf{A} - \mathbf{B}\mathbf{D}^{-1}\mathbf{C}
 \label{eq:Schur_complement_of_M_wrt_D}
 \end{equation}
-respectively.
-These identities~\eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_A}
+respectively\footnote{\
+Note that the notation for the Schur complement is chosen to suggest that
+it has a flavor of division~\citep{Minka:OldNewMatrixAlgebra}.
+Taking the determinant on both sides of
+\eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_A} and
+\eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_D},
+we have from the definition of the determinant~(C.10)
+\begin{align}
+\operatorname{det}(\mathbf{M}) &=
+\operatorname{det}(\mathbf{A}) \operatorname{det}(\mathbf{M}/\mathbf{A}) \\
+\operatorname{det}(\mathbf{M}) &=
+\operatorname{det}(\mathbf{D}) \operatorname{det}(\mathbf{M}/\mathbf{D}) .
+\end{align}
+}.
+The above block diagonalization
+identities~\eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_A}
 and \eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_D} yield
 two versions of the inverse partitioned matrix~$\mathbf{M}^{-1}$, i.e.,
 \begin{align}
