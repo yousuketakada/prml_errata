@@ -830,7 +830,8 @@ However, I would prefer to prove
 the general push-through identity~\eqref{eq:general_push_through_identity}
 together with the Woodbury identity~(C.7) in terms of the inverse of a partitioned matrix,
 which we have already seen in Section~2.3.1.
-To this end, we first note that a partitioned matrix
+To this end, we first introduce a square matrix $\mathbf{M}$ that is partitioned into
+four submatrices so that
 \begin{equation}
 \mathbf{M} =
 \begin{pmatrix}
@@ -838,7 +839,8 @@ To this end, we first note that a partitioned matrix
 \mathbf{C} & \mathbf{D}
 \end{pmatrix}
 \end{equation}
-can be block diagonalized as
+where $\mathbf{A}$ and $\mathbf{D}$ are square (but not necessarily the same dimension)
+and then note that $\mathbf{M}$ can be block diagonalized as
 \begin{equation}
 \begin{pmatrix}
 \mathbf{I} & \mathbf{O} \\
@@ -895,7 +897,7 @@ or
 respectively\footnote{\
 Note that the notation for the Schur complement is chosen to suggest that
 it has a flavor of division~\citep{Minka:OldNewMatrixAlgebra}.
-Taking the determinant on both sides of
+In fact, taking the determinant on both sides of
 \eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_A} and
 \eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_D},
 we have from the definition of the determinant~(C.10)
