@@ -997,6 +997,37 @@ and
 \end{equation}
 which are equivalent to (C.7) and \eqref{eq:general_push_through_identity}, respectively.
 
+\erratum{Page~697}
+Equation~(C.17):
+The definition~(C.17) of the derivative of a scalar with respect to a vector clearly contradicts
+(C.16) and (C.18).
+The vector derivative of this form~(C.17) is called the \emph{gradient}
+whereas (C.18) is the \emph{Jacobian}~\citep{Minka:OldNewMatrixAlgebra}.
+Thus, we should use a different notation, say, $\nabla$ for the gradient to avoid ambiguity.
+More specifically, given a vector function~$\mathbf{y}(\mathbf{x}) =
+\left(y_1(\mathbf{x}), \dots, y_M(\mathbf{x})\right)^{\operatorname{T}}$
+where $\mathbf{x} = \left(x_1, \dots, x_D \right)^{\operatorname{T}}$,
+we write the gradient of $\mathbf{y}(\mathbf{x})$ with respect to $\mathbf{x}$ as
+\begin{equation}
+\nabla_{\mathbf{x}} \mathbf{y} = \left( \frac{\partial y_j}{\partial x_i} \right) =
+\begin{pmatrix}
+\frac{\partial y_1}{\partial x_1} & \hdots & \frac{\partial y_M}{\partial x_1} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial y_1}{\partial x_D} & \hdots & \frac{\partial y_M}{\partial x_D}
+\end{pmatrix} .
+\end{equation}
+Note that the gradient is equal to the transpose of the Jacobian
+matrix~$\partial\mathbf{y}/\partial\mathbf{x} =
+\left( \partial y_i/\partial x_j \right)$
+so that $\nabla_{\mathbf{x}} \mathbf{y} =
+\left( \partial\mathbf{y}/\partial\mathbf{x} \right)^{\operatorname{T}}$,
+as a consequence of which the chain rule for the gradient is built up ``towards the left,'' i.e.,
+\begin{equation}
+\nabla_{\mathbf{x}} \mathbf{z}(\mathbf{y}) =
+\nabla_\mathbf{x} \mathbf{y} \nabla_\mathbf{y} \mathbf{z}.
+\label{eq:chain_rule_for_gradient}
+\end{equation}
+
 % TODO: Appendix C
 % TODO: Appendix D
 
