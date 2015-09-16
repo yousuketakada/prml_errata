@@ -1016,7 +1016,7 @@ we write the gradient of $\mathbf{y}(\mathbf{x})$ with respect to $\mathbf{x}$ a
 \frac{\partial y_1}{\partial x_D} & \hdots & \frac{\partial y_M}{\partial x_D}
 \end{pmatrix} .
 \end{equation}
-Note that the gradient is equal to the transpose of the Jacobian
+Note that the gradient is identical to the transpose of the Jacobian
 matrix~$\partial\mathbf{y}/\partial\mathbf{x} =
 \left( \partial y_i/\partial x_j \right)$
 so that $\nabla_{\mathbf{x}} \mathbf{y} =
@@ -1024,9 +1024,18 @@ so that $\nabla_{\mathbf{x}} \mathbf{y} =
 as a consequence of which the chain rule for the gradient is built up ``towards the left,'' i.e.,
 \begin{equation}
 \nabla_{\mathbf{x}} \mathbf{z}(\mathbf{y}) =
+\left(
+  \frac{\partial\mathbf{z}}{\partial\mathbf{y}}
+  \frac{\partial\mathbf{y}}{\partial\mathbf{x}}
+\right)^{\operatorname{T}} =
 \nabla_\mathbf{x} \mathbf{y} \nabla_\mathbf{y} \mathbf{z}.
 \label{eq:chain_rule_for_gradient}
 \end{equation}
+Since the chain rule~\eqref{eq:chain_rule_for_gradient} is so handy
+when we compute the gradients of composite functions
+as in, e.g., \eqref{eq:gradient_of_linear_regression_likelihood},
+I would suggest that it should also be pointed out in the ``Matrix Derivatives'' section of
+Appendix~C.
 
 % TODO: Appendix C
 % TODO: Appendix D
