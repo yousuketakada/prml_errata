@@ -1015,6 +1015,7 @@ we write the gradient of $\mathbf{y}(\mathbf{x})$ with respect to $\mathbf{x}$ a
 \vdots & \ddots & \vdots \\
 \frac{\partial y_1}{\partial x_D} & \hdots & \frac{\partial y_M}{\partial x_D}
 \end{pmatrix} .
+\label{eq:definition_of_gradient}
 \end{equation}
 Note that the gradient is identical to the transpose of the Jacobian
 matrix~$\partial\mathbf{y}/\partial\mathbf{x} =
@@ -1036,6 +1037,66 @@ when we compute the gradients of composite functions
 as in, e.g., \eqref{eq:gradient_of_linear_regression_likelihood},
 I would suggest that it should also be pointed out in the ``Matrix Derivatives'' section of
 Appendix~C.
+
+\erratum{Page~697}
+Equation~(C.19):
+Following the gradient notation~\eqref{eq:definition_of_gradient}, (C.19) should read
+\begin{equation}
+\nabla \left\{ \mathbf{x}^{\operatorname{T}} \mathbf{a} \right\} = 
+\nabla \left\{ \mathbf{a}^{\operatorname{T}} \mathbf{x} \right\} = 
+\mathbf{a}
+\end{equation}
+where we have omitted the subscript $\mathbf{x}$ in what should be $\nabla_{\mathbf{x}}$.
+Some other useful identities I would suggest to include are
+\begin{align}
+\nabla \left\{ \mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x} \right\} =
+\nabla \operatorname{Tr}\left(\mathbf{x}\mathbf{x}^{\operatorname{T}}\mathbf{A}\right) &=
+\left( \mathbf{A}^{\operatorname{T}} + \mathbf{A} \right)\mathbf{x} \\
+\nabla \left\{ \mathbf{A}\mathbf{x} \right\} & = \mathbf{A}^{\operatorname{T}} \\
+\nabla \left\{ \phi\mathbf{y} \right\} &=
+\nabla\phi \mathbf{y}^{\operatorname{T}} + \phi \nabla\mathbf{y} .
+\end{align}
+Note that $\mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x}$ is a quadratic form and thus
+the square matrix $\mathbf{A}$ is usually taken to be symmetric so that
+$\mathbf{A} = \mathbf{A}^{\operatorname{T}}$, in which case we have
+\begin{equation}
+\nabla \left\{ \mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x} \right\} =
+2\mathbf{A} \mathbf{x} .
+\end{equation}
+Substituting $\mathbf{A} = \mathbf{I}$ gives
+\begin{equation}
+\nabla \left\| \mathbf{x} \right\|^{2} = 2\mathbf{x}
+\end{equation}
+where $\left\| \mathbf{x} \right\| = \sqrt{\mathbf{x}^{\operatorname{T}}\mathbf{x}}$ is
+the norm of $\mathbf{x}$.
+It is also worth noting here that we can write down the Taylor series expansion
+(up to the second order) of a scalar function $f(\mathbf{x})$ in terms of the gradients as
+\begin{equation}
+f(\mathbf{x} + \Delta\mathbf{x}) \simeq
+f(\mathbf{x})
++ \mathbf{g}^{\operatorname{T}} \Delta\mathbf{x}
++ \frac{1}{2} {\Delta\mathbf{x}}^{\operatorname{T}} \mathbf{H} \Delta\mathbf{x}
+\end{equation}
+where $\mathbf{g}$ and $\mathbf{H}$ are the gradient vector and the Hessian matrix of
+$f(\mathbf{x})$, respectively, so that
+\begin{equation}
+\mathbf{g} \equiv \nabla f(\mathbf{x}) =
+\begin{pmatrix}
+\frac{\partial f}{\partial x_{1}} \\
+\vdots \\
+\frac{\partial f}{\partial x_{D}}
+\end{pmatrix} , \quad
+\mathbf{H} \equiv \nabla\nabla f(\mathbf{x}) =
+\begin{pmatrix}
+\frac{\partial^{2} f}{\partial x_{1} \partial x_{1}} &
+\hdots &
+\frac{\partial^{2} f}{\partial x_{1} \partial x_{D}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial^{2} f}{\partial x_{D} \partial x_{1}} &
+\hdots &
+\frac{\partial^{2} f}{\partial x_{D} \partial x_{D}}
+\end{pmatrix} .
+\end{equation}
 
 % TODO: Appendix C
 % TODO: Appendix D
