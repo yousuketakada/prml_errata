@@ -125,7 +125,7 @@ See `Mathematical notation' in PRML.}
 Moreover, I would like to also suggest that we should give a definition for the gradient
 before we use it or, at least, in an appendix.
 Although Appendix~C defines the vector derivative~$\frac{\partial}{\partial \mathbf{x}}$,
-which is used interchangeably with the gradient~$\nabla_{\mathbf{x}}$ in PRML,
+which is used interchangeably with the gradient~$\nabla_{\mathbf{x}}$ throughout PRML,
 there is no mention of the gradient.
 We will come back to this issue later in this report.
 
@@ -1001,9 +1001,9 @@ which are equivalent to (C.7) and \eqref{eq:general_push_through_identity}, resp
 Equation~(C.17):
 It is clear that the definition~(C.17) of the derivative of a scalar with respect to a vector
 contradicts (C.16) and (C.18).
-The vector derivative of this form~(C.17) is called the \emph{gradient}
-whereas (C.18) is the \emph{Jacobian}~\citep{Minka:OldNewMatrixAlgebra}.
-Thus, we should use a different notation, say, $\nabla$ for the gradient to avoid ambiguity.
+The vector derivative of the form~(C.17) is called the \emph{gradient}
+whereas (C.18) is called the \emph{Jacobian}~\citep{Minka:OldNewMatrixAlgebra}.
+We should use a different notation, say, $\nabla$ for the gradient to avoid ambiguity.
 More specifically, given a vector function~$\mathbf{y}(\mathbf{x}) =
 \left(y_1(\mathbf{x}), \dots, y_M(\mathbf{x})\right)^{\operatorname{T}}$
 where $\mathbf{x} = \left(x_1, \dots, x_D \right)^{\operatorname{T}}$,
@@ -1033,8 +1033,7 @@ as a consequence of which the chain rule for the gradient is built up ``towards 
 \label{eq:chain_rule_for_gradient}
 \end{equation}
 Since the chain rule~\eqref{eq:chain_rule_for_gradient} is handy
-when we compute the gradients of composite functions
-as in, e.g., \eqref{eq:gradient_of_linear_regression_likelihood},
+when we compute the gradients of composite functions,
 I would suggest that it should also be pointed out in the ``Matrix Derivatives'' section of
 Appendix~C.
 
@@ -1051,26 +1050,52 @@ Some other useful identities I would suggest to include are
 \begin{align}
 \nabla \left\{ \mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x} \right\} =
 \nabla \operatorname{Tr}\left(\mathbf{x}\mathbf{x}^{\operatorname{T}}\mathbf{A}\right) &=
-\left( \mathbf{A}^{\operatorname{T}} + \mathbf{A} \right)\mathbf{x} \\
-\nabla \left\{ \mathbf{A}\mathbf{x} \right\} & = \mathbf{A}^{\operatorname{T}} \\
-\nabla \left\{ \phi\mathbf{y} \right\} &=
-\nabla\phi \mathbf{y}^{\operatorname{T}} + \phi \nabla\mathbf{y} .
+\left( \mathbf{A}^{\operatorname{T}} + \mathbf{A} \right)\mathbf{x}
+\label{eq:gradient_of_quadratic_form} \\
+\nabla \left\{ \mathbf{B}\mathbf{x} \right\} & = \mathbf{B}^{\operatorname{T}}
+\label{eq:gradient_of_matrix_vector_product} \\
+\nabla \left\{ \varphi\mathbf{y} \right\} &=
+\nabla\varphi \mathbf{y}^{\operatorname{T}} + \varphi \nabla\mathbf{y}
+\label{eq:gradient_of_scalar_vector_product}
 \end{align}
-Note that $\mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x}$ is a quadratic form and thus
+where matrices $\mathbf{A}$ and $\mathbf{B}$ are constants.
+Note that $\mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x}$ in
+\eqref{eq:gradient_of_quadratic_form} is a quadratic form and thus
 the square matrix $\mathbf{A}$ is usually taken to be symmetric so that
 $\mathbf{A} = \mathbf{A}^{\operatorname{T}}$, in which case we have
 \begin{equation}
 \nabla \left\{ \mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x} \right\} =
-2\mathbf{A} \mathbf{x} .
+2\mathbf{A} \mathbf{x} \label{eq:gradient_of_quadratic_form_symmetric} .
 \end{equation}
 Substituting $\mathbf{A} = \mathbf{I}$ gives
 \begin{equation}
-\nabla \left\| \mathbf{x} \right\|^{2} = 2\mathbf{x}
+\nabla \left\| \mathbf{x} \right\|^{2} = 2\mathbf{x} \label{eq:gradiet_of_norm}
 \end{equation}
 where $\left\| \mathbf{x} \right\| = \sqrt{\mathbf{x}^{\operatorname{T}}\mathbf{x}}$ is
 the norm of $\mathbf{x}$.
+We make use of the above identity~\eqref{eq:gradiet_of_norm} when, e.g., we take the gradient of
+a sum-of-squares error function of the form (3.12),
+which can be expressed in terms of the design matrix~$\bm{\Phi}$ given by (3.16) as
+\begin{equation}
+E(\mathbf{w}) = \frac{1}{2} \left\| \mathbf{t} - \bm{\Phi}\mathbf{w} \right\|^2
+\label{eq:sum_of_squares_error} .
+\end{equation}
+Taking the gradient of \eqref{eq:sum_of_squares_error} with respect to $\mathbf{w}$, we have
+\begin{equation}
+\nabla_{\mathbf{w}} E(\mathbf{w}) =
+-\bm{\Phi}^{\operatorname{T}} \left( \mathbf{t} - \bm{\Phi}\mathbf{w} \right)
+\end{equation}
+where we have used the identity~\eqref{eq:gradiet_of_norm} together with
+the chain rule~\eqref{eq:chain_rule_for_gradient} and
+the identity~\eqref{eq:gradient_of_matrix_vector_product}.
+The same result can also be obtained by first expanding the square norm in
+\eqref{eq:sum_of_squares_error} and then differentiating it using the gradient identities
+given above.
+We use the identity~\eqref{eq:gradient_of_scalar_vector_product}
+when, e.g., we evaluate the Hessian~(5.83) of a nonlinear sum-of-squares error function~(5.82).
 It is also worth noting here that we can write down the Taylor series expansion
-(up to the second order) of a scalar function $f(\mathbf{x})$ in terms of the gradients as
+(up to the second order) of a scalar function $f(\mathbf{x})$ compactly
+in terms of the gradients as
 \begin{equation}
 f(\mathbf{x} + \Delta\mathbf{x}) \simeq
 f(\mathbf{x})
