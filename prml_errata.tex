@@ -1017,12 +1017,25 @@ we write the gradient of $\mathbf{y}(\mathbf{x})$ with respect to $\mathbf{x}$ a
 \end{pmatrix} .
 \label{eq:definition_of_gradient}
 \end{equation}
-Note that the gradient is identical to the transpose of the Jacobian
-matrix~$\partial\mathbf{y}/\partial\mathbf{x} =
+As a special case, we see that the gradient of a scalar function~$y(\mathbf{x})$ with respect to
+a column vector~$\mathbf{x}$ is again a column vector of the same dimension,
+corresponding to the right hand side of (C.17), i.e.,
+\begin{equation}
+\nabla_{\mathbf{x}} y = \left( \frac{\partial y}{\partial x_i} \right) =
+\begin{pmatrix}
+\frac{\partial y}{\partial x_1} \\
+\vdots  \\
+\frac{\partial y}{\partial x_D}
+\end{pmatrix} .
+\end{equation}
+Note also that the right hand side of the definition of
+the gradient~\eqref{eq:definition_of_gradient} is identical to
+the transpose of the Jacobian matrix~$\partial\mathbf{y}/\partial\mathbf{x} =
 \left( \partial y_i/\partial x_j \right)$
 so that $\nabla_{\mathbf{x}} \mathbf{y} =
 \left( \partial\mathbf{y}/\partial\mathbf{x} \right)^{\operatorname{T}}$,
-as a consequence of which the chain rule for the gradient is built up ``towards the left,'' i.e.,
+as a consequence of which the chain rule for the gradient is such that the intermediate gradients
+are built up ``towards the left,'' i.e.,
 \begin{equation}
 \nabla_{\mathbf{x}} \mathbf{z}(\mathbf{y}) =
 \left(
