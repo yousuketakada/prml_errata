@@ -101,7 +101,7 @@ most other matrices for which we take determinants are positive (semi)definite i
 \erratum{Page~102}
 Equation~(2.155):
 Although an interpretation for the parameters of the gamma distribution~(2.146) has been made,
-that for the parameters of the Wishart distribution is not given here nor in Exercise~2.45.
+that for the parameters of the Wishart distribution~(2.155) is not given here nor in Exercise~2.45.
 In order to give one, let us consider a simple Bayesian inference problem in which,
 given a set of $N$ observations~$\mathbf{X} =
 \left\{ \mathbf{x}_1, \dots, \mathbf{x}_N \right\}$ for a zero-mean Gaussian random variable,
@@ -139,27 +139,32 @@ where
 \mathbf{W}_0^{-1} + \sum_{n=1}^{N}\mathbf{x}_n\mathbf{x}_n^{\operatorname{T}} .
 \end{align}
 Reinstating the normalization constant, we indeed see that the posterior becomes again
-a Wishart distribution so that
+a Wishart distribution of the form
 \begin{equation}
 p\left(\bm{\Lambda}\middle|\mathbf{X}\right) =
 \mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}_N, \nu_N\right) .
 \end{equation}
 This result suggests us how we can interpret the parameters of
-the Wishart prior~\eqref{eq:wishart_prior}, namely
-the scale matrix~$\mathbf{W}_0$ and the number of degrees of freedom~$\nu_0$.
-Since observing $N$ data points increases the number of degrees of freedom by $N$,
-we can interpret $\nu_0$ as the number of ``effective'' prior observations.
-The $N$ observations also contribute $N\bm{\Sigma}_{\text{ML}}$ to the inverse of the scale matrix
-where $\bm{\Sigma}_{\text{ML}}$ is the maximum likelihood estimate for the covariance given by
+the Wishart distribution~(2.155), namely
+the scale matrix~$\mathbf{W}$ and the number of degrees of freedom~$\nu$.
+Since observing $N$ data points increases the number of degrees of freedom~$\nu$ by $N$,
+we can interpret $\nu_0$ in the prior~\eqref{eq:wishart_prior} as
+the number of ``effective'' prior observations.
+The $N$ observations also contribute $N\bm{\Sigma}_{\text{ML}}$ to
+the inverse of the scale matrix~$\mathbf{W}$
+where $\bm{\Sigma}_{\text{ML}}$ is the maximum likelihood estimate for the covariance of
+the observations given by
 \begin{equation}
 \bm{\Sigma}_{\text{ML}} = \frac{1}{N} \sum_{n=1}^{N}\mathbf{x}_n\mathbf{x}_n^{\operatorname{T}}
 \end{equation}
-which suggests an interpretation of $\mathbf{W}_0$ in terms of
-$\bm{\Sigma}_0 \equiv \left(\nu_0\mathbf{W}_0\right)^{-1}$, that is,
-$\bm{\Sigma}_0$ is the covariance of the prior observations.
-Note that this interpretation is in accordance with the observation that, form (B.80),
+which suggests an interpretation of $\mathbf{W}$ in terms of
+$\bm{\Sigma} \equiv \left(\nu\mathbf{W}\right)^{-1}$, that is,
+$\bm{\Sigma}_0$ in the prior~\eqref{eq:wishart_prior} is
+the covariance of the ``effective'' prior observations.
+Note that this interpretation is in accordance with another observation that
 the expectation of $\bm{\Lambda}$ taken over the prior~\eqref{eq:wishart_prior} is indeed given by
-$\mathbb{E}\left[\bm{\Lambda}\right] = \nu_0\mathbf{W}_0 = \bm{\Sigma}_0^{-1}$.
+$\mathbb{E}\left[\bm{\Lambda}\right] = \nu_0\mathbf{W}_0 = \bm{\Sigma}_0^{-1}$
+where we have used (B.80).
 
 \erratum{Page~102}
 Line~$-2$:
