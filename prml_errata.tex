@@ -352,11 +352,7 @@ the relation~(6.84) with respect to $\theta_j$ to give
    \label{eq:jacobian_of_a_N_wrt_theta_j}
 \end{equation}
 where the derivatives are Jacobians defined by (C.16) for a vector and
-analogously for a matrix\footnote{\
-The Jacobian~$\frac{\partial\mathbf{A}}{\partial\theta}$ of
-a matrix~$\mathbf{A} = (A_{ij})$ with respect to a scalar~$\theta$ is
-a matrix with the same dimensionality as $\mathbf{A}$
-whose $(i, j)$-th element is given by $\frac{\partial A_{ij}}{\partial\theta}$.}.
+analogously by \eqref{eq:Jacobian_of_matrix_wrt_scalar} for a matrix.
 Rearranging \eqref{eq:jacobian_of_a_N_wrt_theta_j} then gives
 \begin{equation}
 \frac{\partial \mathbf{a}_N^{\star}}{\partial \theta_j}
@@ -1218,6 +1214,29 @@ $f(\mathbf{x})$, respectively, so that
 \frac{\partial^{2} f}{\partial x_{D} \partial x_{D}}
 \end{pmatrix} .
 \end{equation}
+
+\erratum{Page~698}
+Equation~(C.20):
+It should be pointed out in advance that the Jacobian~$\partial\mathbf{A}/\partial x$ of
+a matrix~$\mathbf{A} = (A_{ij})$ with respect to a scalar~$x$ is
+a matrix with the same dimensionality as $\mathbf{A}$
+and is defined by
+\begin{equation}
+\frac{\partial\mathbf{A}}{\partial x} = \left( \frac{\partial A_{ij}}{\partial x} \right)
+\label{eq:Jacobian_of_matrix_wrt_scalar}
+\end{equation}
+which is analogous to the Jacobian~(C.18) of a vector with respect to a vector in that
+the partial derivatives are laid out according to the numerator, i.e.,
+$\mathbf{A}$ in \eqref{eq:Jacobian_of_matrix_wrt_scalar}.
+On the other hand, the gradient~\eqref{eq:gradient_of_vector_wrt_vector} is such that
+the derivatives are laid out according to the denominator.
+In a similarly analogy, we write the gradient~$\nabla_{\mathbf{A}} y$ of
+a scalar~$y$ with respect to a matrix~$\mathbf{A}$ as
+\begin{equation}
+\nabla_{\mathbf{A}} y = \left( \frac{\partial y}{\partial A_{ij}} \right)
+\label{eq:gradient_of_scalar_wrt_matrix}
+\end{equation}
+which should also be pointed out.
 
 % TODO: Appendix C
 % TODO: Appendix D
