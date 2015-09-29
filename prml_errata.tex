@@ -1115,7 +1115,13 @@ are built up ``towards the left,'' i.e.,
 Since the chain rule~\eqref{eq:chain_rule_for_gradient} is handy
 when we compute the gradients of composite functions,
 I would suggest that it should also be pointed out in the (Vector and) Matrix Derivatives section
-of Appendix~C.
+of Appendix~C.\footnote{At this point,
+one might wonder why we use different derivatives that are identical
+up to the transposed layout, i.e.,
+the gradient~$\nabla_{\mathbf{x}} \mathbf{y}$ and
+the Jacobian~$\partial\mathbf{y}/\partial\mathbf{x}$.
+I would like to quote what \citet{Minka:OldNewMatrixAlgebra} says regarding this question:
+The Jacobian is useful in calculus while the gradient is useful in optimization.}
 
 \erratum{Page~697}
 Equation~(C.19):
