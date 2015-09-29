@@ -1173,7 +1173,17 @@ The same result can also be obtained by first expanding the square norm in
 \eqref{eq:sum_of_squares_error} and then differentiating it using the gradient identities
 given above.
 We use the identity~\eqref{eq:gradient_of_scalar_vector_product}
-when, e.g., we evaluate the Hessian~(5.83) of a nonlinear sum-of-squares error function~(5.82).
+when, e.g., we evaluate the Hessian~(5.83) of a nonlinear sum-of-squares error function
+such as (5.82), which takes the form
+\begin{equation}
+J = \frac{1}{2} \sum_{n} \varepsilon_n^{2}.
+\end{equation}
+The gradient and the Hessian of $J$ can be evaluated as
+\begin{align}
+\nabla J &= \sum_{n} \varepsilon_n \nabla \varepsilon_n \\
+\nabla\nabla J &= \sum_{n} \nabla\varepsilon_n \left(\nabla\varepsilon_n\right)^{\operatorname{T}}
++ \sum_{n} \varepsilon_n \nabla\nabla \varepsilon_n .
+\end{align}
 It is also worth noting here that we can write down the Taylor series expansion
 (up to the second order) of a scalar function $f(\mathbf{x})$ compactly
 in terms of the gradients as
