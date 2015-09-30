@@ -91,6 +91,7 @@ and the notation be consistent.
 An alternative solution to this problem would be to explicitly define
 \begin{equation}
 \left| \mathbf{A} \right| \equiv \left| \operatorname{det}\left( \mathbf{A} \right) \right|
+\label{eq:abs_of_matrix_determinant}
 \end{equation}
 for any square matrix $\mathbf{A}$.
 This notation is mostly consistent because we have
@@ -1239,6 +1240,14 @@ a scalar~$y$ with respect to a matrix~$\mathbf{A}$ as
 \nabla_{\mathbf{A}} y = \left( \frac{\partial y}{\partial A_{ij}} \right) .
 \label{eq:gradient_of_scalar_wrt_matrix}
 \end{equation}
+
+\erratum{Page~698}
+Equation~(C.22):
+For this identity to be well-defined,
+it is necessary that we have $\operatorname{det}(\mathbf{A}) > 0$.\footnote{This is
+implied by $\mathbf{A} \succ 0$ as we usually assume.}.
+Or, if we adopt the notation~\eqref{eq:abs_of_matrix_determinant} for the absolute value of
+a matrix determinant, (C.22) holds for any non-singular $\mathbf{A}$.
 
 % TODO: Appendix C
 % TODO: Appendix D
