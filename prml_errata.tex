@@ -947,7 +947,7 @@ or
 \end{pmatrix}
 \label{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_D}
 \end{equation}
-if $\mathbf{A}$ or $\mathbf{D}$ is non-singular, respectively,
+if $\mathbf{A}$ or $\mathbf{D}$ is nonsingular, respectively,
 where we have written the Schur complement of $\mathbf{M}$ with respect to
 $\mathbf{A}$ or $\mathbf{D}$ as
 \begin{equation}
@@ -1111,7 +1111,8 @@ are built up ``towards the left,'' i.e.,
 \end{equation}
 Since the chain rule~\eqref{eq:chain_rule_for_gradient} is handy
 when we compute the gradients of composite functions,
-I would suggest that it should also be pointed out in the (Vector and) Matrix Derivatives section
+I would suggest that it should also be pointed out in
+the ``(Vector and) Matrix Derivatives'' section
 of Appendix~C.\footnote{At this point,
 one might wonder why we use two different forms of vector derivative that are identical
 up to the transposed layout, i.e.,
@@ -1244,10 +1245,72 @@ a scalar~$y$ with respect to a matrix~$\mathbf{A}$ as
 \erratum{Page~698}
 Equation~(C.22):
 For this identity to be well-defined,
-it is necessary that we have $\operatorname{det}(\mathbf{A}) > 0$.\footnote{This is
-implied by $\mathbf{A} \succ 0$ as we usually assume.}.
-Or, if we adopt the notation~\eqref{eq:abs_of_matrix_determinant} for the absolute value of
-a matrix determinant, (C.22) holds for any non-singular $\mathbf{A}$.
+it is necessary that we have $\operatorname{det}(\mathbf{A}) > 0$.
+We should make this assumption clear.
+Or, if we adopt the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$,
+we see that (C.22) holds for any nonsingular $\mathbf{A}$ such that
+$\operatorname{det}(\mathbf{A}) \neq 0$.
+The ``Eigenvector Equation'' section of Appendix~C gives us a hint for a proof of (C.22)
+where $\mathbf{A}$ is assumed to be symmetric positive definite so that $\mathbf{A} \succ 0$.
+Although the proof outlined in PRML is highly instructive,
+we can give a more general proof where $\mathbf{A}$ is only assumed to be nonsingular,
+which I would also like to have in PRML.
+To this end, we first show the following identity for any square matrix~$\mathbf{A}$
+\begin{equation}
+\frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right) =
+\operatorname{Tr}\left(\mathbf{A}^{\dagger}\frac{\partial\mathbf{A}}{\partial x}\right)
+\label{eq:Jacobi_formula}
+\end{equation}
+where $\mathbf{A}^{\dagger}$ is the adjugate matrix of
+$\mathbf{A}$.
+The $(ij)$-th element $A_{ij}^{\dagger}$ of the adjugate matrix~$\mathbf{A}^{\dagger}$ is given by
+\begin{equation}
+A_{ij}^{\dagger} = (-1)^{i+j} \operatorname{det}\left(\mathbf{A}^{(ji)}\right)
+\label{eq:definition_of_adjugate}
+\end{equation}
+where $\mathbf{A}^{(ij)}$ is a matrix obtained by removing
+the $i$-th row and the $j$-th column of $\mathbf{A}$.
+From the identity
+\begin{equation}
+\mathbf{A}\mathbf{A}^{\dagger} = \mathbf{A}^{\dagger}\mathbf{A} =
+\operatorname{det}(\mathbf{A})\mathbf{I}
+\label{eq:adjugate_identity}
+\end{equation}
+we can write the inverse~$\mathbf{A}^{-1}$ in terms of the adjugate~$\mathbf{A}^{\dagger}$ so that
+\begin{equation}
+\mathbf{A}^{-1} = \frac{\mathbf{A}^{\dagger}}{\operatorname{det}(\mathbf{A})}
+\end{equation}
+if $\operatorname{det}(\mathbf{A}) \neq 0$.
+The above identity~\eqref{eq:adjugate_identity} also implies
+\begin{equation}
+\operatorname{det}(\mathbf{A}) = \sum_{k} A_{ik} A_{ki}^{\dagger} .
+\end{equation}
+Substituting this into the left hand side of \eqref{eq:Jacobi_formula}
+and noting that, from the definition~\eqref{eq:definition_of_adjugate},
+$A_{ji}^{\dagger}$ is independent of $A_{ik}$ nor $A_{kj}$ for any $k$,
+we have
+\begin{align}
+\frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right) &=
+\sum_{ij} \left\{ \frac{\partial}{\partial A_{ij}} \sum_{k} A_{ik} A_{ki}^{\dagger} \right\}
+  \frac{\partial A_{ij}}{\partial x} \\
+&= \sum_{ij} A_{ji}^{\dagger} \frac{\partial A_{ij}}{\partial x} \\
+&= 
+\operatorname{Tr}\left(\frac{\partial\mathbf{A}}{\partial x}\mathbf{A}^{\dagger}\right) =
+\operatorname{Tr}\left(\mathbf{A}^{\dagger}\frac{\partial\mathbf{A}}{\partial x}\right) .
+\end{align}
+Having shown the identity~\eqref{eq:Jacobi_formula},
+we can now evaluate the right hand side of (C.22) as
+\begin{align}
+\frac{\partial}{\partial x} \ln \left|\mathbf{A}\right| &=
+\frac{\partial}{\partial x} \ln \left|\operatorname{det}\left(\mathbf{A}\right)\right| \\
+&=
+\frac{1}{\operatorname{det}\left(\mathbf{A}\right)}
+\frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right) \\
+&=
+\operatorname{Tr}\left(\mathbf{A}^{-1}\frac{\partial\mathbf{A}}{\partial x}\right)
+\end{align}
+where we have used the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$
+and assumed that $\operatorname{det}\left(\mathbf{A}\right) \neq 0$.
 
 % TODO: Appendix C
 % TODO: Appendix D
