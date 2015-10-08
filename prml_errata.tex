@@ -122,7 +122,7 @@ p\left(\bm{\Lambda}\right) = \mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}_0, 
 \label{eq:wishart_prior}
 \end{equation}
 our analysis can be simplified because it is the conjugate prior.
-If fact, the posterior~$p\left(\bm{\Lambda}\middle|\mathbf{X}\right)$ is given by
+In fact, the posterior~$p\left(\bm{\Lambda}\middle|\mathbf{X}\right)$ is given by
 \begin{align}
 p\left(\bm{\Lambda}\middle|\mathbf{X}\right) &\propto
 p\left(\mathbf{X}\middle|\bm{\Lambda}\right) p\left(\bm{\Lambda}\right) \\
@@ -156,12 +156,16 @@ the inverse of the scale matrix~$\mathbf{W}$
 where $\bm{\Sigma}_{\text{ML}}$ is the maximum likelihood estimate for the covariance of
 the observations given by
 \begin{equation}
-\bm{\Sigma}_{\text{ML}} = \frac{1}{N} \sum_{n=1}^{N}\mathbf{x}_n\mathbf{x}_n^{\operatorname{T}}
+\bm{\Sigma}_{\text{ML}} = \frac{1}{N} \sum_{n=1}^{N}\mathbf{x}_n\mathbf{x}_n^{\operatorname{T}} .
 \end{equation}
-which suggests an interpretation of $\mathbf{W}$ in terms of
-$\bm{\Sigma} \equiv \left(\nu\mathbf{W}\right)^{-1}$, that is,
-$\bm{\Sigma}_0$ in the prior~\eqref{eq:wishart_prior} is
-the covariance of the ``effective'' prior observations.
+This suggests an interpretation of $\mathbf{W}$ in terms of the corresponding covariance matrix
+given by
+\begin{equation}
+\bm{\Sigma} \equiv \left(\nu\mathbf{W}\right)^{-1}.
+\end{equation}
+More specifically,
+$\bm{\Sigma}_0 = \left(\nu_0\mathbf{W}_0\right)^{-1}$ in the prior~\eqref{eq:wishart_prior} is
+the covariance of the $\nu_0$ ``effective'' prior observations.
 Note that this interpretation is in accordance with another observation that
 the expectation of $\bm{\Lambda}$ taken over the prior~\eqref{eq:wishart_prior} is indeed given by
 $\mathbb{E}\left[\bm{\Lambda}\right] = \nu_0\mathbf{W}_0 = \bm{\Sigma}_0^{-1}$
