@@ -158,13 +158,9 @@ the observations given by
 \begin{equation}
 \bm{\Sigma}_{\text{ML}} = \frac{1}{N} \sum_{n=1}^{N}\mathbf{x}_n\mathbf{x}_n^{\operatorname{T}} .
 \end{equation}
-This suggests an interpretation of $\mathbf{W}$ in terms of the corresponding covariance matrix
-given by
-\begin{equation}
-\bm{\Sigma} \equiv \left(\nu\mathbf{W}\right)^{-1}.
-\end{equation}
-More specifically,
-$\bm{\Sigma}_0 = \left(\nu_0\mathbf{W}_0\right)^{-1}$ in the prior~\eqref{eq:wishart_prior} is
+This suggests an interpretation of $\mathbf{W}$ in terms of
+$\bm{\Sigma} \equiv \left(\nu\mathbf{W}\right)^{-1}$.
+More specifically, we can interpret $\bm{\Sigma}_0 = \left(\nu_0\mathbf{W}_0\right)^{-1}$ as
 the covariance of the $\nu_0$ ``effective'' prior observations.
 Note that this interpretation is in accordance with another observation that
 the expectation of $\bm{\Lambda}$ taken over the prior~\eqref{eq:wishart_prior} is indeed given by
@@ -187,7 +183,7 @@ As in Equation~(2.224), the gradient (of a scalar function) is a column vector
 so that Equation~(3.13) should read\footnote{\
 I have not got the right typeface for the data vector
 $\left( t_1, \dots, t_N \right)^{\operatorname{T}}$.
-See `Mathematical notation' in PRML.}
+See ``Mathematical notation'' of PRML.}
 \begin{equation}
 \nabla \ln p \left( \mathbf{t} \middle| \mathbf{w}, \beta \right) =
 \beta \sum_{n=1}^{N}
@@ -305,7 +301,7 @@ $\lambda_{1}^{-1/2}\mathbf{u}_{1}$ and $\lambda_{2}^{-1/2}\mathbf{u}_{2}$.
 \erratum{Page~251}
 The second paragraph:
 The approximation of the form~(5.84) is usually referred to as
-the ``\emph{Gauss--Newton}'' approximation, but not ``\emph{Levenberg--Marquardt}.''
+the \emph{Gauss--Newton} approximation, but not \emph{Levenberg--Marquardt}.
 The Levenberg--Marquardt method is a method that improves
 the numerical stability of (Gauss--)Newton iterations
 by correcting the Hessian matrix so as to be more diagonal dominant~\citep{Press:NR}.
@@ -1116,14 +1112,13 @@ are built up ``towards the left,'' i.e.,
 Since the chain rule~\eqref{eq:chain_rule_for_gradient} is handy
 when we compute the gradients of composite functions,
 I would suggest that it should also be pointed out in
-the ``(Vector and) Matrix Derivatives'' section
-of Appendix~C.\footnote{At this point,
+``(Vector and) Matrix Derivatives'' of Appendix~C.\footnote{At this point,
 one might wonder why we use two different forms of vector derivative that are identical
 up to the transposed layout, i.e.,
 the gradient~$\nabla_{\mathbf{x}} \mathbf{y}$ and
 the Jacobian~$\partial\mathbf{y}/\partial\mathbf{x}$.
-I would like to quote what \citet{Minka:OldNewMatrixAlgebra} says regarding this question:
-The Jacobian is useful in calculus while the gradient is useful in optimization.}
+That is because Jacobians are useful in calculus while gradients are useful in optimization
+\citep{Minka:OldNewMatrixAlgebra}.}
 
 \erratum{Page~697}
 Equation~(C.19):
@@ -1252,12 +1247,14 @@ For this identity to be well-defined,
 it is necessary that we have $\operatorname{det}(\mathbf{A}) > 0$.
 We should make this assumption clear.
 Or, if we adopt the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$,
+which I would recommend,
 we see that (C.22) holds for any nonsingular $\mathbf{A}$ such that
 $\operatorname{det}(\mathbf{A}) \neq 0$.
-The ``Eigenvector Equation'' section of Appendix~C gives us a hint for a proof of (C.22)
+The section named ``Eigenvector Equation'' of Appendix~C gives us a hint for a proof of (C.22)
 where $\mathbf{A}$ is assumed to be symmetric positive definite so that $\mathbf{A} \succ 0$.
-Although the proof outlined in PRML is highly instructive,
-we need a more general proof where $\mathbf{A}$ is only assumed to be nonsingular.
+Although the restricted proof outlined in PRML is indeed highly instructive,
+we need a more general proof because we make use of this identity, e.g., in Exercise~2.34
+without the assumptions required by the restricted proof.
 To this end, we first show the following identity for any square matrix~$\mathbf{A}$
 \begin{equation}
 \frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right) =
@@ -1279,41 +1276,49 @@ From the identity
 \operatorname{det}(\mathbf{A})\mathbf{I}
 \label{eq:adjugate_identity}
 \end{equation}
-we can write the inverse~$\mathbf{A}^{-1}$ in terms of the adjugate~$\mathbf{A}^{\dagger}$ so that
+we can write the inverse matrix~$\mathbf{A}^{-1}$ in terms of
+the adjugate matrix~$\mathbf{A}^{\dagger}$ so that
 \begin{equation}
 \mathbf{A}^{-1} = \frac{\mathbf{A}^{\dagger}}{\operatorname{det}(\mathbf{A})}
+\label{eq:inverse_in_terms_of_adjugate}
 \end{equation}
-if $\operatorname{det}(\mathbf{A}) \neq 0$.
-The above identity~\eqref{eq:adjugate_identity} also implies
+if $\mathbf{A}$ is nonsingular so that $\operatorname{det}(\mathbf{A}) \neq 0$.
+Note also that the above identity~\eqref{eq:adjugate_identity} implies
 \begin{equation}
-\operatorname{det}(\mathbf{A}) = \sum_{k} A_{ik} A_{ki}^{\dagger} .
+\operatorname{det}(\mathbf{A}) =
+\sum_{k} A_{ik} A_{ki}^{\dagger} = \sum_{k} A_{jk}^{\dagger} A_{kj}
+\label{eq:determinant_expansion}
 \end{equation}
-Substituting this into the left hand side of \eqref{eq:Jacobi_formula}
-and noting that, from the definition~\eqref{eq:definition_of_adjugate},
+for any $i$ and $j$.
+Substituting this identity~\eqref{eq:determinant_expansion} into
+the left hand side of \eqref{eq:Jacobi_formula}
+and noting that, from the definition~\eqref{eq:definition_of_adjugate} of the adjugate matrix,
 $A_{ji}^{\dagger}$ is independent of $A_{ik}$ nor $A_{kj}$ for any $k$,
 we have
 \begin{align}
 \frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right) &=
 \sum_{ij} \left\{ \frac{\partial}{\partial A_{ij}} \sum_{k} A_{ik} A_{ki}^{\dagger} \right\}
+  \frac{\partial A_{ij}}{\partial x} =
+\sum_{ij} \left\{ \frac{\partial}{\partial A_{ij}} \sum_{k} A_{jk}^{\dagger} A_{kj} \right\}
   \frac{\partial A_{ij}}{\partial x} \\
 &= \sum_{ij} A_{ji}^{\dagger} \frac{\partial A_{ij}}{\partial x} \\
 &= 
 \operatorname{Tr}\left(\frac{\partial\mathbf{A}}{\partial x}\mathbf{A}^{\dagger}\right) =
-\operatorname{Tr}\left(\mathbf{A}^{\dagger}\frac{\partial\mathbf{A}}{\partial x}\right) .
+\operatorname{Tr}\left(\mathbf{A}^{\dagger}\frac{\partial\mathbf{A}}{\partial x}\right)
 \end{align}
-Having shown the identity~\eqref{eq:Jacobi_formula},
+which proves the identity~\eqref{eq:Jacobi_formula}.
+Making use of \eqref{eq:Jacobi_formula}
+together with \eqref{eq:inverse_in_terms_of_adjugate},
 we can now evaluate the right hand side of (C.22) as
 \begin{align}
 \frac{\partial}{\partial x} \ln \left|\mathbf{A}\right| &=
-\frac{\partial}{\partial x} \ln \left|\operatorname{det}\left(\mathbf{A}\right)\right| \\
-&=
 \frac{1}{\operatorname{det}\left(\mathbf{A}\right)}
 \frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right) \\
 &=
 \operatorname{Tr}\left(\mathbf{A}^{-1}\frac{\partial\mathbf{A}}{\partial x}\right)
 \end{align}
-where we have used the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$
-and assumed that $\operatorname{det}\left(\mathbf{A}\right) \neq 0$.
+if $\mathbf{A}$ is nonsingular so that $\operatorname{det}(\mathbf{A}) \neq 0$
+where we have used the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$.
 
 % TODO: Appendix C
 % TODO: Appendix D
