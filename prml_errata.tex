@@ -1327,8 +1327,31 @@ read $\nabla_{\mathbf{A}}$ if we adopt the notation~\eqref{eq:gradient_of_scalar
 for the gradient of a scalar with respect to a matrix.
 For example, (C.28) should read
 \begin{equation}
-\nabla_{\mathbf{A}} \ln \left| \mathbf{A} \right| = \mathbf{A}^{-\operatorname{T}}.
+\nabla_{\mathbf{A}} \ln \left| \mathbf{A} \right| = \mathbf{A}^{-\operatorname{T}}
 \end{equation}
+where we have used (C.4) and written
+\begin{equation}
+\left( \mathbf{A}^{-1}\right )^{\operatorname{T}} =
+\left( \mathbf{A}^{\operatorname{T}}\right )^{-1} =
+\mathbf{A}^{-\operatorname{T}} .
+\end{equation}
+In addition to these identities regarding gradients with respect to a matrix,
+I would suggest to include two more identities
+\begin{align}
+\nabla_{\mathbf{A}} \operatorname{Tr}\left(
+\mathbf{A}\mathbf{B}\mathbf{A}^{\operatorname{T}}\mathbf{C} \right) &=
+\mathbf{C}^{\operatorname{T}} \mathbf{A} \mathbf{B}^{\operatorname{T}} +
+\mathbf{C} \mathbf{A} \mathbf{B}
+\label{eq:gradient_of_Tr_A_B_Atranspose_C} \\
+\nabla_{\mathbf{A}} \operatorname{Tr}\left(\mathbf{A}^{-1}\mathbf{B}\right) &=
+- \mathbf{A}^{-\operatorname{T}} \mathbf{B}^{\operatorname{T}} \mathbf{A}^{-\operatorname{T}}.
+\label{eq:gradient_of_Tr_Ainverse_B}
+\end{align}
+We use the above identities~\eqref{eq:gradient_of_Tr_A_B_Atranspose_C} and
+\eqref{eq:gradient_of_Tr_Ainverse_B}, e.g.,
+when we show (13.113) in Exercise~13.33 and (2.122) in Exercise~2.34, respectively.
+It should also be noted that (C.27) is a special case of
+the former identity~\eqref{eq:gradient_of_Tr_A_B_Atranspose_C}.
 
 % TODO: Appendix C
 % TODO: Appendix D
