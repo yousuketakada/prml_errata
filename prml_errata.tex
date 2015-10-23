@@ -1359,12 +1359,17 @@ The determinant of $\mathbf{U}$ can be either positive or negative so that
 we should write $\operatorname{det}(\mathbf{U}) = \pm 1$, which is equivalent to
 $\left|\mathbf{U}\right| = 1$ if we adopt the notation~\eqref{eq:abs_of_matrix_determinant}.
 Although it is possible to take $\mathbf{U}$ such that $\operatorname{det}(\mathbf{U}) = 1$,
-there is no point to do so in practice.
-In a special case of $\mathbf{A}$ being positive semidefinite, 
+there is no point in doing so in practice.
+In a special case of $\mathbf{A}$ being positive semidefinite or $\mathbf{A} \succeq 0$,
 we can practically identify the eigenvalue decomposition~(C.43) with
-the singular value decomposition and the eigenvalues with the singular values.
-The singular values are all nonnegative and usually arranged in descending order,
-in which case it is no longer possible to take $\operatorname{det}(\mathbf{U}) = 1$ in general.
+the singular value decomposition~$\mathbf{A} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}$
+where $\mathbf{U} = \mathbf{V}$ and
+the eigenvalues~$\lambda_i$ with the singular values~$\sigma_i \geq 0$.
+The singular values are usually arranged in descending order in
+the diagonal matrix~$\bm{\Sigma} = \operatorname{diag}\left(\sigma_1, \dots, \sigma_M\right)$
+so that $\sigma_1 \geq \dots \geq \sigma_M \geq 0$,
+in which case it is no longer possible to take the orthonormal matrix~$\mathbf{U}$ such that
+$\operatorname{det}(\mathbf{U}) = 1$ in general.
 
 \erratum{Page~700}
 The text following (C.41):
