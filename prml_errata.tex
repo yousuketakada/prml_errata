@@ -1117,8 +1117,8 @@ one might wonder why we use two different forms of vector derivative that are id
 up to the transposed layout, i.e.,
 the gradient~$\nabla_{\mathbf{x}} \mathbf{y}$ and
 the Jacobian~$\partial\mathbf{y}/\partial\mathbf{x}$.
-That is because Jacobians are useful in calculus while gradients are useful in optimization
-\citep{Minka:OldNewMatrixAlgebra}.}
+As \citet{Minka:OldNewMatrixAlgebra} points out,
+Jacobians are useful in calculus while gradients are useful in optimization.}
 
 \erratum{Page~697}
 Equation~(C.19):
@@ -1363,6 +1363,7 @@ there is no point in doing so in practice.
 In a special case of $\mathbf{A}$ being positive semidefinite or $\mathbf{A} \succeq 0$,
 we can practically identify the eigenvalue decomposition~(C.43) with
 the singular value decomposition~$\mathbf{A} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}$
+\citep{Press:NR,GvL:MC}
 where $\mathbf{U} = \mathbf{V}$ and
 the eigenvalues~$\lambda_i$ with the singular values~$\sigma_i \geq 0$.
 The singular values are usually arranged in descending order in
