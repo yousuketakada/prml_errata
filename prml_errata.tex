@@ -1361,20 +1361,23 @@ $\left|\mathbf{U}\right| = 1$ if we adopt the notation~\eqref{eq:abs_of_matrix_d
 Although it is possible to take $\mathbf{U}$ such that $\operatorname{det}(\mathbf{U}) = 1$,
 there is no point in doing so in practice.
 In a special case of $\mathbf{A}$ being positive semidefinite or $\mathbf{A} \succeq 0$,
-we can practically identify the eigenvalue decomposition~(C.43) with
-the singular value decomposition~$\mathbf{A} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}$
-\citep{Press:NR,GvL:MC}
+we can identify the eigenvalue decomposition~(C.43) with
+the singular value decomposition~\citep{Press:NR,GvL:MC}
+\begin{equation}
+\mathbf{A} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}
+\end{equation}
 where $\mathbf{U} = \mathbf{V}$ and
 the eigenvalues~$\lambda_i$ with the singular values~$\sigma_i \geq 0$.
 The singular values are usually arranged in descending order in
 the diagonal matrix~$\bm{\Sigma} = \operatorname{diag}\left(\sigma_1, \dots, \sigma_M\right)$
 so that $\sigma_1 \geq \dots \geq \sigma_M \geq 0$,
-in which case it is no longer possible to take the orthonormal matrix~$\mathbf{U}$ such that
-$\operatorname{det}(\mathbf{U}) = 1$ in general.
+in which case it is no longer possible in general to take the orthonormal matrix~$\mathbf{U}$
+such that $\operatorname{det}(\mathbf{U}) = 1$.
 
 \erratum{Page~700}
 The text following (C.41):
-The multiplication by $\mathbf{U}$ can be a rotation, a reflection, or a combination of them.
+The multiplication by $\mathbf{U}$ can be interpreted as a rotation, a reflection,
+or a combination of the two.
 
 % TODO: Appendix C
 % TODO: Appendix D
