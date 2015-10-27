@@ -1391,12 +1391,54 @@ the functional derivative so that we modify (D.8) as
 
 \erratum{Page~705}
 The last paragraph:
-It is not so straightforward to extend the results obtained here to
-a multidimensional variable~$\mathbf{x} \in \mathbb{R}^{D}$.
-Although such a multidimensional extension is not required in PRML,
-it is useful in some form of constrained optimization.
-Here, I would like to present one.
-% TODO
+I have found that, despite the statement,
+it is not so straightforward to extend the results obtained here to higher dimensions.
+Although such an extension is not required in PRML, it is often used to analyze
+a particular type of constrained optimization problem commonly found in, e.g.,
+computer vision applications such as \emph{optical flow}~\citep{HornSchunck:OpticalFlow}.
+Here, I would like to present an extension of
+the calculus of variation to a system of multidimensional Cartesian coordinates~$\mathbf{x} =
+\left( x_1, \dots, x_D \right)^{\operatorname{T}}$,
+giving a form of the functional derivative as well as a more general boundary condition
+for the derivative to be defined.
+To this end, we first review some identities in terms of the \emph{divergence}.
+The divergence of a vector field~$\mathbf{p}(\mathbf{x}) =
+\left( p_1(\mathbf{x}), \dots, p_D(\mathbf{x}) \right)^{\operatorname{T}}$
+is a scalar field of the form
+\begin{equation}
+\operatorname{div} \mathbf{p} = \sum_{i} \frac{\partial p_i}{\partial x_i} \equiv
+\nabla \cdot \mathbf{p}
+\end{equation}
+where we have omitted the arguments~$\mathbf{x}$ to keep the notation uncluttered.
+For a differentiable vector field~$\mathbf{p}(\mathbf{x})$ defined on
+some volume~$\Omega \subset \mathbb{R}^D$,
+the \emph{divergence theorem}~\citep{Feynman:FeynmanLectures2} states
+\begin{equation}
+\int_{\Omega} \operatorname{div} \mathbf{p} \; \mathrm{d}V =
+\oint_{\partial\Omega} \mathbf{p} \cdot \mathbf{n} \; \mathrm{d}S
+\label{eq:divergence_theorem}
+\end{equation}
+where the left hand side is the volume integral over $\Omega$;
+the right hand side is the surface integral over its boundary~$\partial\Omega$; and
+$\mathbf{n}(\mathbf{x})$ is the outward unit normal vector of $\partial\Omega$.
+Assuming that we work with Cartesian coordinates~$\mathbf{x} =
+\left( x_1, \dots, x_D \right)^{\operatorname{T}}$,
+we can write the volume element as
+$\mathrm{d}V = \mathrm{d}x_1 \cdots \mathrm{d}x_D \equiv \mathrm{d}\mathbf{x}$ and
+the inner product as $\mathbf{p} \cdot \mathbf{n} = \mathbf{p}^{\operatorname{T}} \mathbf{n}$.
+Using the divergence theorem~\eqref{eq:divergence_theorem} together with the identity
+\begin{equation}
+\operatorname{div}\left(\varphi\mathbf{p}\right) =
+{\nabla\varphi}^{\operatorname{T}} \mathbf{p} + \varphi \operatorname{div}\mathbf{p}
+\end{equation}
+we obtain a multidimensional version of the ``integration by parts'' formula
+\begin{equation}
+\int_{\Omega} {\nabla\varphi}^{\operatorname{T}} \mathbf{p} \; \mathrm{d}\mathbf{x} =
+\oint_{\partial\Omega} \varphi\mathbf{p}^{\operatorname{T}} \mathbf{n} \; \mathrm{d}S -
+\int_{\Omega} \varphi \operatorname{div}\mathbf{p} \; \mathrm{d}\mathbf{x} .
+\label{eq:multidimensional_integration_by_parts}
+\end{equation}
+TODO: Extend the calculus of variations to $\mathbf{x}$.
 
 \erratum{Page~716}
 Column~1, Entry~$-1$:
