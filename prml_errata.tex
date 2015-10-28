@@ -1391,25 +1391,27 @@ the functional derivative so that we modify (D.8) as
 
 \erratum{Page~705}
 The last paragraph:
-I have found that, despite the statement,
-it is not so straightforward to extend the results obtained here to higher dimensions.
-Although such an extension is not required in PRML, it is often used to analyze
+Despite the statement,
+it is not quite straightforward to extend the results obtained here to higher dimensions.
+Although such an extension is not required in PRML, it can be used to analyze
 a particular type of constrained optimization problem commonly found in, e.g.,
 computer vision applications such as \emph{optical flow}~\citep{HornSchunck:OpticalFlow}.
-Here, I would like to present an extension of
-the calculus of variation to a system of multidimensional Cartesian coordinates~$\mathbf{x} =
-\left( x_1, \dots, x_D \right)^{\operatorname{T}}$,
-giving a form of the functional derivative as well as a more general boundary condition
-for the derivative to be defined.
-To this end, we first review some identities in terms of the \emph{divergence}.
+Here, I would like to consider an extension of the calculus of variations to
+a system of $D$-dimensional Cartesian coordinates~$\mathbf{x} =
+\left( x_1, \dots, x_D \right)^{\operatorname{T}} \in \mathbb{R}^{D}$
+and find a form of the functional derivative as well as a more general boundary condition
+for the derivative to be well-defined.
+To this end, we first review some identities concerning
+the \emph{divergence}~\citep{Feynman:FeynmanLectures2}.
 The divergence of a vector field~$\mathbf{p}(\mathbf{x}) =
-\left( p_1(\mathbf{x}), \dots, p_D(\mathbf{x}) \right)^{\operatorname{T}}$
+\left( p_1(\mathbf{x}), \dots, p_D(\mathbf{x}) \right)^{\operatorname{T}} \in \mathbb{R}^{D}$
 is a scalar field of the form
 \begin{equation}
 \operatorname{div} \mathbf{p} = \sum_{i} \frac{\partial p_i}{\partial x_i} \equiv
 \nabla \cdot \mathbf{p}
 \end{equation}
-where we have omitted the arguments~$\mathbf{x}$ to keep the notation uncluttered.
+where we have omitted the coordinates~$\mathbf{x}$ in the function arguments
+to keep the notation uncluttered.
 For a differentiable vector field~$\mathbf{p}(\mathbf{x})$ defined on
 some volume~$\Omega \subset \mathbb{R}^D$,
 the \emph{divergence theorem}~\citep{Feynman:FeynmanLectures2} states
@@ -1418,11 +1420,10 @@ the \emph{divergence theorem}~\citep{Feynman:FeynmanLectures2} states
 \oint_{\partial\Omega} \mathbf{p} \cdot \mathbf{n} \; \mathrm{d}S
 \label{eq:divergence_theorem}
 \end{equation}
-where the left hand side is the volume integral over $\Omega$;
+where the left hand side is the volume integral over the volume $\Omega$;
 the right hand side is the surface integral over its boundary~$\partial\Omega$; and
 $\mathbf{n}(\mathbf{x})$ is the outward unit normal vector of $\partial\Omega$.
-Assuming that we work with Cartesian coordinates~$\mathbf{x} =
-\left( x_1, \dots, x_D \right)^{\operatorname{T}}$,
+Assuming that $\mathbf{x}$ is a system of Cartesian coordinates,
 we can write the volume element as
 $\mathrm{d}V = \mathrm{d}x_1 \cdots \mathrm{d}x_D \equiv \mathrm{d}\mathbf{x}$ and
 the inner product as $\mathbf{p} \cdot \mathbf{n} = \mathbf{p}^{\operatorname{T}} \mathbf{n}$.
@@ -1438,7 +1439,58 @@ we obtain a multidimensional version of the ``integration by parts'' formula
 \int_{\Omega} \varphi \operatorname{div}\mathbf{p} \; \mathrm{d}\mathbf{x} .
 \label{eq:multidimensional_integration_by_parts}
 \end{equation}
-TODO: Extend the calculus of variations to $\mathbf{x}$.
+Let us now consider a functional of the form
+\begin{equation}
+E\left[u(\mathbf{x})\right] =
+\int_{\Omega} L\left(\mathbf{x}, u(\mathbf{x}), \nabla u(\mathbf{x})\right) \mathrm{d}\mathbf{x}
+\end{equation}
+where $u(\mathbf{x}) \in \mathbb{R}$ is a function (scalar field) defined over
+some volume~$\Omega \subset \mathbb{R}^{D}$ and
+$L(\mathbf{x}, f, \mathbf{g}) \in \mathbb{R}$ is a function of
+$\mathbf{x} \in \Omega$, $f \in \mathbb{R}$, and $\mathbf{g} \in \mathbb{R}^{D}$.
+Thus, the functional~$E\left[u(\mathbf{x})\right] \in \mathbb{R}$ maps $u(\mathbf{x})$ to
+a real number.
+As in the ordinary calculus, we can define the derivative of a functional according to
+the \emph{calculus of variations}~\citep{Feynman:FeynmanLectures2,Bishop:PRML}.
+In order to find the form of the functional derivative,
+we consider how $E\left[u(\mathbf{x})\right]$ varies upon a small change~$\epsilon\eta(\mathbf{x})$
+to $u(\mathbf{x})$
+where $\eta(\mathbf{x})$ is the ``direction'' of a change we make in $u(\mathbf{x})$ and
+$\epsilon$ is a small constant.
+The first-order variation of $E\left[u(\mathbf{x})\right]$ in the direction of $\eta(\mathbf{x})$
+can be evaluated as
+\begin{align}
+\delta E[u; \eta] &\equiv
+\lim_{\epsilon \to 0} \frac{1}{\epsilon} \left\{ E[u + \eta] - E[u] \right\} \\
+&= \lim_{\epsilon \to 0} \frac{1}{\epsilon}
+\int_{\Omega} \left\{
+L\left(\mathbf{x}, u + \epsilon\eta, \nabla (u + \epsilon\eta)\right) -
+L\left(\mathbf{x}, u, \nabla u\right)
+\right\} \mathrm{d}\mathbf{x} \\
+&= \int_{\Omega} \left\{
+\eta\frac{\partial L}{\partial f} +
+{\nabla\eta}^{\operatorname{T}} \nabla_{\mathbf{g}} L
+\right\} \mathrm{d}\mathbf{x}
+\end{align}
+where we have assumed that $L(\mathbf{x}, f, \mathbf{g})$ is differentiable with respect to
+both $f$ and $\mathbf{g}$; and we have written
+\begin{equation}
+\frac{\partial L}{\partial f} \equiv
+\frac{\partial}{\partial f} L\left(\mathbf{x}, u, \nabla u\right) , \qquad
+\nabla_{\mathbf{g}} L \equiv 
+\nabla_{\mathbf{g}} L\left(\mathbf{x}, u, \nabla u\right) .
+\end{equation}
+Finally, using the multidimensional 
+integration by parts~\eqref{eq:multidimensional_integration_by_parts},
+we have
+\begin{equation}
+\delta E[u; \eta] =
+\int_{\Omega} \eta \left\{
+\frac{\partial L}{ \partial f} - \operatorname{div}\left( \nabla_{\mathbf{g}} L \right)
+\right\} \mathrm{d}\mathbf{x} +
+\oint_{\partial\Omega} \eta {\nabla_{\mathbf{g}} L}^{\operatorname{T}} \mathbf{n} \; \mathrm{d}S .
+\end{equation}
+TODO: boundary condition
 
 \erratum{Page~716}
 Column~1, Entry~$-1$:
