@@ -196,7 +196,7 @@ before we use it or, at least, in an appendix.
 Although Appendix~C defines the vector derivative~$\frac{\partial}{\partial \mathbf{x}}$,
 which is used interchangeably with the gradient~$\nabla_{\mathbf{x}}$ throughout PRML,
 there is no mention of the gradient.
-We will come back to this issue later in this report.
+We shall come back to this issue later in this report.
 
 \erratum{Page~142}
 Equation~(3.14):
@@ -1394,7 +1394,7 @@ The last paragraph:
 Despite the statement,
 it is not quite straightforward to extend the results obtained here to higher dimensions.
 Although such an extension is not required in PRML, it can be used to analyze
-a particular type of constrained optimization problem commonly found in, e.g.,
+a particular type of constrained optimization problem commonly found in
 computer vision applications such as \emph{optical flow}~\citep{HornSchunck:OpticalFlow}.
 Here, I would like to consider an extension of the calculus of variations to
 a system of $D$-dimensional Cartesian coordinates~$\mathbf{x} =
@@ -1414,20 +1414,20 @@ where we have omitted the coordinates~$\mathbf{x}$ in the function arguments
 to keep the notation uncluttered.
 For a differentiable vector field~$\mathbf{p}(\mathbf{x})$ defined on
 some volume~$\Omega \subset \mathbb{R}^D$,
-the \emph{divergence theorem}~\citep{Feynman:FeynmanLectures2} states
+the \emph{divergence theorem}~\citep{Feynman:FeynmanLectures2} holds so that
 \begin{equation}
 \int_{\Omega} \operatorname{div} \mathbf{p} \; \mathrm{d}V =
 \oint_{\partial\Omega} \mathbf{p} \cdot \mathbf{n} \; \mathrm{d}S
 \label{eq:divergence_theorem}
 \end{equation}
-where the left hand side is the volume integral over the volume $\Omega$;
+where the left hand side is the volume integral over the volume~$\Omega$;
 the right hand side is the surface integral over its boundary~$\partial\Omega$; and
 $\mathbf{n}(\mathbf{x})$ is the outward unit normal vector of $\partial\Omega$.
 Assuming that $\mathbf{x}$ is a system of Cartesian coordinates,
 we can write the volume element as
 $\mathrm{d}V = \mathrm{d}x_1 \cdots \mathrm{d}x_D \equiv \mathrm{d}\mathbf{x}$ and
 the inner product as $\mathbf{p} \cdot \mathbf{n} = \mathbf{p}^{\operatorname{T}} \mathbf{n}$.
-Using the divergence theorem~\eqref{eq:divergence_theorem} together with the identity
+Making use of the divergence theorem~\eqref{eq:divergence_theorem} together with the identity
 \begin{equation}
 \operatorname{div}\left(\varphi\mathbf{p}\right) =
 {\nabla\varphi}^{\operatorname{T}} \mathbf{p} + \varphi \operatorname{div}\mathbf{p}
@@ -1449,19 +1449,19 @@ some volume~$\Omega \subset \mathbb{R}^{D}$ and
 $L(\mathbf{x}, f, \mathbf{g}) \in \mathbb{R}$ is a function of
 $\mathbf{x} \in \Omega$, $f \in \mathbb{R}$, and $\mathbf{g} \in \mathbb{R}^{D}$.
 Thus, the functional~$E\left[u(\mathbf{x})\right] \in \mathbb{R}$ maps $u(\mathbf{x})$ to
-a real number.
+some real number.
 As in the ordinary calculus, we can define the derivative of a functional according to
 the \emph{calculus of variations}~\citep{Feynman:FeynmanLectures2,Bishop:PRML}.
 In order to find the form of the functional derivative,
 we consider how $E\left[u(\mathbf{x})\right]$ varies upon a small change~$\epsilon\eta(\mathbf{x})$
 to $u(\mathbf{x})$
-where $\eta(\mathbf{x})$ is the ``direction'' of a change we make in $u(\mathbf{x})$ and
+where $\eta(\mathbf{x})$ is the ``direction'' of a change we try to make in $u(\mathbf{x})$ and
 $\epsilon$ is a small constant.
 The first-order variation of $E\left[u(\mathbf{x})\right]$ in the direction of $\eta(\mathbf{x})$
 can be evaluated as
 \begin{align}
 \delta E[u; \eta] &\equiv
-\lim_{\epsilon \to 0} \frac{1}{\epsilon} \left\{ E[u + \eta] - E[u] \right\} \\
+\lim_{\epsilon \to 0} \frac{1}{\epsilon} \left\{ E[u + \epsilon\eta] - E[u] \right\} \\
 &= \lim_{\epsilon \to 0} \frac{1}{\epsilon}
 \int_{\Omega} \left\{
 L\left(\mathbf{x}, u + \epsilon\eta, \nabla (u + \epsilon\eta)\right) -
@@ -1471,6 +1471,7 @@ L\left(\mathbf{x}, u, \nabla u\right)
 \eta\frac{\partial L}{\partial f} +
 {\nabla\eta}^{\operatorname{T}} \nabla_{\mathbf{g}} L
 \right\} \mathrm{d}\mathbf{x}
+\label{eq:first_order_variation_of_E_wrt_u_in_eta_before_expansion}
 \end{align}
 where we have assumed that $L(\mathbf{x}, f, \mathbf{g})$ is differentiable with respect to
 both $f$ and $\mathbf{g}$; and we have written
@@ -1480,8 +1481,8 @@ both $f$ and $\mathbf{g}$; and we have written
 \nabla_{\mathbf{g}} L \equiv 
 \nabla_{\mathbf{g}} L\left(\mathbf{x}, u, \nabla u\right) .
 \end{equation}
-Finally, using the multidimensional 
-integration by parts~\eqref{eq:multidimensional_integration_by_parts},
+Expanding the second term in \eqref{eq:first_order_variation_of_E_wrt_u_in_eta_before_expansion}
+with the multidimensional integration by parts~\eqref{eq:multidimensional_integration_by_parts},
 we have
 \begin{equation}
 \delta E[u; \eta] =
@@ -1489,8 +1490,65 @@ we have
 \frac{\partial L}{ \partial f} - \operatorname{div}\left( \nabla_{\mathbf{g}} L \right)
 \right\} \mathrm{d}\mathbf{x} +
 \oint_{\partial\Omega} \eta {\nabla_{\mathbf{g}} L}^{\operatorname{T}} \mathbf{n} \; \mathrm{d}S .
+\label{eq:first_order_variation_of_E_wrt_u_in_eta}
 \end{equation}
-TODO: boundary condition
+In order for the functional derivative to be well-defined,
+we assume the second term in
+the variation~\eqref{eq:first_order_variation_of_E_wrt_u_in_eta} to vanish so that
+\begin{equation}
+\oint_{\partial\Omega} \eta {\nabla_{\mathbf{g}} L}^{\operatorname{T}} \mathbf{n} \; \mathrm{d}S
+= 0.
+\label{eq:boundary_condition_for_multidimensional_calculus_of_variations}
+\end{equation}
+We shall examine this boundary condition later in more detail.
+If we write
+\begin{equation}
+\frac{\partial E}{\partial u(\mathbf{x})} \equiv
+\frac{\partial L}{ \partial f} - \operatorname{div}\left( \nabla_{\mathbf{g}} L \right)
+\end{equation}
+the first term in the variation~\eqref{eq:first_order_variation_of_E_wrt_u_in_eta} can be seen as
+the inner product of $\eta(\mathbf{x})$ and $\partial E/\partial u(\mathbf{x})$, from which
+we conclude that the quantity~$\partial E/\partial u(\mathbf{x})$ is what should be called
+the functional derivative.
+A stationary point~$u(\mathbf{x})$ of the functional~$E[u(\mathbf{x})]$,
+at which the variation~$\delta E[u; \eta]$ vanishes in any given direction~$\eta(\mathbf{x})$,
+satisfies the \emph{Eular-Lagrange equation} given by
+\begin{equation}
+\frac{\partial E}{\partial u(\mathbf{x})} = 0 .
+\end{equation}
+The boundary condition~\eqref{eq:boundary_condition_for_multidimensional_calculus_of_variations}
+holds if
+\begin{equation}
+\eta(\mathbf{x}) = 0
+\label{eq:fixed_boundary_condition_for_calculus_of_variations}
+\end{equation}
+or 
+\begin{equation}
+{\nabla_{\mathbf{g}} L}^{\operatorname{T}} \mathbf{n} = 0
+\label{eq:derivative_boundary_condition_for_calculus_of_variations}
+\end{equation}
+where $\mathbf{x} \in \partial\Omega$.
+The first condition~\eqref{eq:fixed_boundary_condition_for_calculus_of_variations} holds
+if we assume the \emph{Dirichlet boundary condition} for $u(\mathbf{x})$
+\begin{equation}
+u(\mathbf{x}) = u_0(\mathbf{x})
+\label{eq:Dirichlet_boundary_condition}
+\end{equation}
+where $\mathbf{x} \in \partial\Omega$, i.e.,
+$u(\mathbf{x})$ is assumed to be fixed to some value~$u_0(\mathbf{x})$
+at the boundary~$\partial\Omega$ and
+so is $u(\mathbf{x}) + \epsilon\eta(\mathbf{x})$,
+implying \eqref{eq:fixed_boundary_condition_for_calculus_of_variations}.
+Another common boundary condition for $u(\mathbf{x})$ is the \emph{Neumann boundary condition}
+\begin{equation}
+{\nabla u}^{\operatorname{T}} \mathbf{n} = 0
+\label{eq:Neumann_boundary_condition}
+\end{equation}
+where $\mathbf{x} \in \partial\Omega$.
+The Neumann boundary condition~\eqref{eq:Neumann_boundary_condition} implies
+the second condition~\eqref{eq:derivative_boundary_condition_for_calculus_of_variations}
+for a broad type of optical-flow energy functional.
+TODO: Add an example of the Horn-Schunck optical-flow energy functional.
 
 \erratum{Page~716}
 Column~1, Entry~$-1$:
