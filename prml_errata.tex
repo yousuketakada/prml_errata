@@ -1562,8 +1562,42 @@ the variation~$\delta E[u; \eta]$ vanishes in any direction~$\eta(\mathbf{x})$ a
 satisfies the \emph{Euler-Lagrange equation} given by
 \begin{equation}
 \frac{\partial E}{\partial u(\mathbf{x})} = 0 .
+\label{eq:euler_lagrange_equation}
 \end{equation}
-TODO: Add an example of the Horn-Schunck optical-flow energy functional.
+Finally, we present an application of the multidimensional calculus of variations to
+the optical flow problem.
+Suppose that, given two (grayscale) images $I_0(\mathbf{x})$ and $I_1(\mathbf{x})$ taken at
+some discrete time steps~$t=0$ and $t=1$, respectively,
+we wish to find a motion vector field from $I_0(\mathbf{x})$ to $I_1(\mathbf{x})$
+\begin{equation}
+\mathbf{u}(\mathbf{x}) =
+\begin{pmatrix}
+u(\mathbf{x}) \\
+v(\mathbf{x})
+\end{pmatrix}
+\end{equation}
+defined over $\mathbf{x} \in \Omega \subset \mathbb{R}^{2}$.
+The \emph{Horn-Schunck optical flow}~\citep{HornSchunck:OpticalFlow} seeks for
+$\mathbf{u}(\mathbf{x})$ that minimizes an energy functional of the form
+\begin{equation}
+J[\mathbf{u}(\mathbf{x})] =
+J_{\text{data}}[\mathbf{u}(\mathbf{x})] + \alpha J_{\text{smooth}}[\mathbf{u}(\mathbf{x})]
+\label{eq:horn_schunck_optical_flow_functional}
+\end{equation}
+where
+\begin{align}
+J_{\text{data}}[\mathbf{u}(\mathbf{x})] &=
+\int_{\Omega} \left(
+I_1(\mathbf{x} + \mathbf{u}(\mathbf{x})) - I_0(\mathbf{x})
+\right)^2 \mathrm{d}\mathbf{x} \\
+J_{\text{smooth}}[\mathbf{u}(\mathbf{x})] &=
+\int_{\Omega} \left (
+\left\| \nabla u(\mathbf{x}) \right\|^2 +
+\left\| \nabla v(\mathbf{x})\right\|^2
+\right) \mathrm{d}\mathbf{x} .
+\end{align}
+TODO: Derive the Euler-Lagrange equations~\eqref{eq:euler_lagrange_equation} for
+the optical-flow functional~\eqref{eq:horn_schunck_optical_flow_functional}.
 
 \erratum{Page~716}
 Column~1, Entry~$-1$:
