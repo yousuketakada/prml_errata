@@ -1483,10 +1483,10 @@ both $f$ and $\mathbf{g}$; and we have written
 \nabla_{\mathbf{g}} L \equiv 
 \nabla_{\mathbf{g}} L\left(\mathbf{x}, u, \nabla u\right) .
 \end{equation}
-Integrating the second term of \eqref{eq:first_order_variation_of_E_wrt_u_in_eta_before_expansion}
-by making use of
+By making use of
 the multidimensional integration by parts~\eqref{eq:multidimensional_integration_by_parts},
-we have
+we can integrate the second term in the right hand side of
+\eqref{eq:first_order_variation_of_E_wrt_u_in_eta_before_expansion}, giving
 \begin{equation}
 \delta E[u; \eta] =
 \int_{\Omega} \eta \left\{
@@ -1503,22 +1503,6 @@ we have the following boundary condition
 \oint_{\partial\Omega} \eta {\nabla_{\mathbf{g}} L}^{\operatorname{T}} \mathbf{n} \; \mathrm{d}S
 = 0.
 \label{eq:boundary_condition_for_multidimensional_calculus_of_variations}
-\end{equation}
-If we write
-\begin{equation}
-\frac{\partial E}{\partial u(\mathbf{x})} \equiv
-\frac{\partial L}{ \partial f} - \operatorname{div}\left( \nabla_{\mathbf{g}} L \right)
-\end{equation}
-the volume integral term in the variation~\eqref{eq:first_order_variation_of_E_wrt_u_in_eta}
-can be seen as the inner product between
-$\eta(\mathbf{x})$ and $\partial E/\partial u(\mathbf{x})$,
-from which we conclude that the quantity~$\partial E/\partial u(\mathbf{x})$ is
-what should be called the functional derivative.
-A stationary point of a functional~$E[u(\mathbf{x})]$ is a function~$u(\mathbf{x})$ such that
-the variation~$\delta E[u; \eta]$ vanishes in any direction~$\eta(\mathbf{x})$ and
-satisfies the \emph{Eular-Lagrange equation} given by
-\begin{equation}
-\frac{\partial E}{\partial u(\mathbf{x})} = 0 .
 \end{equation}
 The boundary condition~\eqref{eq:boundary_condition_for_multidimensional_calculus_of_variations}
 holds if
@@ -1552,7 +1536,33 @@ Another common boundary condition for $u(\mathbf{x})$ is the \emph{Neumann bound
 where $\mathbf{x} \in \partial\Omega$.
 The Neumann boundary condition~\eqref{eq:Neumann_boundary_condition} implies
 the second condition~\eqref{eq:derivative_boundary_condition_for_calculus_of_variations}
-for the optical-flow energy functional.
+for the optical-flow energy functional as we shall see shortly.
+Having assumed that
+the boundary condition~\eqref{eq:boundary_condition_for_multidimensional_calculus_of_variations}
+holds, we can write the first order variation~\eqref{eq:first_order_variation_of_E_wrt_u_in_eta}
+in the form
+\begin{equation}
+\delta E[u; \eta] = \int_{\Omega} \eta \frac{\partial E}{\partial u(\mathbf{x})}
+\mathrm{d}\mathbf{x}
+\label{eq:first_order_variation_as_inner_product}
+\end{equation}
+where we have written
+\begin{equation}
+\frac{\partial E}{\partial u(\mathbf{x})} \equiv
+\frac{\partial L}{ \partial f} - \operatorname{div}\left( \nabla_{\mathbf{g}} L \right) .
+\label{eq:multidimensional_functional_derivative}
+\end{equation}
+The volume integral in the right hand side of
+\eqref{eq:first_order_variation_as_inner_product} can be seen as the inner product between
+$\eta(\mathbf{x})$ and $\partial E/\partial u(\mathbf{x})$,
+from which we conclude that the quantity~$\partial E/\partial u(\mathbf{x})$ is
+what should be called the functional derivative.
+A stationary point of a functional~$E[u(\mathbf{x})]$ is a function~$u(\mathbf{x})$ such that
+the variation~$\delta E[u; \eta]$ vanishes in any direction~$\eta(\mathbf{x})$ and thus
+satisfies the \emph{Euler-Lagrange equation} given by
+\begin{equation}
+\frac{\partial E}{\partial u(\mathbf{x})} = 0 .
+\end{equation}
 TODO: Add an example of the Horn-Schunck optical-flow energy functional.
 
 \erratum{Page~716}
