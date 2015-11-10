@@ -1387,6 +1387,7 @@ the functional derivative so that we modify (D.8) as
 \frac{\delta F}{\delta y(x)} =
 \frac{\partial G}{\partial y} -
 \frac{\mathrm{d}}{\mathrm{d}x} \left( \frac{\partial G}{\partial y'} \right) = 0 .
+\label{eq:euler_lagrange_equation_D_8}
 \end{equation}
 
 \erratum{Page~705}
@@ -1534,7 +1535,7 @@ Another common boundary condition for $u(\mathbf{x})$ is the \emph{Neumann bound
 \label{eq:Neumann_boundary_condition}
 \end{equation}
 where $\mathbf{x} \in \partial\Omega$.
-The Neumann boundary condition~\eqref{eq:Neumann_boundary_condition} implies
+The Neumann boundary condition~\eqref{eq:Neumann_boundary_condition} is implied by
 the second condition~\eqref{eq:derivative_boundary_condition_for_calculus_of_variations}
 for the optical-flow energy functional as we shall see shortly.
 Having assumed that
@@ -1556,7 +1557,11 @@ The volume integral in the right hand side of
 \eqref{eq:first_order_variation_as_inner_product} can be seen as the inner product between
 $\eta(\mathbf{x})$ and $\partial E/\partial u(\mathbf{x})$,
 from which we conclude that the quantity~$\partial E/\partial u(\mathbf{x})$ is
-what should be called the functional derivative.
+what should be called the functional derivative.\footnote{Here we use a notation for
+the functional derivative that is different from the one used in PRML.
+The notation $\partial E/\partial u(\mathbf{x})$ employed here is more like an ordinary derivative
+and can be extended to the case of a vector field $\mathbf{u}(\mathbf{x})$ analogously to
+the gradient as we shall see in \eqref{eq:euler_lagrange_equations_for_optical_flow}.}
 A stationary point of a functional~$E[u(\mathbf{x})]$ is a function~$u(\mathbf{x})$ such that
 the variation~$\delta E[u; \eta]$ vanishes in any direction~$\eta(\mathbf{x})$ and thus
 satisfies the \emph{Euler-Lagrange equation} given by
@@ -1565,8 +1570,9 @@ satisfies the \emph{Euler-Lagrange equation} given by
 \label{eq:euler_lagrange_equation}
 \end{equation}
 Finally, we present an application of the multidimensional calculus of variations to
-the optical flow problem.
-Suppose that, given two (grayscale) images $I_0(\mathbf{x})$ and $I_1(\mathbf{x})$ taken at
+a dense motion analysis technique called \emph{optical flow}.
+Suppose that, given a pair of (grayscale) images $I_0(\mathbf{x})$ and $I_1(\mathbf{x})$
+where $\mathbf{x} \in \mathbb{R}^{2}$ that are taken at
 some discrete time steps~$t=0$ and $t=1$, respectively,
 we wish to find a motion vector field from $I_0(\mathbf{x})$ to $I_1(\mathbf{x})$
 \begin{equation}
@@ -1577,8 +1583,8 @@ v(\mathbf{x})
 \end{pmatrix}
 \end{equation}
 defined over $\mathbf{x} \in \Omega \subset \mathbb{R}^{2}$.
-The \emph{Horn-Schunck optical flow}~\citep{HornSchunck:OpticalFlow} seeks for
-$\mathbf{u}(\mathbf{x})$ that minimizes an energy functional of the form
+\citet{HornSchunck:OpticalFlow} sought for $\mathbf{u}(\mathbf{x})$ that minimizes
+an energy functional that takes essentially the same form as
 \begin{equation}
 J[\mathbf{u}(\mathbf{x})] =
 J_{\text{data}}[\mathbf{u}(\mathbf{x})] + \alpha J_{\text{smooth}}[\mathbf{u}(\mathbf{x})]
@@ -1587,17 +1593,67 @@ J_{\text{data}}[\mathbf{u}(\mathbf{x})] + \alpha J_{\text{smooth}}[\mathbf{u}(\m
 where
 \begin{align}
 J_{\text{data}}[\mathbf{u}(\mathbf{x})] &=
-\int_{\Omega} \left(
-I_1(\mathbf{x} + \mathbf{u}(\mathbf{x})) - I_0(\mathbf{x})
-\right)^2 \mathrm{d}\mathbf{x} \\
+\frac{1}{2} \int_{\Omega} \left(
+  I_1(\mathbf{x} + \mathbf{u}(\mathbf{x})) - I_0(\mathbf{x})
+ \right)^2 \mathrm{d}\mathbf{x} \\
 J_{\text{smooth}}[\mathbf{u}(\mathbf{x})] &=
-\int_{\Omega} \left (
-\left\| \nabla u(\mathbf{x}) \right\|^2 +
-\left\| \nabla v(\mathbf{x})\right\|^2
-\right) \mathrm{d}\mathbf{x} .
+\frac{1}{2} \int_{\Omega} \left (
+  \left\| \nabla u(\mathbf{x}) \right\|^2 + \left\| \nabla v(\mathbf{x})\right\|^2
+ \right) \mathrm{d}\mathbf{x} .
 \end{align}
-TODO: Derive the Euler-Lagrange equations~\eqref{eq:euler_lagrange_equation} for
-the optical-flow functional~\eqref{eq:horn_schunck_optical_flow_functional}.
+Here, the domain~$\Omega$ is assumed to be continuous and is typically rectangular.
+We call the first term~$J_{\text{data}}[\mathbf{u}(\mathbf{x})]$ in
+\eqref{eq:horn_schunck_optical_flow_functional} the data-fidelity term;
+the second term~$J_{\text{smooth}}[\mathbf{u}(\mathbf{x})]$ the smoothness (regularization) term;
+and the coefficient $\alpha$ the regularization parameter.
+According to the multidimensional calculus of variations, a stationary point of
+the optical-flow energy functional~\eqref{eq:horn_schunck_optical_flow_functional} satisfies
+Euler-Lagrange equations of the form
+\begin{equation}
+\nabla_{\mathbf{u}(\mathbf{x})} J
+\equiv
+\begin{pmatrix}
+\partial J / \partial u(\mathbf{x}) \\
+\partial J / \partial v(\mathbf{x})
+\end{pmatrix}
+=
+\nabla_{\mathbf{u}} \left\{
+\frac{ {\varepsilon\left(\mathbf{x}, \mathbf{u}(\mathbf{x})\right)}^{2} }{2}
+\right\}
+- \alpha
+\begin{pmatrix}
+\operatorname{div}\left(\nabla u(\mathbf{x})\right) \\
+\operatorname{div}\left(\nabla v(\mathbf{x})\right)
+\end{pmatrix}
+=
+\mathbf{0}
+\label{eq:euler_lagrange_equations_for_optical_flow}
+\end{equation}
+where we have written
+\begin{equation}
+\varepsilon\left(\mathbf{x}, \mathbf{u}\right) = I_1(\mathbf{x} + \mathbf{u}) - I_0(\mathbf{x}).
+\end{equation}
+For the functional derivatives~$\partial J / \partial u(\mathbf{x})$ and
+$\partial J / \partial v(\mathbf{x})$ to be well-defined,
+let us assume the boundary condition given by
+\eqref{eq:derivative_boundary_condition_for_calculus_of_variations} for each functional derivative,
+which implies the Neumann boundary condition for $\mathbf{u}(\mathbf{x})$, i.e.,
+\begin{equation}
+{\nabla u(\mathbf{x})}^{\operatorname{T}} \mathbf{n}(\mathbf{x}) = 0, \qquad
+{\nabla v(\mathbf{x})}^{\operatorname{T}} \mathbf{n}(\mathbf{x}) = 0
+\label{eq:neumann_boundary_conditions_for_optical_flow}
+\end{equation}
+for all $\mathbf{x} \in \partial\Omega$
+where $\partial\Omega$ is the boundary of $\Omega$ and
+$\mathbf{n}(\mathbf{x})$ is the outward unit normal vector of $\partial\Omega$.
+Thus, solving the above Euler-Lagrange
+equations~\eqref{eq:euler_lagrange_equations_for_optical_flow}
+with the Neumann boundary condition~\eqref{eq:neumann_boundary_conditions_for_optical_flow},
+we obtain the desired motion vector field~$\mathbf{u}(\mathbf{x})$.
+The Euler-Lagrange equations given by \eqref{eq:euler_lagrange_equations_for_optical_flow} are
+\emph{elliptic partial differential equations} (elliptic PDEs) and can be solved numerically by
+a type of relaxation method such as the Gauss-Seidel method or
+the (weighted) Jacobi method or by a more efficient \emph{multigrid} technique~\citep{Press:NR}.
 
 \erratum{Page~716}
 Column~1, Entry~$-1$:
