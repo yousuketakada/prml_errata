@@ -14,7 +14,7 @@
 
 \begin{document}
 
-\title{PRML Errata}
+\title{More PRML Errata}
 \author{\href{mailto:yousuketakada@gmail.com}{Yousuke Takada}}
 \date{\today}
 \maketitle
@@ -33,8 +33,12 @@ I have also included in this report some suggestions for improving the readabili
 
 \erratum{Page~51}
 Equation~(1.98):
-Following the notation~(1.93), we should write the left hand side of (1.98) as
+Following the notation~(1.93) for the entropy, we should write the left hand side of (1.98) as
 $\operatorname{H}[X]$ instead of $\operatorname{H}[p]$.
+As suggested in the first paragraph on Page 703,
+if we see $\operatorname{H}[\cdot]$ as a functional,
+we could write $\operatorname{H}[p]$.
+However, it is better to maintain the notational consistency here.
 
 \erratum{Page~80}
 Equation~(2.52):
@@ -54,14 +58,13 @@ $\mathbf{U}\mathbf{U}^{\operatorname{T}} = \mathbf{I}$ where $\mathbf{I}$ is the
 Equations~(2.53) and (2.54):
 If we write the change of variable from $\mathbf{x}$ to $\mathbf{y}$ as
 \eqref{eq:change_of_variable_x_to_y} instead of (2.52),
-the Jacobian matrix~$\mathbf{J} = \left( J_{ij} \right)$ we require is
-simply given by $\mathbf{U}$.
+the Jacobian matrix~$\mathbf{J} = \left( J_{ij} \right)$ is simply given by $\mathbf{U}$.
 Equation~(2.53) should read
 \begin{equation}
 J_{ij} = \frac{\partial x_i}{\partial y_j} = U_{ij}
 \end{equation}
-where $U_{ij}$ is the $(i, j)$-th element of the matrix $\mathbf{U}$.
-The square of the determinant of the Jacobian matrix~(2.54) can be evaluated as follows.
+where $U_{ij}$ is the $(ij)$-th element of $\mathbf{U}$.
+The square of the determinant of the Jacobian matrix~(2.54) can then be evaluated as
 \begin{equation}
 \left| \mathbf{J} \right|^{2} = \left| \mathbf{U} \right|^{2}
 = \left| \mathbf{U}^{\operatorname{T}} \right| \left| \mathbf{U} \right|
@@ -71,7 +74,8 @@ The square of the determinant of the Jacobian matrix~(2.54) can be evaluated as 
 
 \erratum{Page~81}
 Line~$-1$:
-Since the determinant of the Jacobian, which is an orthonormal matrix here, can be negative,
+Since the Jacobian matrix~$\mathbf{J}$ is only assumed to be orthogonal here,
+the determinant of $\mathbf{J}$ can be either positive or negative so that
 we should write $\left| \mathbf{J} \right| = \pm 1$
 instead of $\left| \mathbf{J} \right| = 1$.
 
@@ -93,16 +97,19 @@ An alternative solution to this problem would be to explicitly define
 \left| \mathbf{A} \right| \equiv \left| \operatorname{det}\left( \mathbf{A} \right) \right|
 \label{eq:abs_of_matrix_determinant}
 \end{equation}
-for any square matrix $\mathbf{A}$.
-This notation is mostly consistent because we have
+for any square matrix $\mathbf{A}$ so that
+we have $\left|\mathbf{J}\right| = 1$ and (2.56) holds as is.
+Note also that this notation~\eqref{eq:abs_of_matrix_determinant} is mostly consistent
+in other part of PRML because we have
 $\left| \mathbf{A} \right| = \operatorname{det}\left( \mathbf{A} \right)$ for a positive
 semidefinite matrix $\mathbf{A}$ and
-most other matrices for which we take determinants are positive (semi)definite in PRML.
+most matrices for which we take determinants are positive (semi)definite in PRML.
 
 \erratum{Page~102}
 Equation~(2.155):
-Although an interpretation for the parameters of the gamma distribution~(2.146) has been made,
-one for the parameters of the Wishart distribution~(2.155) is not given here nor in Exercise~2.45.
+Although an interpretation for the parameters of the gamma distribution~(2.146) has been given,
+no such an interpretation for the parameters of the Wishart distribution~(2.155) is given here
+nor in Exercise~2.45.
 In order to give one, let us consider a simple Bayesian inference problem in which,
 given a set of $N$ observations~$\mathbf{X} =
 \left\{ \mathbf{x}_1, \dots, \mathbf{x}_N \right\}$ for a zero-mean Gaussian random variable,
@@ -169,7 +176,7 @@ where we have used (B.80).
 
 \erratum{Page~102}
 Line~$-2$:
-`Gamma' should read `gamma' (without capitalization).
+``Gamma'' should read ``gamma'' (without capitalization).
 
 \erratum{Page~104}
 The text after Equation~(2.160):
@@ -178,12 +185,12 @@ should read $\mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{\Lambda}^{-1}\
 
 \erratum{Page~141}
 Equation~(3.13):
-The use of the gradient operator is not consistent here.
-As in Equation~(2.224), the gradient (of a scalar function) is a column vector
-so that Equation~(3.13) should read\footnote{\
+The use of the gradient operator~$\nabla$ is not consistent here.
+As in (2.224), the gradient of a scalar function is usually defined as a column vector
+of derivatives so that (3.13) should read\footnote{\
 I have not got the right typeface for the data vector
 $\left( t_1, \dots, t_N \right)^{\operatorname{T}}$.
-See ``Mathematical notation'' of PRML.}
+See ``Mathematical notation'' on page xi of PRML.}
 \begin{equation}
 \nabla \ln p \left( \mathbf{t} \middle| \mathbf{w}, \beta \right) =
 \beta \sum_{n=1}^{N}
@@ -219,7 +226,7 @@ $\mathbf{y}\left(\mathbf{x}, \mathbf{w}\right)$.
 
 \erratum{Page~166}
 The second paragraph, Line~1:
-`Gamma' should read `gamma' (without capitalization).
+``Gamma'' should read ``gamma'' (without capitalization).
 
 \erratum{Pages~168--169, and 177}
 Equations~(3.88), (3.93), and (3.117) as well as the text before (3.93):
@@ -232,7 +239,7 @@ For example, Equation~(3.117) should read
 
 \erratum{Page~207}
 Equation~(4.92):
-On the right hand side, the gradient and the Hessian,
+The gradient and the Hessian in the right hand side,
 which are in general functions of the parameter~$\mathbf{w}$,
 must be evaluated at the previous estimate~$\mathbf{w}^{\text{old}}$ for the parameter.
 Thus, Equation~(4.92) should read
@@ -246,11 +253,10 @@ the Hessian matrix whose elements comprise the second derivatives of $E\left(\ma
 with respect to the components of $\mathbf{w}$.
 
 \erratum{Page~210}
-Equation~(4.110):
-The left hand side of (4.110),
-which is obtained by taking the gradient of $\nabla_{\mathbf{w}_{j}} E$ given in (4.109)
-with respect to $\mathbf{w}_{k}$,
-refers to the $(k, j)$-th block of the Hessian, \emph{not} the $(j, k)$-th.
+Equation~(4.110) and the preceding text:
+The left hand side of (4.110) is obtained by taking the gradient of $\nabla_{\mathbf{w}_{j}} E$
+given in (4.109) with respect to $\mathbf{w}_{k}$ and corresponds to
+the $(k, j)$-th block of the Hessian, \emph{not} the $(j, k)$-th.
 Thus, Equation~(4.110) should read
 \begin{equation}
 \nabla_{\mathbf{w}_{k}} \nabla_{\mathbf{w}_{j}}
@@ -293,7 +299,7 @@ respectively.
 
 \erratum{Page~239}
 Figure~5.6:
-The eigenvectors~$\mathbf{u}_{1}$ and $\mathbf{u}_{2}$ in Figure~5.6 are unit vectors;
+The eigenvectors~$\mathbf{u}_{1}$ and $\mathbf{u}_{2}$ are unit vectors;
 their orientations should be shown as in Figure~2.7.
 Or, the scaled vectors should be labeled as
 $\lambda_{1}^{-1/2}\mathbf{u}_{1}$ and $\lambda_{2}^{-1/2}\mathbf{u}_{2}$.
@@ -301,8 +307,10 @@ $\lambda_{1}^{-1/2}\mathbf{u}_{1}$ and $\lambda_{2}^{-1/2}\mathbf{u}_{2}$.
 \erratum{Page~251}
 The second paragraph:
 The approximation of the form~(5.84) is usually referred to as
-the \emph{Gauss--Newton} approximation, but not \emph{Levenberg--Marquardt}.
-The Levenberg--Marquardt method is a method that improves
+the \emph{Gauss--Newton} approximation,
+which not only eliminates the computation of second derivatives
+but also guarantees that the Hessian~$\mathbf{H}$ is positive (semi)definite~\citep{Press:NR}.
+The \emph{Levenberg--Marquardt} method is a method that improves
 the numerical stability of (Gauss--)Newton iterations
 by correcting the Hessian matrix so as to be more diagonal dominant~\citep{Press:NR}.
 
@@ -342,7 +350,8 @@ The vector~$\mathbf{x}$ should be a column vector so that
 $\mathbf{x} = \left( x_1, x_2 \right)^{\operatorname{T}}$.
 
 \erratum{Page~318}
-The text before Equation~(6.93) as well as Equations~(6.93) and (6.94):
+Equations~(6.93) and (6.94)
+as well as the text before (6.93):
 The text and the equations should read:
 We can evaluate the derivative of $a_n^{\star}$ with respect to $\theta_j$ by differentiating
 the relation~(6.84) with respect to $\theta_j$ to give
@@ -381,22 +390,24 @@ the posterior~$p \left( \mathbf{z} \middle| \mathbf{x} \right)$ over $\mathbf{z}
 given $\mathbf{x}$ is again a multinomial of the form
 \begin{equation}
 p \left( \mathbf{z} \middle| \mathbf{x} \right) = \prod_{k=1}^{K} \gamma_k^{z_k}
+\label{eq:posterior_of_Gaussian_mixture}
 \end{equation}
-where we have written $\gamma_k \equiv \gamma(z_k)$,
-which can be directly confirmed by inspecting the functional form of the joint distribution
+where we have written $\gamma_k \equiv \gamma(z_k)$.
+This can be directly confirmed by inspecting the functional form of the joint distribution
 \begin{equation}
 p \left( \mathbf{z} \right) p \left( \mathbf{x} \middle| \mathbf{z} \right) =
  \prod_{k=1}^{K} \left\{ \pi_k \,
  \mathcal{N} \left( \mathbf{x} \middle| \bm{\mu}_k, \bm{\Sigma}_k \right) \right\}^{z_k} .
+\label{eq:joint_distribution_of_Gaussian_mixture}
 \end{equation}
-This observation helps the reader to understand that
+The above observation helps the reader to understand that
 evaluating the responsibilities~$\gamma(z_k)$ indeed corresponds to
-the E~step of the general EM~algorithm.
+the E~step of the EM algorithm.
 
 \erratum{Page~434}
 Equation~(9.15):
 Although the official errata~\citep{Svensen:PRML_errata} states that
-$\sigma_j$ on the right hand side should be raised to a power of $D$,
+$\sigma_j$ in the right hand side should be raised to a power of $D$,
 the whole right hand side should be raised to $D$ so that Equation~(9.15) should read
 \begin{equation}
 \mathcal{N}\left( \mathbf{x}_n \middle| \mathbf{x}_n, \sigma_j^2 \mathbf{I} \right)
@@ -415,9 +426,9 @@ between $q_j(\mathbf{Z}_j)$ and $\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$''
 However, there is no point in taking a Kullback-Leibler divergence between two probability
 distributions over different sets of random variables; such a quantity is undefined.
 Moreover, the discussion here seems to be somewhat redundant.
-We actually do not have to introduce
-the probability~$\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$ other than $q_j^{\star}(\mathbf{Z}_j)$.
-Specifically, we can rewrite Equations~(10.6) and (10.7) into
+We actually do not have to introduce the quantity~$\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$
+so that we can rewrite (10.6) and (10.7) directly in terms of $q_j^{\star}(\mathbf{Z}_j)$.
+Specifically, we can write the lower bound~$\mathcal{L}(q)$ as
 \begin{align}
 \mathcal{L}(q) &= \dots \\
 &= \int q_j \ln q_j^{\star} \mathrm{d}\mathbf{Z}_j - \int q_j \ln q_j \mathrm{d}\mathbf{Z}_j
@@ -450,7 +461,7 @@ $q_j^{\star}\left(\mathbf{Z}_j\right)$.
 Line~1:
 Again, $\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$ should read
 $q_j^{\star}\left(\mathbf{Z}_j\right)$.
-The sentence~``Thus we obtain...'' should read
+The sentence~``Thus we obtain...'' should read, e.g.,
 ``Thus we see that we have already obtained a general expression for the optimal solution in
 \eqref{eq:optimal_solution_for_variational_bayes}.''
 
@@ -461,12 +472,12 @@ The constant term in (10.16) is the \emph{negative} entropy of $p(\mathbf{Z})$.
 \erratum{Page~478}
 Equation~(10.63):
 The additive constant $+1$ on the right hand side should be omitted so that
-Equation~(10.63) should read
+(10.63) should read
 \begin{equation}
 \nu_k = \nu_0 + N_k . \label{eq:reestimation_equation_for_nu}
 \end{equation}
 A quick check for the correctness of the re-estimation equations would be to consider
-a limit of $N \to 0$, in which the effective number of observations~$N_k$ also goes to
+the limit of $N \to 0$, in which the effective number of observations~$N_k$ also goes to
 zero and the re-estimation equations should reduce to identities.
 Equation~(10.63) does not reduces to $\nu_k = \nu_0$, failing the test.
 Note that the solution for Exercise~10.13 given by \citet{Svensen:PRML_web_solution} correctly
@@ -487,8 +498,7 @@ they should be of the forms shown in (10.107) or the ones corrected as above.
 
 \erratum{Page~490}
 The third paragraph, Line~2:
-A comma (,) should be inserted after the ellipsis so that the range of $n$ should read:
-$n = 1, \dots, N$.
+A comma (,) should be inserted after the ellipsis ($\dots$).
 
 \erratum{Page~496}
 Equation~(10.140):
@@ -500,7 +510,8 @@ instead of $\frac{\mathrm{d}x}{\mathrm{d}x^2}$, to avoid ambiguity.
 
 \erratum{Page~501}
 The text after Equation~(10.162):
-The variational parameter $\lambda(\xi)$ is a monotonic function of $\xi$ for $\xi \ge 0$,
+We have that
+the variational parameter $\lambda(\xi)$ is a monotonic function of $\xi$ for $\xi \ge 0$,
 but not that its derivative~$\lambda'(\xi)$ is.
 
 \erratum{Page~503}
@@ -557,15 +568,18 @@ because we have already removed the term~$\tilde{f}_j(\bm{\theta}_j)$.
 
 \erratum{Page~554}
 Equation~(11.72), Line~$-2$:
-If we write the expectation $\mathbb{E}_{\mathbf{z}}[\cdot]$ taken over
-some given distribution $q(\mathbf{z})$ explicitly as
-$\mathbb{E}_{q(\mathbf{z})}\left[\cdot\right]$,
-the expectation in the last line but one of (11.72) should read
+The expectation in the last line but one of (11.72) is taken over
+the probability~$p_{G}(\mathbf{z})$.
+This is probably better expressed in words, rather than the unclear notation like
+$\mathbb{E}_{G(\mathbf{z})}[\cdot]$.
+Specifically, the expectation should read
 \begin{equation}
-\mathbb{E}_{p_{G}(\mathbf{z})} \left[ \exp\left(-E(\mathbf{z}) + G(\mathbf{z}) \right) \right]
+\mathbb{E}_{\mathbf{z}} \left[ \exp\left(-E(\mathbf{z}) + G(\mathbf{z}) \right) \right]
 \end{equation}
 where we have written the argument~$\mathbf{z}$ for $E(\mathbf{z})$ and $G(\mathbf{z})$
-for clarity.
+for clarity; and
+the text following (11.72) should read ``where $\mathbb{E}_{\mathbf{z}}[\cdot]$ is taken over
+$p_{G}(\mathbf{z})$ and $\{ \mathbf{z}^{(l)} \}$ are...''
 
 \erratum{Page~556}
 Exercise~11.7:
@@ -601,7 +615,7 @@ For the maximization with respect to $\mathbf{W}$, we use (C.25) and (C.27) inst
 
 \erratum{Page~579}
 Line~5:
-The eigendecomposition requires $O(D^3)$ computation\emph{s}.
+The eigendecomposition requires $O(D^3)$ computations (in the plural form).
 
 \erratum{Page~599}
 Exercise~12.1, Line~$-1$:
@@ -614,8 +628,8 @@ $p(\mathbf{z}) = \mathcal{N}\left( \mathbf{z} \middle| \mathbf{0}, \mathbf{I}\ri
 
 \erratum{Page~610}
 The first paragraph, Line~$-5$:
-The text~``our predictions ...'' should read: ``our predictions for $\mathbf{x}_{n + 1}$
-depend on all the previous observations.''
+The text~``our predictions for $\mathbf{x}_{n + 1}$ depends on...'' should read:
+``our predictions for $\mathbf{x}_{n + 1}$ depend on...'' (Remove s from the verb).
 
 \erratum{Page~620}
 The second paragraph and the following (unlabeled) equation:
@@ -657,13 +671,13 @@ The first paragraph, Line~2:
 ``conditional on'' should read ``conditioned on.''
 
 \erratum{Page~641}
-The text after Equation~(13.103):
+Equation~(13.104) and the preceding text:
 The form of the Gaussian is unclear.
 Since a multivariate Gaussian is usually defined over a column vector,
 we should construct a column vector from the concerned random variables to clearly define the mean
 and the covariance.
-Specifically, the text should read for example:
-\dots, we see that $\xi(\mathbf{z}_{n-1}, \mathbf{z}_{n})$ is a Gaussian of the form
+Specifically, (13.104) and the preceding text should read for example:
+..., we see that $\xi(\mathbf{z}_{n-1}, \mathbf{z}_{n})$ is a Gaussian of the form
 \begin{equation}
 \xi(\mathbf{z}_{n-1}, \mathbf{z}_{n}) =
   \mathcal{N}\left(
@@ -699,7 +713,7 @@ If we follow the notation in Chapter~9, the typeface of the $Q$ function should 
 \erratum{Page~642}
 Equation~(13.109):
 If we follow the notation for a conditional expectation given by (1.37),
-Equation~(13.109) should read
+(13.109) should read
 \begin{align}
 \mathcal{Q}\left(\bm{\theta}, \bm{\theta}^{\text{old}}\right)
   &= \mathbb{E}_{\mathbf{Z}} \left[
@@ -717,8 +731,8 @@ $\mathbf{V}_{0}^{\text{new}}$ should read $\mathbf{P}_{0}^{\text{new}}$.
 \citet{Svensen:PRML_errata} have failed to mention (13.111).
 
 \erratum{Page~643}
-Equation~(13.114): The size of the opening curly brace `$\{$' should match
-that of the closing curly brace `$\}$'.
+Equation~(13.114): The size of the opening curly brace ``$\{$'' should match
+that of the closing curly brace ``$\}$.''
 
 \erratum{Page~647}
 Figure~13.23, Line $-1$:
@@ -744,6 +758,7 @@ $\pi_k^{\text{old}}, \mathbf{w}_k^{\text{old}}, \beta^{\text{old}} \in \bm{\thet
 In order to solve these problems, we should rewrite Equation~(14.37) as, for example,
 \begin{equation}
 \gamma_{nk} = \mathbb{E}\left[ z_{nk} \middle| t_n, \bm{\theta}^{\text{old}} \right]
+\label{eq:correction_to_(14.37)_part_one}
 \end{equation}
 where we have written the conditioning in the expectation explicitly and
 the expectation is given by
@@ -754,6 +769,7 @@ the expectation is given by
       \mathcal{N}\left(t_n\middle|\mathbf{w}_k^{\operatorname{T}}\bm{\phi}_n, \beta^{-1}\right)}{
     \sum_j \pi_j \,
       \mathcal{N}\left(t_n\middle|\mathbf{w}_j^{\operatorname{T}}\bm{\phi}_n, \beta^{-1}\right)}.
+\label{eq:correction_to_(14.37)_part_two}
 \end{equation}
 
 \erratum{Page~668}
@@ -763,19 +779,21 @@ If we write the implicit conditioning in the expectation explicitly
 \begin{align}
 \mathcal{Q}\left(\bm{\theta}, \bm{\theta}^{\text{old}}\right)
   &= \mathbb{E}_{\mathbf{Z}}\left[ \ln p(\mathbf{t}, \mathbf{Z}|\bm{\theta}) \middle|
-       \mathbf{t}, \bm{\theta}^{\text{old}} \right] \\
-  &= ...
+       \mathbf{t}, \bm{\theta}^{\text{old}} \right]
+    \label{eq:correction_to_unlabeled_equation_between_(14.37)_and_(14.38)} \\
+  &= \sum_{n=1}^{N} \sum_{k=1}^{K} \gamma_{nk}
+     \left\{ \ln\pi_{k} +
+     \ln\mathcal{N}\left(t_n \middle|
+     \mathbf{w}_k^{\operatorname{T}}\bm{\phi}_n, \beta^{-1} \right) \right\} .
 \end{align}
-where we have again used the typeface~$\mathcal{Q}$ for the $Q$ function so that the notation
-is consistent with that of Chapter~9.
 
 \erratum{Page~669}
-Equations~(14.40) and (14.41): The left hand sides should read a zero vector~$\mathbf{0}$.
+Equations~(14.40) and (14.41): The left hand sides should both read a zero vector~$\mathbf{0}$.
 
 \erratum{Page~669}
 Equation~(14.41): $\bm{\Phi}$ is undefined.
-The text following (14.41) should read:
-\dots where $\mathbf{R}_k = \operatorname{diag}(\gamma_{nk})$ is
+The text following (14.41) should read for example:
+where $\mathbf{R}_k = \operatorname{diag}(\gamma_{nk})$ is
 a diagonal matrix of size $N \times N$ and
 $\bm{\Phi} = \left( \bm{\phi}_1, \dots, \bm{\phi}_N \right)^{\operatorname{T}}$ is
 an $N \times M$ matrix.
@@ -783,26 +801,29 @@ Here, $N$ is the size of the data set and
 $M$ is the dimensionality of the feature vectors $\bm{\phi}_n$.
 
 \erratum{Page~669}
-Equation~(14.43): `$+\text{const}$' should be added to the right hand side.
+Equation~(14.43): ``$+\text{const}$'' should be added to the right hand side.
 
 \erratum{Page~671}
 The text after Equation~(14.46):
-The text should read: \dots where we have omitted the dependence on $\{\bm{\phi}_n\}$ and
-defined $y_{nk} = \dots$.
+The text should read: where we have omitted the dependence on $\{\bm{\phi}_n\}$ and
+defined $y_{nk} = \dots$
 Or, $\bm{\phi}$ should have been omitted from the left hand side of (14.45).
 
 \erratum{Page~671}
 Equation~(14.48):
-The notation should be corrected similarly to the above erratum regarding (14.37).
+The notation should be corrected similarly to
+\eqref{eq:correction_to_(14.37)_part_one} and
+\eqref{eq:correction_to_(14.37)_part_two}.
 
 \erratum{Page~671}
 Equation~(14.49):
-The notation should be corrected similarly to the above erratum regarding the unlabeled equation
-between (14.37) and (14.38).
+The notation should be corrected similarly to
+\eqref{eq:correction_to_unlabeled_equation_between_(14.37)_and_(14.38)}.
 
 \erratum{Page~672}
 Equation~(14.52):
-The negation should be removed so that $\mathbf{H}_k \equiv \nabla_k \nabla_k \mathcal{Q}$ where
+The negation should be removed so that the Hessian is given by
+$\mathbf{H}_k \equiv \nabla_k \nabla_k \mathcal{Q}$ where
 \begin{equation}
 \nabla_k \nabla_k \mathcal{Q}
    = - \sum_{n=1}^{N} \gamma_{nk} y_{nk} (1 - y_{nk}) \bm{\phi}_n \bm{\phi}_n^{\operatorname{T}}.
@@ -823,10 +844,10 @@ The differential operator~$d$ should be upright~$\mathrm{d}$.
 
 \erratum{Page~688}
 Line~1:
-`Gamma' should read `gamma' (without capitalization).
+``Gamma'' should read ``gamma'' (without capitalization).
 
 \erratum{Page~689}
-Line~1: `positive-definite' should read `positive definite' (without hyphenation).
+Line~1: ``positive-definite'' should read ``positive definite'' (without hyphenation).
 
 \erratum{Page~689}
 Equation~(B.49):
@@ -834,9 +855,11 @@ $\mathbf{x}$ in the right hand side should read $\mathbf{x}_{a}$.
 
 \erratum{Page~690}
 Equation~(B.54):
-When identifying the functional form of this distribution in,
-e.g., the posterior distribution for the Gaussian mixture model of Section~9.2,
-I have found it helpful to write the distribution in terms of unnormalized probabilities
+When we identify the functional form of the multinomial distribution, e.g.,
+in the posterior distribution~\eqref{eq:posterior_of_Gaussian_mixture} for
+the Gaussian mixture model~\eqref{eq:joint_distribution_of_Gaussian_mixture} of Section~9.2,
+it is helpful if we know that the distribution can also be expressed
+in terms of unnormalized probabilities
 $\tilde{\mu}_k \geq 0$ so that
 \begin{equation}
 \operatorname{Mult}\left(\mathbf{x}\middle|\tilde{\bm{\mu}}\right) =
@@ -846,7 +869,7 @@ where we have defined the normalization constant as
 \begin{equation}
 {C(\tilde{\bm{\mu}})}^{-1} = \sum_{k=1}^{K} \tilde{\mu}_k .
 \end{equation}
-and, thus, we have $\mu_k = C(\tilde{\bm{\mu}}) \tilde{\mu}_k$.
+Thus, we have $\mu_k = C(\tilde{\bm{\mu}}) \tilde{\mu}_k$.
 
 \erratum{Page~692}
 Equation~(B.68):
@@ -966,12 +989,16 @@ In fact, taking the determinant on both sides of
 \eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_A} and
 \eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_D},
 we have from the definition of the determinant~(C.10) that
-\begin{align}
-\operatorname{det}(\mathbf{M}) &=
-\operatorname{det}(\mathbf{A}) \operatorname{det}(\mathbf{M}/\mathbf{A}) \\
-\operatorname{det}(\mathbf{M}) &=
-\operatorname{det}(\mathbf{D}) \operatorname{det}(\mathbf{M}/\mathbf{D}) .
-\end{align}}
+\begin{equation}
+\operatorname{det}(\mathbf{M}) =
+\operatorname{det}(\mathbf{A}) \operatorname{det}(\mathbf{M}/\mathbf{A})
+\end{equation}
+and
+\begin{equation}
+\operatorname{det}(\mathbf{M}) =
+\operatorname{det}(\mathbf{D}) \operatorname{det}(\mathbf{M}/\mathbf{D})
+\end{equation}
+respectively.}
 The above block diagonalization
 identities~\eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_A}
 and \eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_D} yield
@@ -1112,7 +1139,7 @@ are built up ``towards the left,'' i.e.,
 Since the chain rule~\eqref{eq:chain_rule_for_gradient} is handy
 when we compute the gradients of composite functions,
 I would suggest that it should also be pointed out in
-``(Vector and) Matrix Derivatives'' of Appendix~C.\footnote{At this point,
+the ``(Vector and) Matrix Derivatives'' section of Appendix~C.\footnote{At this point,
 one might wonder why we use two different forms of vector derivative that are identical
 up to the transposed layout, i.e.,
 the gradient~$\nabla_{\mathbf{x}} \mathbf{y}$ and
@@ -1382,9 +1409,9 @@ or a combination of the two.
 \erratum{Page~705}
 Equation~(D.8):
 It would be helpful if we make it clear that the left hand side of (D.8) corresponds to
-the functional derivative so that we modify (D.8) as
+the functional derivative so that we should modify (D.8) as
 \begin{equation}
-\frac{\delta F}{\delta y(x)} =
+\frac{\delta F}{\delta y(x)} \equiv
 \frac{\partial G}{\partial y} -
 \frac{\mathrm{d}}{\mathrm{d}x} \left( \frac{\partial G}{\partial y'} \right) = 0 .
 \label{eq:euler_lagrange_equation_D_8}
