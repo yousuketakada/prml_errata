@@ -1,9 +1,7 @@
 More PRML Errata
 ================
 
-This report communicates some possible errata for PRML (Bishop, 2006)
-that are not listed in the official errata document.
-I have also included in this report some suggestions for improving the readability.
+This report communicates some more errata for PRML (Bishop, 2006).
 
 Reference
 ---------
