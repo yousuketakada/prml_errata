@@ -874,19 +874,85 @@ implying $\mu_k = C(\tilde{\bm{\mu}}) \tilde{\mu}_k$.
 \erratum{Page~692}
 Equation~(B.68):
 This form of multivariate Student's t-distribution is derived in Section~2.3.7
-by marginalizing over a gamma distributed scalar variable $\eta$ in (2.161),
-but \emph{not} by marginalizing over the precision matrix that is generated from
-the conjugate Wishart distribution, which results in a distribution of the form
+by marginalizing over the gamma distributed (scalar) variable~$\eta$ in (2.161),
+but \emph{not} by marginalizing over the precision matrix~$\bm{\Lambda}$ that is governed by
+the Wishart distribution~$\mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}, \nu\right)$,
+which results in a distribution of the form
 \begin{equation}
 p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right) =
   \int \mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \bm{\Lambda}^{-1}\right)
     \mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}, \nu\right) \mathrm{d}\bm{\Lambda} .
 \label{eq:multivariate_t_marginalized_over_precision}
 \end{equation}
-I am not sure how we can marginalize over the precision matrix and, moreover,
-whether the marginalized distribution \eqref{eq:multivariate_t_marginalized_over_precision} is
-equivalent to (B.68).
-Some appropriate citation is needed if such details are omitted from the text.
+The above marginal distribution~\eqref{eq:multivariate_t_marginalized_over_precision} is indeed
+equivalent to (B.68) with some reparameterization.
+However, this result is not so obvious that I would like to show it here.
+Note that such marginalization is also required to derive
+a mixture of Student's t-distribution given by (10.81) in Exercise~10.19.
+The key idea is that the integrand in the right hand side of
+\eqref{eq:multivariate_t_marginalized_over_precision} can be identified as an unnormalized
+Wishart distribution and the marginalization can be done in a symbolic manner.
+More specifically, we have
+\begin{align}
+p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
+=&
+\int \mathrm{d}\bm{\Lambda} \; \frac{\left|\bm{\Lambda}\right|^{1/2}}{\left(2\pi\right)^{D/2}}
+  \exp\left\{-\frac{1}{2}
+    \left(\mathbf{x} - \bm{\mu}\right)^{\operatorname{T}}
+    \bm{\Lambda}
+    \left(\mathbf{x} - \bm{\mu}\right)
+  \right\} \nonumber \\
+& \times
+B\left(\mathbf{W}, \nu\right) \left|\bm{\Lambda}\right|^{(\nu - D - 1)/2}
+  \exp\left\{
+    -\frac{1}{2} \operatorname{Tr}\left( \mathbf{W}^{-1}\bm{\Lambda} \right)
+  \right\}  \\
+=&
+\frac{
+  2^{(\nu + 1)D/2} \Gamma_D \left(\frac{\nu + 1}{2}\right)
+  \left| \mathbf{W}^{-1} +
+    \left(\mathbf{x} - \bm{\mu}\right)\left(\mathbf{x} - \bm{\mu}\right)^{\operatorname{T}}
+  \right|^{-(\nu + 1)/2}
+}{
+  \left(2\pi\right)^{D/2}
+  2^{\nu D/2} \Gamma_D \left(\frac{\nu}{2}\right) \left|\mathbf{W}\right|^{\nu/2}
+}
+\end{align}
+where we have used the multivariate gamma function~$\Gamma_D(\cdot)$ given by
+\begin{equation}
+\Gamma_D \left(\frac{\nu}{2}\right) \equiv
+\pi^{D(D - 1)/4} \prod_{i=1}^{D} \Gamma\left(\frac{\nu + 1 - i}{2}\right)
+\label{eq:multivariate_gamma_function}
+\end{equation}
+so that we can write the normalization constant~(B.79) as
+\begin{equation}
+B(\mathbf{W}, \nu)^{-1} =
+2^{\nu D/2} \Gamma_D\left(\frac{\nu}{2}\right) \left|\mathbf{W}\right|^{\nu/2} .
+\end{equation}
+Finally, we obtain
+\begin{equation}
+p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
+=
+\frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu + 1 - D}{2}\right)}
+\frac{\left|\mathbf{W}\right|^{1/2}}{\pi^{D/2}}
+\left[
+  1 + 
+  \left(\mathbf{x} - \bm{\mu}\right)^{\operatorname{T}}
+  \mathbf{W}
+  \left(\mathbf{x} - \bm{\mu}\right)
+\right]^{-(\nu + 1)/2}
+\end{equation}
+where we have used~\eqref{eq:multivariate_gamma_function} and (C.15).
+Thus, we have
+\begin{equation}
+p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
+=
+\operatorname{St}\left(
+  \mathbf{x}\middle|\bm{\mu},
+  (\nu + 1 - D) \mathbf{W},
+  \nu + 1 - D
+\right) .
+\end{equation}
 
 \erratum{Page~693}
 Equations~(B.78) through (B.82):
