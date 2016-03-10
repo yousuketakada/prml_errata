@@ -888,26 +888,26 @@ The above marginal distribution~\eqref{eq:multivariate_t_marginalized_over_preci
 equivalent to (B.68) with some reparameterization.
 However, this result is not so obvious that I would like to show it here.
 Note that such marginalization is also required to derive
-a mixture of Student's t-distribution given by (10.81) in Exercise~10.19.
+a mixture of Student's t-distributions given by (10.81) in Exercise~10.19.
 The key idea is that the integrand in the right hand side of
 \eqref{eq:multivariate_t_marginalized_over_precision} can be identified as an unnormalized
 Wishart distribution and the marginalization can be done in a symbolic manner.
 More specifically, we have
 \begin{align}
 p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
-=&
+&=
 \int \mathrm{d}\bm{\Lambda} \; \frac{\left|\bm{\Lambda}\right|^{1/2}}{\left(2\pi\right)^{D/2}}
   \exp\left\{-\frac{1}{2}
     \left(\mathbf{x} - \bm{\mu}\right)^{\operatorname{T}}
     \bm{\Lambda}
     \left(\mathbf{x} - \bm{\mu}\right)
   \right\} \nonumber \\
-& \times
+&\phantom{=} \times
 B\left(\mathbf{W}, \nu\right) \left|\bm{\Lambda}\right|^{(\nu - D - 1)/2}
   \exp\left\{
     -\frac{1}{2} \operatorname{Tr}\left( \mathbf{W}^{-1}\bm{\Lambda} \right)
   \right\}  \\
-=&
+&=
 \frac{
   2^{(\nu + 1)D/2} \Gamma_D \left(\frac{\nu + 1}{2}\right)
   \left| \mathbf{W}^{-1} +
