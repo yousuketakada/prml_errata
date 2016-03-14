@@ -269,11 +269,12 @@ Equation~(3.13):
 The use of the gradient operator~$\nabla$ is not consistent here.
 As in (2.224), the gradient of a scalar function is usually defined as a column vector
 of derivatives so that (3.13) should read\footnote{\
-I have not got the right typeface for the data vector
-$\left( t_1, \dots, t_N \right)^{\operatorname{T}}$.
-See ``Mathematical notation'' on page xi of PRML.}
+Note that we use a different typeface for the data vector
+$\bm{\mathsf{t}} = \left( t_1, \dots, t_N \right)^{\operatorname{T}}$.
+See ``Mathematical notation'' on page xi of PRML.
+}
 \begin{equation}
-\nabla \ln p \left( \mathbf{t} \middle| \mathbf{w}, \beta \right) =
+\nabla \ln p \left( \bm{\mathsf{t}} \middle| \mathbf{w}, \beta \right) =
 \beta \sum_{n=1}^{N}
 \left\{ t_n - \mathbf{w}^{\operatorname{T}} \bm{\phi}\left( \mathbf{x}_n \right) \right\}
 \bm{\phi}\left( \mathbf{x}_n \right) .
@@ -438,7 +439,7 @@ We can evaluate the derivative of $a_n^{\star}$ with respect to $\theta_j$ by di
 the relation~(6.84) with respect to $\theta_j$ to give
 \begin{equation}
 \frac{\partial \mathbf{a}_N^{\star}}{\partial \theta_j}
- = \frac{\partial\mathbf{C}_N}{\partial \theta_j} \left( \mathbf{t}_N - \bm{\sigma}_N \right)
+ = \frac{\partial\mathbf{C}_N}{\partial \theta_j} \left( \bm{\mathsf{t}}_N - \bm{\sigma}_N \right)
    - \mathbf{C}_N \mathbf{W}_N \frac{\partial \mathbf{a}_N^{\star}}{\partial \theta_j}
    \label{eq:jacobian_of_a_N_wrt_theta_j}
 \end{equation}
@@ -448,12 +449,13 @@ Rearranging \eqref{eq:jacobian_of_a_N_wrt_theta_j} then gives
 \begin{equation}
 \frac{\partial \mathbf{a}_N^{\star}}{\partial \theta_j}
  = \left( \mathbf{I} + \mathbf{C}_N \mathbf{W}_N \right)^{-1}
-   \frac{\partial\mathbf{C}_N}{\partial \theta_j} \left( \mathbf{t}_N - \bm{\sigma}_N \right) .
+   \frac{\partial\mathbf{C}_N}{\partial \theta_j} \left( \bm{\mathsf{t}}_N - \bm{\sigma}_N \right) .
 \end{equation}
 
 \erratum{Page~355}
 Equation~(7.117):
-The typeface of the vector~$\mathbf{y}$ in (7.117) should be that in (7.110).
+The typeface of the vector~$\mathbf{y}$ in (7.117) should be that in (7.110), i.e.,
+$\bm{\mathsf{y}}$.
 
 \erratum{Page~414}
 Figure~8.53, Line~6:
@@ -859,8 +861,8 @@ If we write the implicit conditioning in the expectation explicitly
 (similarly to the above equations), the unlabeled equation should read
 \begin{align}
 \mathcal{Q}\left(\bm{\theta}, \bm{\theta}^{\text{old}}\right)
-  &= \mathbb{E}_{\mathbf{Z}}\left[ \ln p(\mathbf{t}, \mathbf{Z}|\bm{\theta}) \middle|
-       \mathbf{t}, \bm{\theta}^{\text{old}} \right]
+  &= \mathbb{E}_{\mathbf{Z}}\left[ \ln p(\bm{\mathsf{t}}, \mathbf{Z}|\bm{\theta}) \middle|
+       \bm{\mathsf{t}}, \bm{\theta}^{\text{old}} \right]
     \label{eq:correction_to_unlabeled_equation_between_(14.37)_and_(14.38)} \\
   &= \sum_{n=1}^{N} \sum_{k=1}^{K} \gamma_{nk}
      \left\{ \ln\pi_{k} +
@@ -1336,13 +1338,13 @@ We make use of the above identity~\eqref{eq:gradiet_of_norm} when, e.g., we take
 a sum-of-squares error function of the form (3.12),
 which can be expressed in terms of the design matrix~$\bm{\Phi}$ given by (3.16) as
 \begin{equation}
-E(\mathbf{w}) = \frac{1}{2} \left\| \mathbf{t} - \bm{\Phi}\mathbf{w} \right\|^2
+E(\mathbf{w}) = \frac{1}{2} \left\| \bm{\mathsf{t}} - \bm{\Phi}\mathbf{w} \right\|^2
 \label{eq:sum_of_squares_error} .
 \end{equation}
 Taking the gradient of \eqref{eq:sum_of_squares_error} with respect to $\mathbf{w}$, we have
 \begin{equation}
 \nabla_{\mathbf{w}} E(\mathbf{w}) =
--\bm{\Phi}^{\operatorname{T}} \left( \mathbf{t} - \bm{\Phi}\mathbf{w} \right)
+-\bm{\Phi}^{\operatorname{T}} \left( \bm{\mathsf{t}} - \bm{\Phi}\mathbf{w} \right)
 \end{equation}
 where we have used the identity~\eqref{eq:gradiet_of_norm} together with
 the chain rule~\eqref{eq:chain_rule_for_gradient} and
