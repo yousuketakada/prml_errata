@@ -175,6 +175,87 @@ $\mathbb{E}\left[\bm{\Lambda}\right] = \nu_0\mathbf{W}_0 = \bm{\Sigma}_0^{-1}$
 where we have used (B.80).
 
 \erratum{Page~102}
+Equation~(2.157):
+Again, no interpretation is given for the parameters of the Gaussian-Wishart distribution~(2.157)
+nor for those of the Gaussian-gamma distribution~(2.154).
+Since the Gaussian-gamma can be obtained as a special case of the Gaussian-Wishart
+where the dimension is one so that $D=1$,
+we shall make an interpretation only for the parameters of the Gaussian-Wishart here.
+Let us consider a problem of inferring the mean~$\bm{\mu}$ and the precision~$\bm{\Lambda}$ given
+the Gaussian likelihood
+\begin{equation}
+p\left(\mathbf{X}\middle|\bm{\mu}, \bm{\Lambda}\right) =
+\prod_{n=1}^{N} \mathcal{N}\left(\mathbf{x}_n\middle|\bm{\mu}, \bm{\Lambda}\right)
+\end{equation}
+and the Gaussian-Wishart prior
+\begin{equation}
+p\left(\bm{\mu}, \bm{\Lambda}\right) =
+\mathcal{N}\left(\bm{\mu}\middle|\bm{\mu}_0, \left(\beta_0\bm{\Lambda}\right)^{-1}\right)
+\mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}_0, \nu_0\right) .
+\end{equation}
+At this moment, we define the maximum likelihood estimates for the mean and the covariance
+given the $N$ observations~$\mathbf{X} = \left\{ \mathbf{x}_1, \dots, \mathbf{x}_N \right\}$ as
+\begin{equation}
+\bm{\mu}_{\operatorname{ML}} = \frac{1}{N} \sum_{n=1}^{N} \mathbf{x}_n, \qquad
+\bm{\Sigma}_{\operatorname{ML}} =
+\frac{1}{N} \sum_{n=1}^{N}
+(\mathbf{x}_n - \bm{\mu}_{\operatorname{ML}})
+(\mathbf{x}_n - \bm{\mu}_{\operatorname{ML}})^{\operatorname{T}}
+\end{equation}
+respectively.
+Evaluating the posterior, we have
+\begin{align}
+p\left(\bm{\mu}, \bm{\Lambda}\middle|\mathbf{X}\right) &\propto
+p\left(\mathbf{X}\middle|\bm{\mu}, \bm{\Lambda}\right)
+p\left(\bm{\mu}, \bm{\Lambda}\right) \\
+&\propto
+\left|\bm{\Lambda}\right|^{N/2}
+\exp\left\{-\frac{1}{2}\sum_{n=1}^{N}
+  \left(\mathbf{x}_n - \bm{\mu}\right)^{\operatorname{T}} \bm{\Lambda}
+  \left(\mathbf{x}_n - \bm{\mu}\right)
+\right\} \nonumber \\
+&\phantom{\propto} \times
+\left|\bm{\Lambda}\right|^{(\nu_0 - D)/2}
+\exp\left\{-\frac{1}{2}\operatorname{Tr}\left(\left\{
+\mathbf{W}_{0}^{-1} +
+\beta_0\left(\bm{\mu} - \bm{\mu}_0\right)\left(\bm{\mu} - \bm{\mu}_0\right)^{\operatorname{T}}
+\right\}\bm{\Lambda}\right)\right\} \\
+&=
+\left|\bm{\Lambda}\right|^{(\nu_N - D)/2}
+\exp\left\{-\frac{1}{2}\operatorname{Tr}\left(\left\{
+\mathbf{W}_{N}^{-1} +
+\beta_N\left(\bm{\mu} - \bm{\mu}_N\right)\left(\bm{\mu} - \bm{\mu}_N\right)^{\operatorname{T}}
+\right\}\bm{\Lambda}\right)\right\}
+\end{align}
+where
+\begin{align}
+\beta_N &= \beta_0 + N \\
+\beta_N\bm{\mu}_N &= \beta_0\bm{\mu}_0 + N\bm{\mu}_{\operatorname{ML}} \\
+\nu_N &= \nu_0 + N \\
+\mathbf{W}_{N}^{-1} &= \mathbf{W}_{0}^{-1} + N \bm{\Sigma}_{\operatorname{ML}} +
+\frac{\beta_0 N}{\beta_0 + N}
+\left(\bm{\mu}_{\operatorname{ML}} - \bm{\mu}_0\right)
+\left(\bm{\mu}_{\operatorname{ML}} - \bm{\mu}_0\right)^{\operatorname{T}} .
+\label{eq:Gaussian-Wishart_W_0}
+\end{align}
+Thus, we find that the posterior is again a Gaussian-Wishart of the form
+\begin{equation}
+p\left(\bm{\mu}, \bm{\Lambda}\middle|\mathbf{X}\right) =
+\mathcal{N}\left(\bm{\mu}\middle|\bm{\mu}_N, \left(\beta_N\bm{\Lambda}\right)^{-1}\right)
+\mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}_N, \nu_N\right) .
+\end{equation}
+This result suggests us that
+we have parameters for the mean $\beta_0$ and $\bm{\mu}_0$ that are basically separate from
+those for the precision (or, equivalently, the covariance) $\nu_0$ and $\mathbf{W}_0$.
+We can interpret $\beta_0$ as the number of ``effective'' observations for the mean and
+$\bm{\mu}_0$ as the mean of the $\beta_0$ prior observations.
+The interpretation of the remaining parameters~$\nu_0$ and $\mathbf{W}_0$ is similar to
+the one we have obtained in the previous erratum except that
+we have in \eqref{eq:Gaussian-Wishart_W_0} a term that corresponds to the uncertainty in the mean.
+Note that a similar result is obtained in Section~10.2.1 for a Bayesian mixture of Gaussians model
+in which we assume a Gaussian-Wishart prior for each Gaussian component.
+
+\erratum{Page~102}
 Line~$-2$:
 ``Gamma'' should read ``gamma'' (without capitalization).
 
