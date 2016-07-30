@@ -1357,18 +1357,38 @@ the identity~\eqref{eq:gradient_of_matrix_vector_product}.
 The same result can also be obtained by first expanding the square norm in
 \eqref{eq:sum_of_squares_error} and then differentiating it using the gradient identities
 given above.
-We use the identity~\eqref{eq:gradient_of_scalar_vector_product}
+We use \eqref{eq:gradient_of_scalar_vector_product}
 when, e.g., we evaluate the Hessian~(5.83) of a nonlinear sum-of-squares error function
 such as (5.82), which takes the form
 \begin{equation}
-J = \frac{1}{2} \sum_{n} \varepsilon_n^{2}.
+J = \frac{1}{2} \sum_{n} \varepsilon_n^{2} = \frac{1}{2} \left\|\bm{\varepsilon}\right\|^2
 \end{equation}
-The gradient and the Hessian of $J$ can be evaluated as
+where we have written
+$\bm{\varepsilon} = \left(\varepsilon_1, \dots, \varepsilon_N\right)^{\operatorname{T}}$.
+The gradient and the Hessian of $J$ are evaluated as
 \begin{align}
-\nabla J &= \sum_{n} \varepsilon_n \nabla \varepsilon_n \\
+\nabla J &= \sum_{n} \varepsilon_n \nabla \varepsilon_n
+= \left( \nabla \bm{\varepsilon} \right) \bm{\varepsilon} \\
 \nabla\nabla J &= \sum_{n} \nabla\varepsilon_n \left(\nabla\varepsilon_n\right)^{\operatorname{T}}
++ \sum_{n} \varepsilon_n \nabla\nabla \varepsilon_n \\
+&= \nabla \bm{\varepsilon} \left( \nabla \bm{\varepsilon} \right)^{\operatorname{T}}
 + \sum_{n} \varepsilon_n \nabla\nabla \varepsilon_n .
 \end{align}
+The second form of the Hessian,
+which, however, does not necessarily result in efficient implementation,
+can be directly obtained by using an identity
+\begin{equation}
+\nabla \left\{ \mathbf{R} \bm{\varphi} \right\}
+= \nabla \bm{\varphi} \mathbf{R}^{\operatorname{T}} + \sum_{m=1}^{M} \varphi_m \nabla \mathbf{r}_m
+\label{eq:gradient_of_matrix_vector_product_general}
+\end{equation}
+where $\mathbf{R} = \left(\mathbf{r}_1, \dots, \mathbf{r}_M\right)$ and
+$\bm{\varphi} = \left(\varphi_1, \dots, \varphi_M\right)^{\operatorname{T}}$.
+One can see that
+\eqref{eq:gradient_of_matrix_vector_product} and
+\eqref{eq:gradient_of_scalar_vector_product}
+are special cases of
+\eqref{eq:gradient_of_matrix_vector_product_general}.
 It is also worth noting here that we can write down the Taylor series expansion
 (up to the second order) of a scalar function $f(\mathbf{x})$ compactly
 in terms of the gradients as
