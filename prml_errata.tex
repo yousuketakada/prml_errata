@@ -1293,15 +1293,45 @@ are built up ``towards the left,'' i.e.,
 \label{eq:chain_rule_for_gradient}
 \end{equation}
 Since the chain rule~\eqref{eq:chain_rule_for_gradient} is handy
-when we compute the gradients of composite functions,
+when we compute the gradients of composite functions (see below),
 I would suggest that it should also be pointed out in
-the ``(Vector and) Matrix Derivatives'' section of Appendix~C.\footnote{At this point,
-one might wonder why we use two different forms of vector derivative that are identical
+the ``(Vector and) Matrix Derivatives'' section of Appendix~C.
+At this point,
+one might wonder why we use the two different forms of vector derivative that are identical
 up to the transposed layout, i.e.,
 the gradient~$\nabla_{\mathbf{x}} \mathbf{y}$ and
 the Jacobian~$\partial\mathbf{y}/\partial\mathbf{x}$.
 As \citet{Minka:OldNewMatrixAlgebra} points out,
-Jacobians are useful in calculus while gradients are useful in optimization.}
+Jacobians are useful in calculus while gradients are useful in optimization.
+For instance, we can write down the Taylor series expansion
+(up to the second order) of a scalar function~$f(\mathbf{x})$ compactly
+in terms of the gradients as
+\begin{equation}
+f(\mathbf{x} + \Delta\mathbf{x}) \simeq
+f(\mathbf{x})
++ \mathbf{g}^{\operatorname{T}} \Delta\mathbf{x}
++ \frac{1}{2} {\Delta\mathbf{x}}^{\operatorname{T}} \mathbf{H} \Delta\mathbf{x}
+\end{equation}
+where $\mathbf{g}$ and $\mathbf{H}$ are the gradient vector and the Hessian matrix of
+$f(\mathbf{x})$, respectively, so that
+\begin{equation}
+\mathbf{g} \equiv \nabla f(\mathbf{x}) =
+\begin{pmatrix}
+\frac{\partial f}{\partial x_{1}} \\
+\vdots \\
+\frac{\partial f}{\partial x_{D}}
+\end{pmatrix} , \quad
+\mathbf{H} \equiv \nabla\nabla f(\mathbf{x}) =
+\begin{pmatrix}
+\frac{\partial^{2} f}{\partial x_{1} \partial x_{1}} &
+\hdots &
+\frac{\partial^{2} f}{\partial x_{1} \partial x_{D}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial^{2} f}{\partial x_{D} \partial x_{1}} &
+\hdots &
+\frac{\partial^{2} f}{\partial x_{D} \partial x_{D}}
+\end{pmatrix} .
+\end{equation}
 
 \erratum{Page~697}
 Equation~(C.19):
@@ -1375,8 +1405,9 @@ The gradient and the Hessian of $J$ are evaluated as
 + \sum_{n} \varepsilon_n \nabla\nabla \varepsilon_n .
 \end{align}
 The second form of the Hessian,
-which, however, does not necessarily result in efficient implementation,
-can be directly obtained by using an identity
+which, however, does not necessarily result in efficient implementation
+(neither does that of the gradient),
+can be directly obtained by using the identity
 \begin{equation}
 \nabla \left\{ \mathbf{R} \bm{\varphi} \right\}
 = \nabla \bm{\varphi} \mathbf{R}^{\operatorname{T}} + \sum_{m=1}^{M} \varphi_m \nabla \mathbf{r}_m
@@ -1389,35 +1420,6 @@ One can see that
 \eqref{eq:gradient_of_scalar_vector_product}
 are special cases of
 \eqref{eq:gradient_of_matrix_vector_product_general}.
-It is also worth noting here that we can write down the Taylor series expansion
-(up to the second order) of a scalar function $f(\mathbf{x})$ compactly
-in terms of the gradients as
-\begin{equation}
-f(\mathbf{x} + \Delta\mathbf{x}) \simeq
-f(\mathbf{x})
-+ \mathbf{g}^{\operatorname{T}} \Delta\mathbf{x}
-+ \frac{1}{2} {\Delta\mathbf{x}}^{\operatorname{T}} \mathbf{H} \Delta\mathbf{x}
-\end{equation}
-where $\mathbf{g}$ and $\mathbf{H}$ are the gradient vector and the Hessian matrix of
-$f(\mathbf{x})$, respectively, so that
-\begin{equation}
-\mathbf{g} \equiv \nabla f(\mathbf{x}) =
-\begin{pmatrix}
-\frac{\partial f}{\partial x_{1}} \\
-\vdots \\
-\frac{\partial f}{\partial x_{D}}
-\end{pmatrix} , \quad
-\mathbf{H} \equiv \nabla\nabla f(\mathbf{x}) =
-\begin{pmatrix}
-\frac{\partial^{2} f}{\partial x_{1} \partial x_{1}} &
-\hdots &
-\frac{\partial^{2} f}{\partial x_{1} \partial x_{D}} \\
-\vdots & \ddots & \vdots \\
-\frac{\partial^{2} f}{\partial x_{D} \partial x_{1}} &
-\hdots &
-\frac{\partial^{2} f}{\partial x_{D} \partial x_{D}}
-\end{pmatrix} .
-\end{equation}
 
 \erratum{Page~698}
 Equation~(C.20):
