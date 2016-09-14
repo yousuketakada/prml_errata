@@ -1560,24 +1560,26 @@ It should also be noted that (C.27) is a special case of
 
 \erratum{Page~700}
 The second paragraph, Line~$-1$:
-The determinant of $\mathbf{U}$ can be either positive or negative so that
+The determinant of the orthogonal matrix~$\mathbf{U}$ can be either positive or negative so that
 we should write $\operatorname{det}(\mathbf{U}) = \pm 1$, which is equivalent to
 $\left|\mathbf{U}\right| = 1$ if we adopt the notation~\eqref{eq:abs_of_matrix_determinant}.
-Although it is possible to take $\mathbf{U}$ such that $\operatorname{det}(\mathbf{U}) = 1$,
-there is no point in doing so in practice.
-In a special case of $\mathbf{A}$ being positive semidefinite or $\mathbf{A} \succeq 0$,
+Although it is possible to take $\mathbf{U}$ such that $\operatorname{det}(\mathbf{U}) = 1$
+(one can flip the sign of $\operatorname{det}(\mathbf{U})$ by, say, flipping the sign of
+any one of the eigenvectors~$\left\{\mathbf{u}_i\right\}$),
+there is no point in doing so in practice theoretically nor numerically and, in fact,
+most software implementations of eigenvalue decomposition only guarantee that $\mathbf{U}$ is
+orthogonal, i.e., $\operatorname{det}(\mathbf{U}) = \pm 1$.
+It is worth noting here that,
+in a special case of $\mathbf{A}$ being positive semidefinite or $\mathbf{A} \succeq 0$,
 we can identify the eigenvalue decomposition~(C.43) with
-the \emph{singular value decomposition}~\citep{Press:NR,GvL:MC}
+the \emph{singular value decomposition} or SVD~\citep{Press:NR,GvL:MC}
 \begin{equation}
 \mathbf{A} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}
 \end{equation}
-where $\mathbf{U} = \mathbf{V}$ and
-the eigenvalues~$\lambda_i$ with the singular values~$\sigma_i \geq 0$.
-The singular values are usually arranged in descending order in
-the diagonal matrix~$\bm{\Sigma} = \operatorname{diag}\left(\sigma_1, \dots, \sigma_M\right)$
-so that $\sigma_1 \geq \dots \geq \sigma_M \geq 0$,
-in which case it is no longer possible in general to take the orthogonal matrix~$\mathbf{U}$
-such that $\operatorname{det}(\mathbf{U}) = 1$.
+where $\mathbf{U} = \mathbf{V}$ and thus
+the eigenvalues~$\left\{\lambda_i\right\}$ with the singular values~$\left\{\sigma_i\right\}$
+where $\sigma_1 \geq \dots \geq \sigma_M \geq 0$
+so that we can use an SVD routine for eigenvalue decomposition.
 
 \erratum{Page~700}
 The text following (C.41):
