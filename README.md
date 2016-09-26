@@ -1,7 +1,7 @@
 More PRML Errata
 ================
 
-This report communicates some more errata for PRML (Bishop, 2006).
+This [report](prml_errata.pdf) communicates some more errata for PRML (Bishop, 2006).
 
 Reference
 ---------
