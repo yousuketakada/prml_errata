@@ -40,6 +40,49 @@ if we see $\operatorname{H}[\cdot]$ as a functional,
 we could write $\operatorname{H}[p]$.
 However, it is better to maintain the notational consistency here.
 
+\erratum{Page~56}
+Equation~(1.116):
+In general, we cannot interpret $\lambda_i$ in Jensen's inequality~(1.115) as
+a probability distribution over a discrete variable~$x$ such that $\lambda_i \equiv p(x = x_i)$
+because, since (1.115) holds for any $\left\{x_i\right\}$,
+we can take $x_i = x_j$ and $\lambda_i \neq \lambda_j$ where $i \neq j$,
+assigning different probabilities for the same value of $x$.
+Instead, we should rather introduce another set of underlying random variables~$\mathbf{z}$
+in order to obtain a more general result
+\begin{equation}
+f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
+\leq \mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
+\label{eq:Jensen_inequality_expectation_with_z}
+\end{equation}
+where we have interpreted $\lambda_i \equiv p(\mathbf{z} = \mathbf{z}_i)$ and
+$x_i \equiv \xi(\mathbf{z}_i)$.
+Since the random variables~$\mathbf{z}$ as well as their probability~$p(\mathbf{z})$ can be chosen
+arbitrarily,
+it makes sense to write $\mathbf{z}$ implicit in \eqref{eq:Jensen_inequality_expectation_with_z},
+giving a simpler form of Jensen's inequality
+\begin{equation}
+f\left(\mathbb{E}\left[\xi\right]\right)
+\leq \mathbb{E}\left[f\left(\xi\right)\right]
+\label{eq:Jensen_inequality_expectation}
+\end{equation}
+where we have assumed that $f(\cdot)$ is a convex function but $\xi(\cdot)$ can be any.
+Note that, if $f(\cdot)$ is a strictly convex function,
+the equality in \eqref{eq:Jensen_inequality_expectation} holds if and only if
+$\xi(\cdot)$ is constant.
+For continuous random variables, we have
+\begin{equation}
+f\left(\int\xi(\mathbf{x}) p(\mathbf{x}) \,\mathrm{d}\mathbf{x}\right) \leq 
+\int f\left(\xi(\mathbf{x})\right) p(\mathbf{x}) \,\mathrm{d}\mathbf{x}
+\label{eq:Jensen_inequality_continuous}
+\end{equation}
+where we have used $\mathbf{x}$ to denote the underlying random variables
+for which we take the expectations.
+Making use of \eqref{eq:Jensen_inequality_continuous} and
+identifying $f(\xi) = -\ln\xi$ and $\xi(\mathbf{x}) = q(\mathbf{x})/p(\mathbf{x})$,
+one can show that the Kullback-Leibler divergence~(1.113) satisfies
+$\operatorname{KL}\left( p \middle\| q \right) \geq 0$ with equality if and only if
+$p(\mathbf{x}) = q(\mathbf{x})$.
+
 \erratum{Page~80}
 Equation~(2.52):
 We usually take eigenvectors~$\mathbf{u}_{i}$ to be the columns of $\mathbf{U}$ as in (C.37).
