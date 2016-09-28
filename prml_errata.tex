@@ -4,6 +4,7 @@
 \usepackage{lmodern}
 \usepackage{bm}
 \usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage[margin=2cm]{geometry}
 \usepackage{natbib}
@@ -51,7 +52,7 @@ Instead, we should rather introduce another set of underlying random variables~$
 in order to obtain a more general result
 \begin{equation}
 f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
-\leq \mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
+\leqslant \mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
 \label{eq:Jensen_inequality_expectation_with_z}
 \end{equation}
 where we have interpreted $\lambda_i \equiv p(\mathbf{z} = \mathbf{z}_i)$ and
@@ -62,7 +63,7 @@ it makes sense to write $\mathbf{z}$ implicit in \eqref{eq:Jensen_inequality_exp
 giving a simpler form of Jensen's inequality
 \begin{equation}
 f\left(\mathbb{E}\left[\xi\right]\right)
-\leq \mathbb{E}\left[f\left(\xi\right)\right]
+\leqslant \mathbb{E}\left[f\left(\xi\right)\right]
 \label{eq:Jensen_inequality_expectation}
 \end{equation}
 where we have assumed that $f(\cdot)$ is a convex function but $\xi(\cdot)$ can be any.
@@ -71,7 +72,7 @@ the equality in \eqref{eq:Jensen_inequality_expectation} holds if and only if
 $\xi(\cdot)$ is constant.
 For continuous random variables, we have
 \begin{equation}
-f\left(\int\xi(\mathbf{x}) p(\mathbf{x}) \,\mathrm{d}\mathbf{x}\right) \leq 
+f\left(\int\xi(\mathbf{x}) p(\mathbf{x}) \,\mathrm{d}\mathbf{x}\right) \leqslant 
 \int f\left(\xi(\mathbf{x})\right) p(\mathbf{x}) \,\mathrm{d}\mathbf{x}
 \label{eq:Jensen_inequality_continuous}
 \end{equation}
@@ -80,7 +81,7 @@ for which we take the expectations.
 Making use of \eqref{eq:Jensen_inequality_continuous} and
 identifying $f(\xi) = -\ln\xi$ and $\xi(\mathbf{x}) = q(\mathbf{x})/p(\mathbf{x})$,
 one can show that the Kullback-Leibler divergence~(1.113) satisfies
-$\operatorname{KL}\left( p \middle\| q \right) \geq 0$ with equality if and only if
+$\operatorname{KL}\left( p \middle\| q \right) \geqslant 0$ with equality if and only if
 $p(\mathbf{x}) = q(\mathbf{x})$.
 
 \erratum{Page~80}
@@ -1007,7 +1008,7 @@ in the posterior distribution~\eqref{eq:posterior_of_Gaussian_mixture} for
 the Gaussian mixture model~\eqref{eq:joint_distribution_of_Gaussian_mixture} of Section~9.2,
 it is helpful if we know that the distribution can also be expressed
 in terms of unnormalized probabilities
-$\tilde{\mu}_k \geq 0$ so that
+$\tilde{\mu}_k \geqslant 0$ so that
 \begin{equation}
 \operatorname{Mult}\left(\mathbf{x}\middle|\tilde{\bm{\mu}}\right) =
   C(\tilde{\bm{\mu}}) \prod_{k=1}^{K} {\tilde{\mu}_k}^{x_k}
@@ -1637,7 +1638,7 @@ the \emph{singular value decomposition} or SVD~\citep{Press:NR,GvL:MC}
 \end{equation}
 where $\mathbf{U} = \mathbf{V}$ and thus
 the eigenvalues~$\left\{\lambda_i\right\}$ with the singular values~$\left\{\sigma_i\right\}$
-where $\sigma_1 \geq \dots \geq \sigma_M \geq 0$
+where $\sigma_1 \geqslant \dots \geqslant \sigma_M \geqslant 0$
 so that we can use an SVD routine for eigenvalue decomposition.
 
 \erratum{Page~700}
