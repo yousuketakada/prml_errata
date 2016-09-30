@@ -141,12 +141,12 @@ An alternative solution to this problem would be to explicitly define
 \left| \mathbf{A} \right| \equiv \left| \operatorname{det}\left( \mathbf{A} \right) \right|
 \label{eq:abs_of_matrix_determinant}
 \end{equation}
-for any square matrix $\mathbf{A}$ so that
+for any square matrix~$\mathbf{A}$ so that
 we have $\left|\mathbf{J}\right| = 1$ and (2.56) holds as is.
 Note also that this notation~\eqref{eq:abs_of_matrix_determinant} is mostly consistent
 in other part of PRML because we have
-$\left| \mathbf{A} \right| = \operatorname{det}\left( \mathbf{A} \right)$ for a positive
-semidefinite matrix $\mathbf{A}$ and
+$\left| \mathbf{A} \right| = \operatorname{det}\left( \mathbf{A} \right)$ for any positive
+semidefinite matrix~$\mathbf{A}$ and
 most matrices for which we take determinants are positive (semi)definite in PRML.
 
 \erratum{Page~102}
@@ -318,10 +318,9 @@ Equation~(3.13):
 The use of the gradient operator~$\nabla$ is not consistent here.
 As in (2.224), the gradient of a scalar function is usually defined as a column vector
 of derivatives so that (3.13) should read\footnote{\
-Note that we use a different typeface for the data vector
-$\bm{\mathsf{t}} = \left( t_1, \dots, t_N \right)^{\operatorname{T}}$.
-See ``Mathematical notation'' on page xi of PRML.
-}
+Note that we use a different typeface for
+the data vector~$\bm{\mathsf{t}} = \left( t_1, \dots, t_N \right)^{\operatorname{T}}$.
+See ``Mathematical notation'' on page xi of PRML.}
 \begin{equation}
 \nabla \ln p \left( \bm{\mathsf{t}} \middle| \mathbf{w}, \beta \right) =
 \beta \sum_{n=1}^{N}
@@ -438,11 +437,11 @@ $\lambda_{1}^{-1/2}\mathbf{u}_{1}$ and $\lambda_{2}^{-1/2}\mathbf{u}_{2}$.
 \erratum{Page~251}
 The second paragraph:
 The approximation of the form~(5.84) is usually referred to as
-the \emph{Gauss--Newton} approximation,
+the \emph{Gauss-Newton} approximation,
 which not only eliminates the computation of second derivatives
 but also guarantees that the Hessian~$\mathbf{H}$ is positive (semi)definite~\citep{Press:NR}.
-The \emph{Levenberg--Marquardt} method is a method that improves
-the numerical stability of (Gauss\nobreakdash--)Newton type iterations
+The \emph{Levenberg-Marquardt} method is a method that improves
+the numerical stability of (Gauss\nobreakdash-)Newton type iterations
 by correcting the Hessian matrix so as to be more diagonal dominant~\citep{Press:NR}.
 
 \erratum{Page~275}
@@ -619,7 +618,7 @@ The constant term in (10.16) is the \emph{negative} entropy of $p(\mathbf{Z})$.
 
 \erratum{Page~478}
 Equation~(10.63):
-The additive constant $+1$ on the right hand side should be omitted so that
+The additive constant~$+1$ on the right hand side should be omitted so that
 (10.63) should read
 \begin{equation}
 \nu_k = \nu_0 + N_k . \label{eq:reestimation_equation_for_nu}
@@ -659,7 +658,7 @@ instead of $\frac{\mathrm{d}x}{\mathrm{d}x^2}$, to avoid ambiguity.
 \erratum{Page~501}
 The text after Equation~(10.162):
 We have that
-the variational parameter $\lambda(\xi)$ is a monotonic function of $\xi$ for $\xi \ge 0$,
+the variational parameter~$\lambda(\xi)$ is a monotonic function of $\xi$ for $\xi \ge 0$,
 but not that its derivative~$\lambda'(\xi)$ is.
 
 \erratum{Page~503}
@@ -673,7 +672,7 @@ omitted because it has been already included in the Gaussian in (10.213).
 
 \erratum{Page~513}
 Equations~(10.223) and (10.224):
-The quantities $v^{\text{new}}$ and $\mathbf{m}^{\text{new}}$ in (10.223) and (10.224) are
+The quantities~$v^{\text{new}}$ and $\mathbf{m}^{\text{new}}$ in (10.223) and (10.224) are
 different from those in (10.217) and (10.218).\footnote{See \citet{Svensen:PRML_errata}
 for the errata for Equations~(10.217) and (10.218).}
 Thus, we should introduce different notations, say, $v$ and $\mathbf{m}$, with appropriate
@@ -767,7 +766,7 @@ The eigendecomposition requires $O(D^3)$ computations (in the plural form).
 
 \erratum{Page~599}
 Exercise~12.1, Line~$-1$:
-The quantity $\lambda_{M + 1}$ is an eigenvalue (not an eigenvector).
+The quantity~$\lambda_{M + 1}$ is an eigenvalue (not an eigenvector).
 
 \erratum{Page~602}
 Exercise~12.25, Line~2:
@@ -844,9 +843,9 @@ Specifically, (13.104) and the preceding text should read for example:
     \end{pmatrix}
   \right)
 \end{equation}
-where the mean $\hat{\bm{\mu}}_{n}$ and the covariance $\hat{\mathbf{V}}_{n}$ of
+where the mean~$\hat{\bm{\mu}}_{n}$ and the covariance~$\hat{\mathbf{V}}_{n}$ of
 $\mathbf{z}_{n}$ are given by (13.100) and (13.101), respectively;
-and the covariance $\hat{\mathbf{V}}_{n-1, n}$ between $\mathbf{z}_{n-1}$ and $\mathbf{z}_{n}$ 
+and the covariance~$\hat{\mathbf{V}}_{n-1, n}$ between $\mathbf{z}_{n-1}$ and $\mathbf{z}_{n}$
 is given by
 \begin{equation}
 \hat{\mathbf{V}}_{n-1, n}
@@ -883,7 +882,7 @@ Equation~(13.114): The size of the opening curly brace ``$\{$'' should match
 that of the closing curly brace ``$\}$.''
 
 \erratum{Page~647}
-Figure~13.23, Line $-1$:
+Figure~13.23, Line~$-1$:
 $p(\mathbf{x}_{n+1}|\mathbf{z}_{n+1}^{(l)})$ should read $p(\mathbf{x}_{n+1}|{z}_{n+1}^{(l)})$.
 
 \erratum{Page~649}
@@ -946,7 +945,7 @@ a diagonal matrix of size $N \times N$ and
 $\bm{\Phi} = \left( \bm{\phi}_1, \dots, \bm{\phi}_N \right)^{\operatorname{T}}$ is
 an $N \times M$ matrix.
 Here, $N$ is the size of the data set and
-$M$ is the dimensionality of the feature vectors $\bm{\phi}_n$.
+$M$ is the dimensionality of the feature vectors~$\bm{\phi}_n$.
 
 \erratum{Page~669}
 Equation~(14.43): ``$+\text{const}$'' should be added to the right hand side.
@@ -1139,7 +1138,7 @@ However, I would prefer to prove
 the general push-through identity~\eqref{eq:general_push_through_identity}
 together with the Woodbury identity~(C.7) in terms of the inverse of a partitioned matrix,
 which we have already seen in Section~2.3.1.
-To this end, we first introduce a square matrix $\mathbf{M}$ that is partitioned into
+To this end, we first introduce a square matrix~$\mathbf{M}$ that is partitioned into
 four submatrices so that
 \begin{equation}
 \mathbf{M} =
@@ -1406,7 +1405,7 @@ Following the gradient notation~\eqref{eq:gradient_of_vector_wrt_vector}, (C.19)
 \nabla \left\{ \mathbf{a}^{\operatorname{T}} \mathbf{x} \right\} = 
 \mathbf{a}
 \end{equation}
-where we have omitted the subscript $\mathbf{x}$ in what should be $\nabla_{\mathbf{x}}$.
+where we have omitted the subscript~$\mathbf{x}$ in what should be $\nabla_{\mathbf{x}}$.
 Some other useful identities I would suggest to include are
 \begin{align}
 \nabla \left\{ \mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x} \right\} =
@@ -1419,10 +1418,10 @@ Some other useful identities I would suggest to include are
 \nabla\varphi \mathbf{y}^{\operatorname{T}} + \varphi \nabla\mathbf{y}
 \label{eq:gradient_of_scalar_vector_product}
 \end{align}
-where matrices $\mathbf{A}$ and $\mathbf{B}$ are constants.
+where matrices~$\mathbf{A}$ and $\mathbf{B}$ are constants.
 Note that $\mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x}$ in
 \eqref{eq:gradient_of_quadratic_form} is a quadratic form and thus
-the square matrix $\mathbf{A}$ is usually taken to be symmetric so that
+the square matrix~$\mathbf{A}$ is usually taken to be symmetric so that
 $\mathbf{A} = \mathbf{A}^{\operatorname{T}}$, in which case we have
 \begin{equation}
 \nabla \left\{ \mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x} \right\} =
@@ -1533,7 +1532,7 @@ To this end, we first show the following identity for any square matrix~$\mathbf
 \end{equation}
 where $\mathbf{A}^{\dagger}$ is the adjugate matrix of
 $\mathbf{A}$.
-The $(ij)$-th element $A_{ij}^{\dagger}$ of the adjugate matrix~$\mathbf{A}^{\dagger}$ is given by
+The $(ij)$-th element~$A_{ij}^{\dagger}$ of the adjugate matrix~$\mathbf{A}^{\dagger}$ is given by
 \begin{equation}
 A_{ij}^{\dagger} = (-1)^{i+j} \operatorname{det}\left(\mathbf{A}^{(ji)}\right)
 \label{eq:definition_of_adjugate}
@@ -1696,7 +1695,7 @@ the \emph{divergence theorem}~\citep{Feynman:FeynmanLectures2} states that
 where the left hand side is the volume integral over the volume~$\Omega$;
 the right hand side is the surface integral over its boundary~$\partial\Omega$; and
 $\mathbf{n}(\mathbf{x})$ is the outward unit normal vector of $\partial\Omega$.
-Assuming that the coordinates $\mathbf{x} = \left( x_1, \dots, x_D \right)^{\operatorname{T}}$ are
+Assuming that the coordinates~$\mathbf{x} = \left( x_1, \dots, x_D \right)^{\operatorname{T}}$ are
 Cartesian, we can write the volume element as
 $\mathrm{d}V = \mathrm{d}x_1 \cdots \mathrm{d}x_D \equiv \mathrm{d}\mathbf{x}$ and
 the inner product as $\mathbf{p} \cdot \mathbf{n} = \mathbf{p}^{\operatorname{T}} \mathbf{n}$.
@@ -1831,8 +1830,8 @@ $\eta(\mathbf{x})$ and $\partial E/\partial u(\mathbf{x})$,
 from which we conclude that the quantity~$\partial E/\partial u(\mathbf{x})$ is
 what should be called the functional derivative.\footnote{Here we use a notation for
 the functional derivative that is different from the one used in PRML.
-The notation $\partial E/\partial u(\mathbf{x})$ employed here is more like an ordinary derivative
-and can be extended to the case of a vector field $\mathbf{u}(\mathbf{x})$ analogously to
+The notation~$\partial E/\partial u(\mathbf{x})$ employed here is more like an ordinary derivative
+and can be extended to the case of a vector field~$\mathbf{u}(\mathbf{x})$ analogously to
 the gradient as we shall see in \eqref{eq:euler_lagrange_equations_for_optical_flow}.}
 A stationary point of a functional~$E[u(\mathbf{x})]$ is a function~$u(\mathbf{x})$ such that
 the variation~$\delta E[u; \eta]$ vanishes in any direction~$\eta(\mathbf{x})$ and thus
@@ -1842,8 +1841,8 @@ satisfies the \emph{Euler-Lagrange equation} given by
 \label{eq:euler_lagrange_equation}
 \end{equation}
 Finally, we present an application of the multidimensional calculus of variations to
-a dense motion analysis technique called \emph{optical flow}.
-Suppose that, given a pair of (grayscale) images $I_0(\mathbf{x})$ and $I_1(\mathbf{x})$
+a dense motion analysis technique called optical flow in the following.
+Suppose that, given a pair of (grayscale) images~$I_0(\mathbf{x})$ and $I_1(\mathbf{x})$
 where $\mathbf{x} \in \mathbb{R}^{2}$ that are taken at
 some discrete time steps~$t=0$ and $t=1$, respectively,
 we wish to find a motion vector field from $I_0(\mathbf{x})$ to $I_1(\mathbf{x})$
@@ -1877,7 +1876,7 @@ Here, the domain~$\Omega$ is assumed to be continuous and is typically rectangul
 We call the first term~$J_{\text{data}}[\mathbf{u}(\mathbf{x})]$ in
 \eqref{eq:horn_schunck_optical_flow_functional} the data-fidelity term;
 the second term~$J_{\text{smooth}}[\mathbf{u}(\mathbf{x})]$ the smoothness (regularization) term;
-and the coefficient $\alpha$ the regularization parameter.
+and the coefficient~$\alpha$ the regularization parameter.
 According to the multidimensional calculus of variations, a stationary point of
 the optical-flow energy functional~\eqref{eq:horn_schunck_optical_flow_functional} satisfies
 Euler-Lagrange equations of the form
