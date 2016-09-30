@@ -1006,18 +1006,23 @@ Equation~(B.54):
 When we identify the functional form of the multinomial distribution, e.g.,
 in the posterior distribution~\eqref{eq:posterior_of_Gaussian_mixture} for
 the Gaussian mixture model~\eqref{eq:joint_distribution_of_Gaussian_mixture} of Section~9.2,
-it is helpful if we know that the distribution can also be expressed
-in terms of unnormalized probabilities
-$\tilde{\mu}_k \geqslant 0$ so that
+it is helpful to know that the distribution can also be expressed
+in terms of unnormalized probabilities~$\tilde{\mu}_k \geqslant 0$, i.e,
 \begin{equation}
 \operatorname{Mult}\left(\mathbf{x}\middle|\tilde{\bm{\mu}}\right) =
   C(\tilde{\bm{\mu}}) \prod_{k=1}^{K} {\tilde{\mu}_k}^{x_k}
 \end{equation}
-where we have defined the normalization constant as
+so that
 \begin{equation}
-{C(\tilde{\bm{\mu}})}^{-1} = \sum_{k=1}^{K} \tilde{\mu}_k
+\ln\operatorname{Mult}\left(\mathbf{x}\middle|\tilde{\bm{\mu}}\right) =
+  \sum_{k=1}^{K} {x_k}\ln{\tilde{\mu}_k} + \text{const}
 \end{equation}
-implying $\mu_k = C(\tilde{\bm{\mu}}) \tilde{\mu}_k$.
+where the normalization constant is given by
+${C(\tilde{\bm{\mu}})}^{-1} = \sum_{k} \tilde{\mu}_k$
+so that
+\begin{equation}
+\mu_k = p(x_k = 1) = \frac{\tilde{\mu}_k}{\sum_{j} \tilde{\mu}_j} .
+\end{equation}
 
 \erratum{Page~692}
 Equation~(B.68):
