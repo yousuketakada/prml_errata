@@ -1002,11 +1002,11 @@ $\mathbf{x}$ in the right hand side should read $\mathbf{x}_{a}$.
 
 \erratum{Page~690}
 Equation~(B.54):
-When we identify the functional form of the multinomial distribution, e.g.,
+When we identify the functional form of a multinomial distribution, e.g.,
 in the posterior distribution~\eqref{eq:posterior_of_Gaussian_mixture} for
 the Gaussian mixture model~\eqref{eq:joint_distribution_of_Gaussian_mixture} of Section~9.2,
 it is helpful to know that the distribution can also be expressed
-in terms of unnormalized probabilities~$\tilde{\mu}_k \geqslant 0$, i.e,
+in terms of unnormalized probabilities~$\tilde{\mu}_k \geqslant 0$, i.e.,
 \begin{equation}
 \operatorname{Mult}\left(\mathbf{x}\middle|\tilde{\bm{\mu}}\right) =
   C(\tilde{\bm{\mu}}) \prod_{k=1}^{K} {\tilde{\mu}_k}^{x_k}
@@ -1018,7 +1018,7 @@ so that
 \end{equation}
 where the normalization constant is given by
 ${C(\tilde{\bm{\mu}})}^{-1} = \sum_{k} \tilde{\mu}_k$
-so that
+so that the normalized probabilities can be found as
 \begin{equation}
 \mu_k = p(x_k = 1) = \frac{\tilde{\mu}_k}{\sum_{j} \tilde{\mu}_j} .
 \end{equation}
