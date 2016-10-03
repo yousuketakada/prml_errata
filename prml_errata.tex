@@ -49,27 +49,45 @@ because, since (1.115) holds for any $\left\{x_i\right\}$,
 we can take $x_i = x_j$ and $\lambda_i \neq \lambda_j$ where $i \neq j$,
 assigning different probabilities for the same value of $x$.
 Instead, we should rather introduce another set of underlying random variables~$\mathbf{z}$
-in order to obtain a more general result
+such that $\lambda_i \equiv p(\mathbf{z} = \mathbf{z}_i)$ and
+a function~$\xi(\mathbf{z})$ of the random variables~$\mathbf{z}$
+such that $x_i \equiv \xi(\mathbf{z}_i)$,
+giving a more general result
 \begin{equation}
 f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
 \leqslant \mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
 \label{eq:Jensen_inequality_expectation_with_z}
 \end{equation}
-where we have interpreted $\lambda_i \equiv p(\mathbf{z} = \mathbf{z}_i)$ and
-$x_i \equiv \xi(\mathbf{z}_i)$.
+where $f(\cdot)$ is a convex function but $\xi(\cdot)$ can be any.
+Note that, if $f(\cdot)$ is strictly convex,
+the equality in \eqref{eq:Jensen_inequality_expectation_with_z} holds if and only if
+$\xi(\cdot)$ is constant.
+At this moment, it is instructive to present here an intuitive, physical ``proof'' for
+Jensen's inequality~\citep{MacKay:Information}.
+Suppose that we have a set of point masses~$m_i = p(\mathbf{z}=\mathbf{z}_i)$ and place them
+at the corresponding locations~$(x, y) = \left(\xi(\mathbf{z}_i), f(\xi(\mathbf{z}_i))\right)$
+on the convex curve~$y = f(x)$.
+The center of gravity of those masses, which is $\left(
+\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
+\mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
+\right)$, must lie above the curve and thus right above the point~$\left(
+\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
+f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
+\right)$ on the curve, implying \eqref{eq:Jensen_inequality_expectation_with_z}.
+If $f(\cdot)$ is strictly convex,
+one can see that the equality~$
+f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
+= \mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
+$ implies that $\xi(\cdot)$ is constant (it is trivial to show that the converse is true).
 Since the random variables~$\mathbf{z}$ as well as their probability~$p(\mathbf{z})$ can be chosen
 arbitrarily,
 it makes sense to write $\mathbf{z}$ implicit in \eqref{eq:Jensen_inequality_expectation_with_z},
 giving a simpler form of Jensen's inequality
 \begin{equation}
 f\left(\mathbb{E}\left[\xi\right]\right)
-\leqslant \mathbb{E}\left[f\left(\xi\right)\right]
+\leqslant \mathbb{E}\left[f\left(\xi\right)\right] .
 \label{eq:Jensen_inequality_expectation}
 \end{equation}
-where we have assumed that $f(\cdot)$ is a convex function but $\xi(\cdot)$ can be any.
-Note that, if $f(\cdot)$ is a strictly convex function,
-the equality in \eqref{eq:Jensen_inequality_expectation} holds if and only if
-$\xi(\cdot)$ is constant.
 For continuous random variables, we have
 \begin{equation}
 f\left(\int\xi(\mathbf{x}) p(\mathbf{x}) \,\mathrm{d}\mathbf{x}\right) \leqslant 
