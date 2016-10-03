@@ -1027,9 +1027,11 @@ so that the normalized probabilities can be found as
 Equation~(B.68):
 This form of multivariate Student's t-distribution is derived in Section~2.3.7
 by marginalizing over the gamma distributed (scalar) variable~$\eta$ in (2.161),
-but \emph{not} by marginalizing over the precision matrix~$\bm{\Lambda}$ that is governed by
-the Wishart distribution~$\mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}, \nu\right)$,
-which results in a distribution of the form
+but \emph{not} by marginalizing over
+the $D \times D$ precision matrix~$\bm{\Lambda}$ that is governed by
+the Wishart distribution~$\mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}, \nu\right)$
+where $\mathbf{W} \succ 0$ and $\nu > D - 1$,
+which results in a marginal distribution of the form
 \begin{equation}
 p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right) =
   \int \mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \bm{\Lambda}^{-1}\right)
@@ -1107,6 +1109,17 @@ p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
   \nu + 1 - D
 \right) .
 \end{equation}
+One can show that,
+if an isotropic scale matrix~$\mathbf{W} = W\mathbf{I}$ is used, which is common in practice,
+the resulting multivariate Student's t-distribution is also isotropic and,
+up to some reparameterization, the same distribution can be obtained also by marginalizing over
+a gamma (one-dimensional Wishart) distribution as
+\begin{equation}
+\int \mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \lambda^{-1}\mathbf{I}\right)
+\mathcal{W}\left(\lambda\middle|W, \nu\right) \mathrm{d}\lambda
+= \operatorname{St}\left(\mathbf{x} \middle| \bm{\mu}, \nu W \mathbf{I}, \nu \right)
+\end{equation}
+where $W > 0$ and $\nu > 0$.
 
 \erratum{Page~693}
 Equations~(B.78) through (B.82):
