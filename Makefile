@@ -11,4 +11,5 @@ all:
 
 clean:
 	rm -f $(BASENAME).{aux,bbl,blg,log,out,pdf}
+	rm -f fig/*-converted-to.*
 
