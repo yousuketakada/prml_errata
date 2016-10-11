@@ -1,15 +1,11 @@
-LATEX = pdflatex -interaction=nonstopmode -file-line-error
-BIBTEX = bibtex
+LATEXMK = latexmk -bibtex -pdf -latexoption="-interaction=nonstopmode -file-line-error"
 
 BASENAME = prml_errata
 
 all:
-	$(LATEX) $(BASENAME)
-	$(BIBTEX) $(BASENAME)
-	$(LATEX) $(BASENAME)
-	$(LATEX) $(BASENAME)
+	$(LATEXMK) $(BASENAME)
 
 clean:
-	rm -f $(BASENAME).{aux,bbl,blg,log,out,pdf}
-	rm -f fig/*-converted-to.*
+	$(LATEXMK) -C $(BASENAME)
+	rm -f ./fig/*-converted-to.*
 
