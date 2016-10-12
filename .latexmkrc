@@ -1,1 +1,1 @@
-$clean_full_ext = "brf"
+$clean_full_ext = "brf";
