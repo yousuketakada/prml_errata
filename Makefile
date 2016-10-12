@@ -1,4 +1,4 @@
-LATEXMK = latexmk -bibtex -pdf -latexoption="-interaction=nonstopmode -file-line-error"
+LATEXMK = latexmk -bibtex -pdf -interaction=nonstopmode -file-line-error
 
 BASENAME = prml_errata
 
