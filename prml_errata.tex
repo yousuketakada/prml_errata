@@ -2,14 +2,22 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{bm}
+\usepackage{newtxtext}
+\usepackage{textcomp}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{bm}
+\usepackage{microtype}
 \usepackage[margin=2cm]{geometry}
+\usepackage[font={sf,small},labelfont=bf,labelsep=quad]{caption}
+\usepackage{graphicx}
+\graphicspath{{./fig/}}
 \usepackage{natbib}
-\usepackage{hyperref}
-\usepackage{url}
+\usepackage[svgnames]{xcolor}
+\usepackage[backref=page,colorlinks,allcolors=MidnightBlue]{hyperref}
+
+%\renewcommand{\familydefault}{\sfdefault}
 
 \newcommand{\erratum}[1]{\subsubsection*{#1}}
 
@@ -135,7 +143,7 @@ The square of the determinant of the Jacobian matrix~(2.54) can then be evaluate
 \end{equation}
 
 \erratum{Page~81}
-Line~$-1$:
+Line~\textminus1:
 Since the Jacobian matrix~$\mathbf{J}$ is only assumed to be orthogonal here,
 the determinant of $\mathbf{J}$ can be either positive or negative so that
 we should write $\left| \mathbf{J} \right| = \pm 1$
@@ -323,7 +331,7 @@ Note that a similar result is obtained in Section~10.2.1 for a Bayesian mixture 
 in which we assume a Gaussian-Wishart prior for each Gaussian component.
 
 \erratum{Page~102}
-Line~$-2$:
+Line~\textminus2:
 ``Gamma'' should read ``gamma'' (without capitalization).
 
 \erratum{Page~104}
@@ -571,7 +579,7 @@ The right hand side should be a zero vector~$\mathbf{0}$.
 Equations~(10.6) and (10.7):
 In PRML, Equation~(10.6) will be later recognized as ``a negative Kullback-Leibler divergence
 between $q_j(\mathbf{Z}_j)$ and $\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$''
-(Page~465, Line~$-2$).
+(Page~465, Line~\textminus2).
 However, there is no point in taking the Kullback-Leibler divergence between two probability
 distributions over different sets of random variables; such a quantity is undefined.
 Moreover, the discussion here seems to be somewhat redundant.
@@ -617,7 +625,7 @@ The text before Equation~(10.8):
 The latent variable~$\mathbf{z}_i$ should read $\mathbf{Z}_i$.
 
 \erratum{Page~465}
-Line~$-1$:
+Line~\textminus1:
 If we adopt the representation~\eqref{eq:variational_optimization_of_lower_bound_wrt_q_j},
 the probability~$\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$ should read
 $q_j^{\star}\left(\mathbf{Z}_j\right)$.
@@ -732,7 +740,7 @@ The subscript~$k$ of the product~$\displaystyle\prod_{k} \dots$ should read $k \
 because we have already removed the term~$\tilde{f}_j(\bm{\theta}_j)$.
 
 \erratum{Page~554}
-Equation~(11.72), Line~$-2$:
+Equation~(11.72), Line~\textminus2:
 The expectation in the last line but one of (11.72) is taken over
 the probability~$p_{G}(\mathbf{z})$.
 This is probably better expressed in words, rather than the unclear notation like
@@ -783,7 +791,7 @@ Line~5:
 The eigendecomposition requires $O(D^3)$ computations (in the plural form).
 
 \erratum{Page~599}
-Exercise~12.1, Line~$-1$:
+Exercise~12.1, Line~\textminus1:
 The quantity~$\lambda_{M + 1}$ is an eigenvalue (not an eigenvector).
 
 \erratum{Page~602}
@@ -792,7 +800,7 @@ The latent space distribution should read
 $p(\mathbf{z}) = \mathcal{N}\left( \mathbf{z} \middle| \mathbf{0}, \mathbf{I}\right)$.
 
 \erratum{Page~610}
-The first paragraph, Line~$-5$:
+The first paragraph, Line~\textminus5:
 The text~``our predictions for $\mathbf{x}_{n + 1}$ depends on...'' should read:
 ``our predictions for $\mathbf{x}_{n + 1}$ depend on...'' (Remove s from the verb).
 
@@ -807,11 +815,11 @@ the notation~$p\left(\mathbf{x}_n \middle| z_{nk}\right)$ is used to denote
 the value of $p\left(\mathbf{x}_n \middle| \mathbf{z}_{n}\right)$ when $z_{nk} = 1$.
 
 \erratum{Page~622}
-The second paragraph, Line~$-1$:
+The second paragraph, Line~\textminus1:
 ``we see'' should be omitted.
 
 \erratum{Page~623}
-The first paragraph, Line~$-2$:
+The first paragraph, Line~\textminus2:
 $z_{nk}$ should read $z_{n - 1, k}$.
 
 \erratum{Page~631}
@@ -896,11 +904,11 @@ $\mathbf{V}_{0}^{\text{new}}$ should read $\mathbf{P}_{0}^{\text{new}}$.
 \citet{Svensen:PRML_errata} have failed to mention (13.111).
 
 \erratum{Page~643}
-Equation~(13.114): The size of the opening curly brace ``$\{$'' should match
-that of the closing curly brace ``$\}$.''
+Equation~(13.114): The size of the opening curly brace~``$\{$'' should match
+that of the closing curly brace~``$\}$.''
 
 \erratum{Page~647}
-Figure~13.23, Line~$-1$:
+Figure~13.23, Line~\textminus1:
 $p(\mathbf{x}_{n+1}|\mathbf{z}_{n+1}^{(l)})$ should read $p(\mathbf{x}_{n+1}|{z}_{n+1}^{(l)})$.
 
 \erratum{Page~649}
@@ -999,7 +1007,7 @@ Exercise~14.1, Line~1:
 ``of'' should be inserted after ``set.''
 
 \erratum{Page~686}
-Line~$-3$:
+Line~\textminus3:
 The comma in the first inline math should be removed so that the product should read:
 $m \times (m-1) \times \dots \times 2 \times 1$.
 
@@ -1147,7 +1155,7 @@ because it has been introduced in Section~2.3.6 without any proof for
 the normalization constant as well as other statistics.
 
 \erratum{Page~693}
-Line~$-1$: $b = 1/2W$ should read $b = 1/(2W)$ for clarity.
+Line~\textminus1: $b = 1/2W$ should read $b = 1/(2W)$ for clarity.
 
 \erratum{Page~696}
 Equation~(C.5):
@@ -1655,7 +1663,7 @@ It should also be noted that (C.27) is a special case of
 \eqref{eq:gradient_of_Tr_A_B_Atranspose_C}.
 
 \erratum{Page~700}
-The second paragraph, Line~$-1$:
+The second paragraph, Line~\textminus1:
 The determinant of the orthogonal matrix~$\mathbf{U}$ can be either positive or negative so that
 we should write $\operatorname{det}(\mathbf{U}) = \pm 1$, which is equivalent to
 $\left|\mathbf{U}\right| = 1$ if we adopt the notation~\eqref{eq:abs_of_matrix_determinant}.
@@ -1959,7 +1967,7 @@ a type of relaxation method such as the Gauss-Seidel method or the (weighted) Ja
 by a more efficient \emph{multigrid} technique~\citep{Press:NR,Briggs:MultigridTutorial}.
 
 \erratum{Page~716}
-Column~1, Entry~$-1$:
+Column~1, Entry~\textminus1:
 ``The Feynman Lectures of Physics'' should read ``The Feynman Lectures on Physics.''
 
 \erratum{Page~717}
