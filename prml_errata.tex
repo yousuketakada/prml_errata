@@ -9,22 +9,23 @@
 \usepackage{mathtools}
 \usepackage{bm}
 \usepackage{microtype}
+\usepackage[svgnames]{xcolor}
 \usepackage[margin=2cm]{geometry}
 \usepackage[font={sf,small},labelfont=bf,labelsep=quad]{caption}
 \usepackage{graphicx}
 \graphicspath{{./fig/}}
 \usepackage{natbib}
-\usepackage[svgnames]{xcolor}
 \usepackage[backref=page,colorlinks,allcolors=MidnightBlue]{hyperref}
 
 %\renewcommand{\familydefault}{\sfdefault}
 
+\newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
 \newcommand{\erratum}[1]{\subsubsection*{#1}}
 
 \begin{document}
 
 \title{More PRML Errata}
-\author{\href{mailto:yousuketakada@gmail.com}{Yousuke Takada}}
+\author{Yousuke Takada \\ \email{yousuketakada@gmail.com}}
 \date{\today}
 \maketitle
 
@@ -684,7 +685,7 @@ instead of $\frac{\mathrm{d}x}{\mathrm{d}x^2}$, to avoid ambiguity.
 \erratum{Page~501}
 The text after Equation~(10.162):
 We have that
-the variational parameter~$\lambda(\xi)$ is a monotonic function of $\xi$ for $\xi \ge 0$,
+the variational parameter~$\lambda(\xi)$ is a monotonic function of $\xi$ for $\xi \geqslant 0$,
 but not that its derivative~$\lambda'(\xi)$ is.
 
 \erratum{Page~503}
