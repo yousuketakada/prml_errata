@@ -48,7 +48,7 @@ $\operatorname{H}[X]$ instead of $\operatorname{H}[p]$.
 As suggested in the first paragraph on Page 703,
 if we see $\operatorname{H}[\cdot]$ as a functional,
 we could write $\operatorname{H}[p]$.
-However, it is better to maintain the notational consistency here.
+However, it is probably better to maintain the notational consistency here.
 
 \erratum{Page~56}
 Equation~(1.116):
@@ -68,26 +68,11 @@ f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
 \label{eq:Jensen_inequality_expectation_with_z}
 \end{equation}
 where $f(\cdot)$ is a convex function but $\xi(\cdot)$ can be any.
-Note that, if $f(\cdot)$ is strictly convex,
+Moreover, if $f(\cdot)$ is strictly convex,
 the equality in \eqref{eq:Jensen_inequality_expectation_with_z} holds if and only if
 $\xi(\cdot)$ is constant.
-At this moment, it is instructive to present here an intuitive, physical ``proof'' for
-Jensen's inequality~\citep{MacKay:Information}.
-Suppose that we have a set of point masses~$m_i = p(\mathbf{z}=\mathbf{z}_i)$ and place them
-at the corresponding locations~$(x, y) = \left(\xi(\mathbf{z}_i), f(\xi(\mathbf{z}_i))\right)$
-on the convex curve~$y = f(x)$.
-The center of gravity of those masses, which is $\left(
-\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
-\mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
-\right)$, must lie above the curve and thus right above the point~$\left(
-\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
-f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
-\right)$ on the curve, implying \eqref{eq:Jensen_inequality_expectation_with_z}.
-If $f(\cdot)$ is strictly convex,
-one can see that the equality~$
-f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
-= \mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
-$ implies that $\xi(\cdot)$ is constant (it is trivial to show that the converse is true).
+See Figure~\ref{fig:Jensen_inequality} for an intuitive, physical ``proof'' for
+Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}.
 Since the random variables~$\mathbf{z}$ as well as their probability~$p(\mathbf{z})$ can be chosen
 arbitrarily,
 it makes sense to write $\mathbf{z}$ implicit in \eqref{eq:Jensen_inequality_expectation_with_z},
@@ -110,6 +95,32 @@ identifying $f(\xi) = -\ln\xi$ and $\xi(\mathbf{x}) = q(\mathbf{x})/p(\mathbf{x}
 one can show that the Kullback-Leibler divergence~(1.113) satisfies
 $\operatorname{KL}\left( p \middle\| q \right) \geqslant 0$ with equality if and only if
 $p(\mathbf{x}) = q(\mathbf{x})$.
+
+
+\begin{figure}
+\centering
+\includegraphics{jensen_inequality.eps}
+\caption{A physical ``proof'' for
+Jensen's inequality \citep{MacKay:Information}.
+Suppose that we have a set of point masses~$m_i = p(\mathbf{z}=\mathbf{z}_i)$ and place them
+at corresponding locations~$(x, y) = \left(\xi(\mathbf{z}_i), f(\xi(\mathbf{z}_i))\right)$
+on a convex curve~$y = f(x)$.
+The center of gravity of those masses~$\left(
+\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
+\mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
+\right)$, denoted by a cross sign ($\boldsymbol{\times}$),
+must lie above the curve and thus right above the point~$\left(
+\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
+f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
+\right)$ on the curve, implying \eqref{eq:Jensen_inequality_expectation_with_z}.
+If $f(\cdot)$ is strictly convex,
+one can see that the equality~$
+f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
+= \mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
+$ implies that $\xi(\cdot)$ is constant (it is trivial to show that the converse is true).
+}
+\label{fig:Jensen_inequality}
+\end{figure}
 
 \erratum{Page~80}
 Equation~(2.52):
