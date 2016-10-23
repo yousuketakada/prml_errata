@@ -15,7 +15,7 @@ set terminal postscript eps enhanced defaultplex \
    dashlength 1.0 linewidth 1.0 butt noclip \
    nobackground \
    palfuncparam 2000,0.003 \
-   "Helvetica" 20  fontscale 1.0 
+   "Helvetica" 18  fontscale 1.0
 set output 'student_t_plots.eps'
 unset clip points
 set clip one
@@ -51,7 +51,7 @@ set raxis
 set style parallel front  lt black linewidth 2.000 dashtype solid
 set key title "" center
 set key inside right top vertical Right noreverse enhanced autotitle nobox
-set key noinvert samplen 4 spacing 1 width 0 height 0 
+set key noinvert samplen 2 spacing 1 width 0 height 0
 set key maxcolumns 0 maxrows 0
 set key noopaque
 unset label
@@ -83,7 +83,7 @@ set cntrparam order 4
 set cntrparam linear
 set cntrparam levels auto 5
 set cntrparam points 5
-set size ratio 0 0.6,0.6
+set size ratio 0 0.5,0.5
 set origin 0,0
 set style data points
 set style function lines
