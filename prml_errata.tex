@@ -481,6 +481,18 @@ but also guarantees that the Hessian~$\mathbf{H}$ is positive (semi)definite~\ci
 The \emph{Levenberg-Marquardt} method is a method that improves
 the numerical stability of (Gauss\nobreakdash-)Newton type iterations
 by correcting the Hessian matrix so as to be more diagonal dominant~\citep{Press:NR}.
+More specifically, if we denote the right hand side of (5.84) by $\mathbf{H}_{\text{GN}}$,
+the Levenberg-Marquardt approximation to the Hessian is given by
+\begin{equation}
+\mathbf{H}_{\text{LM}} = \mathbf{H}_{\text{GN}} + \lambda \mathbf{D}
+\end{equation}
+where $\lambda \geqslant 0$ is an adjustable damping factor and $\mathbf{D}$ is
+some positive (semi)definite matrix.
+The matrix~$\mathbf{D}$ typically takes the form $\mathbf{D} = \mathbf{I}$ or
+$\mathbf{D} = \operatorname{diag}(\mathbf{H}_{\text{GN}})$
+where we have defined that, for a square matrix~$\mathbf{A}$, $\operatorname{diag}(\mathbf{A})$ is
+a diagonal matrix obtained by setting the non-diagonal elements equal to zero so that
+$\operatorname{diag}(\mathbf{A}) = \operatorname{diag}(A_{ii})$.
 
 \erratum{Page~275}
 The text after Equation~(5.154):
