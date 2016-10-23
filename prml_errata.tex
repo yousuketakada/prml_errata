@@ -346,6 +346,21 @@ in which we assume a Gaussian-Wishart prior for each Gaussian component.
 Line~\textminus2:
 ``Gamma'' should read ``gamma'' (without capitalization).
 
+\erratum{Page~103}
+Figure~2.15: The tails of Student's t-distributions are too high
+(one can easily see that the distributions are not correctly normalized).
+Figure~\ref{fig:Student_t_densities} gives the correct plot.
+
+\begin{figure}
+\centering
+\includegraphics{student_t_plots.eps}
+\includegraphics{student_t_plots_log.eps}
+\caption{Plot of Student's t densities (left) and log densities (right)
+for various values of $\nu$ where we have fixed $\mu = 0$ and $\lambda = 1$
+}
+\label{fig:Student_t_densities}
+\end{figure}
+
 \erratum{Page~104}
 The text after Equation~(2.160):
 The Gaussian~$\mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{\Lambda}\right)$
