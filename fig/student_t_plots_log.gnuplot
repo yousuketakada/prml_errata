@@ -15,7 +15,7 @@ set terminal postscript eps enhanced defaultplex \
    dashlength 1.0 linewidth 1.0 butt noclip \
    nobackground \
    palfuncparam 2000,0.003 \
-   "Helvetica" 18  fontscale 1.0
+   "Helvetica" 20  fontscale 1.0
 set output 'student_t_plots_log.eps'
 unset clip points
 set clip one
@@ -50,9 +50,10 @@ set grid layerdefault   linecolor rgb "gray"  linewidth 1.000 dashtype solid,  l
 set raxis
 set style parallel front  lt black linewidth 2.000 dashtype solid
 set key title "" center
-set key inside right top vertical Right noreverse enhanced autotitle nobox
-set key noinvert samplen 2 spacing 1 width 0 height 0
+set key inside right top vertical Left reverse enhanced autotitle nobox
+set key noinvert samplen -1 spacing 1 width -1 height 0
 set key maxcolumns 0 maxrows 0
+set key textcolor variable
 set key noopaque
 unset label
 unset arrow
@@ -83,7 +84,7 @@ set cntrparam order 4
 set cntrparam linear
 set cntrparam levels auto 5
 set cntrparam points 5
-set size ratio 0 0.5,0.5
+set size ratio 0 0.6,0.6
 set origin 0,0
 set style data points
 set style function lines
@@ -182,5 +183,5 @@ logSt(x, mu, sigma, nu) = lgamma(0.5*(nu + 1)) - lgamma(0.5*nu) - 0.5*log(pi*nu*
 GNUTERM = "x11"
 GPFUN_logN = "logN(x, mu, sigma) = -0.5*log(2.0*pi*sigma**2) - (x - mu)**2/(2.0*sigma**2)"
 GPFUN_logSt = "logSt(x, mu, sigma, nu) = lgamma(0.5*(nu + 1)) - lgamma(0.5*nu) - 0.5*log(pi*nu*sigma**2) - 0.5*(nu + 1)*log(1 + (x - mu)**2/(nu*sigma**2))"
-plot [-15:15][-10:0] logN(x, 0, 1) title "{/Symbol \245}", logSt(x, 0, 1, 1) title "1", logSt(x, 0, 1, 0.1) title "0.1"
+plot [-15:15][-10:0] logN(x, 0, 1) title "{/Symbol n} {/Symbol \256} {/Symbol \245}", logSt(x, 0, 1, 1) title "{/Symbol n} = 1", logSt(x, 0, 1, 0.1) title "{/Symbol n} = 0.1"
 #    EOF
