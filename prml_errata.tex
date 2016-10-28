@@ -493,23 +493,25 @@ $\lambda_{1}^{-1/2}\mathbf{u}_{1}$ and $\lambda_{2}^{-1/2}\mathbf{u}_{2}$.
 
 \erratum{Page~251}
 The second paragraph:
-The approximation of the form~(5.84) is usually referred to as
-the \emph{Gauss-Newton} approximation,
+The outer product approximation to the Hessian of the form~(5.84) is usually referred to as
+the \emph{Gauss-Newton} approximation~\citep{Press:NR},
 which not only eliminates the computation of second derivatives
-but also guarantees that the Hessian~$\mathbf{H}$ is positive (semi)definite~\citep{Press:NR}.
-The \emph{Levenberg-Marquardt} method is a method that improves
+but also guarantees that the Hessian thus approximated is positive (semi)definite,
+whereas the \emph{Levenberg-Marquardt} method~\citep{Press:NR} is a method that improves
 the numerical stability of (Gauss\nobreakdash-)Newton type iterations
-by correcting the Hessian matrix so as to be more diagonal dominant~\citep{Press:NR}.
-In order to be specific, let us denote the right hand side of (5.84) by $\mathbf{H}_{\text{GN}}$.
-The Gauss-Newton approximation~$\mathbf{H}_{\text{GN}}$ to the Hessian
-can also be written as
+by correcting the Hessian matrix so as to be more diagonal dominant.
+Let us now compare the two types of approximation to the Hessian, i.e.,
+Gauss-Newton and Levenberg-Marquardt, more specifically in the following.
+We first observe that the Gauss-Newton approximation to the Hessian
+given in the right hand side of (5.84)
+can be written succinctly in terms of matrix product as
 \begin{equation}
 \mathbf{H}_{\text{GN}} = \mathbf{J}^{\operatorname{T}}\mathbf{J}
 \end{equation}
-where $\mathbf{J} = \left( \nabla y_1, \dots, \nabla y_N \right)^{\operatorname{T}}$ is
-the Jacobian matrix of the outputs~$y_1, \dots, y_N$ with respect to the parameters
-(i.e., weights and biases).
-The Levenberg-Marquardt method typically corrects the above approximate Hessian into the form
+where $\mathbf{J} = \left( \nabla a_1, \dots, \nabla a_N \right)^{\operatorname{T}}$ is
+the Jacobian of the activations~$a_1, \dots, a_N$ with respect to the parameters
+(weights and biases).
+The Levenberg-Marquardt approximation to the above Hessian typically takes the form
 \begin{equation}
 \mathbf{H}_{\text{LM}} = \mathbf{J}^{\operatorname{T}}\mathbf{J} + \lambda \mathbf{I}
 \end{equation}
@@ -519,8 +521,8 @@ or
 + \lambda \operatorname{diag}\left( \mathbf{J}^{\operatorname{T}}\mathbf{J} \right)
 \end{equation}
 where we have introduced an adjustable damping factor~$\lambda \geqslant 0$
-(which is adjusted through the iterations) and defined that,
-for a square matrix~$\mathbf{A}$, $\operatorname{diag}(\mathbf{A})$ is
+(which will be adjusted through the iterations) and defined that,
+for a square matrix~$\mathbf{A} = (A_{ij})$, $\operatorname{diag}(\mathbf{A})$ is
 a diagonal matrix obtained by setting the non-diagonal elements equal to zero so that
 $\operatorname{diag}(\mathbf{A}) = \operatorname{diag}(A_{ii})$.
 
