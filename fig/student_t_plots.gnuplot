@@ -10,13 +10,8 @@
 #    	gnuplot home:     http://www.gnuplot.info
 #    	faq, bugs, etc:   type "help FAQ"
 #    	immediate help:   type "help"  (plot window: hit 'h')
-set terminal postscript eps enhanced defaultplex \
-   leveldefault color colortext \
-   dashlength 1.0 linewidth 1.0 butt noclip \
-   nobackground \
-   palfuncparam 2000,0.003 \
-   "Helvetica" 20  fontscale 1.0
-set output 'student_t_plots.eps'
+set terminal cairolatex pdf color colortext linewidth 3
+set output 'student_t_plots.tex'
 unset clip points
 set clip one
 unset clip two
@@ -51,7 +46,7 @@ set raxis
 set style parallel front  lt black linewidth 2.000 dashtype solid
 set key title "" center
 set key inside right top vertical Left reverse enhanced autotitle nobox
-set key noinvert samplen -1 spacing 1 width -1 height 0
+set key noinvert samplen -1 spacing 1.2 width 1 height 1
 set key maxcolumns 0 maxrows 0
 set key textcolor variable
 set key noopaque
@@ -84,7 +79,7 @@ set cntrparam order 4
 set cntrparam linear
 set cntrparam levels auto 5
 set cntrparam points 5
-set size ratio 0 0.6,0.6
+set size ratio 0 0.65,0.7
 set origin 0,0
 set style data points
 set style function lines
@@ -104,6 +99,7 @@ set mcbtics default
 set mrtics default
 set xtics border in scale 1,0.5 mirror norotate  autojustify
 set xtics  (-5, -4, -2, 0, 2, 4, 5)
+#set xtics  norangelimit 2.5
 set ytics border in scale 1,0.5 mirror norotate  autojustify
 set ytics  norangelimit 0.1
 set ztics border in scale 1,0.5 nomirror norotate  autojustify
@@ -173,9 +169,9 @@ set loadpath
 set fontpath 
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
-set linetype 1 lc rgb "green" lw 4
-set linetype 2 lc rgb "blue" lw 4
-set linetype 3 lc rgb "red" lw 4
+set linetype 1 lc rgb "green" lw 2
+set linetype 2 lc rgb "blue" lw 2
+set linetype 3 lc rgb "red" lw 2
 set linetype 10 lc rgb "gray"
 set grid ls 10
 logN(x, mu, sigma) = -0.5*log(2.0*pi*sigma**2) - (x - mu)**2/(2.0*sigma**2)
@@ -183,5 +179,5 @@ logSt(x, mu, sigma, nu) = lgamma(0.5*(nu + 1)) - lgamma(0.5*nu) - 0.5*log(pi*nu*
 GNUTERM = "x11"
 GPFUN_logN = "logN(x, mu, sigma) = -0.5*log(2.0*pi*sigma**2) - (x - mu)**2/(2.0*sigma**2)"
 GPFUN_logSt = "logSt(x, mu, sigma, nu) = lgamma(0.5*(nu + 1)) - lgamma(0.5*nu) - 0.5*log(pi*nu*sigma**2) - 0.5*(nu + 1)*log(1 + (x - mu)**2/(nu*sigma**2))"
-plot [-5:5][0:0.415] exp(logN(x, 0, 1)) title "{/Symbol n} {/Symbol \256} {/Symbol \245}", exp(logSt(x, 0, 1, 1)) title "{/Symbol n} = 1", exp(logSt(x, 0, 1, 0.1)) title "{/Symbol n} = 0.1"
+plot [-5:5][0:0.415] exp(logN(x, 0, 1)) title '$\nu \to \infty$', exp(logSt(x, 0, 1, 1)) title '$\nu = 1$', exp(logSt(x, 0, 1, 0.1)) title '$\nu = 0.1$'
 #    EOF
