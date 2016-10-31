@@ -39,7 +39,7 @@ set timefmt "%d/%m/%y,%H:%M"
 set angles radians
 set tics back
 set grid nopolar
-set grid xtics nomxtics ytics nomytics noztics nomztics \
+set grid xtics mxtics ytics nomytics noztics nomztics \
  nox2tics nomx2tics noy2tics nomy2tics nocbtics nomcbtics
 set grid layerdefault   linecolor rgb "gray"  linewidth 1.000 dashtype solid,  linecolor rgb "gray"  linewidth 1.000 dashtype solid
 set raxis
@@ -90,7 +90,7 @@ unset x2zeroaxis
 unset y2zeroaxis
 set xyplane relative 0.5
 set tics scale  1, 0.5, 1, 1, 1
-set mxtics default
+set mxtics 5
 set mytics default
 set mztics default
 set mx2tics default
@@ -98,8 +98,7 @@ set my2tics default
 set mcbtics default
 set mrtics default
 set xtics border in scale 1,0.5 mirror norotate  autojustify
-set xtics  (-5, -4, -2, 0, 2, 4, 5)
-#set xtics  norangelimit 2.5
+set xtics  norangelimit 5
 set ytics border in scale 1,0.5 mirror norotate  autojustify
 set ytics  norangelimit 0.1
 set ztics border in scale 1,0.5 nomirror norotate  autojustify
@@ -179,5 +178,5 @@ logSt(x, mu, sigma, nu) = lgamma(0.5*(nu + 1)) - lgamma(0.5*nu) - 0.5*log(pi*nu*
 GNUTERM = "x11"
 GPFUN_logN = "logN(x, mu, sigma) = -0.5*log(2.0*pi*sigma**2) - (x - mu)**2/(2.0*sigma**2)"
 GPFUN_logSt = "logSt(x, mu, sigma, nu) = lgamma(0.5*(nu + 1)) - lgamma(0.5*nu) - 0.5*log(pi*nu*sigma**2) - 0.5*(nu + 1)*log(1 + (x - mu)**2/(nu*sigma**2))"
-plot [-5:5][0:0.415] exp(logN(x, 0, 1)) title '$\nu \to \infty$', exp(logSt(x, 0, 1, 1)) title '$\nu = 1$', exp(logSt(x, 0, 1, 0.1)) title '$\nu = 0.1$'
+plot [-5:5][0:0.42] exp(logN(x, 0, 1)) title '$\nu \to \infty$', exp(logSt(x, 0, 1, 1)) title '$\nu = 1$', exp(logSt(x, 0, 1, 0.1)) title '$\nu = 0.1$'
 #    EOF
