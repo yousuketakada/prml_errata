@@ -1,6 +1,6 @@
 {
   "name": "More PRML Errata",
-  "tagline": "Some more errata and additional comments for PRML I would have found helpful",
+  "tagline": "Some more errata and additional comments for PRML I would have found helpful when I first read it",
   "body": "More PRML Errata\r\n================\r\n\r\nThis [report](prml_errata.pdf) communicates some more errata for PRML (Bishop, 2006).\r\n\r\nReference\r\n---------\r\n\r\nBishop, C. M. (2006). Pattern Recognition and Machine Learning. Springer.\r\n\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
