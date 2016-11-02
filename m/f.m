@@ -1,25 +1,30 @@
-## Copyright N/A
-##
-## f.m - an Octave function
-##
-## Written in 2016 by Yousuke Takada <yousuketakada@gmail.com>.
-##
-## To the extent possible under law, the author(s) have dedicated all copyright
-## and related and neighboring rights to this software to the public domain
-## worldwide. This software is distributed without any warranty.
-##
-## You should have received a copy of the CC0 Public Domain Dedication along
-## with this software. If not, see
-## <http://creativecommons.org/publicdomain/zero/1.0/>.
+## Author: Yousuke Takada <yousuketakada@gmail.com>
+## This program is granted to the public domain.
 
-## Usage: y = f(x)
+## -*- texinfo -*-
+## @deftypefn {Function File} {@var{y} =} f (@var{x})
+## Multiply @var{x} by a factor of 2.
 ##
-## Multiplies x by two.
+## This is an Octave function.
 ##
-## Examples:
-##   f(1)
-##   f(eye(3))
+## @example
+## @group
+## f(5)
+##   @result{} 10
+## @end group
+## @group
+## f(eye(3))
+##   @result{} 2*eye(3)
+## @end group
+## @end example
+##
+## @seealso{lgamma, polygamma}
+## @end deftypefn
 
-function y = f(x)
+function y = f (x)
+  if (nargin != 1)
+    print_usage;
+  endif
+
   y = 2*x;
 endfunction
