@@ -1154,7 +1154,17 @@ B\left(\mathbf{W}, \nu\right) \left|\bm{\Lambda}\right|^{(\nu - D - 1)/2}
   2^{\nu D/2} \Gamma_D \left(\frac{\nu}{2}\right) \left|\mathbf{W}\right|^{\nu/2}
 }
 \end{align}
-where we have used the multivariate gamma function~\citep{NIST:DLMF} given by
+where we have used the multivariate gamma function~\citep{NIST:DLMF}
+given by\footnote{The multivariate gamma function is defined as
+\begin{equation}
+\Gamma_D (a) \equiv \int_{\mathbf{X} \succ 0}
+\left|\mathbf{X}\right|^{a - (D + 1)/2} \exp(-\operatorname{Tr}(\mathbf{X}))
+\,\mathrm{d}\mathbf{X}
+\label{eq:multivariate_gamma_definition}
+\end{equation}
+where the integration is taken over the space of symmetric positive-definite matrices.
+One can see that \eqref{eq:multivariate_gamma_definition} reduces to
+the (univariate) gamma function~(1.141) when $D=1$.}
 \begin{equation}
 \Gamma_D \left(\frac{\nu}{2}\right) =
 \pi^{D(D - 1)/4} \prod_{i=1}^{D} \Gamma\left(\frac{\nu + 1 - i}{2}\right)
