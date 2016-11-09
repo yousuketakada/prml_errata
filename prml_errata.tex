@@ -1734,21 +1734,21 @@ where we have used the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|
 
 \erratum{Page~698}
 Equations~(C.24), (C.25), (C.26), (C.27), and (C.28):
-Since these derivatives are gradients, the operator~$\frac{\partial}{\partial \mathbf{A}}$ should
-read $\nabla_{\mathbf{A}}$ if we adopt the notation~\eqref{eq:gradient_of_scalar_wrt_matrix}
-for the gradient of a scalar with respect to a matrix.
+Since these derivatives are gradients of a scalar with respect to a matrix~$\mathbf{A}$,
+the operator~$\frac{\partial}{\partial \mathbf{A}}$ should
+read $\nabla_{\mathbf{A}}$ if we adopt the notation~\eqref{eq:gradient_of_scalar_wrt_matrix}.
 For example, (C.28) should read
 \begin{equation}
 \nabla_{\mathbf{A}} \ln \left| \mathbf{A} \right| = \mathbf{A}^{-\operatorname{T}}
 \end{equation}
-where we have used (C.4) and written
+where we have used (C.4) and defined
 \begin{equation}
+\mathbf{A}^{-\operatorname{T}} \equiv
 \left( \mathbf{A}^{-1}\right )^{\operatorname{T}} =
-\left( \mathbf{A}^{\operatorname{T}}\right )^{-1} \equiv
-\mathbf{A}^{-\operatorname{T}} .
+\left( \mathbf{A}^{\operatorname{T}}\right )^{-1} .
 \end{equation}
-In addition to these identities regarding gradients with respect to a matrix,
-I would suggest to include two more identities
+In addition to the above mentioned identities,
+I would suggest to include the following
 \begin{align}
 \nabla_{\mathbf{A}} \operatorname{Tr}\left(
 \mathbf{A}\mathbf{B}\mathbf{A}^{\operatorname{T}}\mathbf{C} \right) &=
@@ -1759,7 +1759,7 @@ I would suggest to include two more identities
 - \mathbf{A}^{-\operatorname{T}} \mathbf{B}^{\operatorname{T}} \mathbf{A}^{-\operatorname{T}}.
 \label{eq:gradient_of_Tr_Ainverse_B}
 \end{align}
-We use the above identities~\eqref{eq:gradient_of_Tr_A_B_Atranspose_C} and
+We use the identities~\eqref{eq:gradient_of_Tr_A_B_Atranspose_C} and
 \eqref{eq:gradient_of_Tr_Ainverse_B}, e.g.,
 when we show (13.113) in Exercise~13.33 and (2.122) in Exercise~2.34, respectively.
 It should also be noted that (C.27) is a special case of
