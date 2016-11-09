@@ -247,12 +247,16 @@ the observations given by
 \begin{equation}
 \bm{\Sigma}_{\text{ML}} = \frac{1}{N} \sum_{n=1}^{N}\mathbf{x}_n\mathbf{x}_n^{\operatorname{T}} .
 \end{equation}
-This suggests an interpretation of $\mathbf{W}$ in terms of
-$\bm{\Sigma} \equiv \left(\nu\mathbf{W}\right)^{-1}$.
-More specifically, we can interpret $\bm{\Sigma}_0 \equiv \left(\nu_0\mathbf{W}_0\right)^{-1}$ as
+This suggests an interpretation of $\mathbf{W}$ in terms of the ``covariance'' parameter
+\begin{equation}
+\bm{\Sigma} \equiv \left(\nu\mathbf{W}\right)^{-1} .
+\label{eq:covariance_parameter}
+\end{equation}
+More specifically, we can interpret $\bm{\Sigma}_0 = \left(\nu_0\mathbf{W}_0\right)^{-1}$ as
 the covariance of the $\nu_0$ ``effective'' prior observations.
 Note that this interpretation is in accordance with another observation that
-the expectation of $\bm{\Lambda}$ taken over the prior~\eqref{eq:wishart_prior} is indeed given by
+the expectation of $\bm{\Lambda}$ with respect to
+the prior~\eqref{eq:wishart_prior} is indeed given by
 $\mathbb{E}\left[\bm{\Lambda}\right] = \nu_0\mathbf{W}_0 = \bm{\Sigma}_0^{-1}$
 where we have used (B.80).
 
@@ -1155,16 +1159,17 @@ B\left(\mathbf{W}, \nu\right) \left|\bm{\Lambda}\right|^{(\nu - D - 1)/2}
 }
 \end{align}
 where we have used the multivariate gamma function~\citep{NIST:DLMF}
-given by\footnote{The multivariate gamma function is defined as
+given by\footnote{The multivariate gamma function~$\Gamma_D (\cdot)$ is defined by
 \begin{equation}
 \Gamma_D (a) \equiv \int_{\mathbf{X} \succ 0}
 \left|\mathbf{X}\right|^{a - (D + 1)/2} \exp(-\operatorname{Tr}(\mathbf{X}))
 \,\mathrm{d}\mathbf{X}
 \label{eq:multivariate_gamma_definition}
 \end{equation}
-where the integration is taken over the space of symmetric positive-definite matrices.
-One can see that \eqref{eq:multivariate_gamma_definition} reduces to
-the (univariate) gamma function~(1.141) when $D=1$.}
+where the integration is taken over the space of symmetric positive-definite matrices
+\citep{NIST:DLMF}.
+One can see that, when $D=1$, the multivariate gamma function~$\Gamma_D (\cdot)$ reduces to
+the (univariate) gamma function~$\Gamma(\cdot)$ defined by (1.141).}
 \begin{equation}
 \Gamma_D \left(\frac{\nu}{2}\right) =
 \pi^{D(D - 1)/4} \prod_{i=1}^{D} \Gamma\left(\frac{\nu + 1 - i}{2}\right)
@@ -1191,7 +1196,10 @@ p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
 \right]^{-(\nu + 1)/2}
 \end{equation}
 where we have used~\eqref{eq:multivariate_gamma_function} and (C.15).
-Thus, we have
+Thus, we see that the marginal distribution of
+the form~\eqref{eq:multivariate_t_marginalized_over_precision}
+is indeed a multivariate Student's t-distribution of the form~(B.68) or (2.162) and
+they are related by
 \begin{equation}
 p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
 =
@@ -1200,19 +1208,48 @@ p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
   (\nu + 1 - D) \mathbf{W},
   \nu + 1 - D
 \right) .
+\label{eq:wishart_marginal_and_multivariate_t}
 \end{equation}
-One can show that,
-if we use an isotropic scale matrix~$\mathbf{W} = W\mathbf{I}$, which is common in practice,
-the resulting multivariate Student's t-distribution is also isotropic and,
-up to some reparameterization,
-the same marginal distribution can also be obtained by marginalizing over
-a gamma (one-dimensional Wishart) distribution as
+
+Having observed that the two marginal
+distributions~(2.161) and \eqref{eq:multivariate_t_marginalized_over_precision},
+involving marginalization over $\eta$ and $\bm{\Lambda}$, respectively, both result in
+the same multivariate Student's t-distribution (with some reparameterization),
+one might ask which is better than the other.
+I would argue that fewer latent variables are always better than more if the resulting model
+is the same, i.e., (2.161) is better than \eqref{eq:multivariate_t_marginalized_over_precision},
+because fewer latent variables mean less computational complexity and
+a tighter bound on the (marginal) likelihood
+when we employ the EM algorithm (see Chapter~9) or variational methods (see Chapter~10).
+
+It is also worth noting here that,
+if we adopt an isotropic scale matrix~$\mathbf{W} = \widetilde{W}\mathbf{I}$ where
+$\widetilde{W} > 0$,
+which is common in practice,
+the resulting multivariate Student's t-distribution~\eqref{eq:wishart_marginal_and_multivariate_t}
+is again isotropic and the same marginal distribution can be obtained by marginalizing over
+a univariate Wishart (gamma) prior, i.e.,
 \begin{equation}
 \int \mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \lambda^{-1}\mathbf{I}\right)
-\mathcal{W}\left(\lambda\middle|W, \nu\right) \mathrm{d}\lambda
-= \operatorname{St}\left(\mathbf{x} \middle| \bm{\mu}, \nu W \mathbf{I}, \nu \right)
+\mathcal{W}\left(\lambda\middle|\widetilde{W}, \widetilde{\nu}\right) \mathrm{d}\lambda
+= \operatorname{St}\left(\mathbf{x} \middle|
+\bm{\mu}, \widetilde{\nu} \widetilde{W} \mathbf{I}, \widetilde{\nu} \right)
 \end{equation}
-where $W > 0$ and $\nu > 0$.
+where $\widetilde{\nu} = \nu + 1 - D > 0$.
+Let $\widetilde{\sigma}^{2} = \left(\widetilde{\nu}\widetilde{W}\right)^{-1}$ be
+the ``covariance'' parameter~\eqref{eq:covariance_parameter} of the univariate Wishart
+prior~$\mathcal{W}\left(\lambda\middle|\widetilde{W}, \widetilde{\nu}\right)$.
+The ``covariance'' parameter of the corresponding multivariate Wishart
+prior~$\mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}, \nu\right)$ is \emph{not} equal to
+$\widetilde{\sigma}^{2} \mathbf{I}$ but given by downscaling it by a factor of
+$\widetilde{\nu}/(\widetilde{\nu} - 1 + D)$ so that
+\begin{equation}
+\bm{\Sigma} = \left(\nu\mathbf{W}\right)^{-1} =
+\frac{\widetilde{\nu}}{\widetilde{\nu} - 1 + D} \widetilde{\sigma}^{2} \mathbf{I}
+\end{equation}
+which implies
+$\bm{\Sigma} = \left(\widetilde{\sigma}^{2} / D\right)\mathbf{I}$ for $\widetilde{\nu} = 1$ and
+$\bm{\Sigma} \to \widetilde{\sigma}^{2}\mathbf{I}$ for $\widetilde{\nu} \to \infty$.
 
 \erratum{Page~693}
 Equations~(B.78) through (B.82):
