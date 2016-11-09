@@ -638,12 +638,12 @@ The right hand side should be a zero vector~$\mathbf{0}$.
 \erratum{Page~465}
 Equations~(10.6) and (10.7):
 In PRML, Equation~(10.6) will be later recognized as ``a negative Kullback-Leibler divergence
-between $q_j(\mathbf{Z}_j)$ and $\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$''
+between $q_j(\mathbf{Z}_j)$ and $\widetilde{p}(\mathbf{X}, \mathbf{Z}_j)$''
 (Page~465, Line~\textminus2).
 However, there is no point in taking the Kullback-Leibler divergence between two probability
 distributions over different sets of random variables; such a quantity is undefined.
 Moreover, the discussion here seems to be somewhat redundant.
-Without introducing an intermediate quantity like $\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$,
+Without introducing an intermediate quantity like $\widetilde{p}(\mathbf{X}, \mathbf{Z}_j)$,
 we can rewrite (10.6) and (10.7) directly in terms of $q_j^{\star}(\mathbf{Z}_j)$.
 Specifically,
 writing down the terms dependent on one of the factors~$q_j\left(\mathbf{Z}_j\right)$,
@@ -687,12 +687,12 @@ The latent variable~$\mathbf{z}_i$ should read $\mathbf{Z}_i$.
 \erratum{Page~465}
 Line~\textminus1:
 If we adopt the representation~\eqref{eq:variational_optimization_of_lower_bound_wrt_q_j},
-the probability~$\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$ should read
+the probability~$\widetilde{p}(\mathbf{X}, \mathbf{Z}_j)$ should read
 $q_j^{\star}\left(\mathbf{Z}_j\right)$.
 
 \erratum{Page~466}
 Line~1:
-Again, $\tilde{p}(\mathbf{X}, \mathbf{Z}_j)$ should read
+Again, $\widetilde{p}(\mathbf{X}, \mathbf{Z}_j)$ should read
 $q_j^{\star}\left(\mathbf{Z}_j\right)$.
 The sentence~``Thus we obtain...'' should read, e.g.,
 ``Thus we see that we have already obtained a general expression for the optimal solution in
@@ -797,7 +797,7 @@ The new distribution~$q^{\text{new}}(\mathbf{z})$ should read $q^{\text{new}}(\m
 \erratum{Page~516}
 Equation~(10.240):
 The subscript~$k$ of the product~$\displaystyle\prod_{k} \dots$ should read $k \neq j$
-because we have already removed the term~$\tilde{f}_j(\bm{\theta}_j)$.
+because we have already removed the term~$\widetilde{f}_j(\bm{\theta}_j)$.
 
 \erratum{Page~554}
 Equation~(11.72), Line~\textminus2:
@@ -1092,21 +1092,21 @@ When we identify the functional form of a multinomial distribution, e.g.,
 in the posterior distribution~\eqref{eq:posterior_of_Gaussian_mixture} for
 the Gaussian mixture model~\eqref{eq:joint_distribution_of_Gaussian_mixture} of Section~9.2,
 it is helpful to know that the distribution can also be expressed
-in terms of unnormalized probabilities~$\tilde{\mu}_k \geqslant 0$, i.e.,
+in terms of unnormalized probabilities~$\widetilde{\mu}_k \geqslant 0$, i.e.,
 \begin{equation}
-\operatorname{Mult}\left(\mathbf{x}\middle|\tilde{\bm{\mu}}\right) =
-  C(\tilde{\bm{\mu}}) \prod_{k=1}^{K} {\tilde{\mu}_k}^{x_k}
+\operatorname{Mult}\left(\mathbf{x}\middle|\widetilde{\bm{\mu}}\right) =
+  C(\widetilde{\bm{\mu}}) \prod_{k=1}^{K} \widetilde{\mu}_{k}^{x_k}
 \end{equation}
 so that
 \begin{equation}
-\ln\operatorname{Mult}\left(\mathbf{x}\middle|\tilde{\bm{\mu}}\right) =
-  \sum_{k=1}^{K} {x_k}\ln{\tilde{\mu}_k} + \text{const}
+\ln\operatorname{Mult}\left(\mathbf{x}\middle|\widetilde{\bm{\mu}}\right) =
+  \sum_{k=1}^{K} {x_k}\ln{\widetilde{\mu}_k} + \text{const}
 \end{equation}
 where the normalization constant is given by
-${C(\tilde{\bm{\mu}})}^{-1} = \sum_{k} \tilde{\mu}_k$
+${C(\widetilde{\bm{\mu}})}^{-1} = \sum_{k} \widetilde{\mu}_k$
 so that the normalized probabilities can be found as
 \begin{equation}
-\mu_k = p(x_k = 1) = \frac{\tilde{\mu}_k}{\sum_{j} \tilde{\mu}_j} .
+\mu_k = p(x_k = 1) = \frac{\widetilde{\mu}_k}{\sum_{j} \widetilde{\mu}_j} .
 \end{equation}
 
 \erratum{Page~692}
