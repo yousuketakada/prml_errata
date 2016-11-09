@@ -1773,20 +1773,22 @@ $\left|\mathbf{U}\right| = 1$ if we adopt the notation~\eqref{eq:abs_of_matrix_d
 Although it is possible to take $\mathbf{U}$ such that $\operatorname{det}(\mathbf{U}) = 1$
 (one can flip the sign of $\operatorname{det}(\mathbf{U})$ by, say, flipping the sign of
 any one of the eigenvectors~$\left\{\mathbf{u}_i\right\}$),
-there is no point in doing so in practice theoretically nor numerically and, in fact,
+there is no point in doing so in practice theoretically nor numerically. In fact,
 most software implementations of eigenvalue decomposition only guarantee that $\mathbf{U}$ is
 orthogonal, i.e., $\operatorname{det}(\mathbf{U}) = \pm 1$.
-It is worth noting here that,
-in a special case of $\mathbf{A}$ being positive semidefinite or $\mathbf{A} \succeq 0$,
+In a special case of $\mathbf{A}$ being symmetric positive (semi)definite or
+$\mathbf{A} \succeq 0$,
 we can identify the eigenvalue decomposition~(C.43) with
 the \emph{singular value decomposition} or SVD~\citep{Press:NR,GvL:MC}
 \begin{equation}
 \mathbf{A} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}
 \end{equation}
-where $\mathbf{U} = \mathbf{V}$ and thus
+where we have $\mathbf{U} = \mathbf{V}$ and also identify
 the eigenvalues~$\left\{\lambda_i\right\}$ with the singular values~$\left\{\sigma_i\right\}$
-where $\sigma_1 \geqslant \dots \geqslant \sigma_M \geqslant 0$
 so that we can use an SVD routine for eigenvalue decomposition.
+Note that the singular values are usually arranged in descending order
+in the diagonal matrix~$\bm{\Sigma} = \operatorname{diag}\left(\sigma_i\right)$
+so that $\sigma_1 \geqslant \sigma_2 \geqslant \dots \geqslant 0$.
 
 \erratum{Page~700}
 The text following (C.41):
