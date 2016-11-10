@@ -1198,7 +1198,7 @@ p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
 where we have used~\eqref{eq:multivariate_gamma_function} and (C.15).
 Thus, we see that the marginal distribution of
 the form~\eqref{eq:multivariate_t_marginalized_over_precision}
-is indeed a multivariate Student's t-distribution of the form~(B.68) or (2.162) and
+is equivalent to the multivariate Student's t-distribution of the form~(B.68) or (2.162);
 they are related by
 \begin{equation}
 p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
@@ -1214,21 +1214,26 @@ p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
 Having observed that the two marginal
 distributions~(2.161) and \eqref{eq:multivariate_t_marginalized_over_precision},
 involving marginalization over $\eta$ and $\bm{\Lambda}$, respectively, both result in
-the same multivariate Student's t-distribution (with some reparameterization),
-one might ask which is better than the other.
-I would argue that fewer latent variables are always better than more if the resulting model
-is the same, i.e., (2.161) is better than \eqref{eq:multivariate_t_marginalized_over_precision},
-because fewer latent variables mean less computational complexity and
-a tighter bound on the (marginal) likelihood
-when we employ the EM algorithm (see Chapter~9) or variational methods (see Chapter~10).
+an equivalent multivariate Student's t-distribution,
+we now have a natural question:
+Which marginal form is better than the other?
+To answer this, I would argue that,
+if the marginalized models obtained by marginalizing out the latent variables are identical,
+a model with fewer latent variables is always better than a model with more latent variables
+because fewer latent variables imply less computational space and complexity as well as
+a tighter bound on the (marginal) likelihood and thus faster convergence
+when we optimize the model parameters by means of the EM algorithm (see Chapter~9) or
+variational methods (Chapter~10).
+Therefore, we conclude that (2.161) is better than
+\eqref{eq:multivariate_t_marginalized_over_precision}.
 
 It is also worth noting here that,
-if we adopt an isotropic scale matrix~$\mathbf{W} = \widetilde{W}\mathbf{I}$ where
+if the scale matrix is isotropic so that $\mathbf{W} = \widetilde{W}\mathbf{I}$ where
 $\widetilde{W} > 0$,
 which is common in practice,
 the resulting multivariate Student's t-distribution~\eqref{eq:wishart_marginal_and_multivariate_t}
-is again isotropic and the same marginal distribution can be obtained by marginalizing over
-a univariate Wishart (gamma) prior, i.e.,
+is again isotropic. The same marginal distribution can also be obtained by marginalizing over
+a univariate Wishart (gamma) prior so that
 \begin{equation}
 \int \mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \lambda^{-1}\mathbf{I}\right)
 \mathcal{W}\left(\lambda\middle|\widetilde{W}, \widetilde{\nu}\right) \mathrm{d}\lambda
@@ -1239,15 +1244,16 @@ where $\widetilde{\nu} = \nu + 1 - D > 0$.
 Let $\widetilde{\sigma}^{2} = \left(\widetilde{\nu}\widetilde{W}\right)^{-1}$ be
 the ``covariance'' parameter~\eqref{eq:covariance_parameter} of the univariate Wishart
 prior~$\mathcal{W}\left(\lambda\middle|\widetilde{W}, \widetilde{\nu}\right)$.
-The ``covariance'' parameter of the corresponding multivariate Wishart
-prior~$\mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}, \nu\right)$ is \emph{not} equal to
-$\widetilde{\sigma}^{2} \mathbf{I}$ but given by downscaling it by a factor of
+Then, we see that the ``covariance'' parameter~$\bm{\Sigma}$ of the corresponding multivariate
+Wishart prior~$\mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}, \nu\right)$ is however \emph{not}
+equal to
+$\widetilde{\sigma}^{2} \mathbf{I}$ but given by scaling it by a factor of
 $\widetilde{\nu}/(\widetilde{\nu} - 1 + D)$ so that
 \begin{equation}
 \bm{\Sigma} = \left(\nu\mathbf{W}\right)^{-1} =
 \frac{\widetilde{\nu}}{\widetilde{\nu} - 1 + D} \widetilde{\sigma}^{2} \mathbf{I}
 \end{equation}
-which implies
+implying
 $\bm{\Sigma} = \left(\widetilde{\sigma}^{2} / D\right)\mathbf{I}$ for $\widetilde{\nu} = 1$ and
 $\bm{\Sigma} \to \widetilde{\sigma}^{2}\mathbf{I}$ for $\widetilde{\nu} \to \infty$.
 
