@@ -1215,51 +1215,52 @@ p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
 \label{eq:wishart_marginal_and_multivariate_t}
 \end{equation}
 
-Having observed that the two marginal
-distributions~(2.161) and \eqref{eq:multivariate_t_marginalized_over_precision},
-involving marginalization over $\eta$ and $\bm{\Lambda}$, respectively, both result in
-an equivalent multivariate Student's t-distribution,
-we now have a natural question:
-Which marginal form is better than the other?
-To answer this, I would argue that,
-if the marginalized models obtained by marginalizing out the latent variables are identical,
-a model with fewer latent variables is always better than a model with more latent variables
-because fewer latent variables imply less computational space and complexity as well as
-a tighter bound on the (marginal) likelihood and thus faster convergence
-when we optimize the model parameters by means of the EM algorithm (see Chapter~9) or
-variational methods (Chapter~10).
-Therefore, we conclude that (2.161) is better than
-\eqref{eq:multivariate_t_marginalized_over_precision}.
-
-It is also worth noting here that,
-if the scale matrix is isotropic so that $\mathbf{W} = \widetilde{W}\mathbf{I}$ where
+If the scale matrix is isotropic so that $\mathbf{W} = \widetilde{W}\mathbf{I}$ where
 $\widetilde{W} > 0$,
 which is common in practice,
 the resulting multivariate Student's t-distribution~\eqref{eq:wishart_marginal_and_multivariate_t}
 is again isotropic. The same marginal distribution can also be obtained by marginalizing over
 a univariate Wishart (gamma) prior so that
 \begin{equation}
-\int \mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \lambda^{-1}\mathbf{I}\right)
-\mathcal{W}\left(\lambda\middle|\widetilde{W}, \widetilde{\nu}\right) \mathrm{d}\lambda
+\int \mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \widetilde{\lambda}^{-1}\mathbf{I}\right)
+\mathcal{W}\left(\widetilde{\lambda}\middle|\widetilde{W}, \widetilde{\nu}\right)
+\mathrm{d}\widetilde{\lambda}
 = \operatorname{St}\left(\mathbf{x} \middle|
 \bm{\mu}, \widetilde{\nu} \widetilde{W} \mathbf{I}, \widetilde{\nu} \right)
+\label{eq:student_t_for_univariate_wishart}
 \end{equation}
 where $\widetilde{\nu} = \nu + 1 - D > 0$.
-Let $\widetilde{\sigma}^{2} = \left(\widetilde{\nu}\widetilde{W}\right)^{-1}$ be
-the ``covariance'' parameter~\eqref{eq:covariance_parameter} of the univariate Wishart
-prior~$\mathcal{W}\left(\lambda\middle|\widetilde{W}, \widetilde{\nu}\right)$.
-Then, we see that the ``covariance'' parameter~$\bm{\Sigma}$ of the corresponding multivariate
-Wishart prior~$\mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}, \nu\right)$ is however \emph{not}
-equal to
-$\widetilde{\sigma}^{2} \mathbf{I}$ but given by scaling it by a factor of
-$\widetilde{\nu}/(\widetilde{\nu} - 1 + D)$ so that
+Note that the ``covariance'' parameter~\eqref{eq:covariance_parameter} of
+the corresponding multivariate
+Wishart prior~$\mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}, \nu\right)$
+for which we obtain the same marginal~\eqref{eq:student_t_for_univariate_wishart}
+is however \emph{not} equal to $\widetilde{\sigma}^{2} \mathbf{I}$
+where $\widetilde{\sigma}^{2} = \left(\widetilde{\nu}\widetilde{W}\right)^{-1}$ is
+the ``covariance'' parameter of the univariate Wishart
+prior~$\mathcal{W}\left(\widetilde{\lambda}\middle|\widetilde{W}, \widetilde{\nu}\right)$
+but given by
 \begin{equation}
 \bm{\Sigma} = \left(\nu\mathbf{W}\right)^{-1} =
-\frac{\widetilde{\nu}}{\widetilde{\nu} - 1 + D} \widetilde{\sigma}^{2} \mathbf{I}
+\frac{\widetilde{\nu}}{\widetilde{\nu} - 1 + D} \widetilde{\sigma}^{2} \mathbf{I} .
 \end{equation}
-implying
-$\bm{\Sigma} = \left(\widetilde{\sigma}^{2} / D\right)\mathbf{I}$ for $\widetilde{\nu} = 1$ and
-$\bm{\Sigma} \to \widetilde{\sigma}^{2}\mathbf{I}$ for $\widetilde{\nu} \to \infty$.
+
+So far, we have observed that a marginal
+distribution of the form~\eqref{eq:multivariate_t_marginalized_over_precision}
+where the marginalization is taken over a matrix-valued random variable~$\bm{\Lambda}$ is
+equivalent to a marginal distribution of the form~(2.161) or, if the scale matrix is isotropic,
+\eqref{eq:student_t_for_univariate_wishart} where the marginalization is over
+a scalar random variable~$\eta$ or $\widetilde{\lambda}$, respectively.
+Given that they all reduce to an identical multivariate Student's t-distribution,
+we now have a natural question:
+Which marginal form is better than the other?
+I would argue that a model with fewer latent variables,
+i.e., (2.161) or \eqref{eq:student_t_for_univariate_wishart},
+is always better than a model with more latent variables,
+i.e., \eqref{eq:multivariate_t_marginalized_over_precision},
+because fewer latent variables imply less computational space and complexity as well as
+a tighter bound on the (marginal) likelihood and thus faster convergence
+when we infer the model by means of the EM algorithm (see Chapter~9) or
+variational methods (Chapter~10).
 
 \erratum{Page~693}
 Equations~(B.78) through (B.82):
