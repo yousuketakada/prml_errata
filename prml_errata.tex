@@ -184,8 +184,14 @@ we have $\left|\mathbf{J}\right| = 1$ and (2.56) holds as is.
 Note also that this notation~\eqref{eq:abs_of_matrix_determinant} is mostly consistent
 in other part of PRML because we have
 $\left| \mathbf{A} \right| = \operatorname{det}\left( \mathbf{A} \right)$ for any positive
-semidefinite matrix~$\mathbf{A}$ and
-most matrices for which we take determinants are positive (semi)definite in PRML.
+(semi)definite matrix~$\mathbf{A} \succeq 0$ (see Appendix~C) and
+most matrices for which we take determinants, such as
+the covariance~$\bm{\Sigma}$ and the precision~$\bm{\Lambda}$ of
+the multivariate Gaussian distribution and
+the scale matrix~$\mathbf{W}$ of the Wishart distribution,
+are positive definite\footnote{In this report, we assume as customary that
+the concept of positive/negative (semi)definiteness is restricted to symmetric matrices, i.e.,
+any positive/negative (semi)definite matrix is symmetric.  }.
 
 \erratum{Page~102}
 Equation~(2.155):
