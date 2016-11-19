@@ -186,12 +186,15 @@ in other part of PRML because we have
 $\left| \mathbf{A} \right| = \operatorname{det}\left( \mathbf{A} \right)$ for any positive
 (semi)definite matrix~$\mathbf{A} \succeq 0$ (see Appendix~C) and
 most matrices for which we take determinants, such as
-the covariance~$\bm{\Sigma}$ and the precision~$\bm{\Lambda}$ of
+the covariance~$\bm{\Sigma}$ or the precision~$\bm{\Lambda}$ of
 the multivariate Gaussian distribution and
 the scale matrix~$\mathbf{W}$ of the Wishart distribution,
 are positive definite\footnote{In this report, we assume as customary that
-the concept of positive/negative (semi)definiteness is restricted to symmetric matrices, i.e.,
-any positive/negative (semi)definite matrix is symmetric.  }.
+the concept of positive/negative (semi)definiteness is restricted to symmetric matrices.
+For example, when we say ``a matrix~$\mathbf{A}$ is positive definite'' or $\mathbf{A} \succ 0$,
+$\mathbf{A}$ is also assumed to be symmetric so that $\mathbf{A}^{\operatorname{T}} = \mathbf{A}$,
+though we still sometimes say ``$\mathbf{A}$ is symmetric positive definite'' to avoid confusion.
+}.
 
 \erratum{Page~102}
 Equation~(2.155):
