@@ -198,32 +198,41 @@ though we still sometimes say ``$\mathbf{A}$ is symmetric positive definite'' to
 
 \erratum{Pages~93 and 94}
 Equations~(2.121) and (2.122):
-We have obtained the maximum likelihood solutions~$\bm{\mu}_\text{ML}$ and $\bm{\Sigma}_\text{ML}$
+We obtain the maximum likelihood solutions~$\bm{\mu}_\text{ML}$ and $\bm{\Sigma}_\text{ML}$
 for the Gaussian by setting the derivatives of
-the log likelihood~$\ln p\left(\mathbf{X}\middle| \bm{\mu}, \bm{\Sigma}\right)$ given by (2.118)
-with respect to $\bm{\mu}$ and $\bm{\Sigma}$ equal to zero,
+the log likelihood function~$\ln p\left(\mathbf{X}\middle| \bm{\mu}, \bm{\Sigma}\right)$
+given by (2.118) with respect to $\bm{\mu}$ and $\bm{\Sigma}$ equal to zero,
 which, however, only implies that $\bm{\mu}_\text{ML}$ and $\bm{\Sigma}_\text{ML}$ are
 stationary points.
 We should also show that
 $\bm{\mu}_\text{ML}$ and $\bm{\Sigma}_\text{ML}$ indeed maximize the likelihood.
-This can be easily done for $\bm{\mu}_\text{ML}$ by first noting that
-the log likelihood~(2.118) is quadratic in $\bm{\mu}$, i.e.,
+This can be easily done for $\bm{\mu}_\text{ML}$ by noting that
+the log likelihood~(2.118) is quadratic in $\bm{\mu}$ so that
 \begin{equation}
 \ln p\left(\mathbf{X}\middle| \bm{\mu}, \bm{\Sigma}\right) =
--\frac{N}{2} \bm{\mu}^{\operatorname{T}} \bm{\Sigma}^{-1} \bm{\mu}
-+ \bm{\mu} \bm{\Sigma}^{-1} \left( \sum_{n=1}^{N} \mathbf{x}_n \right)
-+ \text{const} .
+-\frac{N}{2}
+\left(\bm{\mu} - \bm{\mu}_{\text{ML}}\right)^{\operatorname{T}} \bm{\Sigma}^{-1}
+\left(\bm{\mu} - \bm{\mu}_{\text{ML}}\right)
++ \text{const}
 \end{equation}
+where $\bm{\mu}_{\text{ML}}$ is given by (2.121).
 Since the covariance~$\bm{\Sigma}$ is positive definite and so is its inverse~$\bm{\Sigma}^{-1}$,
-we see that the log likelihood is concave with respect to $\bm{\mu}$ and, thus,
-$\bm{\mu}_\text{ML}$ indeed maximizes the likelihood.
-In order to show that $\bm{\Sigma}_\text{ML}$ maximizes the likelihood
-with respect to $\bm{\Sigma}$,
-we consider the eigenvalue expansion~(2.48) for $\bm{\Sigma}$ so that we have
+we see that the log likelihood is concave with respect to $\bm{\mu}$ and
+that $\bm{\mu}_\text{ML}$ indeed maximizes the likelihood.
+Next we consider $\bm{\Sigma}_\text{ML}$ given by (2.122), which we obtain by solving
+\begin{equation}
+\nabla_{\bm{\Sigma}} \ln p\left(\mathbf{X}\middle| \bm{\mu}_\text{ML}, \bm{\Sigma}\right)
+= \mathbf{O}
+\label{eq:maximum_likelihood_equation_for_covariance}
+\end{equation}
+where we have used the gradient~\eqref{eq:gradient_of_scalar_wrt_matrix} and
+assumed that $\mathbf{O}$ is a zero matrix.
+Making use of the eigenvalue expansion~(2.48) of $\bm{\Sigma}$,
+we can write the log likelihood~(2.118) in terms of the eigenvalues~$\{\lambda_i\}$
 \begin{equation}
 \ln p\left(\mathbf{X}\middle| \bm{\mu}, \bm{\Sigma}\right) =
 -\frac{N}{2} \sum_{i=1}^{D} \ln \lambda_i
--\frac{1}{2} \sum_{n=1}^{N} \sum_{i=1}^{D} \frac{y_{ni}}{\lambda_i}
+-\frac{1}{2} \sum_{n=1}^{N} \sum_{i=1}^{D} \frac{y_{ni}^{2}}{\lambda_i}
 + \text{const}
 \label{eq:log_likelihood_in_terms_of_eigenvalues}
 \end{equation}
@@ -235,15 +244,13 @@ From \eqref{eq:log_likelihood_in_terms_of_eigenvalues}, we see that
 $\ln p\left(\mathbf{X}\middle| \bm{\mu}, \bm{\Sigma}\right) \to -\infty$
 if $\bm{\Sigma}$ approaches the boundary of the space of symmetric positive definite matrices,
 i.e., $\lambda_i \to 0$ or $\lambda_i \to \infty$.
-Therefore, if
-\begin{equation}
-\nabla_{\bm{\Sigma}} \ln p\left(\mathbf{X}\middle| \bm{\mu}_\text{ML}, \bm{\Sigma}\right)
-= \mathbf{O}
-\end{equation}
+Therefore, if \eqref{eq:maximum_likelihood_equation_for_covariance}
 has a unique solution~$\bm{\Sigma}_\text{ML} \succ 0$,
-then $\bm{\Sigma}_\text{ML}$ maximizes the likelihood.
+then $\bm{\mu}_\text{ML}$ and $\bm{\Sigma}_\text{ML}$ jointly maximize the likelihood.
 Note that a similar observation holds when we maximize the log likelihood in terms of
-the precision~$\bm{\Lambda} \equiv \bm{\Sigma}^{-1}$.
+the precision~$\bm{\Lambda} \equiv \bm{\Sigma}^{-1}$
+(in which case one can see that the log likelihood is concave also with respect to
+the eigenvalues of $\bm{\Lambda}$).
 See \citet{Anderson:MaximumLikelihood} for further discussions.
 
 \erratum{Page~102}
