@@ -233,13 +233,16 @@ Making use of the eigenvalue expansion~(2.48) of $\bm{\Sigma}$,
 we can write the log likelihood~(2.118) in terms of the eigenvalues~$\{\lambda_i\}$
 \begin{equation}
 \ln p\left(\mathbf{X}\middle| \bm{\mu}, \bm{\Sigma}\right) =
--\frac{N}{2} \sum_{i=1}^{D} \ln \lambda_i
--\frac{1}{2} \sum_{n=1}^{N} \sum_{i=1}^{D} \frac{y_{ni}^{2}}{\lambda_i}
+-\frac{N}{2} \sum_{i=1}^{D} \left\{
+\ln \lambda_i
++ \frac{S_i}{\lambda_i}
+\right\}
 + \text{const}
 \label{eq:log_likelihood_in_terms_of_eigenvalues}
 \end{equation}
 where
 \begin{equation}
+S_{i} = \frac{1}{N} \sum_{n=1}^{N} y_{ni}^{2}, \qquad
 y_{ni} = \mathbf{u}_{i}^{\operatorname{T}}\left(\mathbf{x}_n - \bm{\mu}\right) .
 \end{equation}
 From \eqref{eq:log_likelihood_in_terms_of_eigenvalues}, we see that
