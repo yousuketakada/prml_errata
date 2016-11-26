@@ -227,7 +227,8 @@ Next we consider $\bm{\Sigma}_\text{ML}$ given by (2.122), which we obtain by so
 = \mathbf{O}
 \label{eq:maximum_likelihood_equation_for_covariance}
 \end{equation}
-where $\nabla$ is the gradient operator~\eqref{eq:gradient_of_scalar_wrt_matrix} and
+where $\nabla_{\mathbf{A}}$ is the gradient operator with respect to a matrix~$\mathbf{A}$
+defined by \eqref{eq:gradient_of_scalar_wrt_matrix} and
 $\mathbf{O}$ is a zero matrix.
 Making use of the eigenvalue expansion~(2.48) of $\bm{\Sigma}$,
 we can write the log likelihood~(2.118) in terms of the eigenvalues~$\{\lambda_i\}$
@@ -1547,16 +1548,17 @@ which are equivalent to (C.7) and \eqref{eq:general_push_through_identity}, resp
 \erratum{Page~697}
 Equation~(C.17):
 It is clear that the definition~(C.17) of the derivative of a scalar with respect to a vector
-contradicts (C.16) and (C.18).
-The vector derivative of the form~(C.17) is called the \emph{gradient}
+and that~(C.18) of the derivative of a vector with respect to a vector contradict each other.
+The vector derivative of the form~(C.17) is usually called the \emph{gradient}
 whereas (C.18) is called the \emph{Jacobian}~\citep{Minka:OldNewMatrixAlgebra}.
+Note that (C.16) is a special case of (C.18) and thus the Jacobian.
 We should use a different notation, say, $\nabla$ for the gradient to avoid ambiguity.
 More specifically, given a vector function~$\mathbf{y}(\mathbf{x}) =
 \left(y_1(\mathbf{x}), \dots, y_M(\mathbf{x})\right)^{\operatorname{T}}$
 where $\mathbf{x} = \left(x_1, \dots, x_D \right)^{\operatorname{T}}$,
 we write the gradient of $\mathbf{y}(\mathbf{x})$ with respect to $\mathbf{x}$ as
 \begin{equation}
-\nabla_{\mathbf{x}} \mathbf{y} = \left( \frac{\partial y_j}{\partial x_i} \right) =
+\nabla_{\mathbf{x}} \mathbf{y} \equiv \left( \frac{\partial y_j}{\partial x_i} \right) =
 \begin{pmatrix}
 \frac{\partial y_1}{\partial x_1} & \hdots & \frac{\partial y_M}{\partial x_1} \\
 \vdots & \ddots & \vdots \\
@@ -1726,23 +1728,20 @@ Equation~(C.20):
 Although the Jacobian of a vector with respect to a vector is defined in (C.18),
 the Jacobian of a matrix with respect to a scalar has not been defined.
 The Jacobian~$\partial\mathbf{A}/\partial x$ of
-a matrix~$\mathbf{A} = (A_{ij})$ with respect to a scalar~$x$ is
-a matrix with the same dimensionality as $\mathbf{A}$
-and is given by
+a matrix~$\mathbf{A} = (A_{ij})$ with respect to a scalar~$x$ can be defined as
+a matrix with the same dimensionality as $\mathbf{A}$ so that
 \begin{equation}
-\frac{\partial\mathbf{A}}{\partial x} = \left( \frac{\partial A_{ij}}{\partial x} \right)
+\frac{\partial\mathbf{A}}{\partial x} \equiv \left( \frac{\partial A_{ij}}{\partial x} \right)
 \label{eq:Jacobian_of_matrix_wrt_scalar}
 \end{equation}
 which is analogous to (C.18) in that
-the partial derivatives are laid out according to the numerator, i.e.,
-$\mathbf{A}$ in \eqref{eq:Jacobian_of_matrix_wrt_scalar}.
+the partial derivatives are laid out according to the numerator, i.e., $\mathbf{A}$.
 On the other hand, the gradient~\eqref{eq:gradient_of_vector_wrt_vector} is such that
 the derivatives are laid out according to the denominator.
-We should also point out that,
-in a similar analogy, we write the gradient~$\nabla_{\mathbf{A}} y$ of
+In a similar analogy, we can define the gradient~$\nabla_{\mathbf{A}} y$ of
 a scalar~$y$ with respect to a matrix~$\mathbf{A}$ as
 \begin{equation}
-\nabla_{\mathbf{A}} y = \left( \frac{\partial y}{\partial A_{ij}} \right) .
+\nabla_{\mathbf{A}} y \equiv \left( \frac{\partial y}{\partial A_{ij}} \right) .
 \label{eq:gradient_of_scalar_wrt_matrix}
 \end{equation}
 
