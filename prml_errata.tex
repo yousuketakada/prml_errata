@@ -259,6 +259,42 @@ the precision~$\bm{\Lambda} \equiv \bm{\Sigma}^{-1}$
 the eigenvalues of $\bm{\Lambda}$).
 See \citet{Anderson:MaximumLikelihood} for further discussions.
 
+\erratum{Page~100}
+Equations~(2.147) and (2.148):
+We are also interested in the expectation of $\ln\lambda$ given by (B.30),
+which can be easily shown by making use of the derivative of the gamma distribution~(2.146)
+with respect to $a$ given by
+\begin{equation}
+\frac{\partial}{\partial a} \operatorname{Gam}\left(\lambda\middle|a, b\right)
+= \left( \ln\lambda - \psi(a) + \ln b \right) \operatorname{Gam}\left(\lambda\middle|a, b\right)
+\label{eq:derivative_of_gamma_distribution_wrt_a}
+\end{equation}
+where $\psi(\cdot)$ is the \emph{digamma} function defined by (B.25) so that
+\begin{equation}
+\psi(a) \equiv \frac{\mathrm{d}}{\mathrm{d}a} \ln \Gamma(a) = \frac{\Gamma'(a)}{\Gamma(a)} .
+\end{equation}
+Differentiating the both sides of the integral identity
+\begin{equation}
+\int \operatorname{Gam}\left(\lambda\middle|a, b\right) \mathrm{d}\lambda = 1
+\end{equation}
+with respect to $a$,
+interchanging the order of the differentiation and the integral,
+and substituting \eqref{eq:derivative_of_gamma_distribution_wrt_a},
+we obtain
+\begin{equation}
+\mathbb{E}\left[ \ln \lambda \right] = \psi(a) - \ln b .
+\end{equation}
+It is worth noting here that the above expectation can also be written in the form
+\begin{equation}
+\mathbb{E}\left[ \ln \lambda \right] = \ln\frac{a}{b} - \varphi(a)
+\end{equation}
+where $\varphi(\cdot)$ is the \emph{log minus digamma} function defined by
+\begin{equation}
+\varphi(x) \equiv \ln x - \psi(x) .
+\label{eq:log_minus_digamma_function}
+\end{equation}
+We shall make use of the log minus digamma function~$\varphi(\cdot)$ later in this report.
+
 \erratum{Page~102}
 Equation~(2.155):
 Although an interpretation for the parameters of the gamma distribution~(2.146) has been given,
