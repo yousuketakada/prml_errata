@@ -127,7 +127,7 @@ implies that $\xi(\cdot)$ is constant (it is trivial to show that the converse i
 \erratum{Page~80}
 Equation~(2.52):
 We usually take eigenvectors~$\mathbf{u}_{i}$ to be the columns of $\mathbf{U}$ as in (C.37).
-If we follow this convention, Equation~(2.52) and the following text should read
+If we follow this convention, (2.52) and the following text should read
 \begin{equation}
 \mathbf{y} = \mathbf{U}^{\operatorname{T}} (\mathbf{x} - \bm{\mu})
 \label{eq:change_of_variable_x_to_y}
@@ -482,7 +482,7 @@ for various values of $\nu$ where we have fixed $\mu = 0$ and $\lambda = 1$. }
 \end{figure}
 
 \erratum{Page~104}
-The text after Equation~(2.160):
+The text after (2.160):
 The Gaussian~$\mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{\Lambda}\right)$
 should read $\mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{\Lambda}^{-1}\right)$.
 
@@ -515,7 +515,7 @@ We shall come back to this issue later in this report.
 \erratum{Page~142}
 Equation~(3.14):
 The left hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zero~$0$.
-Thus, Equation~(3.14) should read
+Thus, (3.14) should read
 \begin{equation}
 \mathbf{0} =
 \sum_{n=1}^{N} t_n \bm{\phi}\left( \mathbf{x}_n \right)
@@ -538,7 +538,7 @@ The second paragraph, Line~1:
 \erratum{Pages~168--169, and 177}
 Equations~(3.88), (3.93), and (3.117) as well as the text before (3.93):
 The derivative operators should be partial differentials.
-For example, Equation~(3.117) should read
+For example, (3.117) should read
 \begin{equation}
 \frac{\partial}{\partial \alpha} \ln \left| \mathbf{A} \right| =
 \operatorname{Tr}\left( \mathbf{A}^{-1} \frac{\partial}{\partial \alpha} \mathbf{A} \right) .
@@ -555,7 +555,7 @@ Equation~(4.92):
 The gradient and the Hessian in the right hand side,
 which are in general functions of the parameter~$\mathbf{w}$,
 must be evaluated at the previous estimate~$\mathbf{w}^{\text{old}}$ for the parameter.
-Thus, Equation~(4.92) should read
+Thus, (4.92) should read
 \begin{equation}
 \mathbf{w}^{\text{new}} = \mathbf{w}^{\text{old}} -
   \left[ \mathbf{H} \left( \mathbf{w}^{\text{old}} \right) \right]^{-1}
@@ -570,7 +570,7 @@ Equation~(4.110) and the preceding text:
 The left hand side of (4.110) is obtained by taking the gradient of $\nabla_{\mathbf{w}_{j}} E$
 given in (4.109) with respect to $\mathbf{w}_{k}$ and corresponds to
 the $(k, j)$-th block of the Hessian, \emph{not} the $(j, k)$-th.
-Thus, Equation~(4.110) should read
+Thus, (4.110) should read
 \begin{equation}
 \nabla_{\mathbf{w}_{k}} \nabla_{\mathbf{w}_{j}}
 E \left( \mathbf{w}_{1}, \dots, \mathbf{w}_{K} \right)
@@ -653,7 +653,7 @@ a diagonal matrix obtained by setting the non-diagonal elements equal to zero so
 $\operatorname{diag}(\mathbf{A}) = \operatorname{diag}(A_{ii})$.
 
 \erratum{Page~275}
-The text after Equation~(5.154):
+The text after (5.154):
 The identity matrix~$\mathbf{I}$ should multiply $\sigma_{k}^{2}(\mathbf{x}_{n})$.
 
 \erratum{Page~277}
@@ -722,7 +722,7 @@ Equation~(9.3):
 The right hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zero~$0$.
 
 \erratum{Page~432}
-The text after Equation~(9.13):
+The text after (9.13):
 It should be noted for clarity that, as the prior~$p(\mathbf{z})$ over $\mathbf{z}$ is
 a multinomial distribution~(9.10),
 the posterior~$p \left( \mathbf{z} \middle| \mathbf{x} \right)$ over $\mathbf{z}$
@@ -747,7 +747,7 @@ the E~step of the EM algorithm.
 Equation~(9.15):
 Although the official errata~\citep{Svensen:PRML_errata} states that
 $\sigma_j$ in the right hand side should be raised to a power of $D$,
-the whole right hand side should be raised to $D$ so that Equation~(9.15) should read
+the whole right hand side should be raised to $D$ so that (9.15) should read
 \begin{equation}
 \mathcal{N}\left( \mathbf{x}_n \middle| \mathbf{x}_n, \sigma_j^2 \mathbf{I} \right)
  = \frac{1}{\left( 2 \pi \sigma_j^2 \right)^{D/2}} .
@@ -759,8 +759,9 @@ The right hand side should be a zero vector~$\mathbf{0}$.
 
 \erratum{Page~465}
 Equations~(10.6) and (10.7):
-In PRML, Equation~(10.6) will be later recognized as ``a negative Kullback-Leibler divergence
-between $q_j(\mathbf{Z}_j)$ and $\widetilde{p}(\mathbf{X}, \mathbf{Z}_j)$''
+The lower bound of the form~(10.6) will be later recognized as
+``a negative Kullback-Leibler divergence between
+$q_j(\mathbf{Z}_j)$ and $\widetilde{p}(\mathbf{X}, \mathbf{Z}_j)$''
 (Page~465, Line~\textminus2).
 However, there is no point in taking the Kullback-Leibler divergence between two probability
 distributions over different sets of random variables; such a quantity is undefined.
@@ -803,7 +804,7 @@ $q_j(\mathbf{Z}_j)$ and $q_j^{\star}(\mathbf{Z}_j)$ up to some additive constant
 the maximum of $\mathcal{L}(q)$ occurs when $q_j(\mathbf{Z}_j) = q_j^{\star}(\mathbf{Z}_j)$.
 
 \erratum{Page~465}
-The text before Equation~(10.8):
+The text before (10.8):
 The latent variable~$\mathbf{z}_i$ should read $\mathbf{Z}_i$.
 
 \erratum{Page~465}
@@ -821,7 +822,7 @@ The sentence~``Thus we obtain...'' should read, e.g.,
 \eqref{eq:optimal_solution_for_variational_bayes}.''
 
 \erratum{Page~468}
-The text after Equation~(10.16):
+The text after (10.16):
 The constant term in (10.16) is the \emph{negative} entropy of $p(\mathbf{Z})$.
 
 \erratum{Page~478}
@@ -865,13 +866,13 @@ $\frac{\mathrm{d}x}{\mathrm{d}\left(x^2\right)}$,
 instead of $\frac{\mathrm{d}x}{\mathrm{d}x^2}$, to avoid ambiguity.
 
 \erratum{Page~501}
-The text after Equation~(10.162):
+The text after (10.162):
 We have that
 the variational parameter~$\lambda(\xi)$ is a monotonic function of $\xi$ for $\xi \geqslant 0$,
 but not that its derivative~$\lambda'(\xi)$ is.
 
 \erratum{Page~503}
-The text after Equation~(10.168):
+The text after (10.168):
 A period (.) should be appended at the end of the sentence that follows (10.168).
 
 \erratum{Page~512}
@@ -883,7 +884,7 @@ omitted because it has been already included in the Gaussian in (10.213).
 Equations~(10.223) and (10.224):
 The quantities~$v^{\text{new}}$ and $\mathbf{m}^{\text{new}}$ in (10.223) and (10.224) are
 different from those in (10.217) and (10.218).\footnote{See \citet{Svensen:PRML_errata}
-for the errata for Equations~(10.217) and (10.218).}
+for the errata for (10.217) and (10.218).}
 Thus, we should introduce different notations, say, $v$ and $\mathbf{m}$, with appropriate
 definitions.
 Specifically, one can rewrite the approximation to the model evidence in the form
@@ -914,7 +915,7 @@ the original (10.228) and, rather than correcting (10.228), we should correct (1
 implying that $\hat{p}(\mathbf{x})$ is a normalized distribution.
 
 \erratum{Page~515}
-The text after Equation~(10.229):
+The text after (10.229):
 The new distribution~$q^{\text{new}}(\mathbf{z})$ should read $q^{\text{new}}(\mathbf{x})$.
 
 \erratum{Page~516}
@@ -947,12 +948,12 @@ Exercise~11.14, Line~2:
 The variance should be $\sigma_i^2$ instead of $\sigma_i$.
 
 \erratum{Page~564}
-The text after Equation~(12.12):
+The text after (12.12):
 The derivative we consider here is that with respect to $b_j$
 (\emph{not} that with respect to $b_i$).
 
 \erratum{Page~564}
-The text after Equation~(12.15):
+The text after (12.15):
 The zero should be a zero vector so that we have $\mathbf{u}_j = \mathbf{0}$.
 
 \erratum{Page~575}
@@ -967,7 +968,7 @@ As stated in the text preceding (12.53),
 we should substitute $\bm{\mu} = \bar{\mathbf{x}}$ into (12.53).
 
 \erratum{Page~578}
-The text before Equation~(12.56):
+The text before (12.56):
 For the maximization with respect to $\mathbf{W}$, we use (C.25) and (C.27) instead of (C.24).
 
 \erratum{Page~579}
@@ -1112,7 +1113,7 @@ which we write $p(z_{nk} = 1|\dots)$.
 Moreover, strictly speaking,
 the old parameters~$\pi_k, \mathbf{w}_k, \beta$ should read
 $\pi_k^{\text{old}}, \mathbf{w}_k^{\text{old}}, \beta^{\text{old}} \in \bm{\theta}^{\text{old}}$.
-In order to solve these problems, we should rewrite Equation~(14.37) as, for example,
+In order to solve these problems, we should rewrite (14.37) as, for example,
 \begin{equation}
 \gamma_{nk} = \mathbb{E}\left[ z_{nk} \middle| t_n, \bm{\theta}^{\text{old}} \right]
 \label{eq:correction_to_(14.37)_part_one}
@@ -1161,7 +1162,7 @@ $M$ is the dimensionality of the feature vectors~$\bm{\phi}_n$.
 Equation~(14.43): ``$+\text{const}$'' should be added to the right hand side.
 
 \erratum{Page~671}
-The text after Equation~(14.46):
+The text after (14.46):
 The text should read: where we have omitted the dependence on $\{\bm{\phi}_n\}$ and
 defined $y_{nk} = \dots$
 Or, $\bm{\phi}$ should have been omitted from the left hand side of (14.45) in the first place.
