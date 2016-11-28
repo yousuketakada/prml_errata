@@ -871,6 +871,52 @@ Moreover, the derivative of $x$ with respect to $x^2$ should be written with par
 $\frac{\mathrm{d}x}{\mathrm{d}\left(x^2\right)}$,
 instead of $\frac{\mathrm{d}x}{\mathrm{d}x^2}$, to avoid ambiguity.
 
+\erratum{Pages~500 and 501}
+Equations~(10.156) and (10.160):
+It is not very clear why the variational posterior is obtained in the form~(10.156) and
+the variational parameters~$\bm{\xi}$ can be optimized by maximizing~(10.160).
+This EM-like algorithm is not the same as the one we see in Chapter~9;
+it can be derived again by maximizing the lower bound~(10.3).
+In a more general setting, we consider a local variational approximation to
+the joint distribution of the form
+\begin{equation}
+p\left(\mathbf{X}, \mathbf{Z}\right) \geqslant
+\widetilde{p}\left(\mathbf{X}, \mathbf{Z}; \bm{\xi} \right)
+\end{equation}
+where we bound the likelihood~$p\left(\mathbf{X} \middle| \mathbf{Z}\right) \geqslant
+\widetilde{p}\left(\mathbf{X} \middle| \mathbf{Z}; \bm{\xi} \right)$
+or the prior~$p\left(\mathbf{Z}\right) \geqslant
+\widetilde{p}\left(\mathbf{Z}; \bm{\xi} \right)$ or both.
+Then, we can ``bound'' the lower bound~(10.3) as
+\begin{equation}
+\mathcal{L}(q) \geqslant 
+\mathbb{E}_{\mathbf{Z}}\left[\ln \widetilde{p}\left(\mathbf{X}, \mathbf{Z}; \bm{\xi}\right)\right]
+- \mathbb{E}_{\mathbf{Z}}\left[\ln q\left(\mathbf{Z}\right)\right]
+\label{eq:bound_of_lower_bound}
+\end{equation}
+where the expectation~$\mathbb{E}_{\mathbf{Z}}[\cdot]$ is taken with respect to
+the variational distribution~$q(\mathbf{Z})$.
+With much the same discussion as for the standard variational Bayesian method where we assume
+factorization~(10.5) of $q(\mathbf{Z})$,
+the optimal solution for $q_j(\mathbf{Z}_j)$ that maximizes the right hand side of
+\eqref{eq:bound_of_lower_bound} can be obtained by
+\begin{equation}
+\ln q_j^{\star}\left(\mathbf{Z}_j\right) =
+\mathbb{E}_{\mathbf{Z}\setminus\mathbf{Z}_j}
+\left[ \ln \widetilde{p}\left(\mathbf{X}, \mathbf{Z}; \bm{\xi}^{\text{old}}\right) \right] +
+\text{const}
+\label{eq:eq:optimal_solution_for_local_variational_bayes}
+\end{equation}
+where we have fixed the variational parameters to $\bm{\xi}^{\text{old}}$.
+Note that the result~\eqref{eq:eq:optimal_solution_for_local_variational_bayes}
+is analogous to \eqref{eq:optimal_solution_for_variational_bayes}.
+The optimization of $\bm{\xi}$ can be done by maximizing the first term of the right hand side of
+\eqref{eq:bound_of_lower_bound}, i.e.,
+\begin{equation}
+\mathcal{Q}\left(\bm{\xi}, \bm{\xi}^{\text{old}}\right) =
+\mathbb{E}_{\mathbf{Z}}\left[\ln \widetilde{p}\left(\mathbf{X}, \mathbf{Z}; \bm{\xi}\right)\right].
+\end{equation}
+
 \erratum{Page~501}
 The text after (10.162):
 We have that
