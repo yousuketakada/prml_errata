@@ -750,25 +750,35 @@ The right hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zer
 
 \erratum{Page~432}
 The text after (9.13):
-It should be noted for clarity that, as the prior~$p(\mathbf{z})$ over $\mathbf{z}$ is
-a multinomial distribution~(9.10),
-the posterior~$p \left( \mathbf{z} \middle| \mathbf{x} \right)$ over $\mathbf{z}$
-given $\mathbf{x}$ is again a multinomial of the form
+It should be noted for clarity that, as the prior~$p(\mathbf{z})$ given by (9.10) is
+a multinomial distribution or, more specifically,
+a categorical distribution~\eqref{eq:categorical_distribution} so that
 \begin{equation}
-p \left( \mathbf{z} \middle| \mathbf{x} \right) = \prod_{k=1}^{K} \gamma_k^{z_k}
+p\left(\mathbf{z}\right) = \operatorname{Mult}\left(\mathbf{z}\middle|\bm{\pi}\right) =
+\prod_{k=1}^{K} \pi_k^{z_k}
+\end{equation}
+we see that the posterior~$p \left( \mathbf{z} \middle| \mathbf{x} \right)$ again becomes
+a categorical distribution of the form
+\begin{equation}
+p \left( \mathbf{z} \middle| \mathbf{x} \right) =
+\operatorname{Mult}\left(\mathbf{z}\middle|\bm{\gamma}\right) =
+\prod_{k=1}^{K} \gamma_k^{z_k}
 \label{eq:posterior_of_Gaussian_mixture}
 \end{equation}
-where we have written $\gamma_k \equiv \gamma(z_k)$.
-This can be directly confirmed by inspecting the functional form of the joint distribution
+where we have written $\gamma_k \equiv \gamma(z_k)$ and $\gamma(z_k)$ is given by (9.13).
+The \emph{responsibilities} $\gamma_k$ can be directly found by inspecting the functional form of
+the joint distribution
 \begin{equation}
 p \left( \mathbf{z} \right) p \left( \mathbf{x} \middle| \mathbf{z} \right) =
  \prod_{k=1}^{K} \left\{ \pi_k \,
- \mathcal{N} \left( \mathbf{x} \middle| \bm{\mu}_k, \bm{\Sigma}_k \right) \right\}^{z_k} .
+ \mathcal{N} \left( \mathbf{x} \middle| \bm{\mu}_k, \bm{\Sigma}_k \right) \right\}^{z_k}
 \label{eq:joint_distribution_of_Gaussian_mixture}
 \end{equation}
-The above observation helps the reader to understand that
-evaluating the responsibilities~$\gamma(z_k)$ indeed corresponds to
-the E~step of the EM algorithm.
+and noting that the categorical distribution can also be expressed in terms of
+unnormalized probabilities as shown in \eqref{eq:categorical_distribution_w_unnormalized_mu}.
+This observation helps the reader understand that
+evaluating the responsibilities~$\gamma_k$ indeed corresponds to
+the E step of the EM algorithm.
 
 \erratum{Page~434}
 Equation~(9.15):
@@ -1289,23 +1299,39 @@ $\mathbf{x}$ in the right hand side should read $\mathbf{x}_{a}$.
 
 \erratum{Page~690}
 Equation~(B.54):
-When we identify the functional form of a multinomial distribution, e.g.,
+The discrete distribution of the form~(B.54) or (2.26) is usually called
+the \emph{categorical} distribution.
+It is a generalization of the Bernoulli distribution~(B.1) to an $K$-dimensional binary
+variable~$\mathbf{x} = (x_1, \dots, x_K)^{\operatorname{T}}$
+where $x_k \in \{0, 1\}$ such that $\sum_k x_k = 1$, i.e.,
+$\mathbf{x}$ represents the one-of-$K$ coding,
+and also a special case of the multinomial distribution~(B.59)
+with a single observation, i.e., $N = 1$.
+Since we often make use of this distribution, we should introduce some notation for
+the right hand side of (B.54).
+For example, we could write
+\begin{equation}
+\operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right) =
+\prod_{k=1}^{K} \mu_{k}^{x_k} =
+\exp\left\{ \sum_{k=1}^{K} x_k \ln \mu_k \right\}
+\label{eq:categorical_distribution}
+\end{equation}
+where $0 \leqslant \mu_k \leqslant 1$ and $\sum_k \mu_k = 1$.
+
+When we identify the functional form of a categorical distribution, e.g.,
 in the posterior distribution~\eqref{eq:posterior_of_Gaussian_mixture} for
 the Gaussian mixture model~\eqref{eq:joint_distribution_of_Gaussian_mixture} of Section~9.2,
-it is helpful to know that the distribution can also be expressed
+it is good to know that the distribution~\eqref{eq:categorical_distribution} can also be expressed
 in terms of unnormalized probabilities~$\widetilde{\mu}_k \geqslant 0$, i.e.,
 \begin{equation}
 \operatorname{Mult}\left(\mathbf{x}\middle|\widetilde{\bm{\mu}}\right) =
-  C(\widetilde{\bm{\mu}}) \prod_{k=1}^{K} \widetilde{\mu}_{k}^{x_k}
-\end{equation}
-so that
-\begin{equation}
-\ln\operatorname{Mult}\left(\mathbf{x}\middle|\widetilde{\bm{\mu}}\right) =
-  \sum_{k=1}^{K} {x_k}\ln{\widetilde{\mu}_k} + \text{const}
+C(\widetilde{\bm{\mu}}) \prod_{k=1}^{K} \widetilde{\mu}_{k}^{x_k} = 
+\exp\left\{ \sum_{k=1}^{K} x_k \ln \widetilde{\mu}_k + \ln C(\widetilde{\bm{\mu}})\right\}
+\label{eq:categorical_distribution_w_unnormalized_mu}
 \end{equation}
 where the normalization constant is given by
 ${C(\widetilde{\bm{\mu}})}^{-1} = \sum_{k} \widetilde{\mu}_k$
-so that the normalized probabilities can be found as
+so that the normalized probabilities can be found
 \begin{equation}
 \mu_k = p(x_k = 1) = \frac{\widetilde{\mu}_k}{\sum_{j} \widetilde{\mu}_j} .
 \end{equation}
