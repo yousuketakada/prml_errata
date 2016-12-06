@@ -750,7 +750,7 @@ The right hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zer
 
 \erratum{Page~432}
 The text after (9.13):
-It should be noted for clarity that, as the prior~$p(\mathbf{z})$ given by (9.10) is
+I would like to point out for clarity that, as the prior~$p(\mathbf{z})$ given by (9.10) is
 a multinomial distribution or, more specifically,
 a categorical distribution~\eqref{eq:categorical_distribution} so that
 \begin{equation}
@@ -765,9 +765,9 @@ p \left( \mathbf{z} \middle| \mathbf{x} \right) =
 \prod_{k=1}^{K} \gamma_k^{z_k}
 \label{eq:posterior_of_Gaussian_mixture}
 \end{equation}
-where we have written $\gamma_k \equiv \gamma(z_k)$ and $\gamma(z_k)$ is given by (9.13).
-The \emph{responsibilities} $\gamma_k$ can be directly found by inspecting the functional form of
-the joint distribution
+where we have written $\gamma_k \equiv \gamma(z_k)$.
+The \emph{responsibility}~$\gamma_k$ given by (9.13) can also be found directly by
+inspecting the functional form of the joint distribution
 \begin{equation}
 p \left( \mathbf{z} \right) p \left( \mathbf{x} \middle| \mathbf{z} \right) =
  \prod_{k=1}^{K} \left\{ \pi_k \,
@@ -775,7 +775,8 @@ p \left( \mathbf{z} \right) p \left( \mathbf{x} \middle| \mathbf{z} \right) =
 \label{eq:joint_distribution_of_Gaussian_mixture}
 \end{equation}
 and noting that the categorical distribution can also be expressed in terms of
-unnormalized probabilities as shown in \eqref{eq:categorical_distribution_w_unnormalized_mu}.
+unnormalized probabilities (responsibilities) as shown in
+\eqref{eq:categorical_distribution_w_unnormalized_mu}.
 This observation helps the reader understand that
 evaluating the responsibilities~$\gamma_k$ indeed corresponds to
 the E step of the EM algorithm.
