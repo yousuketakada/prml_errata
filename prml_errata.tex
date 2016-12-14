@@ -284,8 +284,10 @@ See \citet{Anderson:MaximumLikelihood} for further discussions.
 
 \erratum{Page~100}
 Equations~(2.147) and (2.148):
-We are also interested in the expectation of $\ln\lambda$ given by (B.30),
-which can be easily shown by making use of the derivative of the gamma distribution~(2.146)
+We are also interested in the expectation of $\ln\lambda$ given by (B.30)
+because it is required to evaluate the entropy~(B.31).
+The logarithmic expectation~$\mathbb{E}\left[ \ln\lambda \right]$ can be easily calculated
+by making use of the derivative of the gamma distribution~(2.146)
 with respect to $a$ given by
 \begin{equation}
 \frac{\partial}{\partial a} \operatorname{Gam}\left(\lambda\middle|a, b\right)
@@ -316,7 +318,9 @@ where $\varphi(\cdot)$ is the \emph{log minus digamma} function defined by
 \varphi(x) \equiv \ln x - \psi(x) .
 \label{eq:log_minus_digamma_function}
 \end{equation}
-We shall make use of the log minus digamma function~$\varphi(\cdot)$ later in this report.
+The log minus digamma function~$\varphi(\cdot)$ arises in
+the maximum likelihood solutions for the gamma distribution~(2.146) as well as
+in the EM algorithm for the Student's t-distribution~(2.159) or (2.162) in Exercise~12.24.
 
 \erratum{Page~102}
 Equation~(2.155):
