@@ -1030,14 +1030,14 @@ Equations~(10.228) and (10.229):
 Although \citet{Svensen:PRML_errata} correct (10.228) so that $q^{\setminus b}(\mathbf{x})$ is
 a normalized distribution,
 we do not need the normalization of $q^{\setminus b}(\mathbf{x})$ here and,
-even with this normalization, we cannot ensure that $\hat{p}(\mathbf{x})$ given by (10.229)
+even with this normalization, we cannot ensure that $\widehat{p}(\mathbf{x})$ given by (10.229)
 is normalized.
 Similarly to (10.195), we can proceed with the unnormalized $q^{\setminus b}(\mathbf{x})$ given by
 the original (10.228) and, rather than correcting (10.228), we should correct (10.229) so that
 \begin{equation}
-\hat{p}(\mathbf{x}) \propto q^{\setminus b}(\mathbf{x}) f_b(x_2, x_3) = \dots
+\widehat{p}(\mathbf{x}) \propto q^{\setminus b}(\mathbf{x}) f_b(x_2, x_3) = \dots
 \end{equation}
-implying that $\hat{p}(\mathbf{x})$ is a normalized distribution.
+implying that $\widehat{p}(\mathbf{x})$ is a normalized distribution.
 
 \erratum{Page~515}
 The text after (10.229):
@@ -1175,23 +1175,23 @@ Specifically, (13.104) and the preceding text should read for example:
     \end{pmatrix}
   \middle|
     \begin{pmatrix}
-    \hat{\bm{\mu}}_{n-1} \\
-    \hat{\bm{\mu}}_{n}
+    \widehat{\bm{\mu}}_{n-1} \\
+    \widehat{\bm{\mu}}_{n}
     \end{pmatrix},
     \begin{pmatrix}
-      \hat{\mathbf{V}}_{n-1} & \hat{\mathbf{V}}_{n-1, n} \\
-      \hat{\mathbf{V}}_{n-1, n}^{\operatorname{T}} & \hat{\mathbf{V}}_{n}
+      \widehat{\mathbf{V}}_{n-1} & \widehat{\mathbf{V}}_{n-1, n} \\
+      \widehat{\mathbf{V}}_{n-1, n}^{\operatorname{T}} & \widehat{\mathbf{V}}_{n}
     \end{pmatrix}
   \right)
 \end{equation}
-where the mean~$\hat{\bm{\mu}}_{n}$ and the covariance~$\hat{\mathbf{V}}_{n}$ of
+where the mean~$\widehat{\bm{\mu}}_{n}$ and the covariance~$\widehat{\mathbf{V}}_{n}$ of
 $\mathbf{z}_{n}$ are given by (13.100) and (13.101), respectively;
-and the covariance~$\hat{\mathbf{V}}_{n-1, n}$ between $\mathbf{z}_{n-1}$ and $\mathbf{z}_{n}$
+and the covariance~$\widehat{\mathbf{V}}_{n-1, n}$ between $\mathbf{z}_{n-1}$ and $\mathbf{z}_{n}$
 is given by
 \begin{equation}
-\hat{\mathbf{V}}_{n-1, n}
+\widehat{\mathbf{V}}_{n-1, n}
   = \operatorname{cov}\left[\mathbf{z}_{n-1}, \mathbf{z}_{n}\right]
-  = \mathbf{J}_{n-1}\hat{\mathbf{V}}_{n} .
+  = \mathbf{J}_{n-1}\widehat{\mathbf{V}}_{n} .
 \end{equation}
 
 \erratum{Pages~642 and 643}
