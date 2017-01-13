@@ -793,6 +793,25 @@ $\mathbf{B}^{\star} = \left.\mathbf{B}\right|_{\mathbf{w} = \mathbf{w}^{\star}}$
 Equation~(7.117):
 The typeface of the vector~$\mathbf{y}$ in (7.117) should be that in (7.110), i.e.,
 $\bm{\mathsf{y}}$.
+Moreover, $\mathbf{B}$ and $\bm{\mathsf{y}}$ should be those evaluated at
+$\mathbf{w} = \mathbf{w}^{\star}$
+so that $\widehat{\bm{\mathsf{t}}}$ is given by
+\begin{equation}
+\widehat{\bm{\mathsf{t}}}
+= \bm{\Phi}\mathbf{w}^{\star}
++ \left(\mathbf{B}^{\star}\right)^{-1} \left(\bm{\mathsf{t}} - \bm{\mathsf{y}}^{\star}\right) .
+\label{eq:linearized_target_for_classification_RVM}
+\end{equation}
+It should also be noted that the posterior mean~$\mathbf{w}^{\star}$ can be written in terms of
+$\widehat{\bm{\mathsf{t}}}$ so that
+\begin{equation}
+\mathbf{w}^{\star}
+= \bm{\Sigma} \bm{\Phi}^{\operatorname{T}} \mathbf{B}^{\star} \widehat{\bm{\mathsf{t}}} .
+\label{eq:posterior_mean_of_classification_RVM}
+\end{equation}
+One can show the above identity~\eqref{eq:posterior_mean_of_classification_RVM} by
+making use of \eqref{eq:implicit_condition_for_posterior_mode_of_classification_RVM} and
+\eqref{eq:posterior_covariance_of_classification_RVM}.
 
 \erratum{Page~414}
 Figure~8.53, Line~6:
