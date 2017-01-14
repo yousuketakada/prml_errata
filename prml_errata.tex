@@ -764,7 +764,7 @@ Line~12: The term ``protected conjugate gradients'' should read
 ``\emph{projected} conjugate gradients.''
 
 \erratum{Page~354}
-Equations~(7.112) and (7.113):
+Equation~(7.112):
 The mean~$\mathbf{w}^{\star}$ of the Laplace approximation to
 the posterior~$p\left(\mathbf{w}\middle|\bm{\mathsf{t}}, \bm{\alpha}\right)$ can only be obtained
 iteratively by, say, IRLS as described in the text;
@@ -780,9 +780,11 @@ we have the implicit condition
 \end{equation}
 where $\bm{\mathsf{y}}^{\star}$ is evaluated at $\mathbf{w} = \mathbf{w}^{\star}$
 so that $\bm{\mathsf{y}}^{\star} = \left.\bm{\mathsf{y}}\right|_{\mathbf{w} = \mathbf{w}^{\star}}$.
-Similarly, the covariance~$\bm{\Sigma}$ is given in terms of
-$\mathbf{B}^{\star} = \left.\mathbf{B}\right|_{\mathbf{w} = \mathbf{w}^{\star}}$ so that
-(7.113) should read
+
+\erratum{Page~354}
+Equation~(7.113):
+The covariance~$\bm{\Sigma}$ should be given in terms of
+$\mathbf{B}^{\star} = \left.\mathbf{B}\right|_{\mathbf{w} = \mathbf{w}^{\star}}$ by
 \begin{equation}
 \bm{\Sigma}
 = \left( \mathbf{A} + \bm{\Phi}^{\operatorname{T}}\mathbf{B}^{\star}\bm{\Phi}\right)^{-1} .
