@@ -774,12 +774,12 @@ Line~12: The term ``protected conjugate gradients'' should read
 Equation~(7.112):
 The mean~$\mathbf{w}^{\star}$ of the Laplace approximation to
 the posterior~$p\left(\mathbf{w}\middle|\bm{\mathsf{t}}, \bm{\alpha}\right)$ can only be obtained
-iteratively by, say, IRLS as described in the text;
-(7.112) does not represent an explicit solution and is thus best removed.
+iteratively by, say, IRLS as described in the text
+so that (7.112) does not represent an explicit solution and is thus best removed.
 However, it is useful to note that, at convergence,
-we have the implicit condition
+we have the following implicit condition
 \begin{equation}
-\nabla \ln p\left(\mathbf{w}^{\star}\middle|\bm{\mathsf{t}}, \bm{\alpha}\right)
+\nabla_{\mathbf{w}} \ln p\left(\mathbf{w}^{\star}\middle|\bm{\mathsf{t}}, \bm{\alpha}\right)
 = \bm{\Phi}^{\operatorname{T}} (\bm{\mathsf{t}} - \bm{\mathsf{y}}^{\star})
 - \mathbf{A}\mathbf{w}^{\star}
 = \mathbf{0}
@@ -790,7 +790,13 @@ so that $\bm{\mathsf{y}}^{\star} = \left.\bm{\mathsf{y}}\right|_{\mathbf{w} = \m
 
 \erratum{Page~354}
 Equation~(7.113):
-The covariance~$\bm{\Sigma}$ should be given in terms of
+Since we have
+\begin{equation}
+\bm{\Sigma}^{-1}
+= - \nabla_{\mathbf{w}} \nabla_{\mathbf{w}}
+\ln p\left(\mathbf{w}^{\star}\middle|\bm{\mathsf{t}}, \bm{\alpha}\right)
+\end{equation}
+the covariance~$\bm{\Sigma}$ should be given in terms of
 $\mathbf{B}^{\star} = \left.\mathbf{B}\right|_{\mathbf{w} = \mathbf{w}^{\star}}$ by
 \begin{equation}
 \bm{\Sigma}
@@ -809,18 +815,20 @@ so that $\widehat{\bm{\mathsf{t}}}$ is given by
 \widehat{\bm{\mathsf{t}}}
 = \bm{\Phi}\mathbf{w}^{\star}
 + \left(\mathbf{B}^{\star}\right)^{-1} \left(\bm{\mathsf{t}} - \bm{\mathsf{y}}^{\star}\right) .
-\label{eq:linearized_target_for_classification_RVM}
+\label{eq:target_for_linearized_classification_RVM}
 \end{equation}
-It should also be noted that the posterior mean~$\mathbf{w}^{\star}$ can be written in terms of
-$\widehat{\bm{\mathsf{t}}}$ so that
+It should also be noted here that
+the posterior mean~$\mathbf{w}^{\star}$ can be written in terms of $\widehat{\bm{\mathsf{t}}}$
+so that
 \begin{equation}
 \mathbf{w}^{\star}
 = \bm{\Sigma} \bm{\Phi}^{\operatorname{T}} \mathbf{B}^{\star} \widehat{\bm{\mathsf{t}}} .
 \label{eq:posterior_mean_of_classification_RVM}
 \end{equation}
 One can show the above identity~\eqref{eq:posterior_mean_of_classification_RVM} by
-making use of \eqref{eq:implicit_condition_for_posterior_mode_of_classification_RVM} and
-\eqref{eq:posterior_covariance_of_classification_RVM}.
+making use of \eqref{eq:implicit_condition_for_posterior_mode_of_classification_RVM},
+\eqref{eq:posterior_covariance_of_classification_RVM},
+and \eqref{eq:target_for_linearized_classification_RVM}.
 
 \erratum{Page~414}
 Figure~8.53, Line~6:
