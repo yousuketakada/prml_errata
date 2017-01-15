@@ -830,6 +830,115 @@ making use of \eqref{eq:implicit_condition_for_posterior_mode_of_classification_
 \eqref{eq:posterior_covariance_of_classification_RVM},
 and \eqref{eq:target_for_linearized_classification_RVM}.
 
+\erratum{Page~355}
+Equation~(7.118):
+This approximate marginal cannot be obtained directly from the Laplace approximation~(7.114)
+to the marginal~$p\left(\bm{\mathsf{t}}\middle|\bm{\alpha}\right)$;
+it is the marginal for a ``linearized'' version of the RVM classification problem.
+Since the linearized problem can be regarded as
+an RVM regression problem having data-dependent precisions,
+we first review such a regression problem in the following.
+
+The likelihood for the RVM regression problem with
+data-dependent precisions~$\bm{\beta} = \left\{ \beta_1, \dots, \beta_N \right\}$ is given by
+\begin{align}
+p \left( \bm{\mathsf{t}} \middle| \mathbf{w}, \bm{\beta} \right)
+&= \prod_{n=1}^{N}
+\mathcal{N} \left( t_n \middle| \mathbf{w}^{\operatorname{T}} \bm{\phi}_n, \beta_n^{-1} \right) \\
+&= \mathcal{N} \left( \bm{\mathsf{t}} \middle| \bm{\Phi}\mathbf{w}, \mathbf{B}^{-1} \right)
+\end{align}
+where we have omitted the dependence on
+$\mathbf{X} = \left\{ \mathbf{x}_1, \dots, \mathbf{x}_N \right\}$
+to keep the notation uncluttered;
+and written $\bm{\phi}_n = \bm{\phi} \left(\mathbf{x}_n\right)$ and
+\begin{align}
+\bm{\mathsf{t}} &= \left( t_1, \dots, t_N \right)^{\operatorname{T}} \\
+\bm{\Phi} &= \left( \bm{\phi}_1, \dots, \bm{\phi}_N \right)^{\operatorname{T}} \\
+\mathbf{B} &= \operatorname{diag} \left( \beta_1, \dots, \beta_N \right) .
+\end{align}
+The prior is the same as (7.80) so that
+\begin{align}
+p \left( \mathbf{w} \middle| \bm{\alpha} \right)
+&= \prod_{i = 1}^{M} \mathcal{N} \left( w_i \middle| 0, \alpha_i^{-1} \right) \\
+&= \mathcal{N} \left( \mathbf{w} \middle| \mathbf{0}, \mathbf{A}^{-1} \right)
+\end{align}
+where
+\begin{equation}
+\mathbf{A} = \operatorname{diag} \left( \alpha_1, \dots, \alpha_M \right) .
+\end{equation}
+The joint distribution is given by a linear Gaussian model of the form
+\begin{align}
+p \left( \bm{\mathsf{t}}, \mathbf{w} \middle| \bm{\alpha}, \bm{\beta} \right)
+&= p \left( \bm{\mathsf{t}} \middle| \mathbf{w}, \bm{\beta} \right)
+p \left( \mathbf{w} \middle| \bm{\alpha} \right) \\
+&= \mathcal{N} \left( \bm{\mathsf{t}} \middle| \bm{\Phi}\mathbf{w}, \mathbf{B}^{-1} \right)
+\mathcal{N} \left( \mathbf{w} \middle| \mathbf{0}, \mathbf{A}^{-1} \right) .
+\end{align}
+Making use of the general results~(2.115) and (2.116) for
+the marginal and the conditional Gaussians,
+we can readily evaluate the marginal and the posterior distributions again as Gaussians.
+The posterior is given by
+\begin{equation}
+p \left( \mathbf{w} \middle| \bm{\mathsf{t}}, \bm{\alpha}, \bm{\beta} \right)
+= \mathcal{N} \left( \mathbf{w} \middle| \mathbf{w}^{\star}, \bm{\Sigma} \right)
+\end{equation}
+where
+\begin{align}
+\mathbf{w}^{\star} &= \bm{\Sigma} \bm{\Phi}^{\operatorname{T}} \mathbf{B} \bm{\mathsf{t}} \\
+\bm{\Sigma} &= \left(
+\mathbf{A} + \bm{\Phi}^{\operatorname{T}} \mathbf{B} \bm{\Phi}
+\right)^{-1} .
+\end{align}
+The marginal is given by
+\begin{equation}
+p \left( \bm{\mathsf{t}} \middle| \bm{\alpha}, \bm{\beta} \right)
+= \mathcal{N} \left( \bm{\mathsf{t}} \middle| \mathbf{0}, \mathbf{C} \right)
+\label{eq:marginal_for_RVM_regression}
+\end{equation}
+where
+\begin{equation}
+\mathbf{C} = \mathbf{B}^{-1} + \bm{\Phi} \mathbf{A}^{-1} \bm{\Phi}^{\operatorname{T}} .
+\end{equation}
+
+Let us now return to the RVM classification problem.
+We have seen that the posterior can be approximated with the Laplace approximation as
+\begin{equation}
+p \left( \mathbf{w} \middle| \bm{\mathsf{t}}, \bm{\alpha} \right)
+\approx
+\mathcal{N}\left( \mathbf{w} \middle| \mathbf{w}^{\star}, \bm{\Sigma} \right)
+\end{equation}
+where $\mathbf{w}^{\star}$ is obtained by the IRLS algorithm and
+can be written in the form~\eqref{eq:posterior_mean_of_classification_RVM};
+and $\bm{\Sigma}$ is given by \eqref{eq:posterior_covariance_of_classification_RVM}.
+Comparing this result with that obtained for
+the RVM regression problem with data-dependent precisions,
+we see that the Laplace approximation effectively maps the classification problem to
+a regression problem in which the ``linearized'' target vector~$\widehat{\bm{\mathsf{t}}}$
+given by \eqref{eq:target_for_linearized_classification_RVM}
+has the precision matrix~$\mathbf{B}^{\star}$.
+The corresponding marginal for this linearized problem is given by
+\begin{equation}
+p \left( \bm{\mathsf{t}} \middle| \bm{\alpha} \right)
+= \mathcal{N}\left( \bm{\mathsf{t}} \middle| \mathbf{0}, \mathbf{C} \right)
+\end{equation}
+where
+\begin{equation}
+\mathbf{C}
+= \left( \mathbf{B}^{\star} \right)^{-1}
++ \bm{\Phi} \mathbf{A}^{-1} \bm{\Phi}^{\operatorname{T}} .
+\label{eq:marginal_covariance_of_linearized_classification_RVM}
+\end{equation}
+This takes the same form as \eqref{eq:marginal_for_RVM_regression} or (7.85)
+in the regression problem
+so that we can apply the same analysis of sparsity and obtain the same fast learning algorithm.
+
+\erratum{Page~355}
+% http://ibisforest.org/index.php?PRML%2Ferrata2
+Equation~(7.119):
+Both $\mathbf{A}$ and $\mathbf{B}$ should be inverted and,
+moreover, $\mathbf{B}$ should be that evaluated at $\mathbf{w} = \mathbf{w}^{\star}$
+so that (7.119) should read \eqref{eq:marginal_covariance_of_linearized_classification_RVM}.
+
 \erratum{Page~414}
 Figure~8.53, Line~6:
 The term~``max-product'' should be ``max-sum.''
