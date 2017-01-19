@@ -982,14 +982,14 @@ The right hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zer
 
 \erratum{Page~432}
 The text after (9.13):
-I would like to point out for clarity that, as the prior~$p(\mathbf{z})$ given by (9.10) is
-a multinomial distribution or, more specifically,
-a categorical distribution~\eqref{eq:categorical_distribution} so that
+I would like to point out for clarity that the prior~$p(\mathbf{z})$ given by (9.10) is
+a multinomial distribution or, more precisely,
+a categorical (or multinoulli) distribution~\eqref{eq:categorical_distribution} so that
 \begin{equation}
 p\left(\mathbf{z}\right) = \operatorname{Mult}\left(\mathbf{z}\middle|\bm{\pi}\right) =
-\prod_{k=1}^{K} \pi_k^{z_k}
+\prod_{k=1}^{K} \pi_k^{z_k} .
 \end{equation}
-we see that the posterior~$p \left( \mathbf{z} \middle| \mathbf{x} \right)$ again becomes
+Moreover, we see that the posterior~$p \left( \mathbf{z} \middle| \mathbf{x} \right)$ again becomes
 a categorical distribution of the form
 \begin{equation}
 p \left( \mathbf{z} \middle| \mathbf{x} \right) =
@@ -1557,13 +1557,13 @@ $\mathbf{x}$ in the right hand side should read $\mathbf{x}_{a}$.
 
 \erratum{Page~690}
 Equation~(B.54):
-The discrete distribution of the form~(B.54) or (2.26) is usually called
-the \emph{categorical} distribution.
-It is a generalization of the Bernoulli distribution~(B.1) to an $K$-dimensional binary
+The discrete distribution of the form~(B.54), or (2.26), is sometimes called
+the \emph{categorical} or \emph{multinoulli} distribution.
+It is a generalization of the Bernoulli distribution~(B.1) to a $K$-dimensional binary
 variable~$\mathbf{x} = (x_1, \dots, x_K)^{\operatorname{T}}$
 where $x_k \in \{0, 1\}$ such that $\sum_k x_k = 1$, i.e.,
-$\mathbf{x}$ represents the one-of-$K$ coding,
-and also a special case of the multinomial distribution~(B.59)
+we use the one-of-$K$ coding scheme for $\mathbf{x}$;
+it is also a special case of the multinomial distribution~(B.59)
 with a single observation, i.e., $N = 1$.
 Since we often make use of this distribution, we should introduce some notation for
 the right hand side of (B.54).
