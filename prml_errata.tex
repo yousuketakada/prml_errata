@@ -811,14 +811,14 @@ The mean~$\mathbf{w}^{\star}$ of the Laplace approximation to
 the posterior~$p\left(\mathbf{w}\middle|\bm{\mathsf{t}}, \bm{\alpha}\right)$ can only be obtained
 iteratively by, say, IRLS as described in the text
 so that (7.112) does not represent an explicit solution and is thus best removed.
-However, it is useful to note that, at the convergence of IRLS,
-we have the following implicit condition for $\mathbf{w}^{\star}$
+As we shall see shortly, it is however useful to note that, at the convergence of IRLS,
+we have the following implicit equations for $\mathbf{w}^{\star}$
 \begin{equation}
 \nabla_{\mathbf{w}} \ln p\left(\mathbf{w}^{\star}\middle|\bm{\mathsf{t}}, \bm{\alpha}\right)
 = \bm{\Phi}^{\operatorname{T}} (\bm{\mathsf{t}} - \bm{\mathsf{y}}^{\star})
 - \mathbf{A}\mathbf{w}^{\star}
 = \mathbf{0}
-\label{eq:implicit_condition_for_posterior_mode_of_classification_RVM}
+\label{eq:implicit_equations_for_posterior_mode_of_classification_RVM}
 \end{equation}
 where $\bm{\mathsf{y}}^{\star}$ is evaluated at $\mathbf{w} = \mathbf{w}^{\star}$
 so that $\bm{\mathsf{y}}^{\star} = \left.\bm{\mathsf{y}}\right|_{\mathbf{w} = \mathbf{w}^{\star}}$.
@@ -861,7 +861,7 @@ so that
 \label{eq:posterior_mean_of_classification_RVM}
 \end{equation}
 One can show the above identity~\eqref{eq:posterior_mean_of_classification_RVM} by
-making use of \eqref{eq:implicit_condition_for_posterior_mode_of_classification_RVM},
+making use of \eqref{eq:implicit_equations_for_posterior_mode_of_classification_RVM},
 \eqref{eq:posterior_covariance_of_classification_RVM},
 and \eqref{eq:target_for_linearized_classification_RVM}.
 
