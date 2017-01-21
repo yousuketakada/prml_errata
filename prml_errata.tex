@@ -38,7 +38,7 @@ This report\footnote{The source code of this report can be found at:
 \url{https://github.com/yousuketakada/prml\_errata}}
 communicates some more errata for \emph{Pattern Recognition and Machine Learning} or
 PRML by \citet*{Bishop:PRML}
-that are not listed in the official errata document~\citep{Svensen:PRML_errata}\footnote{\
+that are not listed in the official errata document~\citep{Svensen:PRML_errata}\footnote{%
 The last line but one of the bibliographic information page of the copy of PRML I have
 reads ``9 8 7 (corrected at 6th printing 2007).''
 So I refer to Version~2 of the errata document~\citep{Svensen:PRML_errata}.}
@@ -68,7 +68,7 @@ which have also been included in this report for the reader's convenience.
 
 \erratum{Page~5}
 Equation~(1.1):
-The lower ellipsis ($\ldots$) should be centered ($\cdots$).\footnote{\
+The lower ellipsis ($\ldots$) should be centered ($\cdots$).\footnote{%
 The command~\texttt{\char`\\cdots} or,
 with the \texttt{amsmath} or \texttt{mathtools} package,
 \texttt{\char`\\dots} will do.}
@@ -162,7 +162,7 @@ f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
 showing Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}.
 One can also see that, if $f(\cdot)$ is strictly convex,
 the equality in \eqref{eq:Jensen_inequality_expectation_with_z}
-implies that $\xi(\cdot)$ is constant (it is trivial to show that the converse is true). }
+implies that $\xi(\cdot)$ is constant (it is trivial to show that the converse is true).}
 \label{fig:Jensen_inequality}
 \end{figure}
 
@@ -241,7 +241,7 @@ are positive definite.\footnote{In this report, we assume as customary that
 the concept of positive/negative (semi)definiteness is restricted to symmetric matrices.
 For example, when we say ``a matrix~$\mathbf{A}$ is positive definite'' or $\mathbf{A} \succ 0$,
 $\mathbf{A}$ is also assumed to be symmetric so that $\mathbf{A}^{\operatorname{T}} = \mathbf{A}$,
-though we still sometimes say ``$\mathbf{A}$ is symmetric positive definite'' to avoid confusion. }
+though we still sometimes say ``$\mathbf{A}$ is symmetric positive definite'' to avoid confusion.}
 
 \erratum{Page~90}
 Line~\textminus6:
@@ -535,7 +535,7 @@ Figure~\ref{fig:Student_t_densities} gives the correct plot.
 functions~$\operatorname{St}\left(x\middle|\mu, \lambda, \nu\right)$ (left) and
 corresponding log density
 functions~$\ln\operatorname{St}\left(x\middle|\mu, \lambda, \nu\right)$ (right)
-for various values of $\nu$ where we have fixed $\mu = 0$ and $\lambda = 1$. }
+for various values of $\nu$ where we have fixed $\mu = 0$ and $\lambda = 1$.}
 \label{fig:Student_t_densities}
 \end{figure}
 
@@ -566,7 +566,7 @@ The lower ellipsis ($\ldots$) should be centered ($\cdots$).
 Equation~(3.13):
 The use of the gradient operator~$\nabla$ is not consistent here.
 As in (2.224), the gradient of a scalar function is usually defined as a column vector
-of derivatives so that (3.13) should read\footnote{\
+of derivatives so that (3.13) should read\footnote{%
 Note that we use a different typeface for
 the data vector~$\bm{\mathsf{t}} = \left( t_1, \dots, t_N \right)^{\operatorname{T}}$.
 See ``Mathematical notation'' on page xi of PRML.}
@@ -1844,7 +1844,7 @@ or
 \mathbf{M}/\mathbf{D} \equiv \mathbf{A} - \mathbf{B}\mathbf{D}^{-1}\mathbf{C}
 \label{eq:Schur_complement_of_M_wrt_D}
 \end{equation}
-respectively.\footnote{\
+respectively.\footnote{%
 Note that the notation for the Schur complement is chosen to suggest that
 it has a flavor of division~\citep{Minka:OldNewMatrixAlgebra}.
 In fact, taking the determinant on both sides of
