@@ -1020,13 +1020,13 @@ The right hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zer
 The text after (9.13):
 I would like to point out for clarity that the prior~$p(\mathbf{z})$ given by (9.10) is
 a multinomial distribution or, more precisely,
-a categorical (or multinoulli) distribution~\eqref{eq:categorical_distribution} so that
+a \emph{multinoulli} distribution~\eqref{eq:multinoulli_distribution} so that
 \begin{equation}
 p\left(\mathbf{z}\right) = \operatorname{Mult}\left(\mathbf{z}\middle|\bm{\pi}\right) =
 \prod_{k=1}^{K} \pi_k^{z_k} .
 \end{equation}
 Moreover, we see that the posterior~$p \left( \mathbf{z} \middle| \mathbf{x} \right)$ again becomes
-a categorical distribution of the form
+a multinoulli distribution of the form
 \begin{equation}
 p \left( \mathbf{z} \middle| \mathbf{x} \right) =
 \operatorname{Mult}\left(\mathbf{z}\middle|\bm{\gamma}\right) =
@@ -1042,9 +1042,9 @@ p \left( \mathbf{z} \right) p \left( \mathbf{x} \middle| \mathbf{z} \right) =
  \mathcal{N} \left( \mathbf{x} \middle| \bm{\mu}_k, \bm{\Sigma}_k \right) \right\}^{z_k}
 \label{eq:joint_distribution_of_Gaussian_mixture}
 \end{equation}
-and noting that the categorical distribution~\eqref{eq:categorical_distribution}
+and noting that the multinoulli distribution~\eqref{eq:multinoulli_distribution}
 can be expressed in terms of unnormalized probabilities as shown in
-\eqref{eq:categorical_distribution_w_unnormalized_mu} where
+\eqref{eq:multinoulli_distribution_w_unnormalized_mu} where
 the normalized probabilities are given by \eqref{eq:normalized_mu_from_unnormalized_mu}.
 This observation helps the reader understand that
 evaluating the responsibilities~$\gamma_k$ indeed corresponds to
@@ -1626,38 +1626,38 @@ $\mathbf{x}$ in the right hand side should read $\mathbf{x}_{a}$.
 \erratum{Page~690}
 Equation~(B.54):
 The discrete distribution of the form~(B.54), or (2.26), is sometimes called
-the \emph{categorical} or \emph{multinoulli} distribution.
-It is a generalization of the Bernoulli distribution~(B.1) to a $K$-dimensional binary
+the \emph{categorical} distribution.
+It is also knowns as the \emph{multinoulli} distribution, implying:
+it is a generalization of the Bernoulli distribution~(B.1) to the $K$-dimensional binary
 variable~$\mathbf{x} = (x_1, \dots, x_K)^{\operatorname{T}}$
 where $x_k \in \{0, 1\}$ such that $\sum_k x_k = 1$, i.e.,
 we use the one-of-$K$ coding scheme for $\mathbf{x}$;
 it is also a special case of the multinomial distribution~(B.59)
 with a single observation, i.e., $N = 1$.
-Since we often make use of this distribution, we should introduce some notation for
+Since we often make use of this discrete distribution, we should introduce some notation for
 the right hand side of (B.54).
-For example, we could write
+For example, we could ``overload'' the notation~(B.59) for the multinomial and write
 \begin{equation}
-\operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right) =
+\operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right) \equiv
 \prod_{k=1}^{K} \mu_{k}^{x_k} =
 \exp\left\{ \sum_{k=1}^{K} x_k \ln \mu_k \right\}
-\label{eq:categorical_distribution}
+\label{eq:multinoulli_distribution}
 \end{equation}
 where $0 \leqslant \mu_k \leqslant 1$ and $\sum_k \mu_k = 1$.
 
-When we identify the functional form of a categorical distribution, e.g.,
+When we identify the functional form of a multinoulli distribution, e.g.,
 in the posterior distribution~\eqref{eq:posterior_of_Gaussian_mixture} for
 the Gaussian mixture model~\eqref{eq:joint_distribution_of_Gaussian_mixture} of Section~9.2,
-it is good to know that the distribution~\eqref{eq:categorical_distribution} can also be expressed
+one will find it helpful to know that
+the distribution~\eqref{eq:multinoulli_distribution} can also be expressed
 in terms of unnormalized probabilities~$\widetilde{\mu}_k \geqslant 0$, i.e.,
 \begin{equation}
-\operatorname{Mult}\left(\mathbf{x}\middle|\widetilde{\bm{\mu}}\right) =
-C(\widetilde{\bm{\mu}}) \prod_{k=1}^{K} \widetilde{\mu}_{k}^{x_k} = 
-\exp\left\{ \sum_{k=1}^{K} x_k \ln \widetilde{\mu}_k + \ln C(\widetilde{\bm{\mu}})\right\}
-\label{eq:categorical_distribution_w_unnormalized_mu}
+\operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right) \propto
+\prod_{k=1}^{K} \widetilde{\mu}_{k}^{x_k} = 
+\exp\left\{ \sum_{k=1}^{K} x_k \ln \widetilde{\mu}_k \right\}
+\label{eq:multinoulli_distribution_w_unnormalized_mu}
 \end{equation}
-where the normalization constant is given by
-${C(\widetilde{\bm{\mu}})}^{-1} = \sum_{k} \widetilde{\mu}_k$
-so that the normalized probabilities can be found
+where the normalized probabilities~$\mu_k$ can be found
 \begin{equation}
 \mu_k = p(x_k = 1) = \frac{\widetilde{\mu}_k}{\sum_{j} \widetilde{\mu}_j} .
 \label{eq:normalized_mu_from_unnormalized_mu}
