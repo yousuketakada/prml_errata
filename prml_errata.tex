@@ -1634,37 +1634,57 @@ $\mathbf{x}$ in the right hand side should read $\mathbf{x}_{a}$.
 Equation~(B.54):
 The discrete distribution of the form~(B.54), or (2.26), is sometimes called
 the \emph{categorical} distribution.
-It is also knowns as the \emph{multinoulli} distribution
-in an analogy to the Bernoulli/binomial distribution,
-implying that the multinoulli is a generalization of the Bernoulli distribution~(B.1)
+It is also knowns as the \emph{multinoulli} distribution,
+implying that it is a generalization of the Bernoulli distribution~(B.1)
 to the $K$-dimensional binary variable~$\mathbf{x} = (x_1, \dots, x_K)^{\operatorname{T}}$
 where $x_k \in \{0, 1\}$ such that $\sum_k x_k = 1$, i.e.,
 we use the one-of-$K$ coding scheme for $\mathbf{x}$; and
 it is also a special case of the multinomial distribution~(B.59)
-where $N = 1$, i.e., for a single observation.\footnote{%
-The multinoulli is to the multinomial what the Bernoulli is to the binomial;
-the multinoulli is to the Bernoulli what the multinomial is to the binomial.
-The relationship between the discrete distributions can be expressed as follows.
-\begin{equation}
+where $N = 1$, i.e., for a single observation
+(see Figure~\ref{fig:relationship_between_discrete_distributions}).
+\begin{figure}
+\centering
+\begin{equation*}
 \xymatrix{
+\txt{\textbf{Beta}~(B.6) \\
+$\operatorname{Beta}\left(\mu\middle|a, b\right)$}
+\ar@{-->}[dr]
+\ar@{-->}[dddr]
+&
+&
+\txt{\textbf{Dirichlet}~(B.16) \\
+$\operatorname{Dir}\left(\bm{\mu}\middle|\bm{\alpha}\right)$}
+\ar@{-->}[dr]
+\ar@{-->}[dddr]
+\\
+&
 \txt{\textbf{Bernoulli}~(B.1) \\
 $\operatorname{Bern}\left(x\middle|\mu\right)$}
-\ar[d] \ar@2[r] &
+\ar[dd] \ar@2[rr]
+&
+&
 \txt{\textbf{Multinoulli}~\eqref{eq:multinoulli_distribution} \\
 $\operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right)$}
-\ar[d] \\
+\ar[dd]
+\\
+\\
+&
 \txt{\textbf{Binomial}~(B.10) \\
 $\operatorname{Bin}\left(m\middle|N, \mu\right)$}
-\ar@2[r] &
+\ar@2[rr]
+&
+&
 \txt{\textbf{Multinomial}~(B.59) \\
 $\operatorname{Mult}\left(m_1, \dots, m_K\middle|\bm{\mu}, N\right)$}
 }
-\end{equation}
-where $A \Longrightarrow B$ denotes
+\end{equation*}
+\caption{The relationship between discrete distributions and their priors.
+$A \Rightarrow B$ denotes
 ``$A$ generalizes to $B$ with multiple categories concerned''; and
-$A \longrightarrow B$ ``$A$ to $B$ with multiple observations.''
-Note also that the conjugate prior for the Bernoulli and the binomial is the beta~(B.6);
-and that for the multinoulli and the multinomial is the Dirichlet~(B.16).}
+$A \rightarrow B$ ``$A$ to $B$ with multiple observations.''
+$A \dashrightarrow B$ denotes ``$A$ is the conjugate prior for $B$.''}
+\label{fig:relationship_between_discrete_distributions}
+\end{figure}
 Since we often make use of this discrete distribution, we should introduce some notation for
 the right hand side of (B.54).
 For example, we could ``overload'' the notation~(B.59) for the multinomial and write
