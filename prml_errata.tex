@@ -16,7 +16,9 @@
 \usepackage{graphicx}
 \graphicspath{{./fig/}}
 \usepackage{natbib}
-\usepackage[backref=page,colorlinks,allcolors=MidnightBlue]{hyperref}
+\usepackage[
+bookmarks=true,bookmarksopen=true,
+backref=page,colorlinks,allcolors=MidnightBlue]{hyperref}
 
 %\renewcommand{\familydefault}{\sfdefault}
 
@@ -25,7 +27,9 @@
 
 \newcommand{\www}{\colorbox{MediumBlue}{\textcolor{White}{\textbf{\textsf{www}}}}}
 
-\newcommand{\erratum}[1]{\subsubsection*{#1}}
+\newcommand{\erratum}[1]{%
+\subsubsection*{#1}
+\addcontentsline{toc}{subsection}{#1}}
 
 \begin{document}
 
@@ -35,6 +39,7 @@
 \maketitle
 
 \section*{Preface}
+\addcontentsline{toc}{section}{Preface}
 This report\footnote{The source code of this report can be found at:
 \url{https://github.com/yousuketakada/prml\_errata}}
 communicates some more errata for \emph{Pattern Recognition and Machine Learning} or
@@ -66,6 +71,7 @@ some additional errata for the English edition,
 which have also been included in this report for the reader's convenience.
 
 \section*{Corrections}
+\addcontentsline{toc}{section}{Corrections}
 
 \erratum{Page~5}
 Equation~(1.1):
@@ -2691,6 +2697,8 @@ Column~1, Entry~\textminus1:
 Column~2, Entry~7:
 ``John Hopkins University Press'' should read ``The Johns Hopkins University Press.''
 
+\phantomsection
+\addcontentsline{toc}{section}{\refname}
 \bibliographystyle{chicago}
 \bibliography{refs}
 
