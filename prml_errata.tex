@@ -1645,8 +1645,9 @@ where $N = 1$, i.e., for a single observation
 (see Figure~\ref{fig:relationship_between_discrete_distributions}).
 \begin{figure}
 \centering
+{\fontfamily{\sfdefault}\selectfont
 \begin{equation*}
-\xymatrix{
+\xymatrix@R-2ex@C-5ex{
 \txt{\textbf{Beta}~(B.6) \\
 $\operatorname{Beta}\left(\mu\middle|a, b\right)$}
 \ar@{-->}[dr]
@@ -1678,12 +1679,12 @@ $\operatorname{Bin}\left(m\middle|N, \mu\right)$}
 \txt{\textbf{Multinomial}~(B.59) \\
 $\operatorname{Mult}\left(m_1, \dots, m_K\middle|\bm{\mu}, N\right)$}
 }
-\end{equation*}
+\end{equation*}}
 \caption{The relationship between discrete distributions and their priors.
-$A \Rightarrow B$ denotes
-``$A$ generalizes to $B$ with multiple categories concerned''; and
-$A \rightarrow B$ ``$A$ to $B$ with multiple observations.''
-$A \dashrightarrow B$ denotes ``$A$ is the conjugate prior for $B$.''}
+Here, $\text{A} \Rightarrow \text{B}$ denotes
+``A generalizes to B with multiple categories concerned'' and
+$\text{A} \rightarrow \text{B}$ ``A to B with multiple observations.''
+Note also that $\text{A} \dashrightarrow \text{B}$ denotes ``A is the conjugate prior for B.''}
 \label{fig:relationship_between_discrete_distributions}
 \end{figure}
 Since we often make use of this discrete distribution, we should introduce some notation for
