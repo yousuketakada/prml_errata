@@ -1872,6 +1872,11 @@ because fewer latent variables imply less computational space and complexity as 
 a tighter bound on the (marginal) likelihood and thus faster convergence
 when we infer a model involving such marginals with the EM algorithm (see Chapter~9) or
 variational methods (Chapter~10).
+Moreover, the marginal of the form~(2.161) is even better in terms of the modeling flexibility
+because it allows us to lean the mean~$\bm{\mu}$ and the precision~$\bm{\Lambda}$ parameters
+with, e.g., maximum likelihood (see Exercise~12.24) or
+variational Bayes by introducing a (conditionally) conjugate prior for
+$\bm{\mu}$ and $\bm{\Lambda}$~\citep{Svensen:RobustMixture}.
 
 \erratum{Page~693}
 Equations~(B.78) through (B.82):
