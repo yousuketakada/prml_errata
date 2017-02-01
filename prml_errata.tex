@@ -1633,15 +1633,17 @@ $\mathbf{x}$ in the right hand side should read $\mathbf{x}_{a}$.
 
 \erratum{Page~690}
 Equation~(B.54):
-The discrete distribution of the form~(B.54), or (2.26), is termed
-the \emph{categorical} or the \emph{multinoulli} distribution~\citep{Murphy:MachineLearning}.
+The discrete distribution of the form~(B.54), or (2.26), has been (perhaps confusingly) given
+several different names such as ``the discrete distribution,''
+the \emph{categorical} distribution, and
+the \emph{multinoulli} distribution~\citep{Murphy:MachineLearning}.
 Of these terms, I would prefer the term \emph{multinoulli}
 because it easily suggests that it is a generalization of the Bernoulli distribution~(B.1)
 to the $K$-dimensional binary variable~$\mathbf{x} = (x_1, \dots, x_K)^{\operatorname{T}}$
 where $x_k \in \{0, 1\}$ such that $\sum_k x_k = 1$, i.e.,
-we use the one-of-$K$ coding scheme for $\mathbf{x}$; and
+we employ the one-of-$K$ coding scheme for $\mathbf{x}$; and
 it is also a special case of the multinomial distribution~(B.59)
-where $N = 1$, i.e., for a single observation
+where $N = 1$, i.e., we have a single observation
 (see Figure~\ref{fig:relationship_between_discrete_distributions}).
 \begin{figure}
 \centering
@@ -1650,6 +1652,7 @@ where $N = 1$, i.e., for a single observation
 \xymatrix@R-2ex@C-5ex{
 \txt{\textbf{Beta}~(B.6) \\
 $\operatorname{Beta}\left(\mu\middle|a, b\right)$}
+\ar@2[rr]
 \ar@{-->}[dr]
 \ar@{-->}[dddr]
 &
@@ -1662,7 +1665,8 @@ $\operatorname{Dir}\left(\bm{\mu}\middle|\bm{\alpha}\right)$}
 &
 \txt{\textbf{Bernoulli}~(B.1) \\
 $\operatorname{Bern}\left(x\middle|\mu\right)$}
-\ar[dd] \ar@2[rr]
+\ar[dd]
+\ar@2[rr]
 &
 &
 \txt{\textbf{Multinoulli}~\eqref{eq:multinoulli_distribution} \\
@@ -1682,7 +1686,7 @@ $\operatorname{Mult}\left(m_1, \dots, m_K\middle|\bm{\mu}, N\right)$}
 \end{equation*}}
 \caption{The relationship between discrete distributions and their priors.
 Here, $\text{A} \Rightarrow \text{B}$ denotes
-``A generalizes to B with multiple categories concerned'' and
+``A generalizes to B with multiple categories concerned''; and
 $\text{A} \rightarrow \text{B}$ ``A to B with multiple observations.''
 Note also that $\text{A} \dashrightarrow \text{B}$ denotes ``A is the conjugate prior for B.''}
 \label{fig:relationship_between_discrete_distributions}
