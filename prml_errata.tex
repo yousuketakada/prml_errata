@@ -332,28 +332,60 @@ See \citet{Anderson:MaximumLikelihood} for further discussions.
 
 \erratum{Page~100}
 Equations~(2.147) and (2.148):
-We are also interested in the logarithmic expectation~$\mathbb{E}\left[ \ln\lambda \right]$
-given by (B.30) because it is required to evaluate
+In addition to the mean~$\mathbb{E}[\lambda]$ and the variance~$\operatorname{var}[\lambda]$
+given by (2.147) and (2.148), respectively,
+we are also interested in the logarithmic expectation~$\mathbb{E}\left[ \ln\lambda \right]$
+given by (B.30), which is required to evaluate
 the entropy~$\operatorname{H}\left[ \lambda \right]$ given by (B.31).
-The logarithmic expectation~$\mathbb{E}\left[ \ln\lambda \right]$ can be most easily calculated
-by making use of the derivative of the gamma distribution~(2.146)
-with respect to $a$, which is given by
+Note that the logarithmic expectation of the Dirichlet distribution~(2.38) is
+concerned in Exercise~2.11 (the mean and the covariance are concerned in Exercise~2.10).
+Following a similar pattern, we can calculate the logarithmic expectation of
+the gamma distribution~(2.146)
+by making use of the derivative of the log gamma distribution with respect to $a$,
+which is given by
 \begin{equation}
-\frac{\partial}{\partial a} \operatorname{Gam}\left(\lambda\middle|a, b\right)
-= \left( \ln\lambda - \psi(a) + \ln b \right) \operatorname{Gam}\left(\lambda\middle|a, b\right)
-\label{eq:derivative_of_gamma_distribution_wrt_a}
+\frac{\partial}{\partial a} \ln\operatorname{Gam}\left(\lambda\middle|a, b\right)
+= \ln\lambda - \psi(a) + \ln b
+\label{eq:derivative_of_log_gamma_distribution_wrt_a}
 \end{equation}
 where $\psi(\cdot)$ is the \emph{digamma} function defined by (B.25) so that we have
 \begin{equation}
 \psi(a) \equiv \frac{\mathrm{d}}{\mathrm{d}a} \ln \Gamma(a) = \frac{\Gamma'(a)}{\Gamma(a)} .
 \end{equation}
+Here, we note that, for any normalized probability~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
+parameterized by $\bm{\theta}$, the expectation of the \emph{Fisher score}~(6.32),
+or the derivative of the log probability with respect to $\bm{\theta}$,
+vanishes,\footnote{%
 Differentiating the both sides of the integral identity
 \begin{equation}
-\int_{0}^{\infty} \operatorname{Gam}\left(\lambda\middle|a, b\right) \mathrm{d}\lambda = 1
+\int p\left(\mathbf{x}\middle|\bm{\theta}\right) \mathrm{d}\mathbf{x} = 1
 \end{equation}
-with respect to $a$,
-interchanging the order of the differentiation and the integral,
-and substituting \eqref{eq:derivative_of_gamma_distribution_wrt_a},
+with respect to $\bm{\theta}$, we have
+\begin{align}
+\nabla_{\bm{\theta}} \int p\left(\mathbf{x}\middle|\bm{\theta}\right) \mathrm{d}\mathbf{x}
+&= \mathbf{0} \\
+\int \nabla_{\bm{\theta}} \, p\left(\mathbf{x}\middle|\bm{\theta}\right) \mathrm{d}\mathbf{x}
+&= \mathbf{0} \\
+\int p\left(\mathbf{x}\middle|\bm{\theta}\right)
+\nabla_{\bm{\theta}} \ln p\left(\mathbf{x}\middle|\bm{\theta}\right) \mathrm{d}\mathbf{x}
+&= \mathbf{0}
+\end{align}
+where we have assumed that we can interchange the order of the derivative and the integral;
+and used the log derivative identity
+\begin{equation}
+\nabla f = f \, \nabla \ln f .
+\end{equation}
+}
+i.e.,
+\begin{equation}
+\mathbb{E}_{\mathbf{x}}\left[
+\nabla_{\bm{\theta}} \ln p\left(\mathbf{x}\middle|\bm{\theta}\right)
+\right]
+= \mathbf{0} .
+\label{eq:expected_fisher_score}
+\end{equation}
+Substituting \eqref{eq:derivative_of_log_gamma_distribution_wrt_a} into
+\eqref{eq:expected_fisher_score},
 we obtain
 \begin{equation}
 \mathbb{E}\left[ \ln \lambda \right] = \psi(a) - \ln b .
