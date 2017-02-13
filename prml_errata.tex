@@ -105,6 +105,32 @@ if we see $\operatorname{H}[\cdot]$ as a functional,
 we could write $\operatorname{H}[p]$.
 However, it is probably better to maintain the notational consistency here.
 
+\begin{figure}
+\centering
+\includegraphics{jensen_inequality.eps}
+\caption{A physical ``proof'' for
+Jensen's inequality~\citep{MacKay:Information}.
+Suppose that we have a set of point masses~$m_i = p(\mathbf{z}=\mathbf{z}_i)$,
+denoted by filled blue circles ({\large\textcolor{blue}{$\bullet$}})
+with areas proportional to $m_i$,
+and place them at the corresponding
+locations~$(x, y) = \left(\xi(\mathbf{z}_i), f(\xi(\mathbf{z}_i))\right)$
+on a convex curve~$y = f(x)$.
+The center of gravity of those masses, which is $\left(
+\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
+\mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
+\right)$, denoted by a cross sign ($\boldsymbol{\times}$),
+must lie above the convex curve and thus right above the point~$\left(
+\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
+f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
+\right)$ on the curve, denoted by a filled square ($\blacksquare$),
+showing Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}.
+One can also see that, if $f(\cdot)$ is strictly convex,
+the equality in \eqref{eq:Jensen_inequality_expectation_with_z}
+implies that $\xi(\cdot)$ is constant (it is trivial to show that the converse is true).}
+\label{fig:Jensen_inequality}
+\end{figure}
+
 \erratum{Page~56}
 Equation~(1.116):
 In general, we cannot interpret $\lambda_i$ in Jensen's inequality~(1.115) as
@@ -152,32 +178,6 @@ the \emph{Kullback-Leibler divergence}~$\operatorname{KL}\left( p \middle\| q \r
 given by (1.113) satisfies
 $\operatorname{KL}\left( p \middle\| q \right) \geqslant 0$ with equality if and only if
 $p(\mathbf{x}) = q(\mathbf{x})$.
-
-\begin{figure}
-\centering
-\includegraphics{jensen_inequality.eps}
-\caption{A physical ``proof'' for
-Jensen's inequality~\citep{MacKay:Information}.
-Suppose that we have a set of point masses~$m_i = p(\mathbf{z}=\mathbf{z}_i)$,
-denoted by filled blue circles ({\large\textcolor{blue}{$\bullet$}})
-with areas proportional to $m_i$,
-and place them at the corresponding
-locations~$(x, y) = \left(\xi(\mathbf{z}_i), f(\xi(\mathbf{z}_i))\right)$
-on a convex curve~$y = f(x)$.
-The center of gravity of those masses, which is $\left(
-\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
-\mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
-\right)$, denoted by a cross sign ($\boldsymbol{\times}$),
-must lie above the convex curve and thus right above the point~$\left(
-\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
-f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
-\right)$ on the curve, denoted by a filled square ($\blacksquare$),
-showing Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}.
-One can also see that, if $f(\cdot)$ is strictly convex,
-the equality in \eqref{eq:Jensen_inequality_expectation_with_z}
-implies that $\xi(\cdot)$ is constant (it is trivial to show that the converse is true).}
-\label{fig:Jensen_inequality}
-\end{figure}
 
 \erratum{Page~62}
 Exercise~1.18, the text after (1.142):
