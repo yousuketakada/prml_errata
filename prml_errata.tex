@@ -109,9 +109,9 @@ However, it is probably better to maintain the notational consistency here.
 \begin{figure}
 \centering
 \includegraphics{jensen_inequality.eps}
-\caption{A physical ``proof'' for
+\caption{A physical ``proof'' of
 Jensen's inequality~\citep{MacKay:Information}.
-Suppose that we have a set of point masses~$m_i = p(\mathbf{z}=\mathbf{z}_i)$,
+Let us suppose that we have a set of point masses~$m_i = p(\mathbf{z}=\mathbf{z}_i)$,
 denoted by filled blue circles ({\large\textcolor{blue}{$\bullet$}})
 with areas proportional to $m_i$,
 and place them at the corresponding
@@ -128,22 +128,22 @@ f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
 showing Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}.
 One can also see that, if $f(\cdot)$ is strictly convex,
 the equality in \eqref{eq:Jensen_inequality_expectation_with_z}
-implies that $\xi(\cdot)$ is constant (it is trivial to show that the converse is true).}
+implies that $\xi(\cdot)$ is essentially constant
+(it is trivial to show that the converse is true).}
 \label{fig:Jensen_inequality}
 \end{figure}
 
 \erratum{Page~56}
 Equation~(1.116):
-In general, we cannot interpret $\lambda_i$ in Jensen's inequality~(1.115) as
-a probability distribution over a discrete variable~$x$ such that $\lambda_i \equiv p(x = x_i)$
+In general, we cannot interpret $\lambda_i$ in \emph{Jensen's inequality}~(1.115) as
+the probability distribution over a discrete variable~$x$ such that $\lambda_i \equiv p(x = x_i)$
 because, since (1.115) holds for any $\left\{x_i\right\}$,
-we can take $x_i = x_j$ and $\lambda_i \neq \lambda_j$ where $i \neq j$,
+we can take, say, $x_i = x_j$ and $\lambda_i \neq \lambda_j$ where $i \neq j$,
 assigning different probabilities for the same value of $x$.
 Instead, we should rather introduce another set of underlying random variables~$\mathbf{z}$
 such that $\lambda_i \equiv p(\mathbf{z} = \mathbf{z}_i)$ and
-a function~$\xi(\mathbf{z})$ of the random variables~$\mathbf{z}$
-such that $x_i \equiv \xi(\mathbf{z}_i)$,
-giving a more general result
+a function~$\xi(\cdot)$ such that $x_i \equiv \xi(\mathbf{z}_i)$,
+giving a slightly more general result
 \begin{equation}
 f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
 \leqslant \mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
@@ -152,9 +152,14 @@ f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
 where $f(\cdot)$ is a convex function but $\xi(\cdot)$ can be any.
 Moreover, if $f(\cdot)$ is strictly convex,
 the equality in \eqref{eq:Jensen_inequality_expectation_with_z} holds if and only if
-$\xi(\cdot)$ is constant.
-See Figure~\ref{fig:Jensen_inequality} for an intuitive, physical ``proof'' for
+$\xi(\cdot)$ is \emph{essentially constant},
+meaning that there exists some constant~$\xi_0$ and
+$\xi(\mathbf{z}) = \xi_0$ for all $\mathbf{z}$ such that $p(\mathbf{z}) > 0$,
+in which case we have $\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right] = \xi_0$
+and the both sides of \eqref{eq:Jensen_inequality_expectation_with_z} equal $f(\xi_0)$.
+See Figure~\ref{fig:Jensen_inequality} for an intuitive, physical ``proof'' of
 the inequality~\eqref{eq:Jensen_inequality_expectation_with_z}.
+
 Since the random variables~$\mathbf{z}$ as well as their probability~$p(\mathbf{z})$ can be chosen
 arbitrarily,
 it makes sense to write $\mathbf{z}$ implicit in \eqref{eq:Jensen_inequality_expectation_with_z},
