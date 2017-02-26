@@ -79,13 +79,14 @@ which have also been included in this report for the reader's convenience.
 \addcontentsline{toc}{section}{Corrections}
 
 \erratum{Page~xi}
+% See https://github.com/yousuketakada/prml_errata/pull/1
 Paragraph~\textminus2, Line~1:
-$\left|f(x)/g(x)\right|$ should read $\left|g(x)/f(x)\right|$ (with the function names swapped).
-See also \citet{NIST:DLMF} and note that
-the function~$f(x)$ in the \emph{big O notation}~$g(x) = O\left(f(x)\right)$
-is not necessarily ``tightest'' so that, e.g.,
-we can write $ax^2 + bx + c = O(x^2)$
-where the coefficient~$a$ for $x^2$ can be either nonzero ($a \neq 0$) or zero ($a = 0$).
+$\left|f(x)/g(x)\right|$ should read $\left|g(x)/f(x)\right|$ (with the functions swapped).
+With the definition in PRML,
+we would also have, say, $x^2 = O(x)$
+because $\left|x/x^2\right|$ is bounded,
+which is surely not what the author has intended.
+See also \citet{NIST:DLMF} for other asymptotic and order notations.
 
 \erratum{Page~5}
 Equation~(1.1):
