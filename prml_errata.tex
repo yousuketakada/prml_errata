@@ -203,10 +203,12 @@ the inequality~$\operatorname{KL}\left( p \middle\| q \right) \geqslant 0$.
 First, the quantity~$\xi(\mathbf{x}) = q(\mathbf{x})/p(\mathbf{x})$ is undefined for $\mathbf{x}$
 such that $p(\mathbf{x}) = 0$.
 Second, the convex function~$f(\xi) = -\ln\xi$ is undefined for $\xi = 0$,
-which occurs where $q(\mathbf{x}) = 0$.
-To avoid these difficulties, we should take a different approach~\citep{MacKay:Information}
+which occurs where $q(\mathbf{x}) = 0$ and $p(\mathbf{x}) > 0$.
+In order to avoid these difficulties,
+we should take a different approach~\citep{MacKay:Information}
 in which we identify $f(\xi) = \xi\ln\xi$ and $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$;
-and then make use of \eqref{eq:Jensen_inequality_continuous} with respect to $q(\mathbf{x})$.
+and then make use of Jensen's inequality~\eqref{eq:Jensen_inequality_continuous}
+with respect to $q(\mathbf{x})$.
 
 To this end, let us first examine the behavior of the integrand of
 $\operatorname{KL}\left( p \middle\| q \right)$
@@ -247,7 +249,7 @@ where we have used \eqref{eq:Jensen_inequality_continuous} with respect to $q(\m
 (instead of $p(\mathbf{x})$).
 Note that, since $q(\mathbf{x}) > 0$ over $\Omega$, we see that
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x}) \geqslant 0$ is well-defined over $\Omega$ and
-so is $f(\xi) = \xi\ln\xi$ for $\xi \geqslant 0$.
+so is $f\left(\xi(\mathbf{x})\right) = \xi(\mathbf{x})\ln\xi(\mathbf{x})$.
 Since $f(\xi)$ is strictly convex,
 the equality in $\operatorname{KL}\left( p \middle\| q \right) \geqslant 0$ holds if and only if
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$ is constant over $\Omega$,
