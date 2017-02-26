@@ -196,6 +196,17 @@ $\operatorname{KL}\left( p \middle\| q \right) \geqslant 0$ with equality if and
 $p(\mathbf{x}) = q(\mathbf{x})$.
 See the following erratum for more details.
 
+\begin{figure}
+\centering
+\input{fig/x_ln_x_plot.tex}
+\caption{Plot of $f(x) = x \ln x$.
+The function~$f(x)$ is a strictly convex function over $\left[0, \infty\right)$
+where we have defined $0 \ln 0 = 0$;
+it takes the minimum at $\left(e^{-1}, -e^{-1}\right)$.
+The roots ($x$ such that $f(x) = 0$) are $x = 0$ and $x = 1$.}
+\label{fig:x_ln_x}
+\end{figure}
+
 \erratum{Page~56}
 Equation~(1.118):
 We have some difficulties in the derivation~(1.118) of
@@ -208,7 +219,8 @@ In order to avoid these difficulties,
 we should take a different approach~\citep{MacKay:Information}
 in which we make use of Jensen's inequality~\eqref{eq:Jensen_inequality_continuous}
 with respect to $q(\mathbf{x})$ where
-we identify $f(\xi) = \xi\ln\xi$ and $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$.
+we identify $f(\xi) = \xi\ln\xi$ (see Figure~\ref{fig:x_ln_x}) and
+$\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$.
 
 To this end, let us first examine the behavior of the integrand of
 $\operatorname{KL}\left( p \middle\| q \right)$
