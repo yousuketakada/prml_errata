@@ -186,13 +186,71 @@ f\left(\int\xi(\mathbf{x}) p(\mathbf{x}) \,\mathrm{d}\mathbf{x}\right) \leqslant
 \end{equation}
 where we have used $\mathbf{x}$ to denote the underlying random variables
 for which we take the expectations.
-By making use of \eqref{eq:Jensen_inequality_continuous} with respect to $q(\mathbf{x})$
-and identifying $f(\xi) = \xi\ln\xi$ and $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$,
+By making use of \eqref{eq:Jensen_inequality_continuous},
 one can show that
 the \emph{Kullback-Leibler divergence}~$\operatorname{KL}\left( p \middle\| q \right)$
 given by (1.113) satisfies
 $\operatorname{KL}\left( p \middle\| q \right) \geqslant 0$ with equality if and only if
 $p(\mathbf{x}) = q(\mathbf{x})$.
+See the following erratum for more details.
+
+\erratum{Page~56}
+Equation~(1.118):
+We have some difficulties in the derivation~(1.118) of
+the inequality~$\operatorname{KL}\left( p \middle\| q \right) \geqslant 0$.
+First, the quantity~$\xi(\mathbf{x}) = q(\mathbf{x})/p(\mathbf{x})$ is undefined for $\mathbf{x}$
+such that $p(\mathbf{x}) = 0$.
+Second, the convex function~$f(\xi) = -\ln\xi$ is undefined for $\xi = 0$,
+which occurs where $q(\mathbf{x}) = 0$.
+To avoid these difficulties, we should take a different approach~\citep{MacKay:Information}
+in which we identify $f(\xi) = \xi\ln\xi$ and $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$;
+and then make use of \eqref{eq:Jensen_inequality_continuous} with respect to $q(\mathbf{x})$.
+
+To this end, let us first examine the behavior of the integrand of
+$\operatorname{KL}\left( p \middle\| q \right)$
+\begin{equation}
+p(\mathbf{x}) \ln p(\mathbf{x}) - p(\mathbf{x}) \ln q(\mathbf{x})
+\label{eq:integrand_of_KL}
+\end{equation}
+where $q(\mathbf{x})$ or $p(\mathbf{x})$ vanishes.
+We notice that, if $q(\mathbf{x}) \to 0$ for $\mathbf{x}$ such that $p(\mathbf{x}) > 0$,
+the integrand~\eqref{eq:integrand_of_KL} diverges so that
+$\operatorname{KL}\left( p \middle\| q \right) \to \infty$.
+On the other hand, the integrand~\eqref{eq:integrand_of_KL} always vanishes for $\mathbf{x}$
+such that $p(\mathbf{x}) = 0$ regardless of the values of $q(\mathbf{x})$
+(recall that we have defined $0 \ln 0 = 0$ in the context of the \emph{entropy} on Page~49).
+Therefore, in order for $\operatorname{KL}\left( p \middle\| q \right)$ to be well-defined,
+one must have $p(\mathbf{x}) = 0$ wherever $q(\mathbf{x}) = 0$;
+this property is called \emph{zero-forcing} (see Section~10.1.2).
+
+Assuming the zero-forcing condition, i.e.,
+$p(\mathbf{x}) = 0$ for all $\mathbf{x}$ such that $q(\mathbf{x}) = 0$,
+we can consider the integration in $\operatorname{KL}\left( p \middle\| q \right)$
+only over $\Omega = \left\{ \mathbf{x} \middle| q(\mathbf{x}) > 0 \right\}$.
+Identifying $f(\xi) = \xi\ln\xi$ and $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$,
+we have
+\begin{align}
+\operatorname{KL}\left( p \middle\| q \right)
+&= \int_{\Omega} q(\mathbf{x})
+\frac{p(\mathbf{x})}{q(\mathbf{x})}
+\ln \left\{\frac{p(\mathbf{x})}{q(\mathbf{x})}\right\}
+\mathrm{d}\mathbf{x}
+= \int_{\Omega} q(\mathbf{x})
+f\left(\frac{p(\mathbf{x})}{q(\mathbf{x})}\right)
+\mathrm{d}\mathbf{x} \\
+&\geqslant f\left(\int_{\Omega} p(\mathbf{x}) \, \mathrm{d}\mathbf{x} \right)
+= f(1) = 0
+\end{align}
+where we have used \eqref{eq:Jensen_inequality_continuous} with respect to $q(\mathbf{x})$
+(instead of $p(\mathbf{x})$).
+Note that, since $q(\mathbf{x}) > 0$ over $\Omega$, we see that
+$\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x}) \geqslant 0$ is well-defined over $\Omega$ and
+so is $f(\xi) = \xi\ln\xi$ for $\xi \geqslant 0$.
+Since $f(\xi)$ is strictly convex,
+the equality in $\operatorname{KL}\left( p \middle\| q \right) \geqslant 0$ holds if and only if
+$\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$ is constant over $\Omega$,
+which, together with the zero-forcing condition, yields the equality condition that
+$p(\mathbf{x}) = q(\mathbf{x})$ for all $\mathbf{x}$.
 
 \erratum{Page~62}
 Exercise~1.18, the text after (1.142):
