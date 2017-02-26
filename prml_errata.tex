@@ -635,9 +635,11 @@ Equation~(3.13):
 The use of the gradient operator~$\nabla$ is not consistent here.
 As in (2.224), the gradient of a scalar function is usually defined as a column vector
 of derivatives so that (3.13) should read\footnote{%
-Note that we use a different typeface for
-the data vector~$\bm{\mathsf{t}} = \left( t_1, \dots, t_N \right)^{\operatorname{T}}$.
-See ``Mathematical notation'' on page xi of PRML.}
+Note that we use a different typeface (from a $D$-dimensional target variable~$\mathbf{t}$)
+for the $N$-dimensional
+data vector~$\bm{\mathsf{t}} = \left( t_1, \dots, t_N \right)^{\operatorname{T}}$
+consisting of one-dimensional target variables~$\left\{t_n\right\}$.
+See ``Mathematical Notation'' for PRML on Pages xi--xii.}
 \begin{equation}
 \nabla \ln p \left( \bm{\mathsf{t}} \middle| \mathbf{w}, \beta \right) =
 \beta \sum_{n=1}^{N}
