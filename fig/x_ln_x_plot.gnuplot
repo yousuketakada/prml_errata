@@ -39,7 +39,7 @@ set timefmt "%d/%m/%y,%H:%M"
 set angles radians
 set tics back
 set grid nopolar
-set grid xtics nomxtics ytics nomytics noztics nomztics \
+set grid xtics mxtics ytics mytics noztics nomztics \
  nox2tics nomx2tics noy2tics nomy2tics nocbtics nomcbtics
 set grid layerdefault   linecolor rgb "gray"  linewidth 1.000 dashtype solid,  linecolor rgb "gray"  linewidth 1.000 dashtype solid
 set raxis
@@ -90,17 +90,17 @@ unset x2zeroaxis
 unset y2zeroaxis
 set xyplane relative 0.5
 set tics scale  1, 0.5, 1, 1, 1
-set mxtics default
-set mytics default
+set mxtics 1
+set mytics 1
 set mztics default
 set mx2tics default
 set my2tics default
 set mcbtics default
 set mrtics default
 set xtics border in scale 1,0.5 mirror norotate  autojustify
-set xtics  norangelimit autofreq 
+set xtics  norangelimit 0.5
 set ytics border in scale 1,0.5 mirror norotate  autojustify
-set ytics  norangelimit autofreq 
+set ytics  norangelimit 0.5
 set ztics border in scale 1,0.5 nomirror norotate  autojustify
 set ztics  norangelimit autofreq 
 unset x2tics
