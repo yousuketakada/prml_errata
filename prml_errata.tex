@@ -216,14 +216,17 @@ First, the quantity~$\xi(\mathbf{x}) = q(\mathbf{x})/p(\mathbf{x})$ is undefined
 such that $p(\mathbf{x}) = 0$.
 Second, the convex function~$f(\xi) = -\ln\xi$ is undefined for $\xi = 0$,
 which occurs where $q(\mathbf{x}) = 0$ and $p(\mathbf{x}) > 0$.
-In order to avoid these difficulties,
+
+In order to avoid such difficulties,
 we should take a different approach~\citep{MacKay:Information}
 in which we make use of Jensen's inequality~\eqref{eq:Jensen_inequality_continuous}
 with respect to $q(\mathbf{x})$ where
 we identify $f(\xi) = \xi\ln\xi$ (see Figure~\ref{fig:x_ln_x}) and
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$.
-
-To this end, let us first examine the behavior of the integrand of
+Note that we can safely proceed with this approach
+because we can assume without loss of generality that
+we have $q(\mathbf{x}) > 0$ everywhere.
+To see this, let us first examine the behavior of the integrand of
 $\operatorname{KL}\left( p \middle\| q \right)$
 \begin{equation}
 p(\mathbf{x}) \ln p(\mathbf{x}) - p(\mathbf{x}) \ln q(\mathbf{x})
