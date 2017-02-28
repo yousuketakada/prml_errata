@@ -81,13 +81,12 @@ which have also been included in this report for the reader's convenience.
 \erratum{Page~xi}
 % See https://github.com/yousuketakada/prml_errata/pull/1
 Paragraph~\textminus2, Line~1:
-$\left|f(x)/g(x)\right|$ should read $\left|g(x)/f(x)\right|$ (with the functions swapped) so that
-the \emph{big O notation}~$g(x) = O\left(f(x)\right)$ denotes that
-$\left|g(x)/f(x)\right|$ is bounded as $x \to \infty$.
-With the swapped definition in PRML,
-we would have, say, $x^2 = O(x)$
-because $\left|x/x^2\right| \to 0$,
-which is surely not what the author has intended.
+$\left|f(x)/g(x)\right|$ should read $\left|g(x)/f(x)\right|$ (with the functions swapped).
+With the original, uncorrected definition of
+the \emph{big O notation}~$g(x) = O\left(f(x)\right)$ in PRML,
+we would have, say, $x^2 = O(x)$ because $\left|x/x^2\right|$ is bounded as $x \to \infty$,
+but \emph{not} $x = O(x^2)$ because $\left|x^2/x\right|$ is unbounded;
+we should have exactly the opposite.
 See also \citet{NIST:DLMF} for other asymptotic and order notations.
 
 \erratum{Page~5}
