@@ -223,8 +223,8 @@ with respect to $q(\mathbf{x})$ where
 we identify $f(\xi) = \xi\ln\xi$ (see Figure~\ref{fig:x_ln_x}) and
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$.
 Note that we can safely proceed with this approach
-because we can assume without loss of generality that
-we have $q(\mathbf{x}) > 0$ everywhere.
+because we can assume $q(\mathbf{x}) > 0$
+without loss of generality.
 To see this, let us first examine the behavior of the integrand of
 $\operatorname{KL}\left( p \middle\| q \right)$
 \begin{equation}
@@ -240,12 +240,12 @@ such that $p(\mathbf{x}) = 0$ regardless of the values of $q(\mathbf{x})$.\footn
 Recall that we have defined $0 \ln 0 = 0$ in the context of the \emph{entropy}~(1.93).}
 Therefore, in order for $\operatorname{KL}\left( p \middle\| q \right)$ to be well-defined,
 one must have $p(\mathbf{x}) = 0$ wherever $q(\mathbf{x}) = 0$;
-this property is called \emph{zero-forcing} (see Section~10.1.2).
+this property is called \emph{zero-forcing} (see also Section~10.1.2).
 
 Assuming the zero-forcing condition, i.e.,
 $p(\mathbf{x}) = 0$ for all $\mathbf{x}$ such that $q(\mathbf{x}) = 0$,
 we can consider the integration in $\operatorname{KL}\left( p \middle\| q \right)$
-only over $\Omega = \left\{ \mathbf{x} \middle| q(\mathbf{x}) > 0 \right\}$.
+only over $\Omega = \{ \mathbf{x} \mid q(\mathbf{x}) > 0 \}$.
 Identifying $f(\xi) = \xi\ln\xi$ and $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$,
 we have
 \begin{align}
