@@ -2431,12 +2431,13 @@ where we have written
 $\bm{\varepsilon} = \left(\varepsilon_1, \dots, \varepsilon_N\right)^{\operatorname{T}}$.
 The gradient and the Hessian of $J$ are evaluated as
 \begin{align}
-\nabla J &= \sum_{n} \varepsilon_n \nabla \varepsilon_n
+\nabla J &= \sum_{n=1}^{N} \varepsilon_n \nabla \varepsilon_n
 = \left( \nabla \bm{\varepsilon} \right) \bm{\varepsilon} \\
-\nabla\nabla J &= \sum_{n} \nabla\varepsilon_n \left(\nabla\varepsilon_n\right)^{\operatorname{T}}
-+ \sum_{n} \varepsilon_n \nabla\nabla \varepsilon_n \\
+\nabla\nabla J &= \sum_{n=1}^{N}
+\nabla\varepsilon_n \left(\nabla\varepsilon_n\right)^{\operatorname{T}}
++ \sum_{n=1}^{N} \varepsilon_n \nabla\nabla \varepsilon_n \\
 &= \nabla \bm{\varepsilon} \left( \nabla \bm{\varepsilon} \right)^{\operatorname{T}}
-+ \sum_{n} \varepsilon_n \nabla\nabla \varepsilon_n
++ \sum_{n=1}^{N} \varepsilon_n \nabla\nabla \varepsilon_n
 \end{align}
 respectively.
 The second form of the Hessian,
@@ -2649,7 +2650,7 @@ The divergence of a vector field~$\mathbf{p}(\mathbf{x}) =
 \left( p_1(\mathbf{x}), \dots, p_D(\mathbf{x}) \right)^{\operatorname{T}} \in \mathbb{R}^{D}$
 is a scalar field of the form
 \begin{equation}
-\operatorname{div} \mathbf{p} = \sum_{i} \frac{\partial p_i}{\partial x_i} \equiv
+\operatorname{div} \mathbf{p} = \sum_{i=1}^{D} \frac{\partial p_i}{\partial x_i} \equiv
 \nabla \cdot \mathbf{p}
 \end{equation}
 where we have omitted the coordinates~$\mathbf{x}$ in the function arguments
