@@ -253,12 +253,15 @@ we have
 &= \int_{\Omega} q(\mathbf{x})
 \frac{p(\mathbf{x})}{q(\mathbf{x})}
 \ln \left\{\frac{p(\mathbf{x})}{q(\mathbf{x})}\right\}
-\mathrm{d}\mathbf{x}
-= \int_{\Omega} q(\mathbf{x})
-f\left(\frac{p(\mathbf{x})}{q(\mathbf{x})}\right)
 \mathrm{d}\mathbf{x} \\
-&\geqslant f\left(\int_{\Omega} p(\mathbf{x}) \, \mathrm{d}\mathbf{x} \right)
-= f(1) = 0
+&= \int_{\Omega} q(\mathbf{x})
+f\left(\xi(\mathbf{x})\right)
+\mathrm{d}\mathbf{x} \\
+&\geqslant f\left(
+\int_{\Omega} q(\mathbf{x}) \xi(\mathbf{x}) \, \mathrm{d}\mathbf{x}
+\right) \\
+&= f\left(\int_{\Omega} p(\mathbf{x}) \, \mathrm{d}\mathbf{x} \right) \\
+&= f(1) = 0
 \end{align}
 where we have used \eqref{eq:Jensen_inequality_continuous} with respect to $q(\mathbf{x})$
 (instead of $p(\mathbf{x})$).
