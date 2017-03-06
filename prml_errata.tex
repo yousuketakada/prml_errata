@@ -327,17 +327,19 @@ instead of $\left| \mathbf{J} \right| = 1$.
 
 \erratum{Page~82}
 Equation~(2.56):
-We should take the absolute value of the determinant for the same reason given above;
+We should take the absolute value of the determinant for the same reason given above so that
 the factor~$\left| \mathbf{J} \right|$ should read
 $\left| \operatorname{det}\left( \mathbf{J} \right) \right|$.
-Note that we cannot write $\left|\left| \mathbf{J} \right|\right|$ to mean
+Note however that it is not recommended to write $\left|\left| \mathbf{J} \right|\right|$ to mean
 $\left| \operatorname{det}\left( \mathbf{J} \right) \right|$
-because it is confusingly similar to the matrix norm~$\left\| \mathbf{J} \right\|$,
+because $\left|\left| \mathbf{J} \right|\right|$ is confusingly similar to
+the matrix norm~$\left\| \mathbf{J} \right\|$,
 which usually refers to the largest singular value of $\mathbf{J}$~\citep{GvL:MC}.
-This notational inconsistency has been caused by the abuse of the notation~$|\cdot|$ for
-both the absolute value and the matrix determinant.
-If we always use $\operatorname{det}(\cdot)$ for the determinant, confusion will not arise
+This notational inconsistency is caused by the abuse of the notation~$|\cdot|$ for
+both the absolute value and the matrix determinant;
+if we always use $\operatorname{det}(\cdot)$ for the determinant, confusion will not arise
 and the notation be consistent.
+
 An alternative solution to this problem would be to explicitly define
 \begin{equation}
 \left| \mathbf{A} \right| \equiv \left| \operatorname{det}\left( \mathbf{A} \right) \right|
@@ -351,11 +353,11 @@ $\left| \mathbf{A} \right| = \operatorname{det}\left( \mathbf{A} \right)$ for an
 (semi)definite matrix~$\mathbf{A} \succeq 0$ (see Appendix~C) and
 most matrices for which we take determinants, such as
 the covariance~$\bm{\Sigma}$ or the precision~$\bm{\Lambda}$ of
-the multivariate Gaussian distribution and
-the scale matrix~$\mathbf{W}$ of the Wishart distribution,
+the multivariate Gaussian and
+the scale matrix~$\mathbf{W}$ of the Wishart (see Appendix~B),
 are positive definite.\footnote{In this report, we assume as customary that
 the concept of positive/negative (semi)definiteness is restricted to symmetric matrices.
-For example, when we say ``a matrix~$\mathbf{A}$ is positive definite'' or $\mathbf{A} \succ 0$,
+For example, when we say ``$\mathbf{A}$ is positive definite'' or $\mathbf{A} \succ 0$,
 $\mathbf{A}$ is also assumed to be symmetric so that $\mathbf{A}^{\operatorname{T}} = \mathbf{A}$,
 though we still sometimes say ``$\mathbf{A}$ is symmetric positive definite'' to avoid confusion.}
 
