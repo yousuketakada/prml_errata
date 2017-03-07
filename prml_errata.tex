@@ -2345,6 +2345,7 @@ Since the chain rule~\eqref{eq:chain_rule_for_gradient} is handy
 when we compute the gradients of composite functions (see below),
 I would suggest that it should also be pointed out in
 the ``(Vector and) Matrix Derivatives'' section of Appendix~C.
+
 At this point,
 one might wonder why we use the two different forms of vector derivative that are identical
 up to the transposed layout, i.e.,
@@ -2356,10 +2357,10 @@ For instance, we can write down the Taylor series expansion
 (up to the second order) of a scalar function~$f(\mathbf{x})$ compactly
 in terms of the gradients as
 \begin{equation}
-f(\mathbf{x} + \Delta\mathbf{x}) \simeq
+f(\mathbf{x} + \bm{\epsilon}) \simeq
 f(\mathbf{x})
-+ \mathbf{g}^{\operatorname{T}} \Delta\mathbf{x}
-+ \frac{1}{2} {\Delta\mathbf{x}}^{\operatorname{T}} \mathbf{H} \Delta\mathbf{x}
++ \bm{\epsilon}^{\operatorname{T}} \mathbf{g}
++ \frac{1}{2} {\bm{\epsilon}}^{\operatorname{T}} \mathbf{H} \bm{\epsilon}
 \end{equation}
 where $\mathbf{g}$ and $\mathbf{H}$ are the gradient vector and the Hessian matrix of
 $f(\mathbf{x})$, respectively, so that
