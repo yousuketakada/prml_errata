@@ -2373,19 +2373,19 @@ in terms of the gradients as
 \begin{equation}
 f(\mathbf{x} + \bm{\epsilon}) \simeq
 f(\mathbf{x})
-+ \bm{\epsilon}^{\operatorname{T}} \mathbf{g}
-+ \frac{1}{2} {\bm{\epsilon}}^{\operatorname{T}} \mathbf{H} \bm{\epsilon}
++ \bm{\epsilon}^{\operatorname{T}} \mathbf{g}(\mathbf{x})
++ \frac{1}{2} {\bm{\epsilon}}^{\operatorname{T}} \mathbf{H}(\mathbf{x}) \bm{\epsilon}
 \end{equation}
-where $\mathbf{g}$ and $\mathbf{H}$ are the gradient vector and the Hessian matrix of
-$f(\mathbf{x})$, respectively, so that
+where $\mathbf{g}(\mathbf{x})$ and $\mathbf{H}(\mathbf{x})$ are
+the gradient vector and the Hessian matrix of $f(\mathbf{x})$, respectively, so that
 \begin{equation}
-\mathbf{g} \equiv \nabla f(\mathbf{x}) =
+\mathbf{g}(\mathbf{x}) \equiv \nabla f(\mathbf{x}) =
 \begin{pmatrix}
 \frac{\partial f}{\partial x_{1}} \\
 \vdots \\
 \frac{\partial f}{\partial x_{D}}
 \end{pmatrix} , \qquad
-\mathbf{H} \equiv \nabla\nabla f(\mathbf{x}) =
+\mathbf{H}(\mathbf{x}) \equiv \nabla\nabla f(\mathbf{x}) =
 \begin{pmatrix}
 \frac{\partial^{2} f}{\partial x_{1} \partial x_{1}} &
 \hdots &
