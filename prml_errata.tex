@@ -2525,13 +2525,14 @@ where $\mathbf{A}$ is assumed to be symmetric positive definite so that $\mathbf
 Although the restricted proof outlined in PRML is indeed highly instructive,
 we need a more general proof because we make use of this identity, e.g., in Exercise~2.34
 without the assumptions required by the restricted proof.
-To this end, we first show the following identity for any square matrix~$\mathbf{A}$
+To this end, we first show \emph{Jacobi's formula},
+which is the identity for any square matrix~$\mathbf{A}$ given by
 \begin{equation}
 \frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right) =
 \operatorname{Tr}\left(\mathbf{A}^{\dagger}\frac{\partial\mathbf{A}}{\partial x}\right)
 \label{eq:Jacobi_formula}
 \end{equation}
-where $\mathbf{A}^{\dagger}$ is the adjugate matrix of
+where $\mathbf{A}^{\dagger}$ is the \emph{adjugate matrix} of
 $\mathbf{A}$.
 The $(ij)$-th element~$A_{ij}^{\dagger}$ of the adjugate matrix~$\mathbf{A}^{\dagger}$ is given by
 \begin{equation}
