@@ -1844,11 +1844,12 @@ The discrete distribution of the form~(B.54), or (2.26), is known as
 the \emph{categorical} or the \emph{multinoulli} distribution~\citep{Murphy:MachineLearning}.
 It is also sometimes called, less precisely, the ``multinomial'' or the ``discrete'' distribution.
 Of these terms, I would prefer the term~\emph{multinoulli}
-because it naturally suggests that it is a generalization of the Bernoulli distribution~(B.1)
+because it naturally suggests that
+it is a generalization of the \emph{Bernoulli} distribution~(B.1)
 to the $K$-dimensional binary variable~$\mathbf{x} = (x_1, \dots, x_K)^{\operatorname{T}}$
 where $x_k \in \{0, 1\}$ such that $\sum_k x_k = 1$, i.e.,
 we employ the one-of-$K$ coding scheme for $\mathbf{x}$; and
-it is also a special case of the multinomial distribution~(B.59)
+it is also a special case of the \emph{multinomial} distribution~(B.59)
 where $N = 1$, i.e., we have a single observation
 (see Figure~\ref{fig:relationship_between_discrete_distributions}).
 \begin{figure}
@@ -1906,13 +1907,14 @@ For example, we could ``overload'' the notation~(B.59) for the multinomial and w
 \exp\left\{ \sum_{k=1}^{K} x_k \ln \mu_k \right\}
 \label{eq:multinoulli_distribution}
 \end{equation}
-where $0 \leqslant \mu_k \leqslant 1$ and $\sum_k \mu_k = 1$.
+where $\bm{\mu} = \left\{\mu_1, \dots, \mu_K\right\}$ are probabilties such that
+$0 \leqslant \mu_k \leqslant 1$ and $\sum_k \mu_k = 1$.
 
 When we identify the functional form of a multinoulli distribution, e.g.,
 in the posterior distribution~\eqref{eq:posterior_of_Gaussian_mixture} for
 the Gaussian mixture model~\eqref{eq:joint_distribution_of_Gaussian_mixture} of Section~9.2,
 one will find it helpful to know that
-the distribution~\eqref{eq:multinoulli_distribution} can also be expressed
+the multinoulli distribution~\eqref{eq:multinoulli_distribution} can also be expressed
 in terms of unnormalized probabilities~$\widetilde{\mu}_k \geqslant 0$, i.e.,
 \begin{equation}
 \operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right) \propto
