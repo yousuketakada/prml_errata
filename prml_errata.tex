@@ -442,39 +442,34 @@ See \citet{Anderson:MaximumLikelihood} for further discussions.
 
 \erratum{Page~100}
 Equations~(2.147) and (2.148):
-In addition to the mean~$\mathbb{E}[\lambda]$ and the variance~$\operatorname{var}[\lambda]$ of
-the gamma distribution~$\operatorname{Gam}\left(\lambda\middle|a, b\right)$
-given by (2.147) and (2.148), respectively,
-we are also interested in its log expectation~$\mathbb{E}\left[ \ln\lambda \right]$
-given by (B.30), which is required to evaluate
-the entropy~$\operatorname{H}\left[ \lambda \right]$ given by (B.31).
+In addition to the mean~$\mathbb{E}[\lambda]$~(2.147) and
+the variance~$\operatorname{var}[\lambda]$~(2.148),
+we are also interested in
+the \emph{log expectation}~$\mathbb{E}\left[ \ln\lambda \right]$~(B.30)
+of the gamma distribution~$\operatorname{Gam}\left(\lambda\middle|a, b\right)$~(2.146),
+which is necessary to evaluate its entropy~$\operatorname{H}\left[ \lambda \right]$~(B.31).
 Note that the log expectation of the Dirichlet distribution~(2.38) is
-concerned in Exercise~2.11 (its mean and covariance are in Exercise~2.10).
-Following a similar pattern,
-we can calculate the log expectation of the gamma distribution~(2.146)
-by making use of the derivative of its logarithm with respect to $a$,
-which is given by
-\begin{equation}
-\frac{\partial}{\partial a} \ln\operatorname{Gam}\left(\lambda\middle|a, b\right)
-= \ln\lambda - \psi(a) + \ln b
-\label{eq:derivative_of_log_gamma_distribution_wrt_a}
-\end{equation}
-where $\psi(\cdot)$ is the \emph{digamma function} defined by (B.25).
+derived in Exercise~2.11 by differentiating its probability with respect to the parameters
+(the mean and the covariance are concerned in Exercise~2.10).
+Applying this technique of differentiation,
+we can most easily calculate the log expectation of the gamma distribution.
+Here, I would like to state the technique in more general terms,
+after which we show (B.30) and find an alternative form of the log expectation.
 
-It is worth noting here that,
-for any correctly normalized probability~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
+For any correctly normalized probability~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
+over $\mathbf{x}$
 parameterized by $\bm{\theta}$ and differentiable with respect to $\bm{\theta}$,
-the expectation of its \emph{Fisher score}~(6.32),
+we have that the expectation of its \emph{Fisher score}~(6.32),
 or the derivative of the log probability with respect to $\bm{\theta}$,
 vanishes, i.e.,
 \begin{equation}
-\mathbb{E}_{\mathbf{x}}\left[
+\mathbb{E}_{\mathbf{x}} \left[
 \nabla_{\bm{\theta}} \ln p\left(\mathbf{x}\middle|\bm{\theta}\right)
 \right]
 = \mathbf{0} .
 \label{eq:expected_fisher_score}
 \end{equation}
-One can show the above identity~\eqref{eq:expected_fisher_score}
+We can show the above identity~\eqref{eq:expected_fisher_score}
 by differentiating the both sides of the integral identity
 \begin{equation}
 \int p\left(\mathbf{x}\middle|\bm{\theta}\right) \mathrm{d}\mathbf{x} = 1
@@ -498,15 +493,28 @@ Although we have assumed here that the variables~$\mathbf{x}$ are continuous,
 the same discussion holds if some or all of $\mathbf{x}$ are discrete
 by replacing the integrations with summations as required.
 
-Now, substituting \eqref{eq:derivative_of_log_gamma_distribution_wrt_a} into
+Now, let us return to the gamma distribution~(2.146).
+The derivative of its log probability with respect to $a$ is given by
+\begin{equation}
+\frac{\partial}{\partial a} \ln\operatorname{Gam}\left(\lambda\middle|a, b\right)
+= \ln\lambda - \psi(a) + \ln b
+\label{eq:derivative_of_log_gamma_distribution_wrt_a}
+\end{equation}
+where $\psi(\cdot)$ is the \emph{digamma function} given by \eqref{eq:digamma_function}.
+Substituting \eqref{eq:derivative_of_log_gamma_distribution_wrt_a} into
 \eqref{eq:expected_fisher_score},
 we obtain
 \begin{equation}
-\mathbb{E}\left[ \ln \lambda \right] = \psi(a) - \ln b .
+\mathbb{E}\left[ \ln \lambda \right] = \psi(a) - \ln b
 \end{equation}
+showing (B.30).
+Note that one can reproduce the result~(2.147) for the mean $\mathbb{E}\left[ \lambda \right]$
+by substituting the derivative of the log probability
+with respect to $b$ into \eqref{eq:expected_fisher_score}.
+
 It follows from Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z} that
 the log expectation~$\mathbb{E}\left[ \ln \lambda \right]$ is less than
-$\ln \mathbb{E}\left[ \lambda \right]$
+the logarithm of the mean $\ln \mathbb{E}\left[ \lambda \right]$
 because $\ln\xi$ is strictly concave where $\xi > 0$
 so that we have
 \begin{equation}
@@ -514,17 +522,17 @@ so that we have
 \end{equation}
 The difference between $\ln \mathbb{E}\left[ \lambda \right]$ and
 $\mathbb{E}\left[ \ln \lambda \right]$
-can be exactly evaluated in this case so that
+can be evaluated exactly in this case so that
 \begin{equation}
 \mathbb{E}\left[ \ln \lambda \right] = \ln \mathbb{E}\left[ \lambda \right] - \varphi(a)
 \end{equation}
-where $\varphi(a) > 0$ is the \emph{log minus digamma function} defined by
+where $\varphi(a) > 0$ is what we call the \emph{log minus digamma function} defined by
 \begin{equation}
 \varphi(a) \equiv \ln a - \psi(a) .
 \label{eq:log_minus_digamma_function}
 \end{equation}
-The log minus digamma function~\eqref{eq:log_minus_digamma_function} also arises in
-the maximum likelihood solutions for the gamma distribution~(2.146) as well as
+The log minus digamma function~\eqref{eq:log_minus_digamma_function} naturally arises also in
+the maximum likelihood solution for the gamma distribution~(2.146) as well as
 in the EM algorithm for the Student's t-distribution~(2.159) or (2.162),
 which is concerned in Exercise~12.24,
 as we shall see shortly.
