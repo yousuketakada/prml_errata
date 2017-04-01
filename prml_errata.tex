@@ -454,14 +454,16 @@ derived in Exercise~2.11 by differentiating its probability with respect to the 
 Applying this technique of differentiation,
 we can most easily calculate the log expectation of the gamma distribution.
 Here, I would like to state the technique in more general terms,
-after which we show (B.30) and find an alternative form of the log expectation.
+after which we show (B.30) and
+find an alternative form of the log expectation~$\mathbb{E}\left[ \ln\lambda \right]$
+in terms of the mean~$\mathbb{E}[\lambda]$.
 
 For any correctly normalized probability~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
 over $\mathbf{x}$
 parameterized by $\bm{\theta}$ and differentiable with respect to $\bm{\theta}$,
 we have that the expectation of its \emph{Fisher score}~(6.32),
-or the derivative of the log probability with respect to $\bm{\theta}$,
-vanishes, i.e.,
+i.e., the derivative of the log probability with respect to $\bm{\theta}$,
+vanishes so that
 \begin{equation}
 \mathbb{E}_{\mathbf{x}} \left[
 \nabla_{\bm{\theta}} \ln p\left(\mathbf{x}\middle|\bm{\theta}\right)
@@ -533,7 +535,7 @@ where $\varphi(a) > 0$ is what we call the \emph{log minus digamma function} def
 \end{equation}
 The log minus digamma function~\eqref{eq:log_minus_digamma_function} naturally arises also in
 the maximum likelihood solution for the gamma distribution~(2.146) as well as
-in the EM algorithm for the Student's t-distribution~(2.159) or (2.162),
+in the EM algorithm for inferring the (multivariate) Student's t-distribution~(2.162),
 which is concerned in Exercise~12.24,
 as we shall see shortly.
 
