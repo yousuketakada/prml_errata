@@ -456,10 +456,10 @@ we can most easily calculate the log expectation of the gamma distribution.
 Here, I would like to state the technique in more general terms,
 after which we show (B.30) and
 find an alternative form of the log expectation~$\mathbb{E}\left[ \ln\lambda \right]$
-in terms of the mean~$\mathbb{E}[\lambda]$.
+in terms of the logarithm of the mean~$\ln\mathbb{E}[\lambda]$.
 
 For any correctly normalized probability~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
-over $\mathbf{x}$
+over some random variables~$\mathbf{x}$
 parameterized by $\bm{\theta}$ and differentiable with respect to $\bm{\theta}$,
 we have that the expectation of its \emph{Fisher score}~(6.32),
 i.e., the derivative of the log probability with respect to $\bm{\theta}$,
@@ -491,7 +491,7 @@ and used the \emph{log derivative identity}
 \begin{equation}
 \nabla f = f \, \nabla \ln f .
 \end{equation}
-Although we have assumed here that the variables~$\mathbf{x}$ are continuous,
+Although we have assumed here that $\mathbf{x}$ are continuous,
 the same discussion holds if some or all of $\mathbf{x}$ are discrete
 by replacing the integrations with summations as required.
 
