@@ -491,7 +491,7 @@ and used the \emph{log derivative identity}
 \begin{equation}
 \nabla f = f \, \nabla \ln f .
 \end{equation}
-Although we have assumed here that $\mathbf{x}$ are continuous,
+Although we have assumed here that the variables $\mathbf{x}$ are continuous,
 the same discussion holds if some or all of $\mathbf{x}$ are discrete
 by replacing the integrations with summations as required.
 
@@ -511,8 +511,12 @@ we obtain
 \end{equation}
 showing (B.30).
 Note that one can reproduce the result~(2.147) for the mean $\mathbb{E}\left[ \lambda \right]$
-by substituting the derivative of the log probability
-with respect to $b$ into \eqref{eq:expected_fisher_score}.
+by substituting the derivative of the log probability with respect to $b$
+\begin{equation}
+\frac{\partial}{\partial b} \ln\operatorname{Gam}\left(\lambda\middle|a, b\right)
+= \frac{a}{b} - \lambda
+\end{equation}
+into \eqref{eq:expected_fisher_score}.
 
 It follows from Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z} that
 the log expectation~$\mathbb{E}\left[ \ln \lambda \right]$ is less than
