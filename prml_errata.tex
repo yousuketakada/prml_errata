@@ -452,14 +452,14 @@ Note that the log expectation of the Dirichlet distribution~(2.38) is
 derived in Exercise~2.11 by differentiating its probability with respect to the parameters
 (the mean and the covariance are concerned in Exercise~2.10).
 Applying this technique of differentiation,
-we can most easily calculate the log expectation of the gamma distribution.
+we can calculate the log expectation of the gamma distribution.
 Here, I would like to state the technique in more general terms,
 after which we show (B.30) and
 find an alternative form of the log expectation~$\mathbb{E}\left[ \ln\lambda \right]$
 in terms of the logarithm of the mean~$\ln\mathbb{E}[\lambda]$.
 
-For any correctly normalized probability~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
-over some random variables~$\mathbf{x}$
+For any correctly normalized probability distribution~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
+over random variables~$\mathbf{x}$
 parameterized by $\bm{\theta}$ and differentiable with respect to $\bm{\theta}$,
 we have that the expectation of its \emph{Fisher score}~(6.32),
 i.e., the derivative of the log probability with respect to $\bm{\theta}$,
@@ -512,10 +512,6 @@ we obtain
 showing (B.30).
 Note that one can reproduce the result~(2.147) for the mean $\mathbb{E}\left[ \lambda \right]$
 by substituting the derivative of the log probability with respect to $b$
-\begin{equation}
-\frac{\partial}{\partial b} \ln\operatorname{Gam}\left(\lambda\middle|a, b\right)
-= \frac{a}{b} - \lambda
-\end{equation}
 into \eqref{eq:expected_fisher_score}.
 
 It follows from Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z} that
