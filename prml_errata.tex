@@ -772,6 +772,22 @@ for various values of $\nu$ where we have fixed $\mu = 0$ and $\lambda = 1$.}
 \end{figure}
 
 \erratum{Page~104}
+Paragraph~1, Line~4:
+In practical applications, the importance of \emph{robustness to outliers}
+cannot be overemphasized.
+Particularly in the context of robust regression,
+there exist historically a number of heuristic approaches such as
+\emph{M-estimators}~\citep{Press:NR,Szeliski:ComputerVision},
+in which the least squares method is modified so as to use a more ``robust'' cost function.
+One can show that the robust regression problem can be solved by
+approximating the log likelihood function in terms of quadratic bounds,
+which results in the same algorithm as the EM (see Chapter~9),
+which is also known as \emph{iteratively reweighted least squares} or IRLS.
+Note that this quadratic approximation is closely related to the local variational methods
+discussed in Chapter~10.
+% TODO: expand on robust regression
+
+\erratum{Page~104}
 The text after (2.160):
 The Gaussian~$\mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{\Lambda}\right)$
 should read $\mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{\Lambda}^{-1}\right)$.
