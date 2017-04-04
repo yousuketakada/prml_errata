@@ -774,19 +774,35 @@ for various values of $\nu$ where we have fixed $\mu = 0$ and $\lambda = 1$.}
 
 \erratum{Page~104}
 Paragraph~1, Line~4:
-In practical applications, the importance of \emph{robustness to outliers}
-cannot be overemphasized.
-Particularly in the context of robust regression,
-there exist historically a number of heuristic approaches such as
+In practical applications, the importance of
+\emph{robustness to outliers} cannot be overemphasized.
+Here, I would like to point out that,
+particularly in the context of robust regression,
+there exist historically a number of heuristic approaches to robustness such as
 \emph{M-estimators}~\citep{Press:NR,Szeliski:ComputerVision},
-in which the least squares method is modified so as to use a more ``robust'' cost function.
-One can show that the robust regression problem can be solved by
-approximating the log likelihood function in terms of quadratic bounds,
-which results in the same algorithm as the EM (see Chapter~9),
-which is also known as \emph{iteratively reweighted least squares} or IRLS.
-Note that this quadratic approximation is closely related to the local variational methods
-discussed in Chapter~10.
+in which the standard least squares method is modified so as to use
+a more ``robust'' cost function.
+In this respect, the robust regression in terms of the Student's t can be regarded as
+an M-estimator where the cost function is derived from its negative log likelihood.
+
+An M-estimator can be solved iteratively by approximating the cost functions successively
+in terms of quadratic bounds.
+Called \emph{iteratively reweighted least squares} or IRLS,
+this algorithm closely resembles the EM algorithm.
+In fact, one can identify the IRLS and the EM for
+the robust regression in terms of the Student's t.
+Note also that the successive quadratic approximation in IRLS can be regarded as
+a \emph{local variational method} discussed in Chapter~10.
 % TODO: expand on robust regression
+
+Although we are free to choose from a broad class of cost functions in M-estimators,
+such a heuristic choice makes our Bayesian analysis difficult.
+For instance, M-estimators need a separate evaluation data set for selecting hyperparameters.
+On the other hand, probabilistic models such as
+the robust regression model in terms of Student's t
+allow us to perform model selection
+in a consistent way without the need for an evaluation data set,
+while they, in principle, do not suffer from overfitting.
 
 \erratum{Page~104}
 The text after (2.160):
