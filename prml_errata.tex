@@ -855,7 +855,7 @@ with respect to $a$ equal to zero, giving a nonlinear equation of the form
 \varphi(a) = \ln\overline{x} - \ln\widehat{x}
 \label{eq:nonlinear_equation_for_a_ML}
 \end{equation}
-where $\varphi(\cdot)$ is the log minus digamma function given by
+where $\varphi(\cdot)$ is the \emph{log minus digamma function} given by
 \eqref{eq:log_minus_digamma_function}.
 One can see that \eqref{eq:log_likelihood_for_gamma_in_terms_of_a} is
 a strictly concave function of $a$
@@ -869,15 +869,12 @@ Here, we further assume that the strict inequality~$\ln \overline{x} > \ln \wide
 so that the right hand side of \eqref{eq:nonlinear_equation_for_a_ML} lies
 among $(0, \infty)$.
 Since the log minus digamma function~$\varphi: (0, \infty) \to (0, \infty)$ is bijective
-and thus has its inverse~$\varphi^{-1}: (0, \infty) \to (0, \infty)$,
-we can solve \eqref{eq:nonlinear_equation_for_a_ML} uniquely for $a > 0$,
-which gives the maximum likelihood solution for $a$
-\begin{equation}
-a_{\text{ML}} = \varphi^{-1}(\ln\overline{x} - \ln\widehat{x}) .
-\end{equation}
+and thus has the inverse function~$\varphi^{-1}: (0, \infty) \to (0, \infty)$,
+we can solve \eqref{eq:nonlinear_equation_for_a_ML} uniquely for $a > 0$.
 Substituting this into $b = a/\overline{x}$,
-we finally obtain the maximum likelihood solution for $b$
+we finally obtain the maximum likelihood solution for the gamma distribution
 \begin{equation}
+a_{\text{ML}} = \varphi^{-1}\left( \ln\overline{x} - \ln\widehat{x} \right), \qquad
 b_{\text{ML}} = \frac{a_{\text{ML}}}{\overline{x}} .
 \end{equation}
 
