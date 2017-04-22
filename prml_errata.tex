@@ -466,17 +466,27 @@ in terms of the logarithm of the mean~$\ln\mathbb{E}[\lambda]$.
 For any correctly normalized probability distribution~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
 over random variables~$\mathbf{x}$
 parameterized by $\bm{\theta}$ and differentiable with respect to $\bm{\theta}$,
-we have that the expectation of its \emph{Fisher score}~(6.32),
-i.e., the derivative of the log probability with respect to $\bm{\theta}$,
+we have that the expectation of the \emph{score function}
+(i.e., the derivative of the log probability with respect to $\bm{\theta}$)
+\begin{equation}
+\mathbf{g}(\bm{\theta}, \mathbf{x}) =
+\nabla_{\bm{\theta}} \ln p\left(\mathbf{x}\middle|\bm{\theta}\right)
+\label{eq:score_function}
+\end{equation}
 vanishes so that
 \begin{equation}
 \mathbb{E}_{\mathbf{x}} \left[
-\nabla_{\bm{\theta}} \ln p\left(\mathbf{x}\middle|\bm{\theta}\right)
-\right]
-= \mathbf{0} .
-\label{eq:expected_fisher_score}
+\mathbf{g}(\bm{\theta}, \mathbf{x})
+\middle|
+\bm{\theta} \right]
+= \mathbf{0}
+\label{eq:expected_score_function_vanishes}
 \end{equation}
-We can show the above identity~\eqref{eq:expected_fisher_score}
+where the expectation is taken with respect to $p\left(\mathbf{x}\middle|\bm{\theta}\right)$.%
+\footnote{See (1.37) for the definition of
+the \emph{conditional expectation}~$\mathbb{E}_x \left[ \cdot \middle| y \right]$.}
+Note that the score function~\eqref{eq:score_function} is called the Fisher score~(6.32) in PRML.
+We can show the above identity~\eqref{eq:expected_score_function_vanishes}
 by differentiating the both sides of the integral identity
 \begin{equation}
 \int p\left(\mathbf{x}\middle|\bm{\theta}\right) \mathrm{d}\mathbf{x} = 1
@@ -509,7 +519,7 @@ The derivative of its log probability with respect to $a$ is given by
 \end{equation}
 where $\psi(\cdot)$ is the \emph{digamma function} given by \eqref{eq:digamma_function}.
 Substituting \eqref{eq:derivative_of_log_gamma_distribution_wrt_a} into
-\eqref{eq:expected_fisher_score},
+\eqref{eq:expected_score_function_vanishes},
 we obtain
 \begin{equation}
 \mathbb{E}\left[ \ln \lambda \right] = \psi(a) - \ln b
@@ -517,7 +527,7 @@ we obtain
 showing (B.30).
 Note that one can reproduce the result~(2.147) for the mean $\mathbb{E}\left[ \lambda \right]$
 by substituting the derivative of the log probability with respect to $b$
-into \eqref{eq:expected_fisher_score}.
+into \eqref{eq:expected_score_function_vanishes}.
 
 It follows from Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z} that
 the log expectation~$\mathbb{E}\left[ \ln \lambda \right]$ is less than
