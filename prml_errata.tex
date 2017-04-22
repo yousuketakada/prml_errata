@@ -192,7 +192,6 @@ giving a simpler form of Jensen's inequality
 \begin{equation}
 f\left(\mathbb{E}\left[\xi\right]\right)
 \leqslant \mathbb{E}\left[f\left(\xi\right)\right] .
-\label{eq:Jensen_inequality_expectation}
 \end{equation}
 For continuous random variables, we have
 \begin{equation}
@@ -540,10 +539,17 @@ where $\varphi(a) > 0$ is what we call the \emph{log minus digamma function} def
 \label{eq:log_minus_digamma_function}
 \end{equation}
 The log minus digamma function~\eqref{eq:log_minus_digamma_function} naturally arises also in
-the maximum likelihood solution for the gamma distribution as we shall see shortly.
-Note also that we make use of \eqref{eq:log_minus_digamma_function}
-in the EM algorithm for inferring the (multivariate) Student's t-distribution~(2.162),
-which is concerned in Exercise~12.24.
+deriving the maximum likelihood solution for the gamma distribution as we shall see shortly.
+
+%\parhead{Some properties of the log minus digamma function.}
+% TODO: define complete monotonicity
+% TODO: asymptotic expansion of the log gamma function
+% TODO: complete monotonicity of the residual of the asymptotic expansion
+% TODO: complete monotonicity of the log minus digamma function
+% TODO: log minus digamma function is convex; $a_{\text{ML}}$ indeed maximizes the likelihood
+% TODO: log minus digamma function is bijective and thus invertible
+% TODO: numerical solution for the inverse of the log minus digamma function
+% TODO: add figure for log minus digamma function
 
 \erratum{Page~102}
 Equation~(2.155):
@@ -776,6 +782,106 @@ functions~$\ln\operatorname{St}\left(x\middle|\mu, \lambda, \nu\right)$ (right)
 for various values of $\nu$ where we have fixed $\mu = 0$ and $\lambda = 1$.}
 \label{fig:Student_t_densities}
 \end{figure}
+
+\erratum{Page~103}
+Paragraph~\textminus1, Line~\textminus3:
+As pointed out in the text,
+the maximum likelihood solution for the Student's t-distribution can be most easily found by
+the \emph{expectation maximization} (EM) algorithm,
+which we study for discrete and continuous latent variables
+in Chapters~9 and 12, respectively;
+it is not until Exercise~12.24
+that we apply the EM algorithm to maximum likelihood for
+the (multivariate) Student's t-distribution~(2.162).
+Although we have to defer the derivation of the above mentioned EM algorithm for some time,
+it is useful to have considered a related problem of
+maximum likelihood for the gamma distribution~(2.146) here,
+because, since the t-distribution is obtained by marginalizing over
+a gamma distributed precision as we have seen in (2.158),
+we need to estimate the gamma distribution
+as a subproblem of the EM for the t-distribution.
+
+\parhead{Maximum likelihood for the gamma distribution.}
+Given a data set~$\bm{\mathsf{x}} = \left\{ x_1, \dots, x_N \right\}$,
+we consider a likelihood function of the form
+\begin{equation}
+p\left(\bm{\mathsf{x}} \middle| a, b \right)
+= \prod_{n=1}^{N} \operatorname{Gam} \left( x_n \middle| a, b \right)
+\end{equation}
+where the gamma distribution~$\operatorname{Gam} \left( \lambda \middle| a, b \right)$
+is given by (2.146).
+The log likelihood is given by
+\begin{equation}
+\ln p\left(\bm{\mathsf{x}} \middle| a, b \right)
+= N
+\left\{
+- \ln \Gamma(a) + a \ln b + (a - 1) \ln \widehat{x} - b \overline{x}
+\right\}
+\label{eq:log_likelihood_for_gamma}
+\end{equation}
+where $\overline{x}$ and $\widehat{x}$ denote
+the \emph{arithmetic mean} and the \emph{geometric mean}, respectively, so that
+\begin{equation}
+\overline{x} = \frac{1}{N} \sum_{n=1}^{N} x_n, \qquad
+\ln\widehat{x} = \frac{1}{N} \sum_{n=1}^{N} \ln x_n .
+\end{equation}
+
+We see from \eqref{eq:log_likelihood_for_gamma} that
+$\overline{x}$ and $\ln\widehat{x}$ are the sufficient statistics of the gamma distribution.
+Here, we assume that $x_n > 0$ for all $n$
+(which holds with probability one if $x_n$ has been drawn from a gamma distribution)
+so that we have $\overline{x} > 0$ and $\widehat{x} > 0$.
+
+Let us first assume that $a > 0$ is known.
+It is easy to see that the log likelihood~\eqref{eq:log_likelihood_for_gamma} is
+a strictly concave function of $b > 0$.
+We can maximize the likelihood by setting the derivative of \eqref{eq:log_likelihood_for_gamma}
+with respect to $b$ equal to zero, which gives $b = a/\overline{x}$.
+Back substituting this into \eqref{eq:log_likelihood_for_gamma},
+we have
+\begin{equation}
+\left. \ln p\left(\bm{\mathsf{x}} \middle| a, b \right) \right|_{b = a/\overline{x}}
+= N
+\left\{
+-\ln\Gamma(a) + a \ln a - a \ln\overline{x} + (a - 1) \ln\widehat{x} - a
+\right\} .
+\label{eq:log_likelihood_for_gamma_in_terms_of_a}
+\end{equation}
+
+Next we maximize \eqref{eq:log_likelihood_for_gamma_in_terms_of_a} with respect to $a$.
+This can be done by setting the derivative of \eqref{eq:log_likelihood_for_gamma_in_terms_of_a}
+with respect to $a$ equal to zero, giving a nonlinear equation of the form
+\begin{equation}
+\varphi(a) = \ln\overline{x} - \ln\widehat{x}
+\label{eq:nonlinear_equation_for_a_ML}
+\end{equation}
+where $\varphi(\cdot)$ is the log minus digamma function given by
+\eqref{eq:log_minus_digamma_function}.
+One can see that \eqref{eq:log_likelihood_for_gamma_in_terms_of_a} is
+a strictly concave function of $a$
+because $\varphi(\cdot)$ is a strictly monotonically decreasing function
+so that $\varphi'(a) < 0$ for all $a > 0$.
+
+It follows from Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}
+that $\ln \overline{x} \geqslant \ln \widehat{x}$
+(which implies $\overline{x} \geqslant \widehat{x}$ because of the monotonicity of the logarithm).
+Here, we further assume that the strict inequality~$\ln \overline{x} > \ln \widehat{x}$ holds
+so that the right hand side of \eqref{eq:nonlinear_equation_for_a_ML} lies
+among $(0, \infty)$.
+Since the log minus digamma function~$\varphi: (0, \infty) \to (0, \infty)$ is bijective
+and thus has its inverse~$\varphi^{-1}: (0, \infty) \to (0, \infty)$,
+we can solve \eqref{eq:nonlinear_equation_for_a_ML} uniquely for $a > 0$,
+which gives the maximum likelihood solution for $a$
+\begin{equation}
+a_{\text{ML}} = \varphi^{-1}(\ln\overline{x} - \ln\widehat{x}) .
+\end{equation}
+Substituting this into $b = a/\overline{x}$,
+we finally obtain the maximum likelihood solution for $b$
+\begin{equation}
+b_{\text{ML}} = \frac{a_{\text{ML}}}{\overline{x}} .
+\end{equation}
+
+% TODO: add cross refs to the corresponding properties of the log minus digamma function
 
 \erratum{Page~104}
 Paragraph~1, Line~4:
