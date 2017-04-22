@@ -791,11 +791,11 @@ the \emph{expectation maximization} (EM) algorithm,
 which we study for discrete and continuous latent variables
 in Chapters~9 and 12, respectively;
 it is not until Exercise~12.24
-that we apply the EM algorithm to maximum likelihood for
+that we apply the EM algorithm to the problem of maximum likelihood for
 the (multivariate) Student's t-distribution~(2.162).
 Although we have to defer the derivation of the above mentioned EM algorithm for some time,
 it is useful to have considered a related problem of
-maximum likelihood for the gamma distribution~(2.146) here,
+maximum likelihood for the gamma distribution~(2.146) here in advance,
 because, since the t-distribution is obtained by marginalizing over
 a gamma distributed precision as we have seen in (2.158),
 we need to estimate the gamma distribution
@@ -848,19 +848,19 @@ we have
 \label{eq:log_likelihood_for_gamma_in_terms_of_a}
 \end{equation}
 
-Next we maximize \eqref{eq:log_likelihood_for_gamma_in_terms_of_a} with respect to $a$.
+Next we maximize \eqref{eq:log_likelihood_for_gamma_in_terms_of_a} with respect to $a > 0$.
 This can be done by setting the derivative of \eqref{eq:log_likelihood_for_gamma_in_terms_of_a}
-with respect to $a$ equal to zero, giving a nonlinear equation of the form
+with respect to $a$ equal to zero, which gives a nonlinear equation of the form
 \begin{equation}
 \varphi(a) = \ln\overline{x} - \ln\widehat{x}
 \label{eq:nonlinear_equation_for_a_ML}
 \end{equation}
 where $\varphi(\cdot)$ is the \emph{log minus digamma function} given by
 \eqref{eq:log_minus_digamma_function}.
-One can see that \eqref{eq:log_likelihood_for_gamma_in_terms_of_a} is
-a strictly concave function of $a$
-because $\varphi(\cdot)$ is a strictly monotonically decreasing function
-so that $\varphi'(a) < 0$ for all $a > 0$.
+One can see that \eqref{eq:log_likelihood_for_gamma_in_terms_of_a} is again
+a strictly concave function of $a > 0$
+because $\varphi(a)$ is a strictly monotonically decreasing function
+so that $\varphi'(a) < 0$.
 
 It follows from Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}
 that $\ln \overline{x} \geqslant \ln \widehat{x}$
