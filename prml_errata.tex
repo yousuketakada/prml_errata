@@ -460,19 +460,25 @@ we can calculate the log expectation of the gamma distribution.
 Here, I would like to state the technique in more general terms
 (see Section~2.4 for even more general exposition in terms of the \emph{exponential family}),
 after which we show (B.30) and
-find an alternative form of the log expectation~$\mathbb{E}\left[ \ln\lambda \right]$
-in terms of the logarithm of the mean~$\ln\mathbb{E}[\lambda]$.
+then find an alternative form of the log expectation~$\mathbb{E}\left[ \ln\lambda \right]$
+in terms of the logarithm of the mean~$\ln\mathbb{E}[\lambda]$ and
+an interesting function related to the digamma function, namely,
+the \emph{log minus digamma function}.
 
-For any correctly normalized probability distribution~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
+\parhead{Score function.}
+For a correctly normalized probability distribution~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
 over random variables~$\mathbf{x}$
-parameterized by $\bm{\theta}$ and differentiable with respect to $\bm{\theta}$,
-we have that the expectation of the \emph{score function}
-(i.e., the derivative of the log probability with respect to $\bm{\theta}$)
+parameterized by $\bm{\theta}$ and differentiable with respect to the parameters~$\bm{\theta}$,
+we define the \emph{score function} denoted by $\mathbf{g}(\bm{\theta}, \mathbf{x})$ as
+the derivative of the log probability with respect to $\bm{\theta}$ so that
 \begin{equation}
-\mathbf{g}(\bm{\theta}, \mathbf{x}) =
-\nabla_{\bm{\theta}} \ln p\left(\mathbf{x}\middle|\bm{\theta}\right)
+\mathbf{g}(\bm{\theta}, \mathbf{x}) \equiv
+\nabla_{\bm{\theta}} \ln p\left(\mathbf{x}\middle|\bm{\theta}\right) .
 \label{eq:score_function}
 \end{equation}
+Note that the score function~\eqref{eq:score_function} is called the Fisher score~(6.32) in PRML.
+Under some regularity conditions,
+the expectation of the score function~\eqref{eq:score_function}
 vanishes so that
 \begin{equation}
 \mathbb{E}_{\mathbf{x}} \left[
@@ -482,10 +488,9 @@ vanishes so that
 = \mathbf{0}
 \label{eq:expected_score_function_vanishes}
 \end{equation}
-where the expectation~$\mathbb{E}_\mathbf{x} \left[ \cdot \middle| \bm{\theta} \right]$ is
-a \emph{conditional expectation}~(1.37) and
-is taken with respect to $p\left(\mathbf{x}\middle|\bm{\theta}\right)$.
-Note that the score function~\eqref{eq:score_function} is called the Fisher score~(6.32) in PRML.
+where $\mathbb{E}_\mathbf{x} \left[ \cdot \middle| \bm{\theta} \right]$ denotes
+the \emph{conditional expectation}~(1.37) and
+the expectation is taken with respect to $p\left(\mathbf{x}\middle|\bm{\theta}\right)$.
 We can show the above identity~\eqref{eq:expected_score_function_vanishes}
 by differentiating the both sides of the integral identity
 \begin{equation}
@@ -510,6 +515,7 @@ Although we have assumed here that the variables $\mathbf{x}$ are continuous,
 the same discussion holds if some or all of $\mathbf{x}$ are discrete
 by replacing the integrations with summations as required.
 
+\parhead{Log expectation of gamma distribution.}
 Now, let us return to the gamma distribution~(2.146).
 The derivative of its log probability with respect to $a$ is given by
 \begin{equation}
@@ -529,6 +535,7 @@ Note that one can reproduce the result~(2.147) for the mean $\mathbb{E}\left[ \l
 by substituting the derivative of the log probability with respect to $b$
 into \eqref{eq:expected_score_function_vanishes}.
 
+\parhead{Log minus digamma function.}
 It follows from Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z} that
 the log expectation~$\mathbb{E}\left[ \ln \lambda \right]$ is less than
 the logarithm of the mean $\ln \mathbb{E}\left[ \lambda \right]$
