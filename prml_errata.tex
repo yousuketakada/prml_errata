@@ -394,10 +394,12 @@ given by (2.118) with respect to $\bm{\mu}$ and $\bm{\Sigma}$ equal to zero,
 which, however, only implies that $\bm{\mu}_\text{ML}$ and $\bm{\Sigma}_\text{ML}$ are
 stationary points.
 We should also show that
-$\bm{\mu}_\text{ML}$ and $\bm{\Sigma}_\text{ML}$ indeed maximize the likelihood.
+$\bm{\mu}_\text{ML}$ and $\bm{\Sigma}_\text{ML}$ indeed maximize the likelihood
+as discussed in the following.
 
-\parhead{Maximum likelihood for Gaussian.}
-This can be easily done for $\bm{\mu}_\text{ML}$ by noting that
+\parhead{Maximum likelihood for the multivariate Gaussian.}
+Let us first maximize the likelihood function with respect to the mean~$\bm{\mu}$.
+This can be easily done by noting that
 the log likelihood~(2.118) is quadratic in $\bm{\mu}$ so that
 \begin{equation}
 \ln p\left(\mathbf{X}\middle| \bm{\mu}, \bm{\Sigma}\right) =
@@ -405,13 +407,17 @@ the log likelihood~(2.118) is quadratic in $\bm{\mu}$ so that
 \left(\bm{\mu} - \bm{\mu}_{\text{ML}}\right)^{\operatorname{T}} \bm{\Sigma}^{-1}
 \left(\bm{\mu} - \bm{\mu}_{\text{ML}}\right)
 + \text{const}
+\label{eq:log_likelihood_wrt_mu}
 \end{equation}
-where $\bm{\mu}_{\text{ML}}$ is given by (2.121).
+where $\bm{\mu}_{\text{ML}}$ is given by (2.121)
+and the terms independent of $\bm{\mu}$ have been absorbed into ``$\text{const}$.''
 Since the covariance~$\bm{\Sigma}$ is positive definite and so is its inverse~$\bm{\Sigma}^{-1}$,
-we see that the log likelihood is concave with respect to $\bm{\mu}$ and
+we see that the log likelihood~\eqref{eq:log_likelihood_wrt_mu} is concave
+with respect to $\bm{\mu}$ and
 that $\bm{\mu}_\text{ML}$ indeed maximizes the likelihood.
 
-Next we consider $\bm{\Sigma}_\text{ML}$ given by (2.122), which we obtain by solving
+Next, we consider maximization with respect to the covariance~$\bm{\Sigma}$.
+The maximum likelihood solution~$\bm{\Sigma}_\text{ML}$ given by (2.122) can be obtained by solving
 \begin{equation}
 \nabla_{\bm{\Sigma}} \ln p\left(\mathbf{X}\middle| \bm{\mu}_\text{ML}, \bm{\Sigma}\right)
 = \mathbf{O}
