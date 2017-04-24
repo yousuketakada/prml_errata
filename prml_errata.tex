@@ -365,8 +365,8 @@ for any square matrix~$\mathbf{A}$ so that
 we have $\left|\mathbf{J}\right| = 1$ and (2.56) holds as is.
 Note also that this notation~\eqref{eq:abs_of_matrix_determinant} is mostly consistent
 in other part of PRML because we have
-$\left| \mathbf{A} \right| = \operatorname{det}\left( \mathbf{A} \right)$ for any positive
-(semi)definite matrix~$\mathbf{A} \succeq 0$ (see Appendix~C) and
+$\left| \mathbf{A} \right| = \operatorname{det}\left( \mathbf{A} \right)$
+for any positive-semidefinite matrix~$\mathbf{A} \succeq 0$ (see Appendix~C) and
 most matrices for which we take determinants, such as
 the covariance~$\bm{\Sigma}$ or the precision~$\bm{\Lambda}$ of
 the multivariate Gaussian and
@@ -446,7 +446,7 @@ Although the log likelihood~\eqref{eq:log_likelihood_in_terms_of_eigenvalues} is
 not a concave function of $\bm{\Sigma}$
 (one can easily see this by considering the univariate case),
 one can observe that $\ln p\left(\mathbf{X}\middle| \bm{\mu}, \bm{\Sigma}\right) \to -\infty$
-if $\bm{\Sigma}$ approaches the boundary of the space of symmetric positive definite matrices,
+if $\bm{\Sigma}$ approaches the boundary of the space of symmetric positive-definite matrices,
 i.e., if $\lambda_i \to 0$ or $\lambda_i \to \infty$ for any $i$.
 Therefore, if \eqref{eq:maximum_likelihood_equation_for_covariance}
 has a unique solution~$\bm{\Sigma}_\text{ML} \succ 0$,
