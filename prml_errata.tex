@@ -2611,13 +2611,14 @@ the Jacobian~$\partial\mathbf{y}/\partial\mathbf{x}$.
 As \citet{Minka:OldNewMatrixAlgebra} points out,
 Jacobians are useful in calculus while gradients are useful in optimization.
 For instance, we can write down the Taylor series expansion
-(up to the second order) of a scalar function~$f(\mathbf{x})$ compactly
+(up to the second order) of a scalar function~$f(\mathbf{x})$ succinctly
 in terms of the gradients as
 \begin{equation}
-f(\mathbf{x} + \bm{\epsilon}) \simeq
+f(\mathbf{x} + \epsilon\bm{\eta}) =
 f(\mathbf{x})
-+ \bm{\epsilon}^{\operatorname{T}} \mathbf{g}(\mathbf{x})
-+ \frac{1}{2} {\bm{\epsilon}}^{\operatorname{T}} \mathbf{H}(\mathbf{x}) \bm{\epsilon}
++ \epsilon\bm{\eta}^{\operatorname{T}} \mathbf{g}(\mathbf{x})
++ \frac{\epsilon^2}{2} {\bm{\eta}}^{\operatorname{T}} \mathbf{H}(\mathbf{x}) \bm{\eta}
++ O \left( \epsilon^3 \right)
 \end{equation}
 where $\mathbf{g}(\mathbf{x})$ and $\mathbf{H}(\mathbf{x})$ are
 the gradient vector and the Hessian matrix of $f(\mathbf{x})$, respectively, so that
