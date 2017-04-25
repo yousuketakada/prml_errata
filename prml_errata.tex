@@ -403,7 +403,7 @@ We should also show that
 $\bm{\mu}_\text{ML}$ and $\bm{\Sigma}_\text{ML}$ indeed maximize the likelihood
 as discussed in the following.
 
-\parhead{Maximum likelihood for the multivariate Gaussian.}
+\parhead{Maximum likelihood for Gaussian}
 Let us first maximize the likelihood function with respect to the mean~$\bm{\mu}$.
 This can be easily done by noting that
 the log likelihood~(2.118) is quadratic in $\bm{\mu}$ so that
@@ -499,7 +499,7 @@ in terms of the logarithm of the mean~$\ln\mathbb{E}[\lambda]$ and
 an interesting function related to the digamma function, namely,
 the \emph{log minus digamma function}.
 
-\parhead{The score function.}
+\parhead{Score function}
 For a correctly normalized probability distribution~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
 over random variables~$\mathbf{x}$
 parameterized by $\bm{\theta}$ and differentiable with respect to the parameters~$\bm{\theta}$,
@@ -549,7 +549,7 @@ Although we have assumed here that the variables $\mathbf{x}$ are continuous,
 the same discussion holds if some or all of $\mathbf{x}$ are discrete
 by replacing the integrations with summations as required.
 
-\parhead{The log expectation of the gamma distribution.}
+\parhead{Log expectation of gamma distribution}
 Now, let us return to the gamma distribution~(2.146).
 The derivative of its log probability with respect to $a$ is given by
 \begin{equation}
@@ -569,7 +569,7 @@ Note that one can reproduce the result~(2.147) for the mean $\mathbb{E}\left[ \l
 by substituting the derivative of the log probability with respect to $b$
 into \eqref{eq:expected_score_function_vanishes}.
 
-\parhead{The log minus digamma function.}
+\parhead{Log minus digamma function}
 It follows from Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z} that
 the log expectation~$\mathbb{E}\left[ \ln \lambda \right]$ is less than
 the logarithm of the mean $\ln \mathbb{E}\left[ \lambda \right]$
@@ -592,7 +592,7 @@ where $\varphi(a) > 0$ is what we call the \emph{log minus digamma function} def
 The log minus digamma function~\eqref{eq:log_minus_digamma_function} naturally arises also in
 deriving the maximum likelihood solution for the gamma distribution as we shall see shortly.
 
-%\parhead{Some properties of the log minus digamma function.}
+%\parhead{Some properties of log minus digamma function}
 % TODO: define complete monotonicity
 % TODO: asymptotic expansion of the log gamma function
 % TODO: complete monotonicity of the residual of the asymptotic expansion
@@ -852,7 +852,7 @@ a gamma distributed precision as we have seen in (2.158),
 we need to estimate the gamma distribution
 as a subproblem of the EM for the t-distribution.
 
-\parhead{Maximum likelihood for gamma distribution.}
+\parhead{Maximum likelihood for gamma distribution}
 Given a data set~$\bm{\mathsf{x}} = \left\{ x_1, \dots, x_N \right\}$,
 we consider a likelihood function of the form
 \begin{equation}
