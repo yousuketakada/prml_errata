@@ -185,7 +185,13 @@ Moreover, if $f(\cdot)$ is strictly convex,
 the equality in \eqref{eq:Jensen_inequality_expectation_with_z} holds if and only if
 $\xi(\cdot)$ is \emph{essentially constant},
 meaning that there exists some constant~$\xi_0$ and
-$\xi(\mathbf{z}) = \xi_0$ for all $\mathbf{z}$ such that $p(\mathbf{z}) > 0$,
+$\xi(\mathbf{z}) = \xi_0$ for almost\footnote{%
+Here, the term~``almost'' means that there may be some exceptions,
+but they can occur only with probability zero so that we can safely ignore them.
+As in PRML, we usually omit the term~``almost'' for brevity in this report.}
+all $\mathbf{z}$ such that $p(\mathbf{z}) > 0$
+(in other words, if we regard $\xi = \xi(\mathbf{z})$ as a random variable,
+we have $\xi = \xi_0$ almost surely, i.e., with probability one),
 in which case we have $\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right] = \xi_0$
 and the both sides of \eqref{eq:Jensen_inequality_expectation_with_z} equal $f(\xi_0)$.
 See Figure~\ref{fig:Jensen_inequality} for an intuitive, physical ``proof'' of
