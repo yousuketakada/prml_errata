@@ -238,7 +238,7 @@ The roots (the values of $x$ such that $f(x) = 0$) are $x = 0$ and $x = 1$.}
 \erratum{Page~56}
 Equation~(1.118):
 We have some difficulties in the derivation~(1.118) of
-the inequality~$\operatorname{KL}\left( p \middle\| q \right) \geqslant 0$.
+Gibbs's inequality~\eqref{eq:Gibbs_inequality}.
 First, the quantity~$\xi(\mathbf{x}) = q(\mathbf{x})/p(\mathbf{x})$ is undefined for $\mathbf{x}$
 such that $p(\mathbf{x}) = 0$.
 Second, the convex function~$f(\xi) = -\ln\xi$ is undefined for $\xi = 0$,
@@ -252,9 +252,11 @@ we identify $f(\xi) = \xi\ln\xi$ (see Figure~\ref{fig:x_ln_x}) and
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$.
 Note that we can safely proceed with this approach
 because we can assume $q(\mathbf{x}) > 0$
-without loss of generality.
-To see this, let us first examine the behavior of the integrand of
-$\operatorname{KL}\left( p \middle\| q \right)$
+without loss of generality as we shall see in the following.
+
+\parhead{A proof of Gibbs's inequality}
+Let us first examine the behavior of the integrand of
+the Kullback-Leibler divergence~$\operatorname{KL}\left( p \middle\| q \right)$
 \begin{equation}
 p(\mathbf{x}) \ln p(\mathbf{x}) - p(\mathbf{x}) \ln q(\mathbf{x})
 \label{eq:integrand_of_KL}
@@ -266,7 +268,7 @@ $\operatorname{KL}\left( p \middle\| q \right) \to \infty$.
 On the other hand, the integrand~\eqref{eq:integrand_of_KL} always vanishes for $\mathbf{x}$
 such that $p(\mathbf{x}) = 0$ regardless of the values of $q(\mathbf{x})$.\footnote{%
 Recall that we have defined $0 \ln 0 = 0$
-in the context of defining the entropy~$\operatorname{H}[x]$ in (1.93).}
+so that the entropy~$\operatorname{H}[x]$~(1.93) is well-defined.}
 Therefore, in order for $\operatorname{KL}\left( p \middle\| q \right)$ to be well-defined,
 one must have $p(\mathbf{x}) = 0$ wherever $q(\mathbf{x}) = 0$;
 this property is called \emph{zero-forcing} (see also Section~10.1.2).
@@ -298,7 +300,7 @@ Note that, since $q(\mathbf{x}) > 0$ over $\Omega$, we see that
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x}) \geqslant 0$ is well-defined over $\Omega$ and
 so is $f\left(\xi(\mathbf{x})\right) = \xi(\mathbf{x})\ln\xi(\mathbf{x})$.
 Since $f(\xi)$ is strictly convex,
-the equality in $\operatorname{KL}\left( p \middle\| q \right) \geqslant 0$ holds if and only if
+the equality~$\operatorname{KL}\left( p \middle\| q \right) = 0$ holds if and only if
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$ is constant over $\Omega$,
 which, together with the zero-forcing condition, yields the equality condition that
 $p(\mathbf{x}) = q(\mathbf{x})$ for all $\mathbf{x}$.
