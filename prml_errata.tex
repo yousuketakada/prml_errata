@@ -2883,21 +2883,27 @@ Although it is possible to take $\mathbf{U}$ such that $\operatorname{det}(\math
 (one can flip the sign of $\operatorname{det}(\mathbf{U})$ by, say, flipping the sign of
 any one of the eigenvectors~$\left\{\mathbf{u}_i\right\}$),
 there is no point in doing so in practice theoretically nor numerically. In fact,
-most software implementations of eigenvalue decomposition only guarantee that $\mathbf{U}$ is
-orthogonal, i.e., $\operatorname{det}(\mathbf{U}) = \pm 1$.
-In a special case of $\mathbf{A}$ being symmetric positive (semi)definite or
+most software implementations of symmetric eigenvalue decomposition only guarantee that
+$\mathbf{U}$ is orthogonal so that $\operatorname{det}(\mathbf{U}) = \pm 1$.
+
+In the special case where the matrix~$\mathbf{A}$ is symmetric positive semidefinite or
 $\mathbf{A} \succeq 0$,
 we can identify the eigenvalue decomposition~(C.43) with
 the \emph{singular value decomposition} or SVD~\citep{Press:NR,GvL:MC}
+so that we can use an SVD routine to compute the eigenvalue decomposition.
+The SVD is generally defined for any real matrix~$\mathbf{A}$ not necessarily square,
+say, of dimensionality~$M \times N$,
+so that the SVD of $\mathbf{A}$ is given by
 \begin{equation}
 \mathbf{A} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}
 \end{equation}
-where we have $\mathbf{U} = \mathbf{V}$ and thus identify
-the eigenvalues~$\left\{\lambda_i\right\}$ with the singular values~$\left\{\sigma_i\right\}$
-so that we can use an SVD routine for eigenvalue decomposition.
-Note also that the singular values are usually arranged in descending order
-in the diagonal matrix~$\bm{\Sigma} = \operatorname{diag}\left(\sigma_i\right)$
-so that $\sigma_1 \geqslant \sigma_2 \geqslant \dots \geqslant 0$.
+where $\mathbf{U}$ and $\mathbf{V}$ are orthogonal matrices of
+dimensionality~$M \times M$ and $N \times N$, respectively;
+and $\bm{\Sigma}$ is an $M \times N$ diagonal matrix with
+nonnegative diagonal elements, called the \emph{singular values},
+such that $\sigma_1 \geqslant \sigma_2 \geqslant \dots \geqslant 0$.
+Note again that $\mathbf{U}$ and $\mathbf{V}$ are only guaranteed to be orthogonal
+so that $\operatorname{det}(\mathbf{U}) = \pm 1$ and $\operatorname{det}(\mathbf{V}) = \pm 1$.
 
 \erratum{Page~700}
 The text following (C.41):
