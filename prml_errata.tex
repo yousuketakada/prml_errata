@@ -2100,14 +2100,15 @@ The discrete distribution of the form~(B.54), or (2.26), is known as
 the \emph{categorical} or the \emph{multinoulli} distribution~\citep{Murphy:MachineLearning}.
 It is also sometimes called, less precisely, the ``multinomial'' or the ``discrete'' distribution.
 Of these terms, I would prefer the term~\emph{multinoulli}
-because it naturally suggests that
-it is a generalization of the \emph{Bernoulli} distribution~(B.1)
-to the $K$-dimensional binary variable~$\mathbf{x} = (x_1, \dots, x_K)^{\operatorname{T}}$
-where $x_k \in \{0, 1\}$ such that $\sum_k x_k = 1$, i.e.,
-we employ the one-of-$K$ coding scheme for $\mathbf{x}$; and
-it is also a special case of the \emph{multinomial} distribution~(B.59)
-where $N = 1$, i.e., we have a single observation
-(see Figure~\ref{fig:relationship_between_discrete_distributions}).
+because it naturally suggests that it is
+a generalization of the \emph{Bernoulli} distribution~(B.1) to multiple categories~$K > 2$ and
+also a special case of the \emph{multinomial} distribution~(B.59)
+where we have only a single observation~$N = 1$
+(see Figure~\ref{fig:relationship_between_discrete_distributions}
+for the relationship between the discrete distributions found in PRML).
+Since we often make use of this discrete distribution,
+we shall introduce some notation for the right hand side of (B.54).
+
 \begin{figure}
 \centering
 {\fontfamily{\sfdefault}\selectfont
@@ -2147,16 +2148,21 @@ $\operatorname{Bin}\left(m\middle|N, \mu\right)$}
 $\operatorname{Mult}\left(m_1, \dots, m_K\middle|\bm{\mu}, N\right)$}
 }
 \end{equation*}}
-\caption{The relationship between discrete distributions and their priors.
+\caption{The relationship between discrete distributions and their conjugate priors.
 Here, $\text{A} \Rightarrow \text{B}$ denotes
 ``A generalizes to B with multiple categories concerned''; and
 $\text{A} \rightarrow \text{B}$ ``A to B with multiple observations.''
 Note also that $\text{A} \dashrightarrow \text{B}$ denotes ``A is the conjugate prior for B.''}
 \label{fig:relationship_between_discrete_distributions}
 \end{figure}
-Since we often make use of this discrete distribution, we should introduce some notation for
-the right hand side of (B.54).
-For example, we could ``overload'' the notation~(B.59) for the multinomial and write
+
+\parhead{Multinoulli}
+The \emph{multinoulli} distribution is a distribution over
+the $K$-dimensional binary variable~$\mathbf{x} = (x_1, \dots, x_K)^{\operatorname{T}}$
+where $x_k \in \{0, 1\}$ such that $\sum_k x_k = 1$, i.e.,
+we employ the one-of-$K$ coding scheme for $\mathbf{x}$.
+Here, we ``overload'' the notation~(B.59) for the multinomial and
+write the multinoulli as
 \begin{equation}
 \operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right) \equiv
 \prod_{k=1}^{K} \mu_{k}^{x_k} =
