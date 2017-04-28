@@ -2885,8 +2885,9 @@ It should also be noted that (C.27) is a special case of
 \erratum{Page~700}
 Paragraph~2, Line~\textminus1:
 The determinant of the orthogonal matrix~$\mathbf{U}$ can be either positive or negative so that
-we should write $\operatorname{det}(\mathbf{U}) = \pm 1$, which is equivalent to
-$\left|\mathbf{U}\right| = 1$ if we adopt the notation~\eqref{eq:abs_of_matrix_determinant}.
+we should write $\operatorname{det}(\mathbf{U}) = \pm 1$
+(which is, if the notation~\eqref{eq:abs_of_matrix_determinant} is adopted,
+equivalent to $\left|\mathbf{U}\right| = 1$).
 Although it is possible to take $\mathbf{U}$ such that $\operatorname{det}(\mathbf{U}) = 1$
 (one can flip the sign of $\operatorname{det}(\mathbf{U})$ by, say, flipping the sign of
 any one of the eigenvectors~$\left\{\mathbf{u}_i\right\}$),
@@ -2894,22 +2895,26 @@ there is no point in doing so in practice theoretically nor numerically. In fact
 most software implementations of symmetric eigenvalue decomposition only guarantee that
 $\mathbf{U}$ is orthogonal so that $\operatorname{det}(\mathbf{U}) = \pm 1$.
 
+\parhead{Singular value decomposition}
 In the special case where the matrix~$\mathbf{A}$ is symmetric positive semidefinite or
 $\mathbf{A} \succeq 0$,
 we can identify the eigenvalue decomposition~(C.43) with
 the \emph{singular value decomposition} or SVD~\citep{Press:NR,GvL:MC}
-so that we can use an SVD routine to compute the eigenvalue decomposition.
-The SVD is generally defined for any real matrix~$\mathbf{A}$ not necessarily square,
+so that we can use an SVD routine to compute the eigenvalue decomposition of $\mathbf{A}$.
+The SVD is generally defined for any real matrix~$\mathbf{P}$ not necessarily square,
 say, of dimensionality~$M \times N$,
-so that the SVD of $\mathbf{A}$ is given by
+so that the SVD of $\mathbf{P}$ is given by
 \begin{equation}
-\mathbf{A} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}
+\mathbf{P} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}
+= \sum_{i=1}^{R} \sigma_i \mathbf{u}_i \mathbf{v}_i^{\operatorname{T}}
 \end{equation}
-where $\mathbf{U}$ and $\mathbf{V}$ are orthogonal matrices of
+where $\mathbf{U} = \left( \mathbf{u}_1, \dots, \mathbf{u}_M \right)$ and
+$\mathbf{V} = \left( \mathbf{v}_1, \dots, \mathbf{v}_N \right)$ are orthogonal matrices of
 dimensionality~$M \times M$ and $N \times N$, respectively;
-and $\bm{\Sigma}$ is an $M \times N$ diagonal matrix with
+$\bm{\Sigma}$ is an $M \times N$ diagonal matrix with
 nonnegative diagonal elements, called the \emph{singular values},
-such that $\sigma_1 \geqslant \sigma_2 \geqslant \dots \geqslant 0$.
+$\sigma_1 \geqslant \dots \geqslant \sigma_R \geqslant 0$ arranged in descending order; and
+$R \leqslant \operatorname{min}(M, N)$ is the rank of $\mathbf{P}$.
 Note again that $\mathbf{U}$ and $\mathbf{V}$ are only guaranteed to be orthogonal
 so that $\operatorname{det}(\mathbf{U}) = \pm 1$ and $\operatorname{det}(\mathbf{V}) = \pm 1$.
 
