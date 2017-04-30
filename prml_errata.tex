@@ -508,9 +508,11 @@ an interesting function related to the digamma function, namely,
 the \emph{log minus digamma function}.
 
 \parhead{Score function}
-For a correctly normalized probability distribution~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
-over random variables~$\mathbf{x}$
-parameterized by $\bm{\theta}$ and differentiable with respect to the parameters~$\bm{\theta}$,
+For a probability distribution~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
+over random variables~$\mathbf{x}$ parameterized by $\bm{\theta}$
+such that $p\left(\mathbf{x}\middle|\bm{\theta}\right)$ is logarithmically differentiable
+with respect to the parameters~$\bm{\theta}$ and
+correctly normalized under sufficiently small perturbations in $\bm{\theta}$,
 we define the \emph{score function} denoted by $\mathbf{g}(\bm{\theta}, \mathbf{x})$ as
 the derivative of the log probability with respect to $\bm{\theta}$ so that
 \begin{equation}
