@@ -539,10 +539,10 @@ the derivative of the log probability with respect to $\bm{\theta}$ so that
 \label{eq:score_function}
 \end{equation}
 Note that the score function~\eqref{eq:score_function} is called the Fisher score~(6.32) in PRML.
-One can see that
+In fact,
 the first-order relative difference~\eqref{eq:first_order_relative_difference_wrt_parameters}
-is zero on average in any direction~$\bm{\eta}$
-by noting that the expectation of the score function~\eqref{eq:score_function}
+is zero on average in whatever the direction~$\bm{\eta}$
+because the expectation of the score function~\eqref{eq:score_function}
 vanishes so that
 \begin{equation}
 \mathbb{E}_{\mathbf{x}} \left[
@@ -582,33 +582,36 @@ Although we have assumed here that the variables $\mathbf{x}$ are continuous,
 the same discussion holds if some or all of $\mathbf{x}$ are discrete
 by replacing the integrations with summations as required.
 
-It is worth noting here that we have a subtlety in
-the identity~\eqref{eq:expected_score_function_vanishes} as discussed in the following.
+At this moment, I would like to point out a subtlety in
+the identity~\eqref{eq:expected_score_function_vanishes}.
 Recall that, when we introduce the score function~\eqref{eq:score_function},
 we have assumed that sufficiently small perturbations in $\bm{\theta}$ do not affect
 the correct normalization of $p\left(\mathbf{x}\middle|\bm{\theta}\right)$.
 This assumption is required to show \eqref{eq:expected_score_function_vanishes}
 because otherwise we do not have \eqref{eq:differentiating_integral_identity_wrt_parameters}.
-For example, let us consider
+Let us take
 the multinoulli distribution~$\operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right)$
-given by \eqref{eq:multinoulli_distribution}.
-Since we cannot change a single parameter~$\mu_k$ independently of the others~$\mu_j$
-where $j \neq k$ due to the constraint~$\sum_k \mu_k = 1$,
-it is not valid to substitute
+given by \eqref{eq:multinoulli_distribution}
+as an example.
+Since we cannot change a parameter~$\mu_k$
+(the normalized probability of observing component~$k$)
+independently of the others~$\mu_j$ where $j \neq k$ due to the constraint~$\sum_k \mu_k = 1$,
+it is \emph{not} valid to substitute
 $\nabla_{\mu_k} \ln \operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right)$
 into \eqref{eq:expected_score_function_vanishes}.
-Instead, we should consider the derivatives with respect to, say,
-unnormalized probabilities~$\widetilde{\mu}_k$ for which we do not have the sum-to-one constraint.
+Instead, we should consider the derivatives with respect to independent parameters, say,
+unnormalized probabilities~$\widetilde{\mu}_k$
+for which we do not have the sum-to-one constraint.
 The corresponding score function is given by
 \begin{equation}
 \nabla_{\widetilde{\mu}_k} \ln \operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right)
-= \frac{x_k}{\widetilde{\mu}_k} - \frac{1}{\sum_j \widetilde{\mu}_j} .
+= \frac{x_k}{\widetilde{\mu}_k} - \frac{1}{\sum_j \widetilde{\mu}_j}
 \label{eq:score_function_of_multinoulli}
 \end{equation}
+where we have used \eqref{eq:normalized_mu_from_unnormalized_mu}.
 Substituting \eqref{eq:score_function_of_multinoulli} into
 \eqref{eq:expected_score_function_vanishes},
-we indeed obtain a valid result that $\mathbb{E}[x_k] = \mu_k$ where $\mu_k$ is given by 
-\eqref{eq:normalized_mu_from_unnormalized_mu}.
+we indeed obtain a valid result that $\mathbb{E}[x_k] = \mu_k$.
 
 \parhead{Log expectation of gamma distribution}
 Now, let us return to the gamma distribution~(2.146).
