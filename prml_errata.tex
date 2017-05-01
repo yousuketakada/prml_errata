@@ -508,21 +508,41 @@ an interesting function related to the digamma function, namely,
 the \emph{log minus digamma function}.
 
 \parhead{Score function}
-For a probability distribution~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
-over random variables~$\mathbf{x}$ parameterized by the parameters~$\bm{\theta}$
-such that $p\left(\mathbf{x}\middle|\bm{\theta}\right)$ is logarithmically differentiable
-with respect to $\bm{\theta}$ and
-remains correctly normalized under sufficiently small perturbations in $\bm{\theta}$,
-we define the \emph{score function}, denoted by $\mathbf{g}(\bm{\theta}, \mathbf{x})$, as
+For a correctly normalized probability distribution~$p\left(\mathbf{x}\middle|\bm{\theta}\right)$
+over some random variables~$\mathbf{x}$ parameterized by parameters~$\bm{\theta}$
+and differentiable with respect to $\bm{\theta}$,
+let us consider how $p\left(\mathbf{x}\middle|\bm{\theta}\right)$ changes
+under perturbations in $\bm{\theta}$.
+Specifically, the first-order relative difference in the direction~$\bm{\eta}$ is given by
+\begin{equation}
+\frac{1}{p\left(\mathbf{x}\middle|\bm{\theta}\right)}
+\lim_{\epsilon \to 0}
+\left\{
+\frac{
+p\left(\mathbf{x}\middle|\bm{\theta} + \epsilon\bm{\eta}\right)
+- p\left(\mathbf{x}\middle|\bm{\theta}\right)
+}{\epsilon}
+\right\}
+= \bm{\eta}^{\operatorname{T}} \mathbf{g}(\bm{\theta}, \mathbf{x})
+\label{eq:first_order_relative_difference_wrt_parameters}
+\end{equation}
+where we have assumed that $p\left(\mathbf{x}\middle|\bm{\theta}\right)$
+remains correctly normalized under sufficiently small perturbations in $\bm{\theta}$;
+and defined the \emph{score function}, denoted by $\mathbf{g}(\bm{\theta}, \mathbf{x})$, as
 the derivative of the log probability with respect to $\bm{\theta}$ so that
 \begin{equation}
-\mathbf{g}(\bm{\theta}, \mathbf{x}) \equiv
-\nabla_{\bm{\theta}} \ln p\left(\mathbf{x}\middle|\bm{\theta}\right) .
+\mathbf{g}(\bm{\theta}, \mathbf{x})
+\equiv \nabla_{\bm{\theta}} \ln p\left(\mathbf{x}\middle|\bm{\theta}\right)
+= \frac{
+\nabla_{\bm{\theta}} \, p\left(\mathbf{x}\middle|\bm{\theta}\right)
+}{p\left(\mathbf{x}\middle|\bm{\theta}\right)} .
 \label{eq:score_function}
 \end{equation}
 Note that the score function~\eqref{eq:score_function} is called the Fisher score~(6.32) in PRML.
-Under some regularity conditions,
-the expectation of the score function~\eqref{eq:score_function}
+One can see that
+the first-order relative difference~\eqref{eq:first_order_relative_difference_wrt_parameters}
+is zero on average in any direction~$\bm{\eta}$
+by noting that the expectation of the score function~\eqref{eq:score_function}
 vanishes so that
 \begin{equation}
 \mathbb{E}_{\mathbf{x}} \left[
@@ -533,9 +553,10 @@ vanishes so that
 \label{eq:expected_score_function_vanishes}
 \end{equation}
 where $\mathbb{E}_\mathbf{x} \left[ \cdot \middle| \bm{\theta} \right]$ denotes
-the \emph{conditional expectation}~(1.37) and
-the expectation is taken with respect to $p\left(\mathbf{x}\middle|\bm{\theta}\right)$.
-We can show the above identity~\eqref{eq:expected_score_function_vanishes}
+the \emph{conditional expectation}~(1.37) so that
+the above expectation is taken with respect to $p\left(\mathbf{x}\middle|\bm{\theta}\right)$.
+
+We can show the general identity~\eqref{eq:expected_score_function_vanishes}
 by differentiating the both sides of the integral identity
 \begin{equation}
 \int p\left(\mathbf{x}\middle|\bm{\theta}\right) \mathrm{d}\mathbf{x} = 1
