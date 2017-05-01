@@ -595,20 +595,20 @@ given by \eqref{eq:multinoulli_distribution}
 as an example.
 Since we cannot change a parameter~$\mu_k$
 (the normalized probability of observing component~$k$)
-independently of the others~$\mu_j$ where $j \neq k$ due to the constraint~$\sum_k \mu_k = 1$,
+independently of the others~$\mu_j$ where $j \neq k$
+due to the sum-to-one constraint~$\sum_k \mu_k = 1$,
 it is \emph{not} valid to substitute
 $\nabla_{\mu_k} \ln \operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right)$
 into \eqref{eq:expected_score_function_vanishes}.
 Instead, we should consider the derivatives with respect to independent parameters, say,
 unnormalized probabilities~$\widetilde{\mu}_k$
-for which we do not have the sum-to-one constraint.
+given by \eqref{eq:normalized_mu_from_unnormalized_mu}.
 The corresponding score function is given by
 \begin{equation}
 \nabla_{\widetilde{\mu}_k} \ln \operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right)
-= \frac{x_k}{\widetilde{\mu}_k} - \frac{1}{\sum_j \widetilde{\mu}_j}
+= \frac{x_k}{\widetilde{\mu}_k} - \frac{1}{\sum_j \widetilde{\mu}_j} .
 \label{eq:score_function_of_multinoulli}
 \end{equation}
-where we have used \eqref{eq:normalized_mu_from_unnormalized_mu}.
 Substituting \eqref{eq:score_function_of_multinoulli} into
 \eqref{eq:expected_score_function_vanishes},
 we indeed obtain a valid result that $\mathbb{E}[x_k] = \mu_k$.
