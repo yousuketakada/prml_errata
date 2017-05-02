@@ -175,10 +175,15 @@ the probability distribution over a discrete variable~$x$ such that $\lambda_i \
 because, since (1.115) holds for any $\left\{x_i\right\}$,
 we can take, say, $x_i = x_j$ and $\lambda_i \neq \lambda_j$ where $i \neq j$,
 assigning different probabilities for the same value of $x$.
-Instead, we should rather introduce another set of underlying random variables~$\mathbf{z}$
+Actually, (1.116) is a special case of (1.115).
+An equivalent of (1.115) in terms of expectation can be derived as follows.
+
+\parhead{Jensen's inequality in terms of expectation}
+In order to interpret (1.115) probabilistically,
+we should rather introduce another set of underlying random variables~$\mathbf{z}$
 such that $\lambda_i \equiv p(\mathbf{z} = \mathbf{z}_i)$ and
 a function~$\xi(\cdot)$ such that $x_i \equiv \xi(\mathbf{z}_i)$,
-giving a slightly more general result
+giving a result slightly more general than (1.116)
 \begin{equation}
 f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
 \leqslant \mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
