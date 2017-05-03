@@ -2939,15 +2939,17 @@ For example, (C.24) should read
 \label{eq:gradient_of_Tr_AB_wrt_A}
 \end{equation}
 where we have used the transpose and the cyclic identities of
-the trace~$\operatorname{Tr}(\cdot)$, i.e.,
+the trace operator~$\operatorname{Tr}(\cdot)$, i.e.,
 \begin{equation}
 \operatorname{Tr}\left(\mathbf{A}\right)
 = \operatorname{Tr}\left(\mathbf{A}^{\operatorname{T}}\right) , \qquad
 \operatorname{Tr}\left(\mathbf{A}\mathbf{B}\right) =
 \operatorname{Tr}\left(\mathbf{B}\mathbf{A}\right)
+\label{eq:transpose_and_cyclic_identities_of_Tr}
 \end{equation}
 respectively.
 Note that (C.25) and (C.26) are special cases of \eqref{eq:gradient_of_Tr_AB_wrt_A}.
+
 Similarly, the gradient of the log (absolute) determinant~(C.28) should read
 \begin{equation}
 \nabla_{\mathbf{A}} \ln \left| \mathbf{A} \right| = \mathbf{A}^{-\operatorname{T}}
@@ -2959,14 +2961,25 @@ where we have used (C.4) and defined
 \left( \mathbf{A}^{\operatorname{T}}\right )^{-1} =
 \left( \mathbf{A}^{-1}\right )^{\operatorname{T}} .
 \end{equation}
-It follows from \eqref{eq:partial_derivative_of_log_abs_det} that,
-if we adopt the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$,
-the identity~\eqref{eq:gradient_of_log_abs_det_A_wrt_A} holds for
+The identity~\eqref{eq:gradient_of_log_abs_det_A_wrt_A} can be shown by
+identifying $x$ with $A_{ij}$ in \eqref{eq:partial_derivative_of_log_abs_det} and
+making use of (C.23), which can be stated more suitably for our purpose as
+\begin{equation}
+\operatorname{Tr}\left(\frac{\partial\mathbf{A}}{\partial A_{ij}}\mathbf{B}\right)
+= \operatorname{Tr}\left(\mathbf{B}\frac{\partial\mathbf{A}}{\partial A_{ij}}\right)
+= B_{ji}
+\label{eq:derivative_of_Tr_AB_wrt_A_ij}
+\end{equation}
+where the Jacobian~$\partial\mathbf{A}/\partial A_{ij}$ is
+a matrix of the same dimensionality as $\mathbf{A}$
+such that only the $(ij)$-th element is one and all the other elements are zero.
+If we adopt the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$,
+we see that \eqref{eq:gradient_of_log_abs_det_A_wrt_A} holds for
 any nonsingular matrix~$\mathbf{A}$ such that $\operatorname{det}(\mathbf{A}) \neq 0$.
 
 \parhead{Some more matrix derivatives identities}
 In addition to the above mentioned matrix derivatives identities,
-I would suggest to include the following
+I would suggest to include the following:
 \begin{align}
 \nabla_{\mathbf{A}} \operatorname{Tr}\left(
 \mathbf{A}\mathbf{B}\mathbf{A}^{\operatorname{T}}\mathbf{C} \right) &=
@@ -2982,6 +2995,38 @@ We use the identities~\eqref{eq:gradient_of_Tr_A_B_Atranspose_C} and
 when we show (13.113) in Exercise~13.33 and (2.122) in Exercise~2.34, respectively.
 It should also be noted that (C.27) is a special case of
 \eqref{eq:gradient_of_Tr_A_B_Atranspose_C}.
+
+The identity~\eqref{eq:gradient_of_Tr_A_B_Atranspose_C} can be shown as follows.
+Assuming that $\mathbf{B}$ and $\mathbf{C}$ are constants, we have
+\begin{equation}
+\frac{\partial}{\partial x} \left\{
+\mathbf{A}\mathbf{B}\mathbf{A}^{\operatorname{T}}\mathbf{C}
+\right\}
+= \frac{\partial\mathbf{A}}{\partial x}\mathbf{B}\mathbf{A}^{\operatorname{T}}\mathbf{C}
++
+\mathbf{A}\mathbf{B}
+\left(\frac{\partial\mathbf{A}}{\partial x}\right)^{\operatorname{T}}
+\mathbf{C} .
+\end{equation}
+Taking the trace of the both sides gives
+\begin{equation}
+\frac{\partial}{\partial x} \operatorname{Tr}\left(
+\mathbf{A}\mathbf{B}\mathbf{A}^{\operatorname{T}}\mathbf{C}
+\right)
+= \operatorname{Tr}\left(
+\frac{\partial\mathbf{A}}{\partial x}\mathbf{B}\mathbf{A}^{\operatorname{T}}\mathbf{C}
+\right)
++
+\operatorname{Tr}\left(
+\frac{\partial\mathbf{A}}{\partial x}
+\mathbf{B}^{\operatorname{T}}\mathbf{A}^{\operatorname{T}}\mathbf{C}^{\operatorname{T}}
+\right)
+\end{equation}
+where we have rearranged the factors inside the second trace~$\operatorname{Tr}(\cdot)$ in
+the right hand side by making use of \eqref{eq:transpose_and_cyclic_identities_of_Tr}.
+We finally have \eqref{eq:gradient_of_Tr_A_B_Atranspose_C} by
+identifying $x$ with $A_{ij}$ and making use of \eqref{eq:derivative_of_Tr_AB_wrt_A_ij}.
+The identity~\eqref{eq:gradient_of_Tr_Ainverse_B} follows similarly from (C.21).
 
 \erratum{Page~700}
 Paragraph~2, Line~\textminus1:
