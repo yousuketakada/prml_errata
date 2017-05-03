@@ -2920,6 +2920,7 @@ we can now evaluate the right hand side of (C.22) as
 \frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right) \\
 &=
 \operatorname{Tr}\left(\mathbf{A}^{-1}\frac{\partial\mathbf{A}}{\partial x}\right)
+\label{eq:partial_derivative_of_log_abs_det}
 \end{align}
 if $\mathbf{A}$ is nonsingular so that $\operatorname{det}(\mathbf{A}) \neq 0$
 where we have used the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$.
@@ -2929,9 +2930,28 @@ Equations~(C.24), (C.25), (C.26), (C.27), and (C.28):
 Since these derivatives are gradients of a scalar with respect to a matrix~$\mathbf{A}$,
 the operator~$\frac{\partial}{\partial \mathbf{A}}$ should
 read $\nabla_{\mathbf{A}}$ if we adopt the notation~\eqref{eq:gradient_of_scalar_wrt_matrix}.
-For example, (C.28) should read
+For example, (C.24) should read
+\begin{equation}
+\nabla_{\mathbf{A}} \operatorname{Tr} \left( \mathbf{A} \mathbf{B} \right)
+= \nabla_{\mathbf{A}} \operatorname{Tr} \left(
+\mathbf{A}^{\operatorname{T}} \mathbf{B}^{\operatorname{T}} \right)
+= \mathbf{B}^{\operatorname{T}}
+\label{eq:gradient_of_Tr_AB_wrt_A}
+\end{equation}
+where we have used the transpose and the cyclic identities of
+the trace~$\operatorname{Tr}(\cdot)$, i.e.,
+\begin{equation}
+\operatorname{Tr}\left(\mathbf{A}\right)
+= \operatorname{Tr}\left(\mathbf{A}^{\operatorname{T}}\right) , \qquad
+\operatorname{Tr}\left(\mathbf{A}\mathbf{B}\right) =
+\operatorname{Tr}\left(\mathbf{B}\mathbf{A}\right)
+\end{equation}
+respectively.
+Note that (C.25) and (C.26) are special cases of \eqref{eq:gradient_of_Tr_AB_wrt_A}.
+Similarly, the gradient of the log (absolute) determinant~(C.28) should read
 \begin{equation}
 \nabla_{\mathbf{A}} \ln \left| \mathbf{A} \right| = \mathbf{A}^{-\operatorname{T}}
+\label{eq:gradient_of_log_abs_det_A_wrt_A}
 \end{equation}
 where we have used (C.4) and defined
 \begin{equation}
@@ -2939,7 +2959,13 @@ where we have used (C.4) and defined
 \left( \mathbf{A}^{\operatorname{T}}\right )^{-1} =
 \left( \mathbf{A}^{-1}\right )^{\operatorname{T}} .
 \end{equation}
-In addition to the above mentioned identities,
+It follows from \eqref{eq:partial_derivative_of_log_abs_det} that,
+if we adopt the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$,
+the identity~\eqref{eq:gradient_of_log_abs_det_A_wrt_A} holds for
+any nonsingular matrix~$\mathbf{A}$ such that $\operatorname{det}(\mathbf{A}) \neq 0$.
+
+\parhead{Some more matrix derivatives identities}
+In addition to the above mentioned matrix derivatives identities,
 I would suggest to include the following
 \begin{align}
 \nabla_{\mathbf{A}} \operatorname{Tr}\left(
