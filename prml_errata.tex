@@ -2953,15 +2953,15 @@ respectively.
 As described in the text,
 the identity~\eqref{eq:gradient_of_Tr_AB_wrt_A} directly follows from (C.23).
 At this moment, I would like to point out an observation
-useful for remembering \eqref{eq:gradient_of_Tr_AB_wrt_A}:
-The gradient of a scalar with respect to a matrix~$\mathbf{A}$ is,
+useful for remembering \eqref{eq:gradient_of_Tr_AB_wrt_A}.
+First, note that the gradient of a scalar with respect to a matrix~$\mathbf{A}$ is,
 by definition~\eqref{eq:gradient_of_scalar_wrt_matrix},
 a matrix of the same dimensionality as $\mathbf{A}$.
 On the other hand,
 in order for the trace~$\operatorname{Tr} \left( \mathbf{A} \mathbf{B} \right)$ to be meaningful,
 $\mathbf{B}$ must be of the same dimensionality as $\mathbf{A}^{\operatorname{T}}$.
 Thus, \eqref{eq:gradient_of_Tr_AB_wrt_A} passes the ``dimensionality test,''
-meaning that the operations in \eqref{eq:gradient_of_Tr_AB_wrt_A} are meaningful.
+meaning that matrix operations in \eqref{eq:gradient_of_Tr_AB_wrt_A} are meaningful.
 Note also that (C.25) and (C.26) are special cases of \eqref{eq:gradient_of_Tr_AB_wrt_A}.
 
 Similarly, the gradient of the log (absolute) determinant~(C.28) should read
@@ -2976,7 +2976,8 @@ where we have used (C.4) and defined
 \left( \mathbf{A}^{-1}\right )^{\operatorname{T}} .
 \end{equation}
 The identity~\eqref{eq:gradient_of_log_abs_det_A_wrt_A} can be shown by
-identifying $x$ with $A_{ij}$ in \eqref{eq:partial_derivative_of_log_abs_det} and
+identifying $x$ with $A_{ij}$ in \eqref{eq:partial_derivative_of_log_abs_det}
+where $A_{ij}$ is the $(ij)$-th element of $\mathbf{A}$; and
 then making use of (C.23), which can be stated more suitably for our purpose here as
 \begin{equation}
 \operatorname{Tr}\left(\frac{\partial\mathbf{A}}{\partial A_{ij}}\mathbf{B}\right)
@@ -3047,7 +3048,7 @@ Taking the trace of the both sides gives
 \end{equation}
 where we have rearranged the factors inside the second trace~$\operatorname{Tr}(\cdot)$ in
 the right hand side by making use of \eqref{eq:transpose_and_cyclic_identities_of_Tr}.
-We finally have \eqref{eq:gradient_of_Tr_A_B_Atranspose_C} by
+We finally obtain \eqref{eq:gradient_of_Tr_A_B_Atranspose_C} by
 identifying $x$ with $A_{ij}$ and making use of \eqref{eq:derivative_of_Tr_AB_wrt_A_ij}.
 The identity~\eqref{eq:gradient_of_Tr_Ainverse_B} follows similarly from (C.21).
 
