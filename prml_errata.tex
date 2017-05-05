@@ -601,7 +601,9 @@ Recall that, when we introduce the score function~\eqref{eq:score_function},
 we have assumed that sufficiently small perturbations in $\bm{\theta}$ do not affect
 the correct normalization of $p\left(\mathbf{x}\middle|\bm{\theta}\right)$.
 This assumption is required to show \eqref{eq:expected_score_function_vanishes}
-because otherwise we do not have \eqref{eq:differentiating_integral_identity_wrt_parameters}.
+because otherwise
+the right hand side of \eqref{eq:differentiating_integral_identity_wrt_parameters}
+would not vanish.
 Let us take
 the \emph{multinoulli} distribution~$\operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right)$
 defined by \eqref{eq:multinoulli_distribution}
