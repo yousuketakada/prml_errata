@@ -608,17 +608,18 @@ Let us take
 the \emph{multinoulli} distribution~$\operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right)$
 defined by \eqref{eq:multinoulli_distribution}
 as an example.
-Since we cannot change a parameter~$\mu_k$
-(the normalized probability of observing component~$k$)
+Since we cannot change a single parameter~$\mu_k$
+(the normalized probability of observing $x_k = 1$)
 independently of the others~$\mu_j$ where $j \neq k$
 due to the sum-to-one constraint~$\sum_k \mu_k = 1$,
 it is \emph{not} valid to substitute
 $\nabla_{\mu_k} \ln \operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right)$
 into \eqref{eq:expected_score_function_vanishes}.
-Instead, we should consider the derivatives with respect to independent parameters, say,
-unnormalized probabilities~$\widetilde{\mu}_k$
-that are related to $\mu_k$ through \eqref{eq:normalized_mu_from_unnormalized_mu}.
-The corresponding score function is given by
+Instead, we should consider the derivatives with respect to \emph{independent} parameters.
+The unnormalized probabilities~$\widetilde{\mu}_k$
+related to $\mu_k$ through \eqref{eq:normalized_mu_from_unnormalized_mu}
+are among such parameters;
+the corresponding score function is given by
 \begin{equation}
 \nabla_{\widetilde{\mu}_k} \ln \operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right)
 = \frac{x_k}{\widetilde{\mu}_k} - \frac{1}{\sum_j \widetilde{\mu}_j} .
