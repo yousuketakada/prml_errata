@@ -3055,6 +3055,120 @@ We finally obtain \eqref{eq:gradient_of_Tr_A_B_Atranspose_C} by
 identifying $x$ with $A_{ij}$ and making use of \eqref{eq:derivative_of_Tr_AB_wrt_A_ij}.
 The identity~\eqref{eq:gradient_of_Tr_Ainverse_B} follows similarly from (C.21).
 
+\parhead{Symmetric matrix derivatives}
+So far, we have considered derivatives with respect to
+a matrix that is not necessary symmetric.
+However, matrices for which we take derivatives in order to, say,
+perform optimization (e.g., maximum likelihood) or
+evaluate expectations by making use of \eqref{eq:expected_score_function_vanishes}
+are often symmetric.
+For example, the covariance~$\bm{\Sigma}$ of the multivariate Gaussian distribution is
+symmetric positive definite.
+When we derive the maximum likelihood solution for $\bm{\Sigma}$ in Exercise~2.34,
+we ignore the symmetry constraint on $\bm{\Sigma}$ to calculate the derivatives
+of the log likelihood with respect to $\bm{\Sigma}$.
+The maximum likelihood solution~$\bm{\Sigma}_{\text{ML}}$ is obtained
+by solving necessary conditions that the derivatives should vanish,
+after which we find $\bm{\Sigma}_{\text{ML}}$ to be symmetric positive definite.
+The fact that the solution~$\bm{\Sigma}_{\text{ML}}$ is symmetric is not a fortunate coincidence
+but a consequence of the symmetry in the necessary conditions solved.
+In fact, even if we had imposed the symmetry constraint on $\bm{\Sigma}$ in the first place,
+we would have obtained an equivalent set of equations to solve, giving the same solution.
+We can understand why this is the case
+by considering derivatives with respect to a symmetric matrix
+in more general terms as follows.
+
+Let $\varphi(\mathbf{A})$ be a scalar function of a square matrix~$\mathbf{A}$
+where $\mathbf{A} = \left(A_{ij}\right)$ is not a symmetric matrix so that
+$A_{ij} \not\equiv A_{ji}$.
+As usual, we write the gradient of $\varphi(\mathbf{A})$ with respect to $\mathbf{A}$ as
+\begin{equation}
+\nabla_{\mathbf{A}} \varphi(\mathbf{A})
+= \left( \frac{\partial}{\partial A_{ij}} \varphi(\mathbf{A}) \right) .
+\end{equation}
+Suppose that we want to evaluate the gradient of $\varphi(\mathbf{S})$ where
+$\mathbf{S} = \left(S_{ij}\right)$ is a symmetric matrix so that $S_{ij} \equiv S_{ji}$.
+The derivative of $\varphi(\mathbf{S})$ with respect to
+an off-diagonal element~$S_{ij}$ where $i \neq j$
+consists of two derivatives through $A_{ij}$ and $A_{ji}$ so that
+\begin{equation}
+\frac{\partial}{\partial S_{ij}} \varphi(\mathbf{S})
+= \frac{\partial}{\partial A_{ij}} \varphi(\mathbf{S})
++ \frac{\partial}{\partial A_{ji}} \varphi(\mathbf{S})
+\label{eq:derivative_of_scalar_wrt_S_ij}
+\end{equation}
+where we have written
+\begin{equation}
+\frac{\partial}{\partial A_{ij}} \varphi(\mathbf{S})
+\equiv \left.
+\frac{\partial}{\partial A_{ij}} \varphi(\mathbf{A}) \right|_{\mathbf{A} = \mathbf{S}} .
+\end{equation}
+The derivative of $\varphi(\mathbf{S})$ with respect to an diagonal element~$S_{ii}$ is given by
+\begin{equation}
+\frac{\partial}{\partial S_{ii}} \varphi(\mathbf{S})
+= \frac{\partial}{\partial A_{ii}} \varphi(\mathbf{S}) .
+\label{eq:derivative_of_scalar_wrt_S_ii}
+\end{equation}
+Thus, we can write
+\begin{equation}
+\nabla_{\mathbf{S}} \varphi(\mathbf{S})
+= \nabla_{\mathbf{A}} \varphi(\mathbf{S})
++ \nabla_{\mathbf{A}} \varphi(\mathbf{S})^{\operatorname{T}}
+- \operatorname{diag}\left( \nabla_{\mathbf{A}} \varphi(\mathbf{S}) \right)
+\label{eq:gradient_of_scalar_wrt_symmetric_matrix}
+\end{equation}
+where we have written
+\begin{equation}
+\nabla_{\mathbf{A}} \varphi(\mathbf{S})
+\equiv \left.
+\nabla_{\mathbf{A}} \varphi(\mathbf{A})
+\right|_{\mathbf{A} = \mathbf{S}} .
+\end{equation}
+For example, if $\mathbf{A}$ and $\mathbf{B}$ are both symmetric in
+\eqref{eq:gradient_of_Tr_AB_wrt_A}, we have
+\begin{equation}
+\nabla_{\mathbf{A}} \operatorname{Tr}\left(\mathbf{A}\mathbf{B}\right)
+= 2\mathbf{B} - \operatorname{diag}(\mathbf{B}) .
+\end{equation}
+
+The identity~\eqref{eq:gradient_of_scalar_wrt_symmetric_matrix} is however not very useful
+in practice.
+A more useful observation can be made by considering equations obtained by
+setting the derivatives equal to zero.
+Specifically, it readily follows from \eqref{eq:derivative_of_scalar_wrt_S_ij} and
+\eqref{eq:derivative_of_scalar_wrt_S_ii} that,
+if $\nabla_{\mathbf{A}} \varphi(\mathbf{S})$ is symmetric (which holds commonly in practice),
+we have
+\begin{equation}
+\nabla_{\mathbf{S}} \varphi(\mathbf{S}) = \mathbf{O}
+\quad \Longleftrightarrow \quad
+\nabla_{\mathbf{A}} \varphi(\mathbf{S}) = \mathbf{O}
+\end{equation}
+which implies that we can solve $\nabla_{\mathbf{S}} \varphi(\mathbf{S}) = \mathbf{O}$
+without the symmetry constraint on $\mathbf{S}$, i.e.,
+by solving $\nabla_{\mathbf{A}} \varphi(\mathbf{S}) = \mathbf{O}$
+and then obtain a solution~$\mathbf{S}$ that is symmetric.
+
+When we evaluate expectations by making use of \eqref{eq:expected_score_function_vanishes},
+we consider equations obtained by setting the expected derivatives equal to zero.
+With much the same discussion as above,
+if $\mathbb{E}\left[\nabla_{\mathbf{A}} \varphi(\mathbf{S})\right]$ is symmetric,
+we have
+\begin{equation}
+\mathbb{E}\left[\nabla_{\mathbf{S}} \varphi(\mathbf{S})\right] = \mathbf{O}
+\quad \Longleftrightarrow \quad
+\mathbb{E}\left[\nabla_{\mathbf{A}} \varphi(\mathbf{S})\right] = \mathbf{O} .
+\label{eq:equivalence_of_expected_gradient_wrt_symmetric_matrix_equal_to_zero}
+\end{equation}
+Strictly speaking, since the score function~\eqref{eq:score_function}
+occurring in \eqref{eq:expected_score_function_vanishes}
+can be defined only for independent parameters,
+if the parameters of interest are, say, a symmetric matrix,
+we must impose the symmetry constraint on the parameters.
+The equivalence~\eqref{eq:equivalence_of_expected_gradient_wrt_symmetric_matrix_equal_to_zero}
+allows us to safely ignore the symmetry constraint and use
+$\mathbb{E}\left[\nabla_{\mathbf{A}} \varphi(\mathbf{S})\right] = \mathbf{O}$ instead.
+
 \erratum{Page~700}
 Paragraph~2, Line~\textminus1:
 The determinant of the orthogonal matrix~$\mathbf{U}$ can be either positive or negative so that
