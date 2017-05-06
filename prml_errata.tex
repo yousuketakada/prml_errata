@@ -3131,13 +3131,15 @@ For example, if $\mathbf{A}$ and $\mathbf{B}$ are both symmetric in
 = 2\mathbf{B} - \operatorname{diag}(\mathbf{B}) .
 \end{equation}
 
-The identity~\eqref{eq:gradient_of_scalar_wrt_symmetric_matrix} is however not very useful
+The identity~\eqref{eq:gradient_of_scalar_wrt_symmetric_matrix} is, however, not very useful
 in practice.
 A more useful observation can be made by considering equations obtained by
 setting the derivatives equal to zero.
 Specifically, it readily follows from \eqref{eq:derivative_of_scalar_wrt_S_ij} and
 \eqref{eq:derivative_of_scalar_wrt_S_ii} that,
-if $\nabla_{\mathbf{A}} \varphi(\mathbf{S})$ is symmetric (which holds commonly in practice),
+if $\nabla_{\mathbf{A}} \varphi(\mathbf{S})$ is symmetric
+(which does hold, say,
+for the necessary conditions for $\bm{\Sigma}_{\text{ML}}$ we mentioned above),
 we have
 \begin{equation}
 \nabla_{\mathbf{S}} \varphi(\mathbf{S}) = \mathbf{O}
@@ -3146,8 +3148,8 @@ we have
 \end{equation}
 which implies that we can solve $\nabla_{\mathbf{S}} \varphi(\mathbf{S}) = \mathbf{O}$
 without the symmetry constraint on $\mathbf{S}$, i.e.,
-by solving $\nabla_{\mathbf{A}} \varphi(\mathbf{S}) = \mathbf{O}$
-and then obtain a solution~$\mathbf{S}$ that is symmetric.
+by simply solving $\nabla_{\mathbf{A}} \varphi(\mathbf{S}) = \mathbf{O}$
+and then obtain a solution~$\mathbf{S}$ that is indeed symmetric.
 
 When we evaluate expectations by making use of \eqref{eq:expected_score_function_vanishes},
 we consider equations obtained by setting the expected derivatives equal to zero.
@@ -3160,13 +3162,16 @@ we have
 \mathbb{E}\left[\nabla_{\mathbf{A}} \varphi(\mathbf{S})\right] = \mathbf{O} .
 \label{eq:equivalence_of_expected_gradient_wrt_symmetric_matrix_equal_to_zero}
 \end{equation}
-Strictly speaking, since the score function~\eqref{eq:score_function}
+It should be noted that, since the score function~\eqref{eq:score_function}
 occurring in \eqref{eq:expected_score_function_vanishes}
-can be defined only for independent parameters,
-if the parameters of interest are, say, a symmetric matrix,
-we must impose the symmetry constraint on the parameters.
-The equivalence~\eqref{eq:equivalence_of_expected_gradient_wrt_symmetric_matrix_equal_to_zero}
-allows us to safely ignore the symmetry constraint and use
+is defined only for independent parameters,
+if the parameters of interest are, say, a symmetric matrix
+(e.g., the scale matrix~$\mathbf{W}$ of the Wishart distribution is symmetric positive definite),
+we must, strictly speaking, impose the symmetry constraint on the parameters.
+The equivalence relation~%
+\eqref{eq:equivalence_of_expected_gradient_wrt_symmetric_matrix_equal_to_zero}
+allows us, if $\mathbb{E}\left[\nabla_{\mathbf{A}} \varphi(\mathbf{S})\right]$ is symmetric,
+to safely ignore the symmetry constraint on $\mathbf{S}$ and use
 $\mathbb{E}\left[\nabla_{\mathbf{A}} \varphi(\mathbf{S})\right] = \mathbf{O}$ instead.
 
 \erratum{Page~700}
