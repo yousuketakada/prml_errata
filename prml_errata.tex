@@ -1689,25 +1689,23 @@ Note that the solution for Exercise~10.13 given by \citet{Svensen:PRML_web_solut
 derives the result~\eqref{eq:reestimation_equation_for_nu}.
 
 \erratum{Page~489}
-Equation~(10.107):
-The expectations~$\mathbb{E}_{\alpha}\left[ \ln q(\mathbf{w}) \right]_{\mathbf{w}}$ and
-$\mathbb{E}\left[ \ln q(\alpha) \right]$ should read
-$\mathbb{E}_{\mathbf{w}}\left[ \ln q(\mathbf{w}) \right]$ and
-$\mathbb{E}_{\alpha}\left[ \ln q(\alpha) \right]$, respectively,
-where the expectation~$\mathbb{E}_{\mathbf{Z}}[\cdot]$ is taken
-with respect to $q\left(\mathbf{Z}\right)$.
-Note however that we can omit the subscripts~$\mathbf{Z}$ of
-the expectations~$\mathbb{E}_{\mathbf{Z}}[\cdot]$ in (10.107)
-because the variables over which we take the expectations are clear.
-See, e.g., (10.70) and (10.92).
-
-\erratum{Page~489}
-Equations~(10.108) through (10.112):
-The expectations are notationally inconsistent with (1.36);
+Equations~(10.107) through (10.112):
+The expectations are notationally inconsistent with the one~(1.36) employed in PRML;
 they should read $\mathbb{E}_{\mathbf{Z}}[\cdot]$ where $\mathbf{Z}$ is replaced with
 the corresponding latent variable(s).
-Again, note that we can safely omit the subscripts~$\mathbf{Z}$ of
-the expectations~$\mathbb{E}_{\mathbf{Z}}[\cdot]$ here.
+For example,
+the expectations~$\mathbb{E}_{\alpha}\left[ \ln q(\mathbf{w}) \right]_{\mathbf{w}}$ in (10.107) and
+$\mathbb{E}\left[\ln p\left(\bm{\mathsf{t}}\middle|\mathbf{w}\right)\right]_{\mathbf{w}}$
+in (10.108) should read
+$\mathbb{E}_{\mathbf{w}}\left[ \ln q(\mathbf{w}) \right]$ and
+$\mathbb{E}_{\mathbf{w}}\left[\ln p\left(\bm{\mathsf{t}}\middle|\mathbf{w}\right)\right]$,
+respectively,
+where the expectation~$\mathbb{E}_{\mathbf{Z}}[\cdot]$ is taken
+with respect to the variational distribution~$q\left(\mathbf{Z}\right)$.
+Note however that we can safely omit the subscripts~$\mathbf{Z}$ of
+the expectations~$\mathbb{E}_{\mathbf{Z}}[\cdot]$ here
+because the variables over which we take the expectations are clear.
+See, e.g., (10.70) and (10.92).
 
 \erratum{Page~490}
 Paragraph~3, Line~2:
