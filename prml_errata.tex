@@ -1691,22 +1691,28 @@ derives the result~\eqref{eq:reestimation_equation_for_nu}.
 
 \erratum{Page~489}
 Equations~(10.107) through (10.112):
-The expectations are notationally inconsistent with the one~(1.36) employed in PRML;
+Some of the notations for the expectation are inconsistent with the one~(1.36) employed in PRML;
 they should read $\mathbb{E}_{\mathbf{Z}}[\cdot]$ where $\mathbf{Z}$ is replaced with
-the corresponding latent variable(s).
+the corresponding latent variables.
 For example,
-the expectations~$\mathbb{E}_{\alpha}\left[ \ln q(\mathbf{w}) \right]_{\mathbf{w}}$ in (10.107) and
+$\mathbb{E}_{\alpha}\left[ \ln q(\mathbf{w}) \right]_{\mathbf{w}}$ in the last line of (10.107) and
 $\mathbb{E}\left[\ln p\left(\bm{\mathsf{t}}\middle|\mathbf{w}\right)\right]_{\mathbf{w}}$
-in (10.108) should read
+in the left hand side of (10.108) should read
 $\mathbb{E}_{\mathbf{w}}\left[ \ln q(\mathbf{w}) \right]$ and
 $\mathbb{E}_{\mathbf{w}}\left[\ln p\left(\bm{\mathsf{t}}\middle|\mathbf{w}\right)\right]$,
 respectively,
-where the expectation~$\mathbb{E}_{\mathbf{Z}}[\cdot]$ is taken
+where we have assumed that the expectation~$\mathbb{E}_{\mathbf{Z}}[\cdot]$ is taken
 with respect to the variational distribution~$q\left(\mathbf{Z}\right)$.
+
 Note however that we can safely omit the subscripts~$\mathbf{Z}$ of
-the expectations~$\mathbb{E}_{\mathbf{Z}}[\cdot]$ here
-because the variables over which we take the expectations are clear.
-See, e.g., (10.70) and (10.92).
+the expectations~$\mathbb{E}_{\mathbf{Z}}[\cdot]$ here, as we have done in, e.g., (10.70),
+because the variables over which we take the expectations are clear;
+we take the expectations over all the latent variables when we calculate the lower bound.
+We only need to make the subscripts explicit
+when we find the optimal factor~$q^{\star}(\mathbf{Z}_i)$,
+in which case we take expectation selectively, that is,
+over all the latent variables but $\mathbf{Z}_i$;
+see, e.g., (10.92) and (10.96).
 
 \erratum{Page~490}
 Paragraph~3, Line~2:
