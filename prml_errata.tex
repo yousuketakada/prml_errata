@@ -2766,8 +2766,8 @@ Some other useful identities I would suggest to include are
 \label{eq:gradient_of_quadratic_form} \\
 \nabla \left\{ \mathbf{B}\mathbf{x} \right\} & = \mathbf{B}^{\operatorname{T}}
 \label{eq:gradient_of_matrix_vector_product} \\
-\nabla \left\{ \varphi\mathbf{y} \right\} &=
-\nabla\varphi \mathbf{y}^{\operatorname{T}} + \varphi \nabla\mathbf{y}
+\nabla \left\{ \phi\mathbf{y} \right\} &=
+\nabla\phi \mathbf{y}^{\operatorname{T}} + \phi \nabla\mathbf{y}
 \label{eq:gradient_of_scalar_vector_product}
 \end{align}
 where matrices~$\mathbf{A}$ and $\mathbf{B}$ are constants.
@@ -2827,12 +2827,12 @@ which, however, does not necessarily result in efficient implementation
 (neither does that of the gradient),
 can be directly obtained by using the identity
 \begin{equation}
-\nabla \left\{ \mathbf{R} \bm{\varphi} \right\}
-= \nabla \bm{\varphi} \mathbf{R}^{\operatorname{T}} + \sum_{m=1}^{M} \varphi_m \nabla \mathbf{r}_m
+\nabla \left\{ \mathbf{R} \bm{\phi} \right\}
+= \nabla \bm{\phi} \mathbf{R}^{\operatorname{T}} + \sum_{m=1}^{M} \phi_m \nabla \mathbf{r}_m
 \label{eq:gradient_of_matrix_vector_product_general}
 \end{equation}
 where $\mathbf{R} = \left(\mathbf{r}_1, \dots, \mathbf{r}_M\right)$ and
-$\bm{\varphi} = \left(\varphi_1, \dots, \varphi_M\right)^{\operatorname{T}}$.
+$\bm{\phi} = \left(\phi_1, \dots, \phi_M\right)^{\operatorname{T}}$.
 One can see that
 \eqref{eq:gradient_of_matrix_vector_product} and
 \eqref{eq:gradient_of_scalar_vector_product}
@@ -3092,50 +3092,50 @@ We can understand why this is the case
 by considering derivatives with respect to a symmetric matrix
 in more general terms as follows.
 
-Let $\varphi(\mathbf{A})$ be a scalar function of a square matrix~$\mathbf{A}$
+Let $\phi(\mathbf{A})$ be a scalar function of a square matrix~$\mathbf{A}$
 where $\mathbf{A} = \left(A_{ij}\right)$ is not a symmetric matrix so that
 $A_{ij} \not\equiv A_{ji}$.
-As usual, we write the gradient of $\varphi(\mathbf{A})$ with respect to $\mathbf{A}$ as
+As usual, we write the gradient of $\phi(\mathbf{A})$ with respect to $\mathbf{A}$ as
 \begin{equation}
-\nabla_{\mathbf{A}} \varphi(\mathbf{A})
-= \left( \frac{\partial}{\partial A_{ij}} \varphi(\mathbf{A}) \right) .
+\nabla_{\mathbf{A}} \phi(\mathbf{A})
+= \left( \frac{\partial}{\partial A_{ij}} \phi(\mathbf{A}) \right) .
 \end{equation}
-Suppose that we want to evaluate the gradient of $\varphi(\mathbf{S})$ where
+Suppose that we want to evaluate the gradient of $\phi(\mathbf{S})$ where
 $\mathbf{S} = \left(S_{ij}\right)$ is a symmetric matrix so that $S_{ij} \equiv S_{ji}$.
-The derivative of $\varphi(\mathbf{S})$ with respect to
+The derivative of $\phi(\mathbf{S})$ with respect to
 an off-diagonal element~$S_{ij}$ where $i \neq j$
 consists of two derivatives through $A_{ij}$ and $A_{ji}$ so that
 \begin{equation}
-\frac{\partial}{\partial S_{ij}} \varphi(\mathbf{S})
-= \frac{\partial}{\partial A_{ij}} \varphi(\mathbf{S})
-+ \frac{\partial}{\partial A_{ji}} \varphi(\mathbf{S})
+\frac{\partial}{\partial S_{ij}} \phi(\mathbf{S})
+= \frac{\partial}{\partial A_{ij}} \phi(\mathbf{S})
++ \frac{\partial}{\partial A_{ji}} \phi(\mathbf{S})
 \label{eq:derivative_of_scalar_wrt_S_ij}
 \end{equation}
 where we have written
 \begin{equation}
-\frac{\partial}{\partial A_{ij}} \varphi(\mathbf{S})
+\frac{\partial}{\partial A_{ij}} \phi(\mathbf{S})
 \equiv \left.
-\frac{\partial}{\partial A_{ij}} \varphi(\mathbf{A}) \right|_{\mathbf{A} = \mathbf{S}} .
+\frac{\partial}{\partial A_{ij}} \phi(\mathbf{A}) \right|_{\mathbf{A} = \mathbf{S}} .
 \end{equation}
-The derivative of $\varphi(\mathbf{S})$ with respect to an diagonal element~$S_{ii}$ is given by
+The derivative of $\phi(\mathbf{S})$ with respect to an diagonal element~$S_{ii}$ is given by
 \begin{equation}
-\frac{\partial}{\partial S_{ii}} \varphi(\mathbf{S})
-= \frac{\partial}{\partial A_{ii}} \varphi(\mathbf{S}) .
+\frac{\partial}{\partial S_{ii}} \phi(\mathbf{S})
+= \frac{\partial}{\partial A_{ii}} \phi(\mathbf{S}) .
 \label{eq:derivative_of_scalar_wrt_S_ii}
 \end{equation}
 Thus, we can write
 \begin{equation}
-\nabla_{\mathbf{S}} \varphi(\mathbf{S})
-= \nabla_{\mathbf{A}} \varphi(\mathbf{S})
-+ \nabla_{\mathbf{A}} \varphi(\mathbf{S})^{\operatorname{T}}
-- \operatorname{diag}\left( \nabla_{\mathbf{A}} \varphi(\mathbf{S}) \right)
+\nabla_{\mathbf{S}} \phi(\mathbf{S})
+= \nabla_{\mathbf{A}} \phi(\mathbf{S})
++ \nabla_{\mathbf{A}} \phi(\mathbf{S})^{\operatorname{T}}
+- \operatorname{diag}\left( \nabla_{\mathbf{A}} \phi(\mathbf{S}) \right)
 \label{eq:gradient_of_scalar_wrt_symmetric_matrix}
 \end{equation}
 where we have written
 \begin{equation}
-\nabla_{\mathbf{A}} \varphi(\mathbf{S})
+\nabla_{\mathbf{A}} \phi(\mathbf{S})
 \equiv \left.
-\nabla_{\mathbf{A}} \varphi(\mathbf{A})
+\nabla_{\mathbf{A}} \phi(\mathbf{A})
 \right|_{\mathbf{A} = \mathbf{S}} .
 \end{equation}
 For example, if $\mathbf{A}$ and $\mathbf{B}$ are both symmetric in
@@ -3151,29 +3151,29 @@ A more useful observation can be made by considering equations obtained by
 setting the derivatives equal to zero.
 Specifically, it readily follows from \eqref{eq:derivative_of_scalar_wrt_S_ij} and
 \eqref{eq:derivative_of_scalar_wrt_S_ii} that,
-if $\nabla_{\mathbf{A}} \varphi(\mathbf{S})$ is symmetric
+if $\nabla_{\mathbf{A}} \phi(\mathbf{S})$ is symmetric
 (which does hold, say,
 for the necessary conditions for $\bm{\Sigma}_{\text{ML}}$ we mentioned above),
 we have
 \begin{equation}
-\nabla_{\mathbf{S}} \varphi(\mathbf{S}) = \mathbf{O}
+\nabla_{\mathbf{S}} \phi(\mathbf{S}) = \mathbf{O}
 \quad \Longleftrightarrow \quad
-\nabla_{\mathbf{A}} \varphi(\mathbf{S}) = \mathbf{O}
+\nabla_{\mathbf{A}} \phi(\mathbf{S}) = \mathbf{O}
 \end{equation}
-which implies that we can solve $\nabla_{\mathbf{S}} \varphi(\mathbf{S}) = \mathbf{O}$
+which implies that we can solve $\nabla_{\mathbf{S}} \phi(\mathbf{S}) = \mathbf{O}$
 without the symmetry constraint on $\mathbf{S}$, i.e.,
-by simply solving $\nabla_{\mathbf{A}} \varphi(\mathbf{S}) = \mathbf{O}$
+by simply solving $\nabla_{\mathbf{A}} \phi(\mathbf{S}) = \mathbf{O}$
 and then obtain a solution~$\mathbf{S}$ that is indeed symmetric.
 
 When we evaluate expectations by making use of \eqref{eq:expected_score_function_vanishes},
 we consider equations obtained by setting the expected derivatives equal to zero.
 With much the same discussion as above,
-if $\mathbb{E}\left[\nabla_{\mathbf{A}} \varphi(\mathbf{S})\right]$ is symmetric,
+if $\mathbb{E}\left[\nabla_{\mathbf{A}} \phi(\mathbf{S})\right]$ is symmetric,
 we have
 \begin{equation}
-\mathbb{E}\left[\nabla_{\mathbf{S}} \varphi(\mathbf{S})\right] = \mathbf{O}
+\mathbb{E}\left[\nabla_{\mathbf{S}} \phi(\mathbf{S})\right] = \mathbf{O}
 \quad \Longleftrightarrow \quad
-\mathbb{E}\left[\nabla_{\mathbf{A}} \varphi(\mathbf{S})\right] = \mathbf{O} .
+\mathbb{E}\left[\nabla_{\mathbf{A}} \phi(\mathbf{S})\right] = \mathbf{O} .
 \label{eq:equivalence_of_expected_gradient_wrt_symmetric_matrix_equal_to_zero}
 \end{equation}
 It should be noted that, since the score function~\eqref{eq:score_function}
@@ -3184,9 +3184,9 @@ if the parameters of interest are, say, a symmetric matrix
 we must, strictly speaking, impose the symmetry constraint on the parameters.
 The equivalence relation~%
 \eqref{eq:equivalence_of_expected_gradient_wrt_symmetric_matrix_equal_to_zero}
-allows us, if $\mathbb{E}\left[\nabla_{\mathbf{A}} \varphi(\mathbf{S})\right]$ is symmetric,
+allows us, if $\mathbb{E}\left[\nabla_{\mathbf{A}} \phi(\mathbf{S})\right]$ is symmetric,
 to safely ignore the symmetry constraint on $\mathbf{S}$ and use
-$\mathbb{E}\left[\nabla_{\mathbf{A}} \varphi(\mathbf{S})\right] = \mathbf{O}$ instead.
+$\mathbb{E}\left[\nabla_{\mathbf{A}} \phi(\mathbf{S})\right] = \mathbf{O}$ instead.
 
 \erratum{Page~700}
 Paragraph~2, Line~\textminus1:
@@ -3289,14 +3289,14 @@ the inner product as $\mathbf{p} \cdot \mathbf{n} = \mathbf{p}^{\operatorname{T}
 Making use of the divergence theorem~\eqref{eq:divergence_theorem}
 together with the following identity
 \begin{equation}
-\operatorname{div}\left(\varphi\mathbf{p}\right) =
-{\nabla\varphi}^{\operatorname{T}} \mathbf{p} + \varphi \operatorname{div}\mathbf{p}
+\operatorname{div}\left(\phi\mathbf{p}\right) =
+{\nabla\phi}^{\operatorname{T}} \mathbf{p} + \phi \operatorname{div}\mathbf{p}
 \end{equation}
 we obtain a multidimensional version of the ``integration by parts'' formula
 \begin{equation}
-\int_{\Omega} {\nabla\varphi}^{\operatorname{T}} \mathbf{p} \; \mathrm{d}\mathbf{x} =
-\oint_{\partial\Omega} \varphi\mathbf{p}^{\operatorname{T}} \mathbf{n} \; \mathrm{d}S -
-\int_{\Omega} \varphi \operatorname{div}\mathbf{p} \; \mathrm{d}\mathbf{x} .
+\int_{\Omega} {\nabla\phi}^{\operatorname{T}} \mathbf{p} \; \mathrm{d}\mathbf{x} =
+\oint_{\partial\Omega} \phi\mathbf{p}^{\operatorname{T}} \mathbf{n} \; \mathrm{d}S -
+\int_{\Omega} \phi \operatorname{div}\mathbf{p} \; \mathrm{d}\mathbf{x} .
 \label{eq:multidimensional_integration_by_parts}
 \end{equation}
 Let us now consider a functional of the form
