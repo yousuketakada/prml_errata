@@ -79,7 +79,7 @@ set cntrparam order 4
 set cntrparam linear
 set cntrparam levels auto 5
 set cntrparam points 5
-set size ratio 0 0.65,0.7
+set size ratio 0 0.62,0.67
 set origin 0,0
 set style data points
 set style function lines

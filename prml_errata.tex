@@ -2,7 +2,8 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{newtxtext}
+%\usepackage{newtxtext}
+\usepackage[scaled=.95]{newpxtext}
 \usepackage{textcomp}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -11,7 +12,7 @@
 \usepackage[all]{xy}
 \usepackage{microtype}
 \usepackage[svgnames]{xcolor}
-\usepackage[margin=2cm]{geometry}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage{sectsty}
 \allsectionsfont{\sffamily}
 \usepackage[font={sf,small},labelfont=bf,labelsep=quad]{caption}
@@ -25,6 +26,8 @@
 bookmarks=true,bookmarksopen=true,
 backref=page,colorlinks,allcolors=MidnightBlue,
 ]{hyperref}
+
+\linespread{1.05}
 
 %\renewcommand{\familydefault}{\sfdefault}
 
@@ -501,12 +504,13 @@ See \citet{Anderson:MaximumLikelihood} for further discussions.
 
 \erratum{Page~100}
 Equations~(2.147) and (2.148):
-In addition to the mean~$\mathbb{E}[\lambda]$~(2.147) and
-the variance~$\operatorname{var}[\lambda]$~(2.148),
+In addition to the mean~$\mathbb{E}[\lambda]$ and
+the variance~$\operatorname{var}[\lambda]$, given by (2.147) and (2.148), respectively,
 we are also interested in
-the \emph{log expectation}~$\mathbb{E}\left[ \ln\lambda \right]$~(B.30)
-of the gamma distribution~$\operatorname{Gam}\left(\lambda\middle|a, b\right)$~(2.146),
-which is necessary to evaluate its entropy~$\operatorname{H}\left[ \lambda \right]$~(B.31).
+the \emph{log expectation}~$\mathbb{E}\left[ \ln\lambda \right]$, given by (B.30)
+of the gamma distribution~(2.146),
+which is necessary to evaluate
+the entropy~$\operatorname{H}\left[ \lambda \right]$ given by (B.31).
 Note that the log expectation of the Dirichlet distribution~(2.38) is
 derived in Exercise~2.11 by differentiating its probability with respect to the parameters
 (the mean and the covariance are concerned in Exercise~2.10).
