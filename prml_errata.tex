@@ -153,33 +153,6 @@ if we regard the entropy~$\operatorname{H}[\cdot]$ as a functional,
 we see that ``the entropy could equally well have been written as $\operatorname{H}[p]$.''
 However, it is probably better to maintain the notational consistency here.
 
-\begin{figure}
-\centering
-\includegraphics{jensen_inequality.eps}
-\caption{A physical ``proof'' of
-Jensen's inequality~\citep{MacKay:Information}.
-Let us suppose that we have a set of point masses~$m_i = p(\mathbf{z}=\mathbf{z}_i)$,
-denoted by filled blue circles ({\large\textcolor{blue}{$\bullet$}})
-with areas proportional to $m_i$,
-and place them at the corresponding
-locations~$(x, y) = \left(\xi(\mathbf{z}_i), f(\xi(\mathbf{z}_i))\right)$
-on a convex curve~$y = f(x)$.
-The center of gravity of those masses, which is $\left(
-\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
-\mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
-\right)$, denoted by a cross sign ($\boldsymbol{\times}$),
-must lie above the convex curve and thus right above the point~$\left(
-\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
-f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
-\right)$ on the curve, denoted by a filled square ($\blacksquare$),
-showing Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}.
-One can also see that, if $f(\cdot)$ is strictly convex,
-the equality in \eqref{eq:Jensen_inequality_expectation_with_z}
-implies that $\xi(\cdot)$ is essentially constant
-(it is trivial to show that the converse is true).}
-\label{fig:Jensen_inequality}
-\end{figure}
-
 \erratum{Page~56}
 Equation~(1.116):
 In general, we cannot interpret $\lambda_i$ in \emph{Jensen's inequality}~(1.115) as
@@ -218,6 +191,33 @@ in which case we have $\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right] = \xi
 and the both sides of \eqref{eq:Jensen_inequality_expectation_with_z} equal $f(\xi_0)$.
 See Figure~\ref{fig:Jensen_inequality} for an intuitive, physical ``proof'' of
 the inequality~\eqref{eq:Jensen_inequality_expectation_with_z}.
+
+\begin{figure}
+\centering
+\includegraphics{jensen_inequality.eps}
+\caption{A physical ``proof'' of
+Jensen's inequality~\citep{MacKay:Information}.
+Let us suppose that we have a set of point masses~$m_i = p(\mathbf{z}=\mathbf{z}_i)$,
+denoted by filled blue circles ({\large\textcolor{blue}{$\bullet$}})
+with areas proportional to $m_i$,
+and place them at the corresponding
+locations~$(x, y) = \left(\xi(\mathbf{z}_i), f(\xi(\mathbf{z}_i))\right)$
+on a convex curve~$y = f(x)$.
+The center of gravity of those masses, which is $\left(
+\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
+\mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
+\right)$, denoted by a cross sign ($\boldsymbol{\times}$),
+must lie above the convex curve and thus right above the point~$\left(
+\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right],
+f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
+\right)$ on the curve, denoted by a filled square ($\blacksquare$),
+showing Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}.
+One can also see that, if $f(\cdot)$ is strictly convex,
+the equality in \eqref{eq:Jensen_inequality_expectation_with_z}
+implies that $\xi(\cdot)$ is essentially constant
+(it is trivial to show that the converse is true).}
+\label{fig:Jensen_inequality}
+\end{figure}
 
 Since the random variables~$\mathbf{z}$ as well as their probability~$p(\mathbf{z})$ can be chosen
 arbitrarily,
