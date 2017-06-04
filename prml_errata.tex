@@ -1432,18 +1432,37 @@ so that $\widehat{\bm{\mathsf{t}}}$ is given by
 + \left(\mathbf{B}^{\star}\right)^{-1} \left(\bm{\mathsf{t}} - \bm{\mathsf{y}}^{\star}\right) .
 \label{eq:target_for_linearized_classification_RVM}
 \end{equation}
-It should also be noted here that
-the posterior mean~$\mathbf{w}^{\star}$ can be written in terms of $\widehat{\bm{\mathsf{t}}}$
-so that
+
+It should also be noted here that we define $\widehat{\bm{\mathsf{t}}}$ as
+\eqref{eq:target_for_linearized_classification_RVM}
+in order that we can write
+the posterior mean~$\mathbf{w}^{\star}$ in terms of $\widehat{\bm{\mathsf{t}}}$ so that
 \begin{equation}
 \mathbf{w}^{\star}
-= \bm{\Sigma} \bm{\Phi}^{\operatorname{T}} \mathbf{B}^{\star} \widehat{\bm{\mathsf{t}}} .
+= \bm{\Sigma} \bm{\Phi}^{\operatorname{T}} \mathbf{B}^{\star} \widehat{\bm{\mathsf{t}}}
 \label{eq:posterior_mean_of_classification_RVM}
 \end{equation}
-One can show the above identity~\eqref{eq:posterior_mean_of_classification_RVM} by
-making use of \eqref{eq:implicit_equations_for_posterior_mode_of_classification_RVM},
-\eqref{eq:posterior_covariance_of_classification_RVM},
-and \eqref{eq:target_for_linearized_classification_RVM}.
+because we have
+\begin{align}
+\bm{\Sigma} \bm{\Phi}^{\operatorname{T}} \mathbf{B}^{\star} \widehat{\bm{\mathsf{t}}}
+&= \bm{\Sigma} \bm{\Phi}^{\operatorname{T}} \mathbf{B}^{\star} \bm{\Phi} \mathbf{w}^{\star}
++ \bm{\Sigma} \bm{\Phi}^{\operatorname{T}} \left(\bm{\mathsf{t}} - \bm{\mathsf{y}}^{\star}\right)
+\\
+&= \bm{\Sigma} \bm{\Phi}^{\operatorname{T}} \mathbf{B}^{\star} \bm{\Phi} \mathbf{w}^{\star}
++ \bm{\Sigma} \mathbf{A} \mathbf{w}^{\star}
+\\
+&= \bm{\Sigma}
+\left( \mathbf{A} + \bm{\Phi}^{\operatorname{T}} \mathbf{B}^{\star} \bm{\Phi} \right)
+\mathbf{w}^{\star}
+\\
+&= \mathbf{w}^{\star}
+\end{align}
+where we have made use of
+\eqref{eq:target_for_linearized_classification_RVM},
+\eqref{eq:implicit_equations_for_posterior_mode_of_classification_RVM}, and
+\eqref{eq:posterior_covariance_of_classification_RVM}.
+We shall make use of \eqref{eq:posterior_mean_of_classification_RVM}
+when we analyze the RVM classification problem (see below).
 
 \erratum{Page~355}
 Equation~(7.118):
