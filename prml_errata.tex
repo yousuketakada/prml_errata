@@ -3258,8 +3258,11 @@ equivalent to $\left|\mathbf{U}\right| = 1$).
 Although it is possible to take $\mathbf{U}$ such that $\operatorname{det}(\mathbf{U}) = 1$
 (one can flip the sign of $\operatorname{det}(\mathbf{U})$ by, say, flipping the sign of
 any one of the eigenvectors~$\left\{\mathbf{u}_i\right\}$),
-there is no point in doing so in practice theoretically nor numerically. In fact,
-most software implementations of symmetric eigenvalue decomposition only guarantee that
+there is no point in doing so in practice theoretically nor numerically.
+In fact, it is easy to see that the following discussion remains valid
+provided that $\mathbf{U}$ is orthogonal so that we have (C.37)
+but not necessarily that $\operatorname{det}(\mathbf{U}) = 1$.
+Moreover, most software implementations of symmetric eigenvalue decomposition only guarantee that
 $\mathbf{U}$ is orthogonal so that $\operatorname{det}(\mathbf{U}) = \pm 1$.
 
 \parhead{Singular value decomposition}
