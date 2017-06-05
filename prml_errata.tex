@@ -2913,17 +2913,20 @@ Equation~(C.22):
 For this identity to be well-defined,
 it is necessary that we have $\operatorname{det}(\mathbf{A}) > 0$.
 We should make this assumption clear.
-Or, if we adopt the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$,
-which I would recommend,
-we see that (C.22) holds for any nonsingular $\mathbf{A}$ such that
-$\operatorname{det}(\mathbf{A}) \neq 0$.
+Or, if we adopt the absolute determinant notation~\eqref{eq:abs_of_matrix_determinant} for
+$\left|\mathbf{A}\right|$,
+the identity~(C.22) holds, in fact, for any nonsingular $\mathbf{A}$ such that
+$\operatorname{det}(\mathbf{A}) \neq 0$ as we shall see shortly.
+
 The section named ``Eigenvector Equation'' of Appendix~C gives us a hint for a proof of (C.22)
 where $\mathbf{A}$ is assumed to be symmetric positive definite so that $\mathbf{A} \succ 0$.
 Although the restricted proof outlined in PRML is indeed highly instructive,
 we need a more general proof because we make use of this identity, e.g., in Exercise~2.34
 without the assumptions required by the restricted proof.
+
+\parhead{Jacobi's formula}
 To this end, we first show \emph{Jacobi's formula},
-which is the identity for any square matrix~$\mathbf{A}$ given by
+which is an identity that holds for any square matrix~$\mathbf{A}$ given by
 \begin{equation}
 \frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right) =
 \operatorname{Tr}\left(\mathbf{A}^{\dagger}\frac{\partial\mathbf{A}}{\partial x}\right)
@@ -2936,14 +2939,17 @@ The $(ij)$-th element~$A_{ij}^{\dagger}$ of the adjugate matrix~$\mathbf{A}^{\da
 A_{ij}^{\dagger} = (-1)^{i+j} \operatorname{det}\left(\mathbf{A}^{(ji)}\right)
 \label{eq:definition_of_adjugate}
 \end{equation}
+(beware that the superscript~$(ji)$ of $\mathbf{A}^{(ji)}$ is not $(ij)$)
 where $\mathbf{A}^{(ij)}$ denotes a matrix obtained by removing
 the $i$-th row and the $j$-th column of $\mathbf{A}$.
-From the identity
+
+From the well-known identity
 \begin{equation}
 \mathbf{A}\mathbf{A}^{\dagger} = \mathbf{A}^{\dagger}\mathbf{A} =
 \operatorname{det}(\mathbf{A})\mathbf{I}
 \label{eq:adjugate_identity}
 \end{equation}
+(consult a linear algebra textbook),
 we can write the inverse matrix~$\mathbf{A}^{-1}$ in terms of
 the adjugate matrix~$\mathbf{A}^{\dagger}$ so that
 \begin{equation}
@@ -2975,6 +2981,8 @@ we have
 \operatorname{Tr}\left(\mathbf{A}^{\dagger}\frac{\partial\mathbf{A}}{\partial x}\right)
 \end{align}
 which proves the identity~\eqref{eq:Jacobi_formula}.
+
+\parhead{Derivative of log absolute determinant}
 Making use of \eqref{eq:Jacobi_formula}
 together with \eqref{eq:inverse_in_terms_of_adjugate},
 we can now evaluate the right hand side of (C.22) as
@@ -2983,6 +2991,8 @@ we can now evaluate the right hand side of (C.22) as
 \frac{1}{\operatorname{det}\left(\mathbf{A}\right)}
 \frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right) \\
 &=
+\operatorname{Tr}\left(\frac{\partial\mathbf{A}}{\partial x}\mathbf{A}^{-1}\right)
+=
 \operatorname{Tr}\left(\mathbf{A}^{-1}\frac{\partial\mathbf{A}}{\partial x}\right)
 \label{eq:partial_derivative_of_log_abs_det}
 \end{align}
