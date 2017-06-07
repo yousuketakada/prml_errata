@@ -2934,14 +2934,26 @@ without the assumptions required by the restricted proof.\footnote{%
 Note that one can readily extend
 the restricted proof of (C.22) for a symmetric positive-definite matrix~$\mathbf{A}$
 in terms of the eigenvalue decomposition
-so as to use the \emph{singular value decomposition} or
+so as to employ the \emph{singular value decomposition} or
 SVD~\eqref{eq:singular_value_decomposition} instead
-in order to show (C.22) for any matrix~$\mathbf{A}$
-such that $\operatorname{det}(\mathbf{A}) \neq 0$
-(I leave the detail of this proof as an exercise for the reader).
-However, I would like to present a proof
+in order to show (C.22) for any nonsingular matrix~$\mathbf{A}$
+such that $\operatorname{det}(\mathbf{A}) \neq 0$.
+However, I would like to present yet another proof
 in terms of the \emph{Jacobi's formula}~\eqref{eq:Jacobi_formula} here
-because it is more direct and general than the one in terms of the SVD.}
+because it is more direct and general than the one in terms of the SVD.
+
+I leave the detail of the proof of (C.22) in terms of the SVD as an exercise for the reader.
+Hint: The right hand side of (C.22) can be written as
+$\operatorname{Tr}\left(\bm{\Sigma}^{-1}\partial\bm{\Sigma}/\partial x\right)$
+where $\mathbf{A} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}$ is the SVD of $\mathbf{A}$
+because we have
+$\operatorname{Tr}(\mathbf{U}^{\operatorname{T}}\partial\mathbf{U}/\partial x) = 0$
+from the \emph{orthonormality}~(C.37) of $\mathbf{U}$ and so on.
+Finally, note that the absolute determinant of $\mathbf{A}$ is equal to that of $\bm{\Sigma}$ and
+thus to the product of the singular values~$\sigma_i > 0$ such that
+$\bm{\Sigma} = \operatorname{diag}\left( \sigma_i \right)$, i.e.,
+$\left|\mathbf{A}\right| = \left|\bm{\Sigma}\right| = \prod_i \sigma_i$
+where we have used \eqref{eq:abs_of_matrix_determinant}.}
 
 \parhead{Jacobi's formula}
 To this end, we first show \emph{Jacobi's formula},
@@ -2958,8 +2970,10 @@ The $(ij)$-th element~$A_{ij}^{\dagger}$ of the adjugate matrix~$\mathbf{A}^{\da
 A_{ij}^{\dagger} = (-1)^{i+j} \operatorname{det}\left(\mathbf{A}^{(ji)}\right)
 \label{eq:definition_of_adjugate}
 \end{equation}
-(beware that the superscript~$(ji)$ of $\mathbf{A}^{(ji)}$ is not $(ij)$)
-where $\mathbf{A}^{(ij)}$ denotes a matrix obtained by removing
+(beware that the superscript~$(ji)$ of $\mathbf{A}^{(ji)}$ is \emph{not} $(ij)$ but
+it is ``transposed'')
+where $\mathbf{A}^{(ij)}$ (the superscript~$(ij)$ is \emph{not} ``transposed'' here)
+denotes a matrix obtained by removing
 the $i$-th row and the $j$-th column of $\mathbf{A}$.
 
 From the well-known identity
@@ -2968,7 +2982,7 @@ From the well-known identity
 \operatorname{det}(\mathbf{A})\mathbf{I}
 \label{eq:adjugate_identity}
 \end{equation}
-(consult a linear algebra textbook),
+(consult a linear algebra textbook for a proof),
 we can write the inverse matrix~$\mathbf{A}^{-1}$ in terms of
 the adjugate matrix~$\mathbf{A}^{\dagger}$ so that
 \begin{equation}
@@ -3002,21 +3016,24 @@ we have
 which proves the identity~\eqref{eq:Jacobi_formula}.
 
 \parhead{Derivative of log absolute determinant}
-Making use of \eqref{eq:Jacobi_formula}
-together with \eqref{eq:inverse_in_terms_of_adjugate},
-we can now evaluate the right hand side of (C.22) as
-\begin{align}
-\frac{\partial}{\partial x} \ln \left|\mathbf{A}\right| &=
+Assuming that $\mathbf{A}$ is nonsingular so that $\operatorname{det}(\mathbf{A}) \neq 0$,
+we can evaluate the left hand side of (C.22) as
+\begin{equation}
+\frac{\partial}{\partial x} \ln \left|\mathbf{A}\right| =
 \frac{1}{\operatorname{det}\left(\mathbf{A}\right)}
-\frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right) \\
-&=
+\frac{\partial}{\partial x} \operatorname{det}\left(\mathbf{A}\right)
+\end{equation}
+where we have used the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$.
+Substituting \eqref{eq:Jacobi_formula}, we obtain
+\begin{equation}
+\frac{\partial}{\partial x} \ln \left|\mathbf{A}\right| =
 \operatorname{Tr}\left(\frac{\partial\mathbf{A}}{\partial x}\mathbf{A}^{-1}\right)
 =
 \operatorname{Tr}\left(\mathbf{A}^{-1}\frac{\partial\mathbf{A}}{\partial x}\right)
 \label{eq:partial_derivative_of_log_abs_det}
-\end{align}
-if $\mathbf{A}$ is nonsingular so that $\operatorname{det}(\mathbf{A}) \neq 0$
-where we have used the notation~\eqref{eq:abs_of_matrix_determinant} for $\left|\mathbf{A}\right|$.
+\end{equation}
+where we have used \eqref{eq:inverse_in_terms_of_adjugate}.
+
 
 \erratum{Page~698}
 Equations~(C.24) through (C.28):
