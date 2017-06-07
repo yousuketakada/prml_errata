@@ -2946,9 +2946,9 @@ I leave the detail of the proof of (C.22) in terms of the SVD as an exercise for
 Hint: The right hand side of (C.22) can be written as
 $\operatorname{Tr}\left(\bm{\Sigma}^{-1}\partial\bm{\Sigma}/\partial x\right)$
 where $\mathbf{A} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}$ is the SVD of $\mathbf{A}$
-because we have
+because it follows from the \emph{orthonormality}~(C.37) of $\mathbf{U}$ that
 $\operatorname{Tr}(\mathbf{U}^{\operatorname{T}}\partial\mathbf{U}/\partial x) = 0$
-from the \emph{orthonormality}~(C.37) of $\mathbf{U}$ and so on.
+and similarly for $\mathbf{V}$.
 Finally, note that the absolute determinant of $\mathbf{A}$ is equal to that of $\bm{\Sigma}$ and
 thus to the product of the singular values~$\sigma_i > 0$ such that
 $\bm{\Sigma} = \operatorname{diag}\left( \sigma_i \right)$, i.e.,
