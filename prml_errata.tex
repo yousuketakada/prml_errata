@@ -1421,18 +1421,26 @@ so that
 
 \erratum{Page~354}
 Equation~(7.113):
-Since we have
+Let us note that
+the precision (the inverse of the covariance~$\bm{\Sigma}$) of the Laplace approximation to
+the posterior~$p\left(\mathbf{w}\middle|\bm{\mathsf{t}}, \bm{\alpha}\right)$
+is given by the Hessian of the negative log posterior evaluated at $\mathbf{w}^{\star}$
+so that
 \begin{equation}
 \bm{\Sigma}^{-1}
 = - \nabla_{\mathbf{w}} \nabla_{\mathbf{w}}
-\ln p\left(\mathbf{w}^{\star}\middle|\bm{\mathsf{t}}, \bm{\alpha}\right)
+\ln p\left(\mathbf{w}^{\star}\middle|\bm{\mathsf{t}}, \bm{\alpha}\right) .
 \end{equation}
-the covariance~$\bm{\Sigma}$ should be given in terms of
-$\mathbf{B}^{\star} = \left.\mathbf{B}\right|_{\mathbf{w} = \mathbf{w}^{\star}}$ by
+The covariance~$\bm{\Sigma}$ should thus be given by
 \begin{equation}
 \bm{\Sigma}
-= \left( \mathbf{A} + \bm{\Phi}^{\operatorname{T}}\mathbf{B}^{\star}\bm{\Phi}\right)^{-1} .
+= \left( \mathbf{A} + \bm{\Phi}^{\operatorname{T}}\mathbf{B}^{\star}\bm{\Phi}\right)^{-1}
 \label{eq:posterior_covariance_of_classification_RVM}
+\end{equation}
+where $\mathbf{B}^{\star}$ is $\mathbf{B}$ evaluated at $\mathbf{w}^{\star}$
+so that
+\begin{equation}
+\mathbf{B}^{\star} = \left.\mathbf{B}\right|_{\mathbf{w} = \mathbf{w}^{\star}} .
 \end{equation}
 
 \erratum{Page~355}
