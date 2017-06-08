@@ -36,6 +36,14 @@ backref=page,colorlinks,allcolors=MidnightBlue,
 
 \newcommand{\www}{\colorbox{MediumBlue}{\textcolor{White}{\textbf{\textsf{www}}}}}
 
+\newcommand{\Section}[1]{%
+\section*{#1}
+\addcontentsline{toc}{section}{#1}}
+
+\newcommand{\Subsection}[1]{%
+\subsection*{#1}
+\addcontentsline{toc}{subsection}{#1}}
+
 \newcommand{\erratum}[1]{%
 \subsubsection*{#1}
 \addcontentsline{toc}{subsection}{#1}}
@@ -61,8 +69,7 @@ pdfkeywords = {PRML, errata, Bishop, machine learning},
 \begin{document}
 \maketitle
 
-\section*{Preface}
-\addcontentsline{toc}{section}{Preface}
+\Section{Preface}
 This report communicates some more errata for \emph{Pattern Recognition and Machine Learning} or
 PRML by \citet*{Bishop:PRML}
 that are not listed in the official errata document~\citep{Svensen:PRML_errata}\footnote{%
@@ -101,9 +108,7 @@ by creating an ``issue'' or a ``pull request'' at the following GitHub repositor
 where you can find the source code of this report
 as well as other supporting material.
 
-\subsection*{Acknowledgements}
-\addcontentsline{toc}{subsection}{Acknowledgements}
-
+\Subsection{Acknowledgements}
 I would like to thank those who have kindly informed me of
 yet more errata and clarifications incorporated in this report.
 In particular, I am grateful to
@@ -111,8 +116,7 @@ Christopher Sahnwaldt and
 Mark-Jan Nederhof
 for their invaluable discussions.
 
-\section*{Corrections}
-\addcontentsline{toc}{section}{Corrections}
+\Section{Corrections}
 
 \erratum{Page~xi}
 % See https://github.com/yousuketakada/prml_errata/pull/1
