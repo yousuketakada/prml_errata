@@ -2935,18 +2935,18 @@ where $\mathbf{A}$ is assumed to be symmetric positive definite so that $\mathbf
 Although the restricted proof outlined in PRML is indeed highly instructive,
 we need a more general proof because we make use of this identity, e.g., in Exercise~2.34
 without the assumptions required by the restricted proof.\footnote{%
-Note that one can readily extend
+Note that one can easily extend
 the restricted proof of (C.22) for a symmetric positive-definite matrix~$\mathbf{A}$
 in terms of the eigenvalue decomposition
-so as to employ the \emph{singular value decomposition} or
-SVD~\eqref{eq:singular_value_decomposition} instead
+so as instead to use the \emph{singular value decomposition} or
+SVD~\eqref{eq:singular_value_decomposition}
 in order to show (C.22) for any nonsingular matrix~$\mathbf{A}$
 such that $\operatorname{det}(\mathbf{A}) \neq 0$.
 However, I would like to present yet another proof
-in terms of the \emph{Jacobi's formula}~\eqref{eq:Jacobi_formula} here
+in terms of \emph{Jacobi's formula}~\eqref{eq:Jacobi_formula} here
 because it is more direct and general than the one in terms of the SVD.
 
-I leave the detail of the proof of (C.22) in terms of the SVD as an exercise for the reader.
+I leave the proof of (C.22) in terms of the SVD as an exercise for the reader.
 Hint: The right hand side of (C.22) can be written as
 $\operatorname{Tr}\left(\bm{\Sigma}^{-1}\partial\bm{\Sigma}/\partial x\right)$
 where $\mathbf{A} = \mathbf{U}\bm{\Sigma}\mathbf{V}^{\operatorname{T}}$ is the SVD of $\mathbf{A}$
