@@ -241,7 +241,7 @@ f\left(\mathbb{E}\left[\xi\right]\right)
 \end{equation}
 For continuous random variables, we have
 \begin{equation}
-f\left(\int\xi(\mathbf{x}) p(\mathbf{x}) \,\mathrm{d}\mathbf{x}\right) \leqslant 
+f\left(\int\xi(\mathbf{x}) p(\mathbf{x}) \,\mathrm{d}\mathbf{x}\right) \leqslant
 \int f\left(\xi(\mathbf{x})\right) p(\mathbf{x}) \,\mathrm{d}\mathbf{x}
 \label{eq:Jensen_inequality_continuous}
 \end{equation}
@@ -406,7 +406,7 @@ and the notation be consistent.
 
 \parhead{Notation for absolute determinant}
 An alternative solution to the problem of notational inconsistency mentioned above would be
-to explicitly define $\left| \mathbf{A} \right|$ as the absolute value of the determinant of 
+to explicitly define $\left| \mathbf{A} \right|$ as the absolute value of the determinant of
 a square matrix~$\mathbf{A}$, i.e.,
 \begin{equation}
 \left| \mathbf{A} \right| \equiv \left| \operatorname{det}\left( \mathbf{A} \right) \right|
@@ -1079,7 +1079,7 @@ The right hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zer
 
 \erratum{Page~126}
 % See http://ibisforest.org/index.php?PRML%2Ferrata1
-The caption of Figure~2.28: 
+The caption of Figure~2.28:
 The red, green, and blue points correspond to
 the ``homogeneous,'' ``annular,'' and ``laminar'' (or ``stratified'') classes, respectively.
 
@@ -1818,7 +1818,7 @@ or the prior~$p\left(\mathbf{Z}\right) \geqslant
 \widetilde{p}\left(\mathbf{Z}; \bm{\xi} \right)$, or both.
 Then, we can again bound the lower bound~(10.3) as
 \begin{equation}
-\mathcal{L}(q) \geqslant 
+\mathcal{L}(q) \geqslant
 \widetilde{\mathcal{L}}(q, \bm{\xi}) \equiv
 \mathbb{E}_{\mathbf{Z}}\left[\ln \widetilde{p}\left(\mathbf{X}, \mathbf{Z}; \bm{\xi}\right)\right]
 - \mathbb{E}_{\mathbf{Z}}\left[\ln q\left(\mathbf{Z}\right)\right]
@@ -2323,7 +2323,7 @@ the multinoulli distribution~\eqref{eq:multinoulli_distribution} can also be exp
 in terms of unnormalized probabilities~$\widetilde{\mu}_k \geqslant 0$, i.e.,
 \begin{equation}
 \operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right) \propto
-\prod_{k=1}^{K} \widetilde{\mu}_{k}^{x_k} = 
+\prod_{k=1}^{K} \widetilde{\mu}_{k}^{x_k} =
 \exp\left\{ \sum_{k=1}^{K} x_k \ln \widetilde{\mu}_k \right\}
 \label{eq:multinoulli_distribution_w_unnormalized_mu}
 \end{equation}
@@ -2418,7 +2418,7 @@ p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
 \frac{\Gamma\left(\frac{\nu + 1}{2}\right)}{\Gamma\left(\frac{\nu + 1 - D}{2}\right)}
 \frac{\left|\mathbf{W}\right|^{1/2}}{\pi^{D/2}}
 \left[
-  1 + 
+  1 +
   \left(\mathbf{x} - \bm{\mu}\right)^{\operatorname{T}}
   \mathbf{W}
   \left(\mathbf{x} - \bm{\mu}\right)
@@ -2812,8 +2812,8 @@ the gradient vector and the Hessian matrix of $f(\mathbf{x})$, respectively, so 
 Equation~(C.19):
 Following the gradient notation~\eqref{eq:gradient_of_vector_wrt_vector}, (C.19) should read
 \begin{equation}
-\nabla \left\{ \mathbf{x}^{\operatorname{T}} \mathbf{a} \right\} = 
-\nabla \left\{ \mathbf{a}^{\operatorname{T}} \mathbf{x} \right\} = 
+\nabla \left\{ \mathbf{x}^{\operatorname{T}} \mathbf{a} \right\} =
+\nabla \left\{ \mathbf{a}^{\operatorname{T}} \mathbf{x} \right\} =
 \mathbf{a}
 \end{equation}
 where we have omitted the subscript~$\mathbf{x}$ in what should be $\nabla_{\mathbf{x}}$.
@@ -3013,7 +3013,7 @@ we have
 \sum_{ij} \left\{ \frac{\partial}{\partial A_{ij}} \sum_{k} A_{jk}^{\dagger} A_{kj} \right\}
   \frac{\partial A_{ij}}{\partial x} \\
 &= \sum_{ij} A_{ji}^{\dagger} \frac{\partial A_{ij}}{\partial x} \\
-&= 
+&=
 \operatorname{Tr}\left(\frac{\partial\mathbf{A}}{\partial x}\mathbf{A}^{\dagger}\right) =
 \operatorname{Tr}\left(\mathbf{A}^{\dagger}\frac{\partial\mathbf{A}}{\partial x}\right)
 \end{align}
@@ -3037,7 +3037,6 @@ Substituting \eqref{eq:Jacobi_formula}, we obtain
 \label{eq:partial_derivative_of_log_abs_det}
 \end{equation}
 where we have used \eqref{eq:inverse_in_terms_of_adjugate}.
-
 
 \erratum{Page~698}
 Equations~(C.24) through (C.28):
@@ -3444,7 +3443,7 @@ both $f$ and $\mathbf{g}$; and we have written
 \begin{equation}
 \frac{\partial L}{\partial f} \equiv
 \frac{\partial}{\partial f} L\left(\mathbf{x}, u, \nabla u\right) , \qquad
-\nabla_{\mathbf{g}} L \equiv 
+\nabla_{\mathbf{g}} L \equiv
 \nabla_{\mathbf{g}} L\left(\mathbf{x}, u, \nabla u\right) .
 \end{equation}
 By making use of
@@ -3474,7 +3473,7 @@ holds if
 \eta(\mathbf{x}) = 0
 \label{eq:fixed_boundary_condition_for_calculus_of_variations}
 \end{equation}
-or 
+or
 \begin{equation}
 {\nabla_{\mathbf{g}} L}^{\operatorname{T}} \mathbf{n}(\mathbf{x}) = 0
 \label{eq:derivative_boundary_condition_for_calculus_of_variations}
