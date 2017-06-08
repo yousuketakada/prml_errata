@@ -1403,6 +1403,7 @@ The mean~$\mathbf{w}^{\star}$ of the Laplace approximation to
 the posterior~$p\left(\mathbf{w}\middle|\bm{\mathsf{t}}, \bm{\alpha}\right)$ can only be obtained
 iteratively by, say, IRLS as described in the text
 so that (7.112) does not represent an explicit solution and is thus best removed.
+
 As we shall see shortly, it is however useful to note that, at the convergence of IRLS,
 we have the following implicit equations for $\mathbf{w}^{\star}$
 \begin{equation}
@@ -1413,7 +1414,10 @@ we have the following implicit equations for $\mathbf{w}^{\star}$
 \label{eq:implicit_equations_for_posterior_mode_of_classification_RVM}
 \end{equation}
 where $\bm{\mathsf{y}}^{\star}$ is $\bm{\mathsf{y}}$ evaluated at $\mathbf{w} = \mathbf{w}^{\star}$
-so that $\bm{\mathsf{y}}^{\star} = \left.\bm{\mathsf{y}}\right|_{\mathbf{w} = \mathbf{w}^{\star}}$.
+so that
+\begin{equation}
+\bm{\mathsf{y}}^{\star} = \left.\bm{\mathsf{y}}\right|_{\mathbf{w} = \mathbf{w}^{\star}} .
+\end{equation}
 
 \erratum{Page~354}
 Equation~(7.113):
