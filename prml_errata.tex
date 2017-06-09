@@ -795,6 +795,8 @@ nor for those of the Gaussian-gamma distribution~(2.154).
 Since the Gaussian-gamma can be obtained as a special case of the Gaussian-Wishart
 where the dimension is one so that $D=1$,
 we shall make an interpretation only for the parameters of the Gaussian-Wishart here.
+
+\parhead{Interpreting parameters of Gaussian-Wishart}
 Let us consider a problem of inferring the mean~$\bm{\mu}$ and the precision~$\bm{\Lambda}$ given
 the Gaussian likelihood
 \begin{equation}
@@ -905,10 +907,12 @@ p\left(\bm{\mu}, \bm{\Lambda}\middle|\mathbf{X}\right) =
 \mathcal{N}\left(\bm{\mu}\middle|\bm{\mu}_N, \left(\beta_N\bm{\Lambda}\right)^{-1}\right)
 \mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}_N, \nu_N\right) .
 \end{equation}
-From this result, we see that
-the parameters~$\beta_0$ and $\bm{\mu}_0$ for the mean~$\bm{\mu}$ are basically separate,
-but not completely so, from
-those~$\nu_0$ and $\mathbf{W}_0$ for the precision~$\bm{\Lambda}$.
+Note that a similar result is obtained in Section~10.2.1 for a Bayesian mixture of Gaussians model
+in which we assume a Gaussian-Wishart prior for each Gaussian component.
+
+From the above result, we see that
+the parameters~$\beta_0$ and $\bm{\mu}_0$ for the mean~$\bm{\mu}$ can be interpreted
+somewhat independently of those~$\nu_0$ and $\mathbf{W}_0$ for the precision~$\bm{\Lambda}$.
 We can interpret $\beta_0$ as the number of ``effective'' prior observations for $\bm{\mu}$ and
 $\bm{\mu}_0$ as the mean of the $\beta_0$ prior observations.
 The interpretation of $\nu_0$ and $\mathbf{W}_0$ is similar to
@@ -917,8 +921,6 @@ we have in \eqref{eq:Gaussian-Wishart_W_N} a term due to the uncertainty in $\bm
 that is, a term involving the outer product of
 the difference between the maximum likelihood mean~$\bm{\mu}_{\text{ML}}$ and
 the prior mean~$\bm{\mu}_0$, scaled by $\beta_0/\beta_N$.
-Note that a similar result is obtained in Section~10.2.1 for a Bayesian mixture of Gaussians model
-in which we assume a Gaussian-Wishart prior for each Gaussian component.
 
 \erratum{Page~102}
 Paragraph~\textminus1, Line~\textminus2:
