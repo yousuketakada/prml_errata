@@ -713,10 +713,13 @@ Although an interpretation for the parameters of the gamma distribution~(2.146) 
 no such an interpretation for the parameters of the Wishart distribution~(2.155) is given here
 nor in Exercise~2.45.
 Generally speaking, when we construct a probabilistic model with priors,
-we must choose some reasonable initial values for their parameters, known as hyperparameters.
+we must choose some reasonable initial values for their parameters,
+known as \emph{hyperparameters}.
 This calls for an intuitive interpretation for the parameters of such priors.
-In order to give one for the parameters of the Wishart distribution,
-let us consider a simple Bayesian inference problem in which,
+The following gives an interpretation for the parameters of the Wishart distribution.
+
+\parhead{Interpreting parameters of Wishart}
+Let us consider a simple Bayesian inference problem in which,
 given a set of $N$ observations~$\mathbf{X} =
 \left\{ \mathbf{x}_1, \dots, \mathbf{x}_N \right\}$ for a zero-mean Gaussian random variable,
 we infer the covariance matrix~$\bm{\Sigma}$ or, equivalently,
@@ -758,6 +761,7 @@ a Wishart distribution of the form
 p\left(\bm{\Lambda}\middle|\mathbf{X}\right) =
 \mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}_N, \nu_N\right) .
 \end{equation}
+
 This result suggests us how we can interpret the parameters of
 the Wishart distribution~(2.155), namely
 the scale matrix~$\mathbf{W}$ and the number of degrees of freedom~$\nu$.
