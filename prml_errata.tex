@@ -1590,9 +1590,9 @@ where the target vector~$\bm{\mathsf{t}}$ is replaced by
 the ``linearized'' target~$\widehat{\bm{\mathsf{t}}}$,
 given by \eqref{eq:target_for_linearized_classification_RVM}.
 Assuming that the distribution over $\widehat{\bm{\mathsf{t}}}$ as well as $\mathbf{w}$
-can be approximated by the Laplace approximation,
-we can obtain, from the (approximate) linear-Gaussian relation,
-the corresponding marginal for this linearized problem as
+can be approximated by the Laplace approximation;
+and making use of the (approximate) linear-Gaussian relation,
+we can obtain the corresponding marginal for this linearized problem as
 \begin{equation}
 p \left( \widehat{\bm{\mathsf{t}}} \middle| \bm{\alpha} \right)
 \approx \mathcal{N}\left( \widehat{\bm{\mathsf{t}}} \middle| \mathbf{0}, \mathbf{C} \right)
@@ -1605,7 +1605,7 @@ where
 + \bm{\Phi} \mathbf{A}^{-1} \bm{\Phi}^{\operatorname{T}} .
 \label{eq:marginal_covariance_of_linearized_classification_RVM}
 \end{equation}
-The above marginal~\eqref{eq:marginal_for_linearized_RVM_classification} approximately takes
+The above marginal~\eqref{eq:marginal_for_linearized_RVM_classification} (approximately) takes
 the same form as the marginal~\eqref{eq:marginal_for_RVM_regression} of the regression problem
 so that ``we can apply the same analysis of sparsity and obtain the same fast learning algorithm''
 (Page~355, Paragraph~\textminus4, Line~\textminus3).
