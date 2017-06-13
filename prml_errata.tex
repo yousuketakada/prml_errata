@@ -1575,11 +1575,12 @@ where
 
 \parhead{RVM classification}
 Let us now return to the RVM classification problem.
-We have already seen that the posterior can be approximated by the Laplace approximation as
+We have already seen that the posterior can be approximated by the Laplace approximation so that
 \begin{equation}
 p \left( \mathbf{w} \middle| \bm{\mathsf{t}}, \bm{\alpha} \right)
 \approx
 \mathcal{N}\left( \mathbf{w} \middle| \mathbf{w}^{\star}, \bm{\Sigma} \right)
+\label{eq:posterior_for_RVM_classification}
 \end{equation}
 where the mean~$\mathbf{w}^{\star}$ can be obtained by the IRLS algorithm as we have discussed;
 and the covariance~$\bm{\Sigma}$ is given by \eqref{eq:posterior_covariance_of_classification_RVM}.
@@ -1596,11 +1597,13 @@ where the target vector~$\bm{\mathsf{t}}$ is replaced by
 the ``linearized'' target~$\widehat{\bm{\mathsf{t}}}$,
 given by \eqref{eq:target_for_linearized_classification_RVM}.
 
-Let us assume that the distribution over $\widehat{\bm{\mathsf{t}}}$ as well as $\mathbf{w}$
-can be approximated by the Laplace approximation.
-Pretending that these Gaussian approximations are exact; and
+As the distributions over $\mathbf{w}$ and $\bm{\mathsf{t}}$ are approximated as in
+\eqref{eq:posterior_for_RVM_classification} and (7.114), respectively,
+let us assume that the distribution over $\widehat{\bm{\mathsf{t}}}$
+can also be approximated by the Laplace approximation.
+Pretending that these Gaussian approximations are exact and
 making use of the linear-Gaussian relation,
-we can obtain the corresponding marginal for this linearized problem as
+we can obtain the corresponding marginal for the linearized problem in the form
 \begin{equation}
 p \left( \widehat{\bm{\mathsf{t}}} \middle| \bm{\alpha} \right)
 = \mathcal{N}\left( \widehat{\bm{\mathsf{t}}} \middle| \mathbf{0}, \mathbf{C} \right)
