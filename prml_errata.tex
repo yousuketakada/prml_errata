@@ -927,7 +927,7 @@ Paragraph~\textminus1, Line~\textminus2:
 ``Gamma'' should read ``gamma'' (without capitalization).
 
 \erratum{Page~103}
-Figure~2.15: The tails of the Student's t-distributions are too high;
+Figure~2.15: The tails of Student's t-distributions are too high;
 one can easily see that, if compared to the corresponding Gaussian distribution
 labeled $\nu\to\infty$,
 the t-distributions are not correctly normalized.
@@ -948,7 +948,7 @@ for various values of $\nu$ where we have fixed $\mu = 0$ and $\lambda = 1$.}
 \erratum{Page~103}
 Paragraph~\textminus1, Line~\textminus3:
 As pointed out in the text,
-the maximum likelihood solution for the Student's t-distribution can be most easily found by
+the maximum likelihood solution for Student's t-distribution can be most easily found by
 the \emph{expectation maximization} (EM) algorithm,
 which we study for discrete and continuous latent variables
 in Chapters~9 and 12, respectively;
@@ -1052,7 +1052,7 @@ there exist historically a number of heuristic approaches to robustness such as
 \emph{M-estimators}~\citep{Press:NR,Szeliski:ComputerVision},
 in which the standard least squares method is modified so as to use
 a more ``robust'' cost function.
-In this respect, the robust regression in terms of the Student's t can be regarded as
+In this respect, the robust regression in terms of Student's t-distribution can be regarded as
 an M-estimator where the cost function is derived from its negative log likelihood.
 
 An M-estimator can be solved iteratively by approximating the cost functions successively
@@ -1060,7 +1060,7 @@ in terms of quadratic bounds.
 Called \emph{iteratively reweighted least squares} or IRLS,
 this algorithm closely resembles the EM algorithm.
 In fact, one can identify the IRLS and the EM for
-the robust regression in terms of the Student's t.
+the robust regression in terms of Student's t-distribution.
 Note also that the successive quadratic approximation in IRLS can be regarded as
 a \emph{local variational method} discussed in Chapter~10.
 % TODO: expand on robust regression
@@ -1069,7 +1069,7 @@ Although we are free to choose from a broad class of cost functions in M-estimat
 such a heuristic choice makes our Bayesian analysis difficult.
 For instance, M-estimators need a separate evaluation data set for selecting hyperparameters.
 On the other hand, probabilistic models such as
-the robust regression model in terms of Student's t
+the robust regression model in terms of Student's t-distribution
 allow us to perform model selection
 in a consistent way without the need for an evaluation data set,
 while they, in principle, do not suffer from overfitting.
@@ -2375,7 +2375,7 @@ where the normalized probabilities~$\mu_k$ can be found
 \end{equation}
 
 \erratum{Page~691}
-The icon for Student's t:
+The icon for Student's t-distribution:
 As we have seen in the erratum for Figure~2.15, the tails of the t-distributions are too high.
 Figure~\ref{fig:Student_t_densities} gives the correct plot.
 
