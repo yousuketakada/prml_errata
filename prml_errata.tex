@@ -1500,7 +1500,8 @@ Equation~(7.118):
 Although this marginal distribution cannot be obtained directly from
 the Laplace approximation~(7.114) to
 the marginal~$p\left(\bm{\mathsf{t}}\middle|\bm{\alpha}\right)$ of the RVM classification problem,
-it can be shown to be the marginal for a ``linearized'' version of the classification problem
+it can be shown to be an (approximate) marginal for
+a ``linearized'' version of the classification problem
 where $\widehat{\bm{\mathsf{t}}}$, given by \eqref{eq:target_for_linearized_classification_RVM},
 serves as the target~\citep{Tipping:fast}.
 Since the linearized problem can be regarded as
@@ -1584,6 +1585,7 @@ p \left( \mathbf{w} \middle| \bm{\mathsf{t}}, \bm{\alpha} \right)
 \end{equation}
 where the mean~$\mathbf{w}^{\star}$ can be obtained by the IRLS algorithm as we have discussed;
 and the covariance~$\bm{\Sigma}$ is given by \eqref{eq:posterior_covariance_of_classification_RVM}.
+
 Here, we note that $\mathbf{w}^{\star}$ can be written
 in the form~\eqref{eq:posterior_mean_of_classification_RVM}.
 Comparing \eqref{eq:posterior_mean_of_classification_RVM} with
@@ -1597,16 +1599,14 @@ where the target vector~$\bm{\mathsf{t}}$ is replaced by
 the ``linearized'' target~$\widehat{\bm{\mathsf{t}}}$,
 given by \eqref{eq:target_for_linearized_classification_RVM}.
 
-As the distributions over $\mathbf{w}$ and $\bm{\mathsf{t}}$ have been approximated in
-\eqref{eq:posterior_for_RVM_classification} and (7.114), respectively,
-we assume that the distribution over $\widehat{\bm{\mathsf{t}}}$
-can also be approximated by the Laplace approximation.
-Pretending that such Gaussian approximations are exact and
+Assuming that the distribution over $\widehat{\bm{\mathsf{t}}}$
+can be approximated by the Laplace approximation
+(as we have done in \eqref{eq:posterior_for_RVM_classification} for $\mathbf{w}$); and
 making use of the linear-Gaussian relation,
 we can obtain the corresponding marginal for the linearized problem in the form
 \begin{equation}
 p \left( \widehat{\bm{\mathsf{t}}} \middle| \bm{\alpha} \right)
-= \mathcal{N}\left( \widehat{\bm{\mathsf{t}}} \middle| \mathbf{0}, \mathbf{C} \right)
+\approx \mathcal{N}\left( \widehat{\bm{\mathsf{t}}} \middle| \mathbf{0}, \mathbf{C} \right)
 \label{eq:marginal_for_linearized_RVM_classification}
 \end{equation}
 where
@@ -1616,7 +1616,7 @@ where
 + \bm{\Phi} \mathbf{A}^{-1} \bm{\Phi}^{\operatorname{T}} .
 \label{eq:marginal_covariance_of_linearized_classification_RVM}
 \end{equation}
-The above marginal~\eqref{eq:marginal_for_linearized_RVM_classification} takes
+The right hand side of \eqref{eq:marginal_for_linearized_RVM_classification} takes
 the same form as the marginal~\eqref{eq:marginal_for_RVM_regression} of the regression problem
 so that ``we can apply the same analysis of sparsity and obtain the same fast learning algorithm''
 (Page~355, Paragraph~\textminus4, Line~\textminus3).
