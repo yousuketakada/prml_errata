@@ -171,7 +171,7 @@ set linetype 4 lc rgb "green" lw 2
 set linetype 5 lc rgb "cyan" lw 2
 set linetype 6 lc rgb "blue" lw 2
 set xtics 2.0 offset 0,-0.5
-set ytics 1.0 offset 0.5,-1
+set ytics 1.0 offset 0.5,-1 scale 3
 set ztics 0.2
 set mxtics 2
 set mytics 2
