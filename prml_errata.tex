@@ -3229,7 +3229,14 @@ where we have rearranged the factors inside the second trace~$\operatorname{Tr}(
 the right hand side by making use of \eqref{eq:transpose_and_cyclic_identities_of_Tr}.
 We finally obtain \eqref{eq:gradient_of_Tr_A_B_Atranspose_C} by
 identifying $x$ with $A_{ij}$ and making use of \eqref{eq:derivative_of_Tr_AB_wrt_A_ij}.
-The identity~\eqref{eq:gradient_of_Tr_Ainverse_B} follows similarly from (C.21).
+The identity~\eqref{eq:gradient_of_Tr_Ainverse_B} follows similarly from
+\begin{equation}
+\frac{\partial}{\partial x}\left(\mathbf{A}^{-1}\mathbf{B}\right)
+= - \mathbf{A}^{-1} \frac{\partial \mathbf{A}}{\partial x} \mathbf{A}^{-1} \mathbf{B}
+\end{equation}
+which can be obtained by differentiating the both sides of
+the identity~$\mathbf{A}\mathbf{A}^{-1}\mathbf{B} = \mathbf{B}$
+or by right-multiplying $\mathbf{B}$ to the both sides of (C.21).
 
 \parhead{Symmetric matrix derivatives}
 So far, we have considered derivatives with respect to
