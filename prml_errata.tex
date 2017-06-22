@@ -3233,10 +3233,11 @@ The identity~\eqref{eq:gradient_of_Tr_Ainverse_B} follows similarly from
 \begin{equation}
 \frac{\partial}{\partial x} \operatorname{Tr}\left(\mathbf{A}^{-1}\mathbf{B}\right)
 = - \operatorname{Tr} \left(
-\mathbf{A}^{-1} \frac{\partial \mathbf{A}}{\partial x} \mathbf{A}^{-1} \mathbf{B}
+\frac{\partial \mathbf{A}}{\partial x}
+\mathbf{A}^{-1} \mathbf{B} \mathbf{A}^{-1}
 \right)
 \end{equation}
-where we have used (C.21).
+which itself can be obtained by making use of (C.21).
 
 \parhead{Symmetric matrix derivatives}
 So far, we have considered derivatives with respect to
