@@ -2604,6 +2604,40 @@ similar to the one that we apply for calculating the multivariate gamma function
 The expectations~(B.80) and (B.81) are evaluated by making use of
 the general identity~\eqref{eq:expected_score_function_vanishes}.
 
+\parhead{Spaces of square matrices with positive eigenvalues}
+To facilitate our discussion, we define two subsets of
+the space~$\mathbb{R}^{D \times D}$ of real square matrices of dimensionality~$D$.
+Let $\mathcal{S}_{+}^{D} \subset \mathbb{R}^{D \times D}$ be
+the space of symmetric positive-definite matrices; and
+$\mathcal{T}_{+}^{D} \subset \mathbb{R}^{D \times D}$ be
+the space of \emph{lower triangular} matrices with positive diagonal elements.
+Here, a lower triangular matrix~$\mathbf{L} = \left(L_{ij}\right)$
+is a square matrix such that $L_{ij} \equiv 0$ where $i < j$ so that
+\begin{equation}
+\mathbf{L} =
+\begin{pmatrix}
+L_{11} & 0      & \cdots & 0      \\
+L_{21} & L_{22} & \ddots & \vdots \\
+\vdots & \vdots & \ddots & 0      \\
+L_{D1} & L_{D2} & \cdots & L_{DD}
+\end{pmatrix}
+\end{equation}
+where $D$ is the dimensionality of $\mathbf{L}$.
+
+If $\mathbf{L} \in \mathcal{T}_{+}^{D}$,
+then $\mathbf{L} = \left(L_{ij}\right)$ is a lower triangular matrix of dimensionality~$D$
+such that $L_{ii} > 0$ for all $i$.
+Note also that $\mathbf{A} \in \mathcal{S}_{+}^{D}$ is equivalent to saying
+``$\mathbf{A} \succ 0$ is a symmetric positive-definite matrix of dimensionality~$D$.''
+
+The plus sign~($+$) in the subscripts of $\mathcal{S}_{+}^{D}$ and $\mathcal{T}_{+}^{D}$
+indicates that any matrix in either of the sets is such that
+all the eigenvalues are (strictly) positive.
+To see this for $\mathbf{A} \in \mathcal{S}_{+}^{D}$, consult Appendix~C of PRML;
+for $\mathbf{L} \in \mathcal{T}_{+}^{D}$, consider its \emph{characteristic equation}~(C.30),
+from which it readily follows that the eigenvalues of $\mathbf{L} = \left(L_{ij}\right)$ are
+equal to its diagonal elements~$L_{ii} > 0$.
+
 % TODO
 
 \erratum{Page~693}
