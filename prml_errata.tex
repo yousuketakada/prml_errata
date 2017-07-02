@@ -2558,9 +2558,51 @@ $\bm{\mu}$ and $\bm{\Lambda}$~\citep{Svensen:RobustMixture}.
 \erratum{Page~693}
 Equations~(B.78) through (B.82):
 Some appropriate citation, e.g., \citet{Anderson:Multivariate}, is needed for
-the Wishart distribution
-because it has been introduced in Section~2.3.6 without any proof for
-the normalization constant as well as other statistics.
+the Wishart distribution~(B.78) because it has been introduced in Section~2.3.6 as
+the conjugate prior~(2.155) for the precision matrix~$\bm{\Lambda}$ of
+the multivariate Gaussian distribution~%
+$\mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \bm{\Lambda}^{-1}\right)$
+(where the mean~$\bm{\mu}$ is assumed to be known)
+but no proof has been given for the normalization constant~(2.156) or (B.79).
+Furthermore, the expectations~(B.80) and (B.81) as well as the entropy~(B.82),
+of which we make use in Section~10.2,
+have not been shown either.
+
+Note however that most multivariate statistics textbooks, including \citet{Anderson:Multivariate},
+motivate the Wishart distribution differently from PRML;
+they typically introduce the Wishart distribution
+as the distribution over a matrix (called the \emph{scatter matrix}) of the form
+\begin{equation}
+\mathbf{S} = \sum_{n=1}^{\nu} \mathbf{x}_n \mathbf{x}_n^{\operatorname{T}}
+\label{eq:scatter_matrix_of_zero_mean_Gaussian}
+\end{equation}
+where $\mathbf{x}_1, \dots, \mathbf{x}_\nu$ are samples that have been drawn
+independently from a zero-mean multivariate Gaussian~%
+$\mathcal{N}\left(\mathbf{x}\middle|\mathbf{0}, \bm{\Sigma}\right)$.
+More specifically, it can be shown that the distribution over the matrix~$\mathbf{S}$ is given by
+\begin{equation}
+p(\mathbf{S}) = \mathcal{W}\left(\mathbf{S}\middle|\bm{\Sigma}, \nu\right)
+\end{equation}
+if $\nu \geqslant D$ where $D$ is the dimensionality of $\mathbf{S}$.\footnote{%
+It follows from the definition~\eqref{eq:scatter_matrix_of_zero_mean_Gaussian} of
+$\mathbf{S}$ that the mean is given by $\mathbb{E}\left[\mathbf{S}\right] = \nu\bm{\Sigma}$,
+showing the identity~(B.80) when $\nu$ is an integer such that $\nu \geqslant D$.}
+
+The derivation of the Wishart distribution along this line is indirect for our purpose
+(we are mainly interested in its conjugacy).
+In the following,
+I would rather like to show the normalization~(B.79) as well as the expectations~(B.80) and (B.81)
+directly just as we have done for the gamma distribution~(2.146).
+To this end, we first introduce some notation for subsets of the space of square matrices
+such that all the eigenvalues are positive,
+after which we review an important matrix factorization method called
+the \emph{Cholesky decomposition} as well as the associated Jacobian.
+We also introduce the \emph{multivariate gamma function}, which simplifies
+the form of the normalization constant~(B.79).
+The normalization of the Wishart distribution can be shown through a change of variables
+similar to the one that we apply for calculating the multivariate gamma function.
+The expectations~(B.80) and (B.81) are evaluated by making use of
+the general identity~\eqref{eq:expected_score_function_vanishes}.
 
 % TODO
 
