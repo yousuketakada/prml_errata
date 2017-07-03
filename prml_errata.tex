@@ -2638,6 +2638,125 @@ for $\mathbf{L} \in \mathcal{T}_{+}^{D}$, consider its \emph{characteristic equa
 from which it readily follows that the eigenvalues of $\mathbf{L} = \left(L_{ij}\right)$ are
 equal to its diagonal elements~$L_{ii} > 0$.
 
+\parhead{Triangular matrix groups}
+It is worth noting here that
+$\mathcal{T}_{+}^{D}$ forms a \emph{group} with respect to multiplication, i.e.,
+for any pair of $\mathbf{L}, \mathbf{M} \in \mathcal{T}_{+}^{D}$,
+their product is again in the group~$\mathcal{T}_{+}^{D}$ so that $\mathbf{L}\mathbf{M} \in \mathcal{T}_{+}^{D}$; and,
+for any $\mathbf{L} \in \mathcal{T}_{+}^{D}$,
+there exists an inverse~$\mathbf{L}^{-1} \in \mathcal{T}_{+}^{D}$ such that
+$\mathbf{L}^{-1} \mathbf{L} = \mathbf{L} \mathbf{L}^{-1} = \mathbf{I}$
+where $\mathbf{I} \in \mathcal{T}_{+}^{D}$ is the identity matrix.\footnote{%
+The inverse~$\mathbf{L}^{-1}$ is unique in general.
+To see this, suppose that $\mathbf{M}$ is another inverse of $\mathbf{L}$.
+Then, we have by associativity that
+$\mathbf{M} = \left( \mathbf{L}^{-1} \mathbf{L} \right) \mathbf{M} =
+\mathbf{L}^{-1} \left( \mathbf{L} \mathbf{M} \right) = \mathbf{L}^{-1}$.}
+
+To see the first part, we use mathematical induction.
+It is trivial to show the case where $D = 1$.
+For general $D > 1$, let us write $\mathbf{L}, \mathbf{M} \in \mathcal{T}_{+}^{D}$
+as partitioned matrices so that
+\begin{equation}
+\mathbf{L} =
+\begin{pmatrix}
+\widehat{\mathbf{L}} & \mathbf{0} \\
+\bm{\beta}^{\operatorname{T}} & \alpha
+\end{pmatrix}, \qquad
+\mathbf{M} =
+\begin{pmatrix}
+\widehat{\mathbf{M}} & \mathbf{0} \\
+\bm{\eta}^{\operatorname{T}} & \gamma
+\end{pmatrix}
+\end{equation}
+where $\widehat{\mathbf{L}}, \widehat{\mathbf{M}} \in \mathcal{T}_{+}^{D - 1}$ and
+$\alpha, \gamma > 0$.
+Assuming that the product of $\widehat{\mathbf{L}}$ and $\widehat{\mathbf{M}}$ is again
+in the group~$\mathcal{T}_{+}^{D - 1}$ so that
+$\widehat{\mathbf{L}}\widehat{\mathbf{M}} \in \mathcal{T}_{+}^{D - 1}$,
+we have
+\begin{equation}
+\mathbf{L}\mathbf{M} =
+\begin{pmatrix}
+\widehat{\mathbf{L}} & \mathbf{0} \\
+\bm{\beta}^{\operatorname{T}} & \alpha
+\end{pmatrix}
+\begin{pmatrix}
+\widehat{\mathbf{M}} & \mathbf{0} \\
+\bm{\eta}^{\operatorname{T}} & \gamma
+\end{pmatrix}
+=
+\begin{pmatrix}
+\widehat{\mathbf{L}}\widehat{\mathbf{M}} & \mathbf{0} \\
+\bm{\lambda}^{\operatorname{T}} & \alpha\gamma
+\end{pmatrix} \in \mathcal{T}_{+}^{D}
+\end{equation}
+where
+\begin{equation}
+\bm{\lambda} = \widehat{\mathbf{M}}^{\operatorname{T}}\bm{\beta} + \alpha\bm{\eta} .
+\end{equation}
+
+Similarly, the second part can be shown by induction.
+Again, it is trivial to show the case where $D = 1$; and,
+for general $D > 1$, we make use of partitioned matrices.
+Assuming that the inverse~$\widehat{\mathbf{L}}^{-1}$ of
+$\widehat{\mathbf{L}} \in \mathcal{T}_{+}^{D - 1}$ is again in
+the group~$\mathcal{T}_{+}^{D - 1}$ so that
+$\widehat{\mathbf{L}}^{-1} \in \mathcal{T}_{+}^{D - 1}$,
+we can find the inverse~$\mathbf{L}^{-1}$ of $\mathbf{L} \in \mathcal{T}_{+}^{D}$ in the form
+\begin{equation}
+\mathbf{L}^{-1} =
+\begin{pmatrix}
+\widehat{\mathbf{L}} & \mathbf{0} \\
+\bm{\beta}^{\operatorname{T}} & \alpha
+\end{pmatrix}^{-1} =
+\begin{pmatrix}
+\widehat{\mathbf{L}}^{-1} & \mathbf{0} \\
+\bm{\xi}^{\operatorname{T}} & \alpha^{-1}
+\end{pmatrix} \in \mathcal{T}_{+}^{D}
+\end{equation}
+where
+\begin{equation}
+\bm{\xi} = -\frac{\widehat{\mathbf{L}}^{-\operatorname{T}}\bm{\beta}}{\alpha} .
+\end{equation}
+
+Note however that $\mathcal{S}_{+}^{D}$ does not form a group.
+In fact, the product~$\mathbf{P} = \mathbf{A}\mathbf{B}$ of
+$\mathbf{A}, \mathbf{B} \in \mathcal{S}_{+}^{D}$ is not symmetric in general.\footnote{%
+Furthermore, we do \emph{not} in general have
+$\mathbf{x}^{\operatorname{T}} \mathbf{P} \mathbf{x} > 0$
+for $\mathbf{x} \neq \mathbf{0}$.
+To see this, consider, e.g.,
+\begin{equation}
+\mathbf{A} =
+\begin{pmatrix}
+1 & 1 \\
+1 & 2
+\end{pmatrix} \in \mathcal{S}_{+}^{2}, \qquad
+\mathbf{B} =
+\begin{pmatrix}
+1 & -2 \\
+-2 & 5
+\end{pmatrix} \in \mathcal{S}_{+}^{2} .
+\end{equation}
+The product~$\mathbf{P} = \mathbf{A}\mathbf{B}$ is given by
+\begin{equation}
+\mathbf{P} = \mathbf{A}\mathbf{B} =
+\begin{pmatrix}
+1 & 1 \\
+1 & 2
+\end{pmatrix}
+\begin{pmatrix}
+1 & -2 \\
+-2 & 5
+\end{pmatrix} =
+\begin{pmatrix}
+-1 & 3 \\
+-3 & 8
+\end{pmatrix} \not\in \mathcal{S}_{+}^{2} .
+\end{equation}
+}
+
 % TODO
 
 \erratum{Page~693}
