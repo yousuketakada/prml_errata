@@ -2640,9 +2640,10 @@ equal to its diagonal elements~$L_{ii} > 0$.
 
 \parhead{Triangular matrix groups}
 It is worth noting here that
-$\mathcal{T}_{+}^{D}$ forms a \emph{group} with respect to multiplication, i.e.,
+$\mathcal{T}_{+}^{D}$ forms a \emph{group} with respect to matrix multiplication, i.e.,
 for any pair of $\mathbf{L}, \mathbf{M} \in \mathcal{T}_{+}^{D}$,
-their product is again in the group~$\mathcal{T}_{+}^{D}$ so that $\mathbf{L}\mathbf{M} \in \mathcal{T}_{+}^{D}$; and,
+their product is again in the group~$\mathcal{T}_{+}^{D}$
+so that $\mathbf{L}\mathbf{M} \in \mathcal{T}_{+}^{D}$; and,
 for any $\mathbf{L} \in \mathcal{T}_{+}^{D}$,
 there exists an inverse~$\mathbf{L}^{-1} \in \mathcal{T}_{+}^{D}$ such that
 $\mathbf{L}^{-1} \mathbf{L} = \mathbf{L} \mathbf{L}^{-1} = \mathbf{I}$
@@ -2693,10 +2694,10 @@ we have
 \end{equation}
 where
 \begin{equation}
-\bm{\lambda} = \widehat{\mathbf{M}}^{\operatorname{T}}\bm{\beta} + \alpha\bm{\eta} .
+\bm{\lambda} = \widehat{\mathbf{M}}^{\operatorname{T}}\bm{\beta} + \bm{\eta}\alpha .
 \end{equation}
 
-Similarly, the second part can be shown by induction.
+Similarly, the second part can also easily be shown by induction.
 Again, it is trivial to show the case where $D = 1$; and,
 for general $D > 1$, we make use of partitioned matrices.
 Assuming that the inverse~$\widehat{\mathbf{L}}^{-1}$ of
@@ -2717,7 +2718,7 @@ we can find the inverse~$\mathbf{L}^{-1}$ of $\mathbf{L} \in \mathcal{T}_{+}^{D}
 \end{equation}
 where
 \begin{equation}
-\bm{\xi} = -\frac{\widehat{\mathbf{L}}^{-\operatorname{T}}\bm{\beta}}{\alpha} .
+\bm{\xi} = -\widehat{\mathbf{L}}^{-\operatorname{T}} \bm{\beta} \alpha^{-1} .
 \end{equation}
 
 Note however that $\mathcal{S}_{+}^{D}$ does not form a group.
