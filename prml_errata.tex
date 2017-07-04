@@ -2641,10 +2641,10 @@ equal to its diagonal elements~$L_{ii} > 0$.
 \parhead{Triangular matrix groups}
 It is worth noting here that
 $\mathcal{T}_{+}^{D}$ forms a \emph{group} with respect to matrix multiplication, i.e.,
-for any pair of $\mathbf{L}, \mathbf{M} \in \mathcal{T}_{+}^{D}$,
+(1)~for any pair of $\mathbf{L}, \mathbf{M} \in \mathcal{T}_{+}^{D}$,
 their product is again in the group~$\mathcal{T}_{+}^{D}$
-so that $\mathbf{L}\mathbf{M} \in \mathcal{T}_{+}^{D}$; and,
-for any $\mathbf{L} \in \mathcal{T}_{+}^{D}$,
+so that $\mathbf{L}\mathbf{M} \in \mathcal{T}_{+}^{D}$; and
+(2)~for any $\mathbf{L} \in \mathcal{T}_{+}^{D}$,
 there exists an inverse~$\mathbf{L}^{-1} \in \mathcal{T}_{+}^{D}$ such that
 $\mathbf{L}^{-1} \mathbf{L} = \mathbf{L} \mathbf{L}^{-1} = \mathbf{I}$
 where $\mathbf{I} \in \mathcal{T}_{+}^{D}$ is the identity matrix.\footnote{%
@@ -2653,6 +2653,42 @@ To see this, suppose that $\mathbf{M}$ is another inverse of $\mathbf{L}$.
 Then, we have by associativity that
 $\mathbf{M} = \left( \mathbf{L}^{-1} \mathbf{L} \right) \mathbf{M} =
 \mathbf{L}^{-1} \left( \mathbf{L} \mathbf{M} \right) = \mathbf{L}^{-1}$.}
+Note however that $\mathcal{S}_{+}^{D}$ does not form a group.\footnote{%
+In fact, it is easy to see that the product~$\mathbf{P} = \mathbf{A}\mathbf{B}$ of
+$\mathbf{A}, \mathbf{B} \in \mathcal{S}_{+}^{D}$ is not symmetric in general.
+Furthermore, we do not in general have
+$\mathbf{x}^{\operatorname{T}} \mathbf{P} \mathbf{x} > 0$
+for $\mathbf{x} \neq \mathbf{0}$.
+To see this, consider, e.g.,
+\begin{equation}
+\mathbf{A} =
+\begin{pmatrix}
+1 & 1 \\
+1 & 2
+\end{pmatrix} \in \mathcal{S}_{+}^{2}, \qquad
+\mathbf{B} =
+\begin{pmatrix}
+1 & -2 \\
+-2 & 5
+\end{pmatrix} \in \mathcal{S}_{+}^{2} .
+\end{equation}
+The product~$\mathbf{P} = \mathbf{A}\mathbf{B}$ is given by
+\begin{equation}
+\mathbf{P} = \mathbf{A}\mathbf{B} =
+\begin{pmatrix}
+1 & 1 \\
+1 & 2
+\end{pmatrix}
+\begin{pmatrix}
+1 & -2 \\
+-2 & 5
+\end{pmatrix} =
+\begin{pmatrix}
+-1 & 3 \\
+-3 & 8
+\end{pmatrix} \not\in \mathcal{S}_{+}^{2} .
+\end{equation}
+}
 
 To see the first part, we use mathematical induction.
 It is trivial to show the case where $D = 1$.
@@ -2720,43 +2756,6 @@ where
 \begin{equation}
 \bm{\xi} = -\widehat{\mathbf{L}}^{-\operatorname{T}} \bm{\beta} \alpha^{-1} .
 \end{equation}
-
-Note however that $\mathcal{S}_{+}^{D}$ does not form a group.
-In fact, the product~$\mathbf{P} = \mathbf{A}\mathbf{B}$ of
-$\mathbf{A}, \mathbf{B} \in \mathcal{S}_{+}^{D}$ is not symmetric in general.\footnote{%
-Furthermore, we do \emph{not} in general have
-$\mathbf{x}^{\operatorname{T}} \mathbf{P} \mathbf{x} > 0$
-for $\mathbf{x} \neq \mathbf{0}$.
-To see this, consider, e.g.,
-\begin{equation}
-\mathbf{A} =
-\begin{pmatrix}
-1 & 1 \\
-1 & 2
-\end{pmatrix} \in \mathcal{S}_{+}^{2}, \qquad
-\mathbf{B} =
-\begin{pmatrix}
-1 & -2 \\
--2 & 5
-\end{pmatrix} \in \mathcal{S}_{+}^{2} .
-\end{equation}
-The product~$\mathbf{P} = \mathbf{A}\mathbf{B}$ is given by
-\begin{equation}
-\mathbf{P} = \mathbf{A}\mathbf{B} =
-\begin{pmatrix}
-1 & 1 \\
-1 & 2
-\end{pmatrix}
-\begin{pmatrix}
-1 & -2 \\
--2 & 5
-\end{pmatrix} =
-\begin{pmatrix}
--1 & 3 \\
--3 & 8
-\end{pmatrix} \not\in \mathcal{S}_{+}^{2} .
-\end{equation}
-}
 
 % TODO
 
