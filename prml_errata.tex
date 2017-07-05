@@ -2628,7 +2628,13 @@ If $\mathbf{L} \in \mathcal{T}_{+}^{D}$,
 then $\mathbf{L} = \left(L_{ij}\right)$ is a lower triangular matrix of dimensionality~$D$
 such that $L_{ii} > 0$ for all $i$.
 Note also that $\mathbf{A} \in \mathcal{S}_{+}^{D}$ is equivalent to saying
-``$\mathbf{A} \succ 0$ is a symmetric positive-definite matrix of dimensionality~$D$.''
+``$\mathbf{A}$ is a symmetric positive-definite matrix of dimensionality~$D$.''
+Positive definiteness of $\mathbf{A}$, or $\mathbf{A} \succ 0$, implies by definition that
+\begin{equation}
+\mathbf{x}^{\operatorname{T}}\mathbf{A}\mathbf{x} > 0
+\label{eq:definition_of_positive_definiteness}
+\end{equation}
+for any $\mathbf{x} \neq \mathbf{0}$.
 
 The plus sign~($+$) in the subscripts of $\mathcal{S}_{+}^{D}$ and $\mathcal{T}_{+}^{D}$
 indicates that any matrix in either of the sets is such that
@@ -2656,9 +2662,8 @@ $\mathbf{M} = \left( \mathbf{L}^{-1} \mathbf{L} \right) \mathbf{M} =
 Note however that $\mathcal{S}_{+}^{D}$ does not form a group.\footnote{%
 In fact, it is easy to see that the product~$\mathbf{P} = \mathbf{A}\mathbf{B}$ of
 $\mathbf{A}, \mathbf{B} \in \mathcal{S}_{+}^{D}$ is not symmetric in general.
-Furthermore, we do not in general have
-$\mathbf{x}^{\operatorname{T}} \mathbf{P} \mathbf{x} > 0$
-for $\mathbf{x} \neq \mathbf{0}$.
+Furthermore, we do not in general have \eqref{eq:definition_of_positive_definiteness} for
+$\mathbf{P}$.
 To see this, consider, e.g.,
 \begin{equation}
 \mathbf{A} =
@@ -2670,9 +2675,9 @@ To see this, consider, e.g.,
 \begin{pmatrix}
 1 & -2 \\
 -2 & 5
-\end{pmatrix} \in \mathcal{S}_{+}^{2} .
+\end{pmatrix} \in \mathcal{S}_{+}^{2}
 \end{equation}
-The product~$\mathbf{P} = \mathbf{A}\mathbf{B}$ is given by
+so that the product is given by
 \begin{equation}
 \mathbf{P} = \mathbf{A}\mathbf{B} =
 \begin{pmatrix}
@@ -2705,6 +2710,7 @@ as partitioned matrices so that
 \widehat{\mathbf{M}} & \mathbf{0} \\
 \bm{\eta}^{\operatorname{T}} & \gamma
 \end{pmatrix}
+\label{eq:partitioned_matrices_for_proof_of_triangular_matrix_group}
 \end{equation}
 where $\widehat{\mathbf{L}}, \widehat{\mathbf{M}} \in \mathcal{T}_{+}^{D - 1}$ and
 $\alpha, \gamma > 0$.
