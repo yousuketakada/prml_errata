@@ -2662,8 +2662,8 @@ $\mathbf{M} = \left( \mathbf{L}^{-1} \mathbf{L} \right) \mathbf{M} =
 Note however that $\mathcal{S}_{+}^{D}$ does not form a group.\footnote{%
 In fact, it is easy to see that the product~$\mathbf{P} = \mathbf{A}\mathbf{B}$ of
 $\mathbf{A}, \mathbf{B} \in \mathcal{S}_{+}^{D}$ is not symmetric in general.
-Furthermore, we do not in general have \eqref{eq:definition_of_positive_definiteness} for
-$\mathbf{P}$.
+Furthermore, we do not in general have \eqref{eq:definition_of_positive_definiteness}
+where $\mathbf{A}$ is replaced by $\mathbf{P}$.
 To see this, consider, e.g.,
 \begin{equation}
 \mathbf{A} =
@@ -2675,9 +2675,9 @@ To see this, consider, e.g.,
 \begin{pmatrix}
 1 & -2 \\
 -2 & 5
-\end{pmatrix} \in \mathcal{S}_{+}^{2}
+\end{pmatrix} \in \mathcal{S}_{+}^{2} .
 \end{equation}
-so that the product is given by
+Their product is given by
 \begin{equation}
 \mathbf{P} = \mathbf{A}\mathbf{B} =
 \begin{pmatrix}
@@ -2691,11 +2691,12 @@ so that the product is given by
 \begin{pmatrix}
 -1 & 3 \\
 -3 & 8
-\end{pmatrix} \not\in \mathcal{S}_{+}^{2} .
+\end{pmatrix} \not\in \mathcal{S}_{+}^{2}
 \end{equation}
-}
+so that we have, e.g., $\mathbf{x}^{\operatorname{T}}\mathbf{P}\mathbf{x} = -1 < 0$
+where $\mathbf{x} = \left( 1, 0 \right)^{\operatorname{T}}$.}
 
-To see the first part, we use mathematical induction.
+To see the first part~(1), we use mathematical induction.
 It is trivial to show the case where $D = 1$.
 For general $D > 1$, let us write $\mathbf{L}, \mathbf{M} \in \mathcal{T}_{+}^{D}$
 as partitioned matrices so that
@@ -2739,13 +2740,12 @@ where
 \bm{\lambda} = \widehat{\mathbf{M}}^{\operatorname{T}}\bm{\beta} + \bm{\eta}\alpha .
 \end{equation}
 
-Similarly, the second part can also easily be shown by induction.
+Similarly, the second part~(2) can also easily be shown by induction.
 Again, it is trivial to show the case where $D = 1$; and,
 for general $D > 1$, we make use of partitioned matrices.
 Assuming that the inverse~$\widehat{\mathbf{L}}^{-1}$ of
-$\widehat{\mathbf{L}} \in \mathcal{T}_{+}^{D - 1}$ is again in
-the group~$\mathcal{T}_{+}^{D - 1}$ so that
-$\widehat{\mathbf{L}}^{-1} \in \mathcal{T}_{+}^{D - 1}$,
+$\widehat{\mathbf{L}} \in \mathcal{T}_{+}^{D - 1}$ is in the group~$\mathcal{T}_{+}^{D - 1}$
+so that $\widehat{\mathbf{L}}^{-1} \in \mathcal{T}_{+}^{D - 1}$,
 we can find the inverse~$\mathbf{L}^{-1}$ of $\mathbf{L} \in \mathcal{T}_{+}^{D}$ in the form
 \begin{equation}
 \mathbf{L}^{-1} =
