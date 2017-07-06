@@ -2763,6 +2763,150 @@ where
 \bm{\xi} = -\widehat{\mathbf{L}}^{-\operatorname{T}} \bm{\beta} \alpha^{-1} .
 \end{equation}
 
+\parhead{Cholesky decomposition}
+For any symmetric positive-definite matrix~$\mathbf{A} \in \mathcal{S}_{+}^{D}$,
+there exists a unique lower triangular matrix~$\mathbf{L} \in \mathcal{T}_{+}^{D}$
+such that
+\begin{equation}
+\mathbf{A} = \mathbf{L} \mathbf{L}^{\operatorname{T}}
+\label{eq:cholesky_decomposition}
+\end{equation}
+or, if the matrices~$\mathbf{A} = \left(A_{ij}\right)$ and $\mathbf{L} = \left(L_{ij}\right)$ are
+written element-wise,
+\begin{equation}
+\begin{pmatrix}
+A_{11} & A_{12} & \cdots & A_{1D} \\
+A_{21} & A_{22} & \cdots & A_{2D} \\
+\vdots & \vdots & \ddots & \vdots \\
+A_{D1} & A_{D2} & \cdots & A_{DD}
+\end{pmatrix}
+=
+\begin{pmatrix}
+L_{11} & 0      & \cdots & 0      \\
+L_{21} & L_{22} & \ddots & \vdots \\
+\vdots & \vdots & \ddots & 0      \\
+L_{D1} & L_{D2} & \cdots & L_{DD}
+\end{pmatrix}
+\begin{pmatrix}
+L_{11} & L_{21} & \cdots & L_{D1} \\
+0      & L_{22} & \cdots & L_{D2} \\
+\vdots & \ddots & \ddots & \vdots \\
+0      & \cdots & 0      & L_{DD}
+\end{pmatrix} .
+\end{equation}
+This matrix factorization is known as
+the \emph{Cholesky decomposition}~\citep{Anderson:Multivariate,Press:NR} or
+\emph{Cholesky factorization}~\citep{GvL:MC,Szeliski:ComputerVision}.
+The lower triangular matrix~$\mathbf{L}$ is called the Cholesky factor.
+
+Conversely, for any lower triangular matrix~$\mathbf{L} \in \mathcal{T}_{+}^{D}$,
+there exists a unique symmetric positive-definite matrix~$\mathbf{A} \in \mathcal{S}_{+}^{D}$
+such that \eqref{eq:cholesky_decomposition} holds.
+Therefore, the Cholesky decomposition~\eqref{eq:cholesky_decomposition} can be regarded as
+a \emph{bijective}\footnote{%
+A function~$f : X \to Y$ is said to be \emph{bijective} (or \emph{one-to-one correspondence})
+if, for any $y \in Y$, there exists a unique $x \in X$ such that $y = f(x)$.
+Note also that bijectivity is equivalent to invertibility:
+A function~$f : X \to Y$ is bijective if and only if $f$ is \emph{invertible}, i.e.,
+there exists an inverse function~$f^{-1} : Y \to X$ (which is, of course, also bijective)
+such that $f^{-1} \circ f$ is the identity function on $X$,
+meaning that $x = f^{-1}\left(f(x)\right)$ for any $x \in X$.}
+function~$\mathcal{S}_{+}^{D} \to \mathcal{T}_{+}^{D}$.
+Note also that the number of independent parameters in $\mathbf{A} \in \mathcal{S}_{+}^{D}$
+indeed agrees with that of $\mathbf{L} \in \mathcal{T}_{+}^{D}$;
+more specifically, either of $\mathbf{A}$ and $\mathbf{L}$ has $D(D + 1)/2$ independent parameters
+because $\mathbf{A}$ is a symmetric matrix and $\mathbf{L}$ is a (lower) triangular matrix.
+
+The existence of the Cholesky decomposition~\eqref{eq:cholesky_decomposition}
+can be shown again by induction.
+First, assume $D = 1$, in which case we have $A > 0$ so that
+$L = \sqrt{A} > 0$ satisfies \eqref{eq:cholesky_decomposition}.
+Next, we consider the general case where $D > 1$.
+As we have done in \eqref{eq:partitioned_matrices_for_proof_of_triangular_matrix_group},
+let us write $\mathbf{A} \in \mathcal{S}_{+}^{D}$ and $\mathbf{L} \in \mathcal{T}_{+}^{D}$
+as partitioned matrices so that
+\begin{equation}
+\mathbf{A} =
+\begin{pmatrix}
+\widehat{\mathbf{A}} & \mathbf{b} \\
+\mathbf{b}^{\operatorname{T}} & a \\
+\end{pmatrix} , \qquad
+\mathbf{L} =
+\begin{pmatrix}
+\widehat{\mathbf{L}} & \mathbf{0} \\
+\bm{\beta}^{\operatorname{T}} & \alpha
+\end{pmatrix}
+\end{equation}
+where $\widehat{\mathbf{A}} \in \mathcal{S}_{+}^{D - 1}$ and
+$\widehat{\mathbf{L}} \in \mathcal{T}_{+}^{D - 1}$.\footnote{%
+It directly follows from \eqref{eq:definition_of_positive_definiteness}
+that $\widehat{\mathbf{A}} \succ 0$.
+In fact, substituting
+$\mathbf{x} = \left(\widehat{\mathbf{x}}^{\operatorname{T}}, 0\right)^{\operatorname{T}}$
+into \eqref{eq:definition_of_positive_definiteness},
+we have $\widehat{\mathbf{x}}^{\operatorname{T}}\widehat{\mathbf{A}}\widehat{\mathbf{x}} > 0$
+for any $\widehat{\mathbf{x}} \neq \mathbf{0}$, showing $\widehat{\mathbf{A}} \succ 0$.}
+Then, the right hand side of \eqref{eq:cholesky_decomposition} can be written as
+\begin{equation}
+\mathbf{L}\mathbf{L}^{\operatorname{T}} =
+\begin{pmatrix}
+\widehat{\mathbf{L}} & \mathbf{0} \\
+\bm{\beta}^{\operatorname{T}} & \alpha
+\end{pmatrix}
+\begin{pmatrix}
+\widehat{\mathbf{L}}^{\operatorname{T}} & \bm{\beta} \\
+\mathbf{0} & \alpha
+\end{pmatrix}
+=
+\begin{pmatrix}
+\widehat{\mathbf{L}}\widehat{\mathbf{L}}^{\operatorname{T}} & \widehat{\mathbf{L}}\bm{\beta} \\
+\left( \widehat{\mathbf{L}}\bm{\beta} \right)^{\operatorname{T}} & \|\bm{\beta}\|^{2} + \alpha^{2}
+\end{pmatrix} .
+\end{equation}
+Equating this with $\mathbf{A}$ gives
+\begin{align}
+\widehat{\mathbf{A}} &= \widehat{\mathbf{L}} \widehat{\mathbf{L}}^{\operatorname{T}}
+\label{eq:cholesky_decomposition_D-1} \\
+\mathbf{b} &= \widehat{\mathbf{L}}\bm{\beta} \\
+a &= \|\bm{\beta}\|^{2} + \alpha^{2} .
+\end{align}
+We see that \eqref{eq:cholesky_decomposition_D-1} is
+the Cholesky decomposition from $\widehat{\mathbf{A}} \in \mathcal{S}_{+}^{D - 1}$
+to $\widehat{\mathbf{L}} \in \mathcal{T}_{+}^{D - 1}$.
+Assuming that this $(D - 1)$-dimensional
+Cholesky decomposition~\eqref{eq:cholesky_decomposition_D-1} exists,
+we can find $\bm{\beta}$ and $\alpha$ as
+\begin{align}
+\bm{\beta} &= \widehat{\mathbf{L}}^{-1} \mathbf{b} \label{eq:beta_in_cholesky_factor} \\
+\alpha &= \sqrt{a - \|\bm{\beta}\|^{2}} > 0 .
+\end{align}
+We can show $a - \|\bm{\beta}\|^{2} > 0$ by substituting
+\begin{equation}
+\mathbf{x} =
+\begin{pmatrix}
+\widehat{\mathbf{A}}^{-1} \mathbf{b} \\
+-1
+\end{pmatrix}
+\end{equation}
+into \eqref{eq:definition_of_positive_definiteness}, giving
+\begin{align}
+0 &< a - \mathbf{b}^{\operatorname{T}} \widehat{\mathbf{A}}^{-1} \mathbf{b} \\
+&= a - \|\bm{\beta}\|^{2}
+\end{align}
+where we have used \eqref{eq:cholesky_decomposition_D-1} (with the both sides inverted) and
+\eqref{eq:beta_in_cholesky_factor}.\footnote{%
+This can also be shown by noting that
+the \emph{Schur complement}~\eqref{eq:Schur_complement_of_M_wrt_A}
+of $\mathbf{A} \succ 0$ with respect to $\widehat{\mathbf{A}}$, given by
+$\mathbf{A}/\widehat{\mathbf{A}}
+= a - \mathbf{b}^{\operatorname{T}} \widehat{\mathbf{A}}^{-1} \mathbf{b}$,
+is again positive definite.}
+
+The above induction effectively constructs a recursive algorithm to compute
+$\mathbf{L} \in \mathcal{T}_{+}^{D}$ from $\mathbf{A} \in \mathcal{S}_{+}^{D}$.
+The uniqueness of the Cholesky decomposition~\eqref{eq:cholesky_decomposition} is implied by
+the uniqueness of each operation in the algorithm.
+
 % TODO
 
 \erratum{Page~693}
