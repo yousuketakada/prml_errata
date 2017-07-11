@@ -2838,6 +2838,7 @@ as partitioned matrices so that
 \widehat{\mathbf{L}} & \mathbf{0} \\
 \bm{\beta}^{\operatorname{T}} & \alpha
 \end{pmatrix}
+\label{eq:partitioned_matrices_for_cholesky_decomposition}
 \end{equation}
 where $\widehat{\mathbf{A}} \in \mathcal{S}_{+}^{D - 1}$ and
 $\widehat{\mathbf{L}} \in \mathcal{T}_{+}^{D - 1}$.\footnote{%
@@ -2863,9 +2864,11 @@ Then, the right hand side of \eqref{eq:cholesky_decomposition} can be written as
 \begin{pmatrix}
 \widehat{\mathbf{L}}\widehat{\mathbf{L}}^{\operatorname{T}} & \widehat{\mathbf{L}}\bm{\beta} \\
 \left( \widehat{\mathbf{L}}\bm{\beta} \right)^{\operatorname{T}} & \|\bm{\beta}\|^{2} + \alpha^{2}
-\end{pmatrix} .
+\end{pmatrix} \label{eq:rhs_of_cholesky_decomposition} .
 \end{equation}
-Equating this with $\mathbf{A}$ gives
+Equating the right hand side of \eqref{eq:rhs_of_cholesky_decomposition} with
+the partitioned form~\eqref{eq:partitioned_matrices_for_cholesky_decomposition} of $\mathbf{A}$
+gives
 \begin{align}
 \widehat{\mathbf{A}} &= \widehat{\mathbf{L}} \widehat{\mathbf{L}}^{\operatorname{T}}
 \label{eq:cholesky_decomposition_D-1} \\
