@@ -2885,7 +2885,6 @@ we can find $\bm{\beta}$ and $\alpha$ as
 \bm{\beta} &= \widehat{\mathbf{L}}^{-1} \mathbf{b} \label{eq:beta_in_cholesky_factor} \\
 \alpha &= \sqrt{a - \|\bm{\beta}\|^{2}} > 0 \label{eq:alpha_in_cholesky_factor} .
 \end{align}
-
 Note that we always have \eqref{eq:alpha_in_cholesky_factor} because $a - \|\bm{\beta}\|^{2} > 0$,
 which can be shown by substituting
 \begin{equation}
@@ -2909,7 +2908,8 @@ $\mathbf{A}/\widehat{\mathbf{A}}
 = a - \mathbf{b}^{\operatorname{T}} \widehat{\mathbf{A}}^{-1} \mathbf{b}$,
 is again positive definite.}
 
-The above induction effectively constructs a recursive algorithm to compute
+Finally, we observe that
+the above induction effectively constructs a recursive algorithm to compute
 $\mathbf{L} \in \mathcal{T}_{+}^{D}$ from $\mathbf{A} \in \mathcal{S}_{+}^{D}$.
 The uniqueness of the Cholesky decomposition~\eqref{eq:cholesky_decomposition} is implied by
 the uniqueness of each operation in the algorithm.
