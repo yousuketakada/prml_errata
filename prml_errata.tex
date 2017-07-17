@@ -2610,23 +2610,25 @@ the space~$\mathbb{R}^{D \times D}$ of real square matrices of dimensionality~$D
 Let $\mathcal{S}_{+}^{D} \subset \mathbb{R}^{D \times D}$ be
 the space of symmetric positive-definite matrices; and
 $\mathcal{T}_{+}^{D} \subset \mathbb{R}^{D \times D}$ be
-the space of \emph{lower triangular} matrices with positive diagonal elements.
-Here, a lower triangular matrix~$\mathbf{L} = \left(L_{ij}\right)$
-is a square matrix such that $L_{ij} \equiv 0$ where $i < j$ so that
+the space of \emph{upper triangular} matrices with (strictly) positive diagonal elements.
+Here, an upper triangular matrix~$\mathbf{T} = \left(T_{ij}\right)$
+is a square matrix such that $T_{ij} \equiv 0$ where $i > j$ so that
 \begin{equation}
-\mathbf{L} =
+\mathbf{T} =
 \begin{pmatrix}
-L_{11} & 0      & \cdots & 0      \\
-L_{21} & L_{22} & \ddots & \vdots \\
-\vdots & \vdots & \ddots & 0      \\
-L_{D1} & L_{D2} & \cdots & L_{DD}
+T_{11} & T_{12} & \cdots & T_{1D} \\
+0      & T_{22} & \cdots & T_{2D} \\
+\vdots & \ddots & \ddots & \vdots \\
+0      & \cdots & 0      & T_{DD}
 \end{pmatrix}
 \end{equation}
-where $D$ is the dimensionality of $\mathbf{L}$.
+where $D$ is the dimensionality of $\mathbf{T}$.
+Similarly, a square matrix~$\mathbf{L}$ such that $\mathbf{L}^{\operatorname{T}}$ is
+upper triangular is called a \emph{lower triangular} matrix.
 
-If $\mathbf{L} \in \mathcal{T}_{+}^{D}$,
-then $\mathbf{L} = \left(L_{ij}\right)$ is a lower triangular matrix of dimensionality~$D$
-such that $L_{ii} > 0$ for all $i$.
+If $\mathbf{T} \in \mathcal{T}_{+}^{D}$,
+then $\mathbf{T} = \left(T_{ij}\right)$ is an upper triangular matrix of dimensionality~$D$
+such that $T_{ii} > 0$ for all $i$.
 Note also that $\mathbf{A} \in \mathcal{S}_{+}^{D}$ is equivalent to saying
 ``$\mathbf{A}$ is a symmetric positive-definite matrix of dimensionality~$D$.''
 Positive definiteness of $\mathbf{A}$, or $\mathbf{A} \succ 0$, implies by definition that
@@ -2640,9 +2642,9 @@ The plus sign~($+$) in the subscripts of $\mathcal{S}_{+}^{D}$ and $\mathcal{T}_
 indicates that any matrix in either of the sets is such that
 all the eigenvalues are (strictly) positive.
 To see this for $\mathbf{A} \in \mathcal{S}_{+}^{D}$, consult Appendix~C of PRML;
-for $\mathbf{L} \in \mathcal{T}_{+}^{D}$, consider its \emph{characteristic equation}~(C.30),
-from which it readily follows that the eigenvalues of $\mathbf{L} = \left(L_{ij}\right)$ are
-equal to its diagonal elements~$L_{ii} > 0$.
+for $\mathbf{T} \in \mathcal{T}_{+}^{D}$, consider its \emph{characteristic equation}~(C.30),
+from which it readily follows that the eigenvalues of $\mathbf{T} = \left(T_{ij}\right)$ are
+equal to its diagonal elements~$T_{ii} > 0$.
 
 \parhead{Triangular matrix groups}
 It is worth noting here that
