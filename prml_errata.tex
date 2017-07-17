@@ -2649,18 +2649,18 @@ equal to its diagonal elements~$T_{ii} > 0$.
 \parhead{Triangular matrix groups}
 It is worth noting here that
 $\mathcal{T}_{+}^{D}$ forms a \emph{group} with respect to matrix multiplication, i.e.,
-(1)~the product of any pair of $\mathbf{L}, \mathbf{M} \in \mathcal{T}_{+}^{D}$
+(1)~the product of any pair of $\mathbf{T}, \mathbf{T}' \in \mathcal{T}_{+}^{D}$
 is again in the group~$\mathcal{T}_{+}^{D}$
-so that $\mathbf{L}\mathbf{M} \in \mathcal{T}_{+}^{D}$; and
-(2)~for any $\mathbf{L} \in \mathcal{T}_{+}^{D}$,
-there exists an inverse~$\mathbf{L}^{-1} \in \mathcal{T}_{+}^{D}$ such that
-$\mathbf{L}^{-1} \mathbf{L} = \mathbf{L} \mathbf{L}^{-1} = \mathbf{I}$
+so that $\mathbf{T}\mathbf{T}' \in \mathcal{T}_{+}^{D}$; and
+(2)~for any $\mathbf{T} \in \mathcal{T}_{+}^{D}$,
+there exists an inverse~$\mathbf{T}^{-1} \in \mathcal{T}_{+}^{D}$ such that
+$\mathbf{T}^{-1} \mathbf{T} = \mathbf{T} \mathbf{T}^{-1} = \mathbf{I}$
 where $\mathbf{I} \in \mathcal{T}_{+}^{D}$ is the identity matrix.\footnote{%
-The inverse~$\mathbf{L}^{-1}$ is unique in general.
-To see this, suppose that $\mathbf{M}$ is another inverse of $\mathbf{L}$.
+The inverse~$\mathbf{T}^{-1}$ is unique in general.
+To see this, suppose that $\mathbf{X}$ is another inverse of $\mathbf{T}$.
 Then, we have by associativity that
-$\mathbf{M} = \left( \mathbf{L}^{-1} \mathbf{L} \right) \mathbf{M} =
-\mathbf{L}^{-1} \left( \mathbf{L} \mathbf{M} \right) = \mathbf{L}^{-1}$.}
+$\mathbf{X} = \left( \mathbf{T}^{-1} \mathbf{T} \right) \mathbf{X} =
+\mathbf{T}^{-1} \left( \mathbf{T} \mathbf{X} \right) = \mathbf{T}^{-1}$.}
 Note however that $\mathcal{S}_{+}^{D}$ does not form a group.\footnote{%
 In fact, it is easy to see that the product~$\mathbf{P} = \mathbf{A}\mathbf{B}$ of
 $\mathbf{A}, \mathbf{B} \in \mathcal{S}_{+}^{D}$ is not symmetric in general.
@@ -2693,76 +2693,76 @@ the product of which is given by
 \begin{pmatrix}
 -1 & 3 \\
 -3 & 8
-\end{pmatrix} \not\in \mathcal{S}_{+}^{2}
+\end{pmatrix} \not\in \mathcal{S}_{+}^{2} .
 \end{equation}
-so that we have $\mathbf{x}^{\operatorname{T}}\mathbf{P}\mathbf{x} = -1 < 0$
-where $\mathbf{x} = \left( 1, 0 \right)^{\operatorname{T}}$.}
+If we take, e.g, $\mathbf{x} = \left( 1, 0 \right)^{\operatorname{T}}$,
+then $\mathbf{x}^{\operatorname{T}}\mathbf{P}\mathbf{x} = -1 < 0$.}
 
 To see the first part~(1), we use mathematical induction.
 It is trivial to show the case where $D = 1$.
-For general $D > 1$, let us write $\mathbf{L}, \mathbf{M} \in \mathcal{T}_{+}^{D}$
+For general $D > 1$, let us write $\mathbf{T}, \mathbf{T}' \in \mathcal{T}_{+}^{D}$
 as partitioned matrices so that
 \begin{equation}
-\mathbf{L} =
+\mathbf{T} =
 \begin{pmatrix}
-\widehat{\mathbf{L}} & \mathbf{0} \\
-\bm{\beta}^{\operatorname{T}} & \alpha
+\widehat{\mathbf{T}} & \bm{\beta} \\
+\mathbf{0}^{\operatorname{T}} & \alpha
 \end{pmatrix}, \qquad
-\mathbf{M} =
+\mathbf{T}' =
 \begin{pmatrix}
-\widehat{\mathbf{M}} & \mathbf{0} \\
-\bm{\eta}^{\operatorname{T}} & \gamma
+\widehat{\mathbf{T}}' & \bm{\beta}' \\
+\mathbf{0}^{\operatorname{T}} & \alpha'
 \end{pmatrix}
 \label{eq:partitioned_matrices_for_proof_of_triangular_matrix_group}
 \end{equation}
-where $\widehat{\mathbf{L}}, \widehat{\mathbf{M}} \in \mathcal{T}_{+}^{D - 1}$ and
-$\alpha, \gamma > 0$.
-Assuming that the product of $\widehat{\mathbf{L}}$ and $\widehat{\mathbf{M}}$ is again
+where $\widehat{\mathbf{T}}, \widehat{\mathbf{T}}' \in \mathcal{T}_{+}^{D - 1}$ and
+$\alpha, \alpha' > 0$.
+Assuming that the product of $\widehat{\mathbf{T}}$ and $\widehat{\mathbf{T}}'$ is again
 in the group~$\mathcal{T}_{+}^{D - 1}$ so that
-$\widehat{\mathbf{L}}\widehat{\mathbf{M}} \in \mathcal{T}_{+}^{D - 1}$,
+$\widehat{\mathbf{T}}\widehat{\mathbf{T}}' \in \mathcal{T}_{+}^{D - 1}$,
 we have
 \begin{equation}
-\mathbf{L}\mathbf{M} =
+\mathbf{T}\mathbf{T}' =
 \begin{pmatrix}
-\widehat{\mathbf{L}} & \mathbf{0} \\
-\bm{\beta}^{\operatorname{T}} & \alpha
+\widehat{\mathbf{T}} & \bm{\beta} \\
+\mathbf{0}^{\operatorname{T}} & \alpha
 \end{pmatrix}
 \begin{pmatrix}
-\widehat{\mathbf{M}} & \mathbf{0} \\
-\bm{\eta}^{\operatorname{T}} & \gamma
+\widehat{\mathbf{T}}' & \bm{\beta}' \\
+\mathbf{0}^{\operatorname{T}} & \alpha'
 \end{pmatrix}
 =
 \begin{pmatrix}
-\widehat{\mathbf{L}}\widehat{\mathbf{M}} & \mathbf{0} \\
-\bm{\lambda}^{\operatorname{T}} & \alpha\gamma
+\widehat{\mathbf{T}}\widehat{\mathbf{T}}' & \bm{\eta} \\
+\mathbf{0}^{\operatorname{T}} & \alpha\alpha'
 \end{pmatrix} \in \mathcal{T}_{+}^{D}
 \end{equation}
 where
 \begin{equation}
-\bm{\lambda} = \widehat{\mathbf{M}}^{\operatorname{T}}\bm{\beta} + \bm{\eta}\alpha .
+\bm{\eta} = \widehat{\mathbf{T}}\bm{\beta}' + \bm{\beta}\alpha' .
 \end{equation}
 
 The second part~(2) can be shown similarly by induction.
 Again, it is trivial to show the case where $D = 1$; and,
 for general $D > 1$, we make use of partitioned matrices.
-Assuming that the inverse~$\widehat{\mathbf{L}}^{-1}$ of
-$\widehat{\mathbf{L}} \in \mathcal{T}_{+}^{D - 1}$ is in the group~$\mathcal{T}_{+}^{D - 1}$
-so that $\widehat{\mathbf{L}}^{-1} \in \mathcal{T}_{+}^{D - 1}$,
-we easily find the inverse~$\mathbf{L}^{-1}$ of $\mathbf{L} \in \mathcal{T}_{+}^{D}$ in the form
+Assuming that the inverse~$\widehat{\mathbf{T}}^{-1}$ of
+$\widehat{\mathbf{T}} \in \mathcal{T}_{+}^{D - 1}$ is again in the group~$\mathcal{T}_{+}^{D - 1}$
+so that $\widehat{\mathbf{T}}^{-1} \in \mathcal{T}_{+}^{D - 1}$,
+we easily find $\mathbf{T}^{-1}$ in the form
 \begin{equation}
-\mathbf{L}^{-1} =
+\mathbf{T}^{-1} =
 \begin{pmatrix}
-\widehat{\mathbf{L}} & \mathbf{0} \\
-\bm{\beta}^{\operatorname{T}} & \alpha
+\widehat{\mathbf{T}} & \bm{\beta} \\
+\mathbf{0}^{\operatorname{T}} & \alpha
 \end{pmatrix}^{-1} =
 \begin{pmatrix}
-\widehat{\mathbf{L}}^{-1} & \mathbf{0} \\
-\bm{\xi}^{\operatorname{T}} & \alpha^{-1}
+\widehat{\mathbf{T}}^{-1} & \bm{\xi} \\
+\mathbf{0}^{\operatorname{T}} & \alpha^{-1}
 \end{pmatrix} \in \mathcal{T}_{+}^{D}
 \end{equation}
 where
 \begin{equation}
-\bm{\xi} = -\widehat{\mathbf{L}}^{-\operatorname{T}} \bm{\beta} \alpha^{-1} .
+\bm{\xi} = -\widehat{\mathbf{T}}^{-1} \bm{\beta} \alpha^{-1} .
 \end{equation}
 
 \parhead{Cholesky decomposition}
