@@ -2609,26 +2609,26 @@ To facilitate our discussion, we define two subsets of
 the space~$\mathbb{R}^{D \times D}$ of real square matrices of dimensionality~$D$.
 Let $\mathcal{S}_{+}^{D} \subset \mathbb{R}^{D \times D}$ be
 the space of symmetric positive-definite matrices; and
-$\mathcal{T}_{+}^{D} \subset \mathbb{R}^{D \times D}$ be
+$\mathcal{U}_{+}^{D} \subset \mathbb{R}^{D \times D}$ be
 the space of \emph{upper triangular} matrices with (strictly) positive diagonal elements.
-Here, an upper triangular matrix~$\mathbf{T} = \left(T_{ij}\right)$
-is a square matrix such that $T_{ij} \equiv 0$ where $i > j$ so that
+Here, an upper triangular matrix~$\mathbf{U} = \left(U_{ij}\right)$
+is a square matrix such that $U_{ij} \equiv 0$ where $i > j$ so that
 \begin{equation}
-\mathbf{T} =
+\mathbf{U} =
 \begin{pmatrix}
-T_{11} & T_{12} & \cdots & T_{1D} \\
-0      & T_{22} & \cdots & T_{2D} \\
+U_{11} & U_{12} & \cdots & U_{1D} \\
+0      & U_{22} & \cdots & U_{2D} \\
 \vdots & \ddots & \ddots & \vdots \\
-0      & \cdots & 0      & T_{DD}
+0      & \cdots & 0      & U_{DD}
 \end{pmatrix}
 \end{equation}
-where $D$ is the dimensionality of $\mathbf{T}$.
+where $D$ is the dimensionality of $\mathbf{U}$.
 Similarly, a square matrix~$\mathbf{L}$ such that $\mathbf{L}^{\operatorname{T}}$ is
 upper triangular is called a \emph{lower triangular} matrix.
 
-If $\mathbf{T} \in \mathcal{T}_{+}^{D}$,
-then $\mathbf{T} = \left(T_{ij}\right)$ is an upper triangular matrix of dimensionality~$D$
-such that $T_{ii} > 0$ for all $i$.
+If $\mathbf{U} \in \mathcal{U}_{+}^{D}$,
+then $\mathbf{U} = \left(U_{ij}\right)$ is an upper triangular matrix of dimensionality~$D$
+such that $U_{ii} > 0$ for all $i$.
 Note also that $\mathbf{A} \in \mathcal{S}_{+}^{D}$ is equivalent to saying
 ``$\mathbf{A}$ is a symmetric positive-definite matrix of dimensionality~$D$.''
 Positive definiteness of $\mathbf{A}$, or $\mathbf{A} \succ 0$, implies by definition that
@@ -2638,29 +2638,30 @@ Positive definiteness of $\mathbf{A}$, or $\mathbf{A} \succ 0$, implies by defin
 \end{equation}
 for any $\mathbf{x} \neq \mathbf{0}$.
 
-The plus sign~($+$) in the subscripts of $\mathcal{S}_{+}^{D}$ and $\mathcal{T}_{+}^{D}$
+The plus sign~($+$) in the subscripts of $\mathcal{S}_{+}^{D}$ and $\mathcal{U}_{+}^{D}$
 indicates that any matrix in either of the sets is such that
 all the eigenvalues are (strictly) positive.
-To see this for $\mathbf{A} \in \mathcal{S}_{+}^{D}$, consult Appendix~C of PRML;
-for $\mathbf{T} \in \mathcal{T}_{+}^{D}$, consider its \emph{characteristic equation}~(C.30),
-from which it readily follows that the eigenvalues of $\mathbf{T} = \left(T_{ij}\right)$ are
-equal to its diagonal elements~$T_{ii} > 0$.
+To see this for $\mathbf{A} \in \mathcal{S}_{+}^{D}$,
+consult a discussion regarding the eigenvalue decomposition found in Appendix~C of PRML;
+for $\mathbf{U} \in \mathcal{U}_{+}^{D}$, consider its \emph{characteristic equation}~(C.30),
+from which it readily follows that the eigenvalues of $\mathbf{U} = \left(U_{ij}\right)$ are
+equal to its diagonal elements~$U_{ii} > 0$.
 
 \parhead{Triangular matrix groups}
 It is worth noting here that
-$\mathcal{T}_{+}^{D}$ forms a \emph{group} with respect to matrix multiplication, i.e.,
-(1)~the product of any pair of $\mathbf{T}, \mathbf{T}' \in \mathcal{T}_{+}^{D}$
-is again in the group~$\mathcal{T}_{+}^{D}$
-so that $\mathbf{T}\mathbf{T}' \in \mathcal{T}_{+}^{D}$; and
-(2)~for any $\mathbf{T} \in \mathcal{T}_{+}^{D}$,
-there exists an inverse~$\mathbf{T}^{-1} \in \mathcal{T}_{+}^{D}$ such that
-$\mathbf{T}^{-1} \mathbf{T} = \mathbf{T} \mathbf{T}^{-1} = \mathbf{I}$
-where $\mathbf{I} \in \mathcal{T}_{+}^{D}$ is the identity matrix.\footnote{%
-The inverse~$\mathbf{T}^{-1}$ is unique in general.
-To see this, suppose that $\mathbf{X}$ is another inverse of $\mathbf{T}$.
+$\mathcal{U}_{+}^{D}$ forms a \emph{group} with respect to matrix multiplication, i.e.,
+(1)~for any pair of the elements~$\mathbf{U}, \mathbf{U}' \in \mathcal{U}_{+}^{D}$,
+the product is again in the group~$\mathcal{U}_{+}^{D}$
+so that $\mathbf{U}\mathbf{U}' \in \mathcal{U}_{+}^{D}$; and
+(2)~for any $\mathbf{U} \in \mathcal{U}_{+}^{D}$,
+there exists an inverse~$\mathbf{U}^{-1} \in \mathcal{U}_{+}^{D}$ such that
+$\mathbf{U}^{-1} \mathbf{U} = \mathbf{U} \mathbf{U}^{-1} = \mathbf{I}$
+where $\mathbf{I} \in \mathcal{U}_{+}^{D}$ is the identity matrix.\footnote{%
+The inverse~$\mathbf{U}^{-1}$ is unique in general.
+To see this, suppose that $\mathbf{R}$ is another inverse of $\mathbf{U}$.
 Then, we have by associativity that
-$\mathbf{X} = \left( \mathbf{T}^{-1} \mathbf{T} \right) \mathbf{X} =
-\mathbf{T}^{-1} \left( \mathbf{T} \mathbf{X} \right) = \mathbf{T}^{-1}$.}
+$\mathbf{R} = \left( \mathbf{U}^{-1} \mathbf{U} \right) \mathbf{R} =
+\mathbf{U}^{-1} \left( \mathbf{U} \mathbf{R} \right) = \mathbf{U}^{-1}$.}
 Note however that $\mathcal{S}_{+}^{D}$ does not form a group.\footnote{%
 In fact, it is easy to see that the product~$\mathbf{P} = \mathbf{A}\mathbf{B}$ of
 $\mathbf{A}, \mathbf{B} \in \mathcal{S}_{+}^{D}$ is not symmetric in general.
@@ -2700,80 +2701,79 @@ then $\mathbf{x}^{\operatorname{T}}\mathbf{P}\mathbf{x} = -1 < 0$.}
 
 To see the first part~(1), we use mathematical induction.
 It is trivial to show the case where $D = 1$.
-For a general $D > 1$, let us write $\mathbf{T}, \mathbf{T}' \in \mathcal{T}_{+}^{D}$
+For $D > 1$, let us write $\mathbf{U}, \mathbf{U}' \in \mathcal{U}_{+}^{D}$
 as partitioned matrices so that
 \begin{equation}
-\mathbf{T} =
+\mathbf{U} =
 \begin{pmatrix}
-\widehat{\mathbf{T}} & \bm{\beta} \\
+\widehat{\mathbf{U}} & \bm{\beta} \\
 \mathbf{0}^{\operatorname{T}} & \alpha
 \end{pmatrix}, \qquad
-\mathbf{T}' =
+\mathbf{U}' =
 \begin{pmatrix}
-\widehat{\mathbf{T}}' & \bm{\beta}' \\
+\widehat{\mathbf{U}}' & \bm{\beta}' \\
 \mathbf{0}^{\operatorname{T}} & \alpha'
 \end{pmatrix}
 \label{eq:partitioned_matrices_for_proof_of_triangular_matrix_group}
 \end{equation}
-where $\widehat{\mathbf{T}}, \widehat{\mathbf{T}}' \in \mathcal{T}_{+}^{D - 1}$ and
+where $\widehat{\mathbf{U}}, \widehat{\mathbf{U}}' \in \mathcal{U}_{+}^{D - 1}$ and
 $\alpha, \alpha' > 0$.
-Assuming that the product of $\widehat{\mathbf{T}}$ and $\widehat{\mathbf{T}}'$ is again
-in the group~$\mathcal{T}_{+}^{D - 1}$ so that
-$\widehat{\mathbf{T}}\widehat{\mathbf{T}}' \in \mathcal{T}_{+}^{D - 1}$,
+Assuming that the product of $\widehat{\mathbf{U}}$ and $\widehat{\mathbf{U}}'$ is again
+in the group~$\mathcal{U}_{+}^{D - 1}$ so that
+$\widehat{\mathbf{U}}\widehat{\mathbf{U}}' \in \mathcal{U}_{+}^{D - 1}$,
 we have
 \begin{equation}
-\mathbf{T}\mathbf{T}' =
+\mathbf{U}\mathbf{U}' =
 \begin{pmatrix}
-\widehat{\mathbf{T}} & \bm{\beta} \\
+\widehat{\mathbf{U}} & \bm{\beta} \\
 \mathbf{0}^{\operatorname{T}} & \alpha
 \end{pmatrix}
 \begin{pmatrix}
-\widehat{\mathbf{T}}' & \bm{\beta}' \\
+\widehat{\mathbf{U}}' & \bm{\beta}' \\
 \mathbf{0}^{\operatorname{T}} & \alpha'
 \end{pmatrix}
 =
 \begin{pmatrix}
-\widehat{\mathbf{T}}\widehat{\mathbf{T}}' & \bm{\eta} \\
+\widehat{\mathbf{U}}\widehat{\mathbf{U}}' & \bm{\eta} \\
 \mathbf{0}^{\operatorname{T}} & \alpha\alpha'
-\end{pmatrix} \in \mathcal{T}_{+}^{D}
+\end{pmatrix} \in \mathcal{U}_{+}^{D}
 \end{equation}
 where
 \begin{equation}
-\bm{\eta} = \widehat{\mathbf{T}}\bm{\beta}' + \bm{\beta}\alpha' .
+\bm{\eta} = \widehat{\mathbf{U}}\bm{\beta}' + \bm{\beta}\alpha' .
 \end{equation}
 
 The second part~(2) can be shown similarly by induction.
 Again, it is trivial to show the case where $D = 1$; and,
-for a general $D > 1$, we make use of partitioned matrices.
-Assuming that the inverse~$\widehat{\mathbf{T}}^{-1}$ of
-$\widehat{\mathbf{T}} \in \mathcal{T}_{+}^{D - 1}$ is again in the group~$\mathcal{T}_{+}^{D - 1}$
-so that $\widehat{\mathbf{T}}^{-1} \in \mathcal{T}_{+}^{D - 1}$,
-we easily find $\mathbf{T}^{-1}$ in the form
+for $D > 1$, we make use of partitioned matrices.
+Assuming that the inverse~$\widehat{\mathbf{U}}^{-1}$ of
+$\widehat{\mathbf{U}} \in \mathcal{U}_{+}^{D - 1}$ is again in the group~$\mathcal{U}_{+}^{D - 1}$
+so that $\widehat{\mathbf{U}}^{-1} \in \mathcal{U}_{+}^{D - 1}$,
+we easily find $\mathbf{U}^{-1}$ in the form
 \begin{equation}
-\mathbf{T}^{-1} =
+\mathbf{U}^{-1} =
 \begin{pmatrix}
-\widehat{\mathbf{T}} & \bm{\beta} \\
+\widehat{\mathbf{U}} & \bm{\beta} \\
 \mathbf{0}^{\operatorname{T}} & \alpha
 \end{pmatrix}^{-1} =
 \begin{pmatrix}
-\widehat{\mathbf{T}}^{-1} & \bm{\xi} \\
+\widehat{\mathbf{U}}^{-1} & \bm{\xi} \\
 \mathbf{0}^{\operatorname{T}} & \alpha^{-1}
-\end{pmatrix} \in \mathcal{T}_{+}^{D}
+\end{pmatrix} \in \mathcal{U}_{+}^{D}
 \end{equation}
 where
 \begin{equation}
-\bm{\xi} = -\widehat{\mathbf{T}}^{-1} \bm{\beta} \alpha^{-1} .
+\bm{\xi} = -\widehat{\mathbf{U}}^{-1} \bm{\beta} \alpha^{-1} .
 \end{equation}
 
 \parhead{Cholesky decomposition}
 For any symmetric positive-definite matrix~$\mathbf{A} \in \mathcal{S}_{+}^{D}$,
-there exists a unique upper triangular matrix~$\mathbf{T} \in \mathcal{T}_{+}^{D}$
-such that
+there exists a unique upper triangular matrix~$\mathbf{U} \in \mathcal{U}_{+}^{D}$ such that
 \begin{equation}
-\mathbf{A} = \mathbf{T}^{\operatorname{T}} \mathbf{T}
+\mathbf{A} = \mathbf{U}^{\operatorname{T}} \mathbf{U}
 \label{eq:cholesky_decomposition}
 \end{equation}
-or, if the matrices~$\mathbf{A} = \left(A_{ij}\right)$ and $\mathbf{T} = \left(T_{ij}\right)$ are
+or, if the matrices~$\mathbf{A} = \left(A_{ij}\right)$ and $\mathbf{U} = \left(U_{ij}\right)$ are
 written element-wise,
 \begin{equation}
 \begin{pmatrix}
@@ -2784,33 +2784,32 @@ A_{D1} & A_{D2} & \cdots & A_{DD}
 \end{pmatrix}
 =
 \begin{pmatrix}
-T_{11} & 0      & \cdots & 0      \\
-T_{12} & T_{22} & \ddots & \vdots \\
+U_{11} & 0      & \cdots & 0      \\
+U_{12} & U_{22} & \ddots & \vdots \\
 \vdots & \vdots & \ddots & 0      \\
-T_{1D} & T_{2D} & \cdots & T_{DD}
+U_{1D} & U_{2D} & \cdots & U_{DD}
 \end{pmatrix}
 \begin{pmatrix}
-T_{11} & T_{12} & \cdots & T_{1D} \\
-0      & T_{22} & \cdots & T_{2D} \\
+U_{11} & U_{12} & \cdots & U_{1D} \\
+0      & U_{22} & \cdots & U_{2D} \\
 \vdots & \ddots & \ddots & \vdots \\
-0      & \cdots & 0      & T_{DD}
+0      & \cdots & 0      & U_{DD}
 \end{pmatrix} .
 \label{eq:cholesky_decomposition_element_wise}
 \end{equation}
 This matrix factorization is known as
 the \emph{Cholesky decomposition}~\citep{Anderson:Multivariate,Press:NR} or
 \emph{Cholesky factorization}~\citep{GvL:MC,Szeliski:ComputerVision}.
-The upper triangular matrix~$\mathbf{T}$ in
-the right hand side of \eqref{eq:cholesky_decomposition}
-is called the \emph{Cholesky factor}\footnote{%
+The upper triangular matrix~$\mathbf{U}$ is called
+the \emph{Cholesky factor} of $\mathbf{A}$.\footnote{%
 The Cholesky decomposition~\eqref{eq:cholesky_decomposition} can also be written in the form
 \begin{equation}
 \mathbf{A} = \mathbf{L} \mathbf{L}^{\operatorname{T}}
 \end{equation}
-where $\mathbf{L} = \mathbf{T}^{\operatorname{T}}$,
-in which case the lower triangular matrix~$\mathbf{L}$ is called the Cholesky factor.}.
+where $\mathbf{L}$ is a lower triangular matrix with positive diagonals,
+in which case $\mathbf{L}$ is called the Cholesky factor.}
 
-Conversely, for any upper triangular matrix~$\mathbf{T} \in \mathcal{T}_{+}^{D}$,
+Conversely, for any upper triangular matrix~$\mathbf{U} \in \mathcal{U}_{+}^{D}$,
 there exists a unique symmetric positive-definite matrix~$\mathbf{A} \in \mathcal{S}_{+}^{D}$
 such that \eqref{eq:cholesky_decomposition} holds.
 Therefore, the Cholesky decomposition~\eqref{eq:cholesky_decomposition} can be regarded as
@@ -2822,21 +2821,21 @@ A function~$f : X \to Y$ is bijective if and only if $f$ is \emph{invertible}, i
 there exists an inverse function~$f^{-1} : Y \to X$ (which is, of course, also bijective)
 such that $f^{-1} \circ f$ is the identity function on $X$,
 meaning that $x = f^{-1}\left(f(x)\right)$ for any $x \in X$.}
-function~$\mathcal{S}_{+}^{D} \to \mathcal{T}_{+}^{D}$.
+function~$\mathcal{S}_{+}^{D} \to \mathcal{U}_{+}^{D}$.
 It should also be noted here that,
 as a necessary condition for a matrix transformation to be bijective,
 the number of independent parameters in $\mathbf{A} \in \mathcal{S}_{+}^{D}$
-indeed agrees with that of $\mathbf{T} \in \mathcal{T}_{+}^{D}$.
-More specifically, either of $\mathbf{A}$ and $\mathbf{T}$ has $D(D + 1)/2$ independent parameters
-because $\mathbf{A}$ is a symmetric matrix and $\mathbf{T}$ is an (upper) triangular matrix.
+indeed agrees with that of $\mathbf{U} \in \mathcal{U}_{+}^{D}$.
+More specifically, either of $\mathbf{A}$ and $\mathbf{U}$ has $D(D + 1)/2$ independent parameters
+because $\mathbf{A}$ is a symmetric matrix and $\mathbf{U}$ is an (upper) triangular matrix.
 
 The existence of the Cholesky decomposition~\eqref{eq:cholesky_decomposition}
 can be shown again by induction.
 First, assume $D = 1$, in which case we have $A > 0$ so that
-$T = \sqrt{A} > 0$ satisfies \eqref{eq:cholesky_decomposition}.
+$U = \sqrt{A} > 0$ satisfies \eqref{eq:cholesky_decomposition}.
 Next, we consider the general case where $D > 1$.
 As we have done in \eqref{eq:partitioned_matrices_for_proof_of_triangular_matrix_group},
-let us write $\mathbf{A} \in \mathcal{S}_{+}^{D}$ and $\mathbf{T} \in \mathcal{T}_{+}^{D}$
+let us write $\mathbf{A} \in \mathcal{S}_{+}^{D}$ and $\mathbf{U} \in \mathcal{U}_{+}^{D}$
 as partitioned matrices so that
 \begin{equation}
 \mathbf{A} =
@@ -2844,15 +2843,15 @@ as partitioned matrices so that
 \widehat{\mathbf{A}} & \mathbf{b} \\
 \mathbf{b}^{\operatorname{T}} & a \\
 \end{pmatrix} , \qquad
-\mathbf{T} =
+\mathbf{U} =
 \begin{pmatrix}
-\widehat{\mathbf{T}} & \bm{\beta} \\
+\widehat{\mathbf{U}} & \bm{\beta} \\
 \mathbf{0}^{\operatorname{T}} & \alpha
 \end{pmatrix}
 \label{eq:partitioned_matrices_for_cholesky_decomposition}
 \end{equation}
 where $\widehat{\mathbf{A}} \in \mathcal{S}_{+}^{D - 1}$ and
-$\widehat{\mathbf{T}} \in \mathcal{T}_{+}^{D - 1}$.\footnote{%
+$\widehat{\mathbf{U}} \in \mathcal{U}_{+}^{D - 1}$.\footnote{%
 It directly follows from \eqref{eq:definition_of_positive_definiteness}
 that $\widehat{\mathbf{A}} \succ 0$.
 In fact, substituting
@@ -2862,20 +2861,20 @@ we have $\widehat{\mathbf{x}}^{\operatorname{T}}\widehat{\mathbf{A}}\widehat{\ma
 for any $\widehat{\mathbf{x}} \neq \mathbf{0}$, showing $\widehat{\mathbf{A}} \succ 0$.}
 Then, the right hand side of \eqref{eq:cholesky_decomposition} can be written as
 \begin{equation}
-\mathbf{T}^{\operatorname{T}}\mathbf{T} =
+\mathbf{U}^{\operatorname{T}}\mathbf{U} =
 \begin{pmatrix}
-\widehat{\mathbf{T}}^{\operatorname{T}} & \mathbf{0} \\
+\widehat{\mathbf{U}}^{\operatorname{T}} & \mathbf{0} \\
 \bm{\beta}^{\operatorname{T}} & \alpha
 \end{pmatrix}
 \begin{pmatrix}
-\widehat{\mathbf{T}} & \bm{\beta} \\
+\widehat{\mathbf{U}} & \bm{\beta} \\
 \mathbf{0}^{\operatorname{T}} & \alpha
 \end{pmatrix}
 =
 \begin{pmatrix}
-\widehat{\mathbf{T}}^{\operatorname{T}}\widehat{\mathbf{T}} &
-\widehat{\mathbf{T}}^{\operatorname{T}}\bm{\beta} \\
-\bm{\beta}^{\operatorname{T}}\widehat{\mathbf{T}} &
+\widehat{\mathbf{U}}^{\operatorname{T}}\widehat{\mathbf{U}} &
+\widehat{\mathbf{U}}^{\operatorname{T}}\bm{\beta} \\
+\bm{\beta}^{\operatorname{T}}\widehat{\mathbf{U}} &
 \|\bm{\beta}\|^{2} + \alpha^{2}
 \end{pmatrix} \label{eq:rhs_of_cholesky_decomposition} .
 \end{equation}
@@ -2883,19 +2882,19 @@ Equating the right hand side of \eqref{eq:rhs_of_cholesky_decomposition} with
 the partitioned form~\eqref{eq:partitioned_matrices_for_cholesky_decomposition} of $\mathbf{A}$
 gives
 \begin{align}
-\widehat{\mathbf{A}} &= \widehat{\mathbf{T}}^{\operatorname{T}} \widehat{\mathbf{T}}
+\widehat{\mathbf{A}} &= \widehat{\mathbf{U}}^{\operatorname{T}} \widehat{\mathbf{U}}
 \label{eq:cholesky_decomposition_D-1} \\
-\mathbf{b} &= \widehat{\mathbf{T}}^{\operatorname{T}} \bm{\beta} \\
+\mathbf{b} &= \widehat{\mathbf{U}}^{\operatorname{T}} \bm{\beta} \\
 a &= \|\bm{\beta}\|^{2} + \alpha^{2} .
 \end{align}
 We see that \eqref{eq:cholesky_decomposition_D-1} is
 the Cholesky decomposition from $\widehat{\mathbf{A}} \in \mathcal{S}_{+}^{D - 1}$
-to $\widehat{\mathbf{T}} \in \mathcal{T}_{+}^{D - 1}$.
-Assuming that this $(D - 1)$-dimensional
-Cholesky decomposition~\eqref{eq:cholesky_decomposition_D-1} exists,
+to $\widehat{\mathbf{U}} \in \mathcal{U}_{+}^{D - 1}$.
+Assuming that
+the $(D - 1)$-dimensional Cholesky decomposition~\eqref{eq:cholesky_decomposition_D-1} exists,
 we can find $\bm{\beta}$ and $\alpha$ as
 \begin{align}
-\bm{\beta} &= \widehat{\mathbf{T}}^{-\operatorname{T}} \mathbf{b}
+\bm{\beta} &= \widehat{\mathbf{U}}^{-\operatorname{T}} \mathbf{b}
 \label{eq:beta_in_cholesky_factor} \\
 \alpha &= \sqrt{a - \|\bm{\beta}\|^{2}} > 0
 \label{eq:alpha_in_cholesky_factor} .
@@ -2925,7 +2924,7 @@ is again positive definite.}
 
 Finally, we observe that
 the above induction effectively constructs a recursive algorithm to compute
-$\mathbf{T} \in \mathcal{T}_{+}^{D}$ from $\mathbf{A} \in \mathcal{S}_{+}^{D}$.
+$\mathbf{U} \in \mathcal{U}_{+}^{D}$ from $\mathbf{A} \in \mathcal{S}_{+}^{D}$.
 The uniqueness of the Cholesky decomposition~\eqref{eq:cholesky_decomposition} is implied by
 the uniqueness of each operation in the algorithm.
 
