@@ -2994,6 +2994,65 @@ Thus, we have
 \label{eq:jacobian_of_cholesky_decomposition}
 \end{equation}
 
+Another matrix transformation of interest is the product of upper triangular matrices
+\begin{equation}
+\mathbf{U} = \mathbf{R} \mathbf{G}
+\end{equation}
+where $\mathbf{U}, \mathbf{R}, \mathbf{G} \in \mathcal{U}_{+}^{D}$.
+Assuming that $\mathbf{G}$ is constant, we see the above product as a matrix transformation
+between $\mathbf{U}$ and $\mathbf{R}$.
+If the matrices~$\mathbf{U} = \left(U_{ij}\right)$, $\mathbf{R} = \left(R_{ij}\right)$,
+and $\mathbf{G} = \left(G_{ij}\right)$ are written element-wise, we have
+\begin{equation}
+\begin{pmatrix}
+U_{11} & U_{12} & \cdots & U_{1D} \\
+0      & U_{22} & \cdots & U_{2D} \\
+\vdots & \ddots & \ddots & \vdots \\
+0      & \cdots & 0      & U_{DD}
+\end{pmatrix}
+=
+\begin{pmatrix}
+R_{11} & R_{12} & \cdots & R_{1D} \\
+0      & R_{22} & \cdots & R_{2D} \\
+\vdots & \ddots & \ddots & \vdots \\
+0      & \cdots & 0      & R_{DD}
+\end{pmatrix}
+\begin{pmatrix}
+G_{11} & G_{12} & \cdots & G_{1D} \\
+0      & G_{22} & \cdots & G_{2D} \\
+\vdots & \ddots & \ddots & \vdots \\
+0      & \cdots & 0      & G_{DD}
+\end{pmatrix}
+\end{equation}
+so that
+\begin{align}
+U_{11} &= R_{11} G_{11} \\
+U_{12} &= R_{11} G_{12} + R_{12} G_{22} \\
+\shortvdotswithin{=}
+U_{1D} &= R_{11} G_{1D} + R_{12} G_{2D} + \dots + R_{1D} G_{DD} \\
+U_{22} &= R_{22} G_{22} \\
+\shortvdotswithin{=}
+U_{2D} &= R_{22} G_{2D} + \dots + R_{2D} G_{DD} \\
+\shortvdotswithin{=}
+U_{ij} &= R_{ii} G_{ij} + \dots + R_{ij} G_{jj} \quad (i \leqslant j) \\
+\shortvdotswithin{=}
+U_{DD} &= R_{DD} G_{DD} .
+\end{align}
+Since $U_{ij}$ depends only on $R_{ij}$ and its preceding elements,
+the Jacobian matrix from $\mathbf{R}$ to $\mathbf{U}$ is again a lower triangular matrix
+where the diagonal elements are given by
+\begin{equation}
+\frac{\partial U_{ij}}{\partial R_{ij}} = G_{jj} > 0 \quad (i \leqslant j) .
+\end{equation}
+Thus, we obtain
+\begin{equation}
+\left| \frac{\partial\mathbf{U}}{\partial\mathbf{R}} \right| =
+G_{11} \times G_{22} \times \dots \times G_{DD} \times
+G_{22} \times \dots \times G_{DD} \times \dots \times
+G_{DD} =
+\prod_{i=1}^{D} G_{ii}^{\,i} .
+\end{equation}
+
 % TODO
 
 \erratum{Page~693}
