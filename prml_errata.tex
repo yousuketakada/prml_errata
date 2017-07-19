@@ -2929,69 +2929,69 @@ The uniqueness of the Cholesky decomposition~\eqref{eq:cholesky_decomposition} i
 the uniqueness of each operation in the algorithm.
 
 \parhead{Jacobians of matrix transformations}
-Bijectivity of the Cholesky decomposition~\eqref{eq:cholesky_decomposition} allows us to use
-the matrix transformation as a change of variables,
-of which we shall later make use for evaluating certain integrals over
-symmetric positive-definite matrices.
+Bijectivity of the Cholesky decomposition~\eqref{eq:cholesky_decomposition}
+allows us to \emph{change variables}.
+In fact, the change of variables based on the Cholesky decomposition is
+useful for evaluating certain integrals over symmetric positive-definite matrices
+as we shall see later.
 Here, we consider Jacobians for such matrix transformations.
 
 First, let us find the Jacobian matrix for
 the Cholesky decomposition~\eqref{eq:cholesky_decomposition} between
-$\mathbf{A} \in \mathcal{S}_{+}^{D}$ and $\mathbf{L} \in \mathcal{T}_{+}^{D}$.
+$\mathbf{A} \in \mathcal{S}_{+}^{D}$ and $\mathbf{U} \in \mathcal{U}_{+}^{D}$.
 To do so, we work with its element-wise representation given by
 \eqref{eq:cholesky_decomposition_element_wise}.
 Since $\mathbf{A} = \left( A_{ij} \right)$ is symmetric so that $A_{ij} \equiv A_{ji}$,
-we only consider the lower triangular elements~$A_{ij}$ of $\mathbf{A}$ such that $i \geqslant j$.
-Writing down the lower triangular elements~$A_{ij}$ in \emph{column-major} order,
-i.e., $\left( A_{11}, A_{21}, \dots, A_{D1}, A_{22}, \dots, A_{D2}, \dots, A_{DD} \right)$,
+we only consider the upper triangular elements~$A_{ij}$ of $\mathbf{A}$ such that $i \leqslant j$.
+Writing down the upper triangular elements~$A_{ij}$ in \emph{row-major} order,
+i.e., $\left( A_{11}, A_{12}, \dots, A_{1D}, A_{22}, \dots, A_{2D}, \dots, A_{DD} \right)$,
 we have
 \begin{align}
-A_{11} &= L_{11}^{2} \\
-A_{21} &= L_{21} L_{11} \\
+A_{11} &= U_{11}^{2} \\
+A_{12} &= U_{11} U_{12} \\
 \shortvdotswithin{=}
-A_{D1} &= L_{D1} L_{11} \\
-A_{22} &= L_{21}^{2} + L_{22}^{2} \\
+A_{1D} &= U_{11} U_{1D} \\
+A_{22} &= U_{12}^{2} + U_{22}^{2} \\
 \shortvdotswithin{=}
-A_{D2} &= L_{D1} L_{21} + L_{D2} L_{22} \\
+A_{2D} &= U_{12} U_{1D} + U_{22} U_{2D} \\
 \shortvdotswithin{=}
-A_{ij} &= L_{i1} L_{j1} + L_{i2} L_{j2} + \dots + L_{ij} L_{jj} \quad (i \geqslant j) \\
+A_{ij} &= U_{1i} U_{1j} + \dots + U_{ii} U_{ij} \quad (i \leqslant j) \\
 \shortvdotswithin{=}
-A_{DD} &= L_{D1}^{2} + L_{D2}^{2} + \dots + L_{DD}^{2} .
+A_{DD} &= U_{1D}^{2} + U_{2D}^{2} + \dots + U_{DD}^{2} .
 \end{align}
-Since $A_{ij}$ depends only on $L_{ij}$ and
-the preceding elements of $\mathbf{L}$ in column-major order,
-the Jacobian matrix from $\mathbf{L}$ to $\mathbf{A}$ is a lower triangular matrix of the form
+Since $A_{ij}$ depends only on $U_{ij}$ and its preceding elements of $\mathbf{U}$,
+the Jacobian matrix from $\mathbf{U}$ to $\mathbf{A}$ is a lower triangular matrix of the form
 \begin{align}
-\frac{\partial\mathbf{A}}{\partial\mathbf{L}}
+\frac{\partial\mathbf{A}}{\partial\mathbf{U}}
 &\equiv
-\frac{\partial \left( A_{11}, A_{21}, \dots, A_{D1}, A_{22}, \dots, A_{D2}, \dots, A_{DD} \right)}
-{\partial \left( L_{11}, L_{21}, \dots, L_{D1}, L_{22}, \dots, L_{D2}, \dots, L_{DD} \right)} \\
+\frac{\partial \left( A_{11}, A_{12}, \dots, A_{1D}, A_{22}, \dots, A_{2D}, \dots, A_{DD} \right)}
+{\partial \left( U_{11}, U_{12}, \dots, U_{1D}, U_{22}, \dots, U_{2D}, \dots, U_{DD} \right)} \\
 &=
 \bordermatrix{
-         &   L_{11} & L_{21} & \cdots & L_{D1} &   L_{22} & \cdots & L_{D2} & \cdots &   L_{DD} \cr
-  A_{11} & 2 L_{11} & 0      & \cdots & 0      & 0        & \cdots & 0      & \cdots & 0        \cr
-  A_{21} & \ast     & L_{11} & \cdots & 0      & 0        & \cdots & 0      & \cdots & 0        \cr
+         &   U_{11} & U_{12} & \cdots & U_{1D} &   U_{22} & \cdots & U_{2D} & \cdots &   U_{DD} \cr
+  A_{11} & 2 U_{11} & 0      & \cdots & 0      & 0        & \cdots & 0      & \cdots & 0        \cr
+  A_{12} & \ast     & U_{11} & \cdots & 0      & 0        & \cdots & 0      & \cdots & 0        \cr
 \;\vdots & \vdots   & \vdots & \ddots & \vdots & \vdots   & \ddots & \vdots & \ddots & \vdots   \cr
-  A_{D1} & \ast     & \ast   & \cdots & L_{11} & 0        & \cdots & 0      & \cdots & 0        \cr
-  A_{22} & \ast     & \ast   & \cdots & \ast   & 2 L_{22} & \cdots & 0      & \cdots & 0        \cr
+  A_{1D} & \ast     & \ast   & \cdots & U_{11} & 0        & \cdots & 0      & \cdots & 0        \cr
+  A_{22} & \ast     & \ast   & \cdots & \ast   & 2 U_{22} & \cdots & 0      & \cdots & 0        \cr
 \;\vdots & \vdots   & \vdots & \ddots & \vdots & \vdots   & \ddots & \vdots & \ddots & \vdots   \cr
-  A_{D2} & \ast     & \ast   & \cdots & \ast   & \ast     & \cdots & L_{22} & \cdots & 0        \cr
+  A_{2D} & \ast     & \ast   & \cdots & \ast   & \ast     & \cdots & U_{22} & \cdots & 0        \cr
 \;\vdots & \vdots   & \vdots & \ddots & \vdots & \vdots   & \ddots & \vdots & \ddots & \vdots   \cr
-  A_{DD} & \ast     & \ast   & \cdots & \ast   & \ast     & \cdots & \ast   & \cdots & 2 L_{DD}
+  A_{DD} & \ast     & \ast   & \cdots & \ast   & \ast     & \cdots & \ast   & \cdots & 2 U_{DD}
 }
-\in \mathcal{T}_{+}^{D(D + 1)/2}
 \end{align}
 where the diagonal elements are given by
 \begin{equation}
-\frac{\partial A_{jj}}{\partial L_{jj}} = 2 L_{jj} > 0, \qquad
-\frac{\partial A_{ij}}{\partial L_{ij}} = L_{jj} > 0 \quad (i > j)
+\frac{\partial A_{ii}}{\partial U_{ii}} = 2 U_{ii} > 0, \qquad
+\frac{\partial A_{ij}}{\partial U_{ij}} = U_{ii} > 0 \quad (i < j)
 \end{equation}
 and the elements denoted by $\ast$ are elements possibly nonzero.
 Thus, we have
 \begin{equation}
-\left| \frac{\partial\mathbf{A}}{\partial\mathbf{L}} \right| =
-2 L_{11}^{D} \times 2 L_{22}^{D - 1} \times \dots \times 2 L_{DD} =
-2^D \prod_{i=1}^{D} L_{ii}^{D + 1 - i} .
+\left| \frac{\partial\mathbf{A}}{\partial\mathbf{U}} \right| =
+2 U_{11}^{D} \times 2 U_{22}^{D - 1} \times \dots \times 2 U_{DD} =
+2^D \prod_{i=1}^{D} U_{ii}^{D + 1 - i} .
+\label{eq:jacobian_of_cholesky_decomposition}
 \end{equation}
 
 % TODO
