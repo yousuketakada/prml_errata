@@ -2642,7 +2642,8 @@ The plus sign~($+$) in the subscripts of $\mathcal{S}_{+}^{D}$ and $\mathcal{U}_
 indicates that any matrix in either of the sets is such that
 all the eigenvalues are (strictly) positive.
 To see this for $\mathbf{A} \in \mathcal{S}_{+}^{D}$,
-consult a discussion regarding the eigenvalue decomposition found in Appendix~C of PRML;
+consult the discussion regarding the \emph{eigenvalue decomposition} of real symmetric matrices
+found in Appendix~C of PRML;
 for $\mathbf{U} \in \mathcal{U}_{+}^{D}$, consider its \emph{characteristic equation}~(C.30),
 from which it readily follows that the eigenvalues of $\mathbf{U} = \left(U_{ij}\right)$ are
 equal to its diagonal elements~$U_{ii} > 0$.
@@ -2651,7 +2652,7 @@ equal to its diagonal elements~$U_{ii} > 0$.
 It is worth noting here that
 $\mathcal{U}_{+}^{D}$ forms a \emph{group} with respect to matrix multiplication, i.e.,
 (1)~for any pair of the elements~$\mathbf{U}, \mathbf{U}' \in \mathcal{U}_{+}^{D}$,
-the product is again in the group~$\mathcal{U}_{+}^{D}$
+their product is again in the group~$\mathcal{U}_{+}^{D}$
 so that $\mathbf{U}\mathbf{U}' \in \mathcal{U}_{+}^{D}$; and
 (2)~for any $\mathbf{U} \in \mathcal{U}_{+}^{D}$,
 there exists an inverse~$\mathbf{U}^{-1} \in \mathcal{U}_{+}^{D}$ such that
@@ -2931,9 +2932,12 @@ the uniqueness of each operation in the algorithm.
 \parhead{Jacobians of matrix transformations}
 Bijectivity of the Cholesky decomposition~\eqref{eq:cholesky_decomposition}
 allows us to \emph{change variables}.
-In fact, the change of variables based on the Cholesky decomposition is
-useful for evaluating certain integrals over symmetric positive-definite matrices
-as we shall see later.
+The change of variables based on the Cholesky decomposition is
+useful for evaluating integrals over symmetric positive-definite matrices
+because the elements in the Cholesky factor~$\mathbf{U} = (U_{ij})$ have
+a simpler domain of integration,
+i.e., $U_{ii} \in (0, \infty)$ and $U_{ij} \in (-\infty, \infty)$ where $i < j$.
+We shall later see some examples of this technique.
 Here, we consider Jacobians for such matrix transformations.
 
 First, let us find the Jacobian matrix for
@@ -2944,7 +2948,6 @@ To do so, we work with its element-wise representation given by
 Since $\mathbf{A} = \left( A_{ij} \right)$ is symmetric so that $A_{ij} \equiv A_{ji}$,
 we only consider the upper triangular elements~$A_{ij}$ of $\mathbf{A}$ such that $i \leqslant j$.
 Writing down the upper triangular elements~$A_{ij}$ in \emph{row-major} order,
-i.e., $\left( A_{11}, A_{12}, \dots, A_{1D}, A_{22}, \dots, A_{2D}, \dots, A_{DD} \right)$,
 we have
 \begin{align}
 A_{11} &= U_{11}^{2} \\
@@ -2959,7 +2962,7 @@ A_{ij} &= U_{1i} U_{1j} + \dots + U_{ii} U_{ij} \quad (i \leqslant j) \\
 \shortvdotswithin{=}
 A_{DD} &= U_{1D}^{2} + U_{2D}^{2} + \dots + U_{DD}^{2} .
 \end{align}
-Since $A_{ij}$ depends only on $U_{ij}$ and its preceding elements of $\mathbf{U}$,
+Since $A_{ij}$ depends only on $U_{ij}$ and its preceding elements in $\mathbf{U}$,
 the Jacobian matrix from $\mathbf{U}$ to $\mathbf{A}$ is a lower triangular matrix of the form
 \begin{align}
 \frac{\partial\mathbf{A}}{\partial\mathbf{U}}
@@ -2994,14 +2997,14 @@ Thus, we have
 \label{eq:jacobian_of_cholesky_decomposition}
 \end{equation}
 
-Another matrix transformation of interest is the product of upper triangular matrices
+Another matrix transformation of interest is a linear transformation between
+$\mathbf{U} \in \mathcal{U}_{+}^{D}$ and $\mathbf{R} \in \mathcal{U}_{+}^{D}$
+of the form
 \begin{equation}
 \mathbf{U} = \mathbf{R} \mathbf{G}
 \end{equation}
-where $\mathbf{U}, \mathbf{R}, \mathbf{G} \in \mathcal{U}_{+}^{D}$.
-Assuming that $\mathbf{G}$ is constant, we see the above product as a matrix transformation
-between $\mathbf{U}$ and $\mathbf{R}$.
-If the matrices~$\mathbf{U} = \left(U_{ij}\right)$, $\mathbf{R} = \left(R_{ij}\right)$,
+where $\mathbf{G} \in \mathcal{U}_{+}^{D}$ is a constant.
+If these matrices~$\mathbf{U} = \left(U_{ij}\right)$, $\mathbf{R} = \left(R_{ij}\right)$,
 and $\mathbf{G} = \left(G_{ij}\right)$ are written element-wise, we have
 \begin{equation}
 \begin{pmatrix}
@@ -3038,13 +3041,14 @@ U_{ij} &= R_{ii} G_{ij} + \dots + R_{ij} G_{jj} \quad (i \leqslant j) \\
 \shortvdotswithin{=}
 U_{DD} &= R_{DD} G_{DD} .
 \end{align}
-Since $U_{ij}$ depends only on $R_{ij}$ and its preceding elements,
+Since $U_{ij}$ depends only on $R_{ij}$ and its preceding elements in $\mathbf{R}$,
 the Jacobian matrix from $\mathbf{R}$ to $\mathbf{U}$ is again a lower triangular matrix
-where the diagonal elements are given by
+such that the diagonal elements are given by
 \begin{equation}
-\frac{\partial U_{ij}}{\partial R_{ij}} = G_{jj} > 0 \quad (i \leqslant j) .
+\frac{\partial U_{ij}}{\partial R_{ij}} = G_{jj} > 0
 \end{equation}
-Thus, we obtain
+where $i \leqslant j$.
+Thus, we obtain the Jacobian in the form
 \begin{equation}
 \left| \frac{\partial\mathbf{U}}{\partial\mathbf{R}} \right| =
 G_{11} \times G_{22}^{\,2} \times \dots \times G_{DD}^{\,D} =
