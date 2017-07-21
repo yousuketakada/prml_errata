@@ -2947,7 +2947,7 @@ To do so, we work with its element-wise representation given by
 \eqref{eq:cholesky_decomposition_element_wise}.
 Since $\mathbf{A} = \left( A_{ij} \right)$ is symmetric so that $A_{ij} \equiv A_{ji}$,
 we only consider the upper triangular elements~$A_{ij}$ of $\mathbf{A}$ such that $i \leqslant j$.
-Writing down the upper triangular elements~$A_{ij}$ in \emph{row-major} order,
+Writing down the upper triangular elements~$A_{ij}$ in \emph{lexicographic} (or row-major) order,
 we have
 \begin{align}
 A_{11} &= U_{11}^{2} \\
@@ -2962,8 +2962,9 @@ A_{ij} &= U_{1i} U_{1j} + \dots + U_{ii} U_{ij} \quad (i \leqslant j) \\
 \shortvdotswithin{=}
 A_{DD} &= U_{1D}^{2} + U_{2D}^{2} + \dots + U_{DD}^{2} .
 \end{align}
-Since $A_{ij}$ depends only on $U_{ij}$ and its preceding elements in $\mathbf{U}$,
-the Jacobian matrix from $\mathbf{U}$ to $\mathbf{A}$ is a lower triangular matrix of the form
+Since $A_{ij}$ depends only on $U_{ij}$ and the preceding elements in lexicographic order,
+the Jacobian matrix from $\mathbf{U}$ to $\mathbf{A}$ can be written as
+a lower triangular matrix of the form
 \begin{align}
 \frac{\partial\mathbf{A}}{\partial\mathbf{U}}
 &\equiv
@@ -2998,7 +2999,7 @@ Thus, we have
 \end{equation}
 
 Another matrix transformation of interest is a linear transformation between
-$\mathbf{U} \in \mathcal{U}_{+}^{D}$ and $\mathbf{R} \in \mathcal{U}_{+}^{D}$
+two upper triangular matrices~$\mathbf{U}, \mathbf{R} \in \mathcal{U}_{+}^{D}$
 of the form
 \begin{equation}
 \mathbf{U} = \mathbf{R} \mathbf{G}
@@ -3041,7 +3042,7 @@ U_{ij} &= R_{ii} G_{ij} + \dots + R_{ij} G_{jj} \quad (i \leqslant j) \\
 \shortvdotswithin{=}
 U_{DD} &= R_{DD} G_{DD} .
 \end{align}
-Since $U_{ij}$ depends only on $R_{ij}$ and its preceding elements in $\mathbf{R}$,
+Since $U_{ij}$ depends only on $R_{ij}$ and the preceding elements in lexicographic order,
 the Jacobian matrix from $\mathbf{R}$ to $\mathbf{U}$ is again a lower triangular matrix
 such that the diagonal elements are given by
 \begin{equation}
