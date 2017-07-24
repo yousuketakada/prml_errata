@@ -2449,30 +2449,11 @@ B\left(\mathbf{W}, \nu\right) \left|\bm{\Lambda}\right|^{(\nu - D - 1)/2}
   2^{\nu D/2} \Gamma_D \left(\frac{\nu}{2}\right) \left|\mathbf{W}\right|^{\nu/2}
 }
 \end{align}
-where we have used the multivariate gamma function~\citep{Anderson:Multivariate,NIST:DLMF}
-given by\footnote{The multivariate gamma function~$\Gamma_D (\cdot)$ is defined by
-\begin{equation}
-\Gamma_D (a) \equiv \int_{\mathbf{X} \succ 0}
-\left|\mathbf{X}\right|^{a - (D + 1)/2} \exp(-\operatorname{Tr}(\mathbf{X}))
-\,\mathrm{d}\mathbf{X}
-\label{eq:multivariate_gamma_definition}
-\end{equation}
-where the integration is taken over the space of symmetric positive-definite matrices
-\citep{Anderson:Multivariate,NIST:DLMF}.
-One can see that, when $D=1$, the multivariate gamma function~$\Gamma_D (\cdot)$ reduces to
-the (univariate) gamma function~$\Gamma(\cdot)$ defined by (1.141).}
-\begin{equation}
-\Gamma_D \left(\frac{\nu}{2}\right) =
-\pi^{D(D - 1)/4} \prod_{i=1}^{D} \Gamma\left(\frac{\nu + 1 - i}{2}\right)
-\label{eq:multivariate_gamma_function}
-\end{equation}
-so that we can write the normalization constant~(B.79) as
-\begin{equation}
-B(\mathbf{W}, \nu)^{-1} =
-2^{\nu D/2}
-\left|\mathbf{W}\right|^{\nu/2}
-\Gamma_D\left(\frac{\nu}{2}\right) .
-\end{equation}
+where we have used the simplified form~%
+\eqref{eq:wishart_normalization_constant_in_terms_of_multivariate_gamma_function}
+of the normalization constant of the Wishart distribution
+in terms of the multivariate gamma function~%
+\eqref{eq:multivariate_gamma_function_in_terms_of_univariate_gamma_function}.
 Finally, we obtain
 \begin{equation}
 p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
@@ -2486,7 +2467,8 @@ p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
   \left(\mathbf{x} - \bm{\mu}\right)
 \right]^{-(\nu + 1)/2}
 \end{equation}
-where we have used~\eqref{eq:multivariate_gamma_function} and (C.15).
+where we have used \eqref{eq:multivariate_gamma_function_in_terms_of_univariate_gamma_function}
+and (C.15).
 Thus, we see that the marginal distribution of
 the form~\eqref{eq:multivariate_t_marginalized_over_precision}
 is equivalent to the multivariate Student's t-distribution of the form~(B.68) or (2.162);
@@ -3060,6 +3042,36 @@ Thus, we obtain the Jacobian in the form
 \left| \frac{\partial\mathbf{U}}{\partial\mathbf{R}} \right| =
 G_{11} \times G_{22}^{\,2} \times \dots \times G_{DD}^{\,D} =
 \prod_{i=1}^{D} G_{ii}^{\,i} .
+\end{equation}
+
+\parhead{Multivariate gamma function}
+The multivariate gamma function~\citep{Anderson:Multivariate,NIST:DLMF} is defined by
+\begin{equation}
+\Gamma_D (a) \equiv \int_{\mathcal{S}_{+}^{D}}
+\left|\mathbf{X}\right|^{a - (D + 1)/2} \exp(-\operatorname{Tr}(\mathbf{X}))
+\,\mathrm{d}\mathbf{X}
+\label{eq:definition_of_multivariate_gamma_function}
+\end{equation}
+where the integration is taken over the space~$\mathcal{S}_{+}^{D}$ of
+symmetric positive-definite matrices of dimensionality~$D$.
+One can see that, when $D=1$, the multivariate gamma function~$\Gamma_D (\cdot)$ reduces to
+the (univariate) gamma function~$\Gamma(\cdot)$ given by (1.141).
+
+The multivariate gamma function~\eqref{eq:definition_of_multivariate_gamma_function}
+can also be written in terms of the (univariate) gamma function as
+\begin{equation}
+\Gamma_D \left(\frac{\nu}{2}\right) =
+\pi^{D(D - 1)/4} \prod_{i=1}^{D} \Gamma\left(\frac{\nu + 1 - i}{2}\right)
+\label{eq:multivariate_gamma_function_in_terms_of_univariate_gamma_function}
+\end{equation}
+where we have substituted $a = \nu/2$
+so that we can simplify the normalization constant~(B.79) of the Wishart distribution in the form
+\begin{equation}
+B(\mathbf{W}, \nu)^{-1} =
+2^{\nu D/2}
+\left|\mathbf{W}\right|^{\nu/2}
+\Gamma_D\left(\frac{\nu}{2}\right) .
+\label{eq:wishart_normalization_constant_in_terms_of_multivariate_gamma_function}
 \end{equation}
 
 % TODO
