@@ -2915,12 +2915,13 @@ which can be shown by substituting
 \end{equation}
 into \eqref{eq:definition_of_positive_definiteness}, giving
 \begin{align}
-0 &< a - \mathbf{b}^{\operatorname{T}} \widehat{\mathbf{A}}^{-1} \mathbf{b} \\
+0 &< a - \mathbf{b}^{\operatorname{T}} \widehat{\mathbf{A}}^{-1} \mathbf{b}
+\label{eq:positivity_of_a_minus_b_trans_A_inv_b} \\
 &= a - \|\bm{\beta}\|^{2}
 \end{align}
 where we have used \eqref{eq:cholesky_decomposition_D-1} (with the both sides inverted) and
 \eqref{eq:beta_in_cholesky_factor}.\footnote{%
-This can also be shown by noting that
+The inequality~\eqref{eq:positivity_of_a_minus_b_trans_A_inv_b} can also be shown by noting that
 the \emph{Schur complement}~\eqref{eq:Schur_complement_of_M_wrt_A}
 of $\mathbf{A} \succ 0$ with respect to $\widehat{\mathbf{A}}$, given by
 $\mathbf{A}/\widehat{\mathbf{A}}
