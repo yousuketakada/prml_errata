@@ -2936,14 +2936,15 @@ the uniqueness of each operation in the algorithm.
 
 \parhead{Jacobians of matrix transformations}
 Bijectivity of the Cholesky decomposition~\eqref{eq:cholesky_decomposition}
-allows us to \emph{change variables}.
-As we shall see shortly,
-the change of variables based on the Cholesky decomposition is
-useful for evaluating integrals over symmetric positive-definite matrices
-because the elements in the Cholesky factor~$\mathbf{U} = (U_{ij})$ have
+allows us to \emph{change variables}
+between a symmetric positive-definite matrix~$\mathbf{A} \in \mathcal{S}_{+}^{D}$
+and its Cholesky factor~$\mathbf{U} \in \mathcal{U}_{+}^{D}$;
+this change of variables technique is, as we shall see shortly, useful for evaluating
+integrals over the space~$\mathcal{S}_{+}^{D}$ of symmetric positive-definite matrices
+because the elements in the Cholesky factor~$\mathbf{U} = (U_{ij}) \in \mathcal{U}_{+}^{D}$ have
 a simpler domain of integration,
 i.e., $U_{ii} \in (0, \infty)$ and $U_{ij} \in (-\infty, \infty)$ where $i < j$.
-Here, we consider Jacobians for such matrix transformations.
+Here, we consider some necessary Jacobians for such matrix transformations.
 
 First, let us find the Jacobian matrix for
 the Cholesky decomposition~\eqref{eq:cholesky_decomposition} between
@@ -2968,8 +2969,7 @@ A_{ij} &= U_{1i} U_{1j} + \dots + U_{ii} U_{ij} \quad (i \leqslant j) \\
 A_{DD} &= U_{1D}^{2} + U_{2D}^{2} + \dots + U_{DD}^{2} .
 \end{align}
 Since $A_{ij}$ depends only on $U_{ij}$ and the preceding elements in lexicographic order,
-the Jacobian matrix from $\mathbf{U}$ to $\mathbf{A}$ can be written as
-a lower triangular matrix of the form
+the Jacobian matrix from $\mathbf{U}$ to $\mathbf{A}$ is a lower triangular matrix of the form
 \begin{align}
 \frac{\partial\mathbf{A}}{\partial\mathbf{U}}
 &\equiv
@@ -3003,13 +3003,14 @@ Thus, we have
 \label{eq:jacobian_of_cholesky_decomposition}
 \end{equation}
 
-Another matrix transformation of interest is a linear transformation between
+Another matrix transformation we consider here is a linear transformation between
 two upper triangular matrices~$\mathbf{U}, \mathbf{R} \in \mathcal{U}_{+}^{D}$
 of the form
 \begin{equation}
 \mathbf{U} = \mathbf{R} \mathbf{G}
 \end{equation}
-where $\mathbf{G} \in \mathcal{U}_{+}^{D}$ is a constant.
+where $\mathbf{G} \in \mathcal{U}_{+}^{D}$ is a constant
+(recall that $\mathcal{U}_{+}^{D}$ forms a group with respect to multiplication).
 If these matrices~$\mathbf{U} = \left(U_{ij}\right)$, $\mathbf{R} = \left(R_{ij}\right)$,
 and $\mathbf{G} = \left(G_{ij}\right)$ are written element-wise, we have
 \begin{equation}
