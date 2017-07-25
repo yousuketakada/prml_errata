@@ -3059,22 +3059,34 @@ In fact, when $D = 1$, the multivariate gamma function~$\Gamma_D (\cdot)$ reduce
 the univariate gamma function~$\Gamma(\cdot)$
 so that $\Gamma_1 (a) \equiv \Gamma(a)$.
 
-The multivariate gamma function~\eqref{eq:definition_of_multivariate_gamma_function}
-can also be written in terms of the univariate gamma function~(1.141) as
+The multivariate gamma function~$\Gamma_D (\cdot)$
+can also be written in terms of the univariate gamma function~$\Gamma(\cdot)$ as
 \begin{equation}
-\Gamma_D \left(\frac{\nu}{2}\right) =
-\pi^{D(D - 1)/4} \prod_{i=1}^{D} \Gamma\left(\frac{\nu + 1 - i}{2}\right)
+\Gamma_D (a) =
+\pi^{D(D - 1)/4} \prod_{i=1}^{D} \Gamma\left(a - \frac{i - 1}{2}\right)
 \label{eq:multivariate_gamma_function_in_terms_of_univariate_gamma_function}
 \end{equation}
-where we have substituted $a = \nu/2$.
-With this identity~\eqref{eq:multivariate_gamma_function_in_terms_of_univariate_gamma_function},
-we can simplify the normalization constant~(B.79) of the Wishart distribution in the form
+so that we can simplify the normalization constant~(B.79) of the Wishart distribution in the form
 \begin{equation}
 B(\mathbf{W}, \nu)^{-1} =
 2^{\nu D/2}
 \left|\mathbf{W}\right|^{\nu/2}
-\Gamma_D\left(\frac{\nu}{2}\right) .
+\Gamma_D\left(\frac{\nu}{2}\right)
 \label{eq:wishart_normalization_constant_in_terms_of_multivariate_gamma_function}
+\end{equation}
+where $\mathbf{W} \in \mathcal{S}_{+}^{D}$ and $\nu > D - 1$.
+Similarly, if we define the \emph{multivariate digamma function} by
+\begin{equation}
+\psi_D(a) \equiv \frac{\mathrm{d}}{\mathrm{d}a} \ln \Gamma_D (a)
+= \sum_{i=1}^{D} \psi\left( a - \frac{i - 1}{2} \right)
+\label{eq:multivariate_digamma_function}
+\end{equation}
+where $\psi(\cdot)$ is the univariate digamma function given by \eqref{eq:digamma_function},
+then the log determinant expectation~(B.81) of the Wishart distribution can be written as
+\begin{equation}
+\mathbb{E}\left[ \ln \left| \bm{\Lambda} \right| \right]
+= \psi_D\left(\frac{\nu}{2}\right) + D \ln 2 + \ln \left| \mathbf{W} \right| .
+\label{eq:log_determinant_expectation_of_wishart}
 \end{equation}
 
 % TODO
