@@ -3067,7 +3067,8 @@ can also be written in terms of the univariate gamma function~$\Gamma(\cdot)$ as
 \pi^{D(D - 1)/4} \prod_{i=1}^{D} \Gamma\left(a - \frac{i - 1}{2}\right)
 \label{eq:multivariate_gamma_function_in_terms_of_univariate_gamma_function}
 \end{equation}
-so that we can simplify the normalization constant~(B.79) of the Wishart distribution in the form
+so that we can simplify the normalization constant~(B.79) of the Wishart distribution~(B.78)
+in the form
 \begin{equation}
 B(\mathbf{W}, \nu)^{-1} =
 2^{\nu D/2}
@@ -3075,7 +3076,7 @@ B(\mathbf{W}, \nu)^{-1} =
 \Gamma_D\left(\frac{\nu}{2}\right)
 \label{eq:wishart_normalization_constant_in_terms_of_multivariate_gamma_function}
 \end{equation}
-where $\mathbf{W} \in \mathcal{S}_{+}^{D}$ and $\nu > D - 1$.
+where $\mathbf{W} \in \mathcal{S}_{+}^{D}$ (so that $\mathbf{W} \succ 0$) and $\nu > D - 1$.
 Similarly, if we define the \emph{multivariate digamma function} by
 \begin{equation}
 \psi_D(a) \equiv \frac{\mathrm{d}}{\mathrm{d}a} \ln \Gamma_D (a)
