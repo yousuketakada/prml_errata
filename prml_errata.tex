@@ -2954,7 +2954,8 @@ A_{ij} &= U_{1i} U_{1j} + \dots + U_{ii} U_{ij} \quad (i \leqslant j) \\
 A_{DD} &= U_{1D}^{2} + U_{2D}^{2} + \dots + U_{DD}^{2} .
 \end{align}
 Since $A_{ij}$ depends only on $U_{ij}$ and its preceding elements in lexicographic order,
-the Jacobian matrix from $\mathbf{U}$ to $\mathbf{A}$ is a lower triangular matrix of the form
+the Jacobian matrix of $\mathbf{A}$ with respect to $\mathbf{U}$ is
+a lower triangular matrix of the form
 \begin{align}
 \frac{\partial\mathbf{A}}{\partial\mathbf{U}}
 &\equiv
@@ -3034,8 +3035,8 @@ U_{ij} &= R_{ii} G_{ij} + \dots + R_{ij} G_{jj} \quad (i \leqslant j) \\
 U_{DD} &= R_{DD} G_{DD} .
 \end{align}
 Since $U_{ij}$ depends only on $R_{ij}$ and its preceding elements in lexicographic order,
-the Jacobian matrix from $\mathbf{R}$ to $\mathbf{U}$ is again a lower triangular matrix
-such that the diagonal elements are given by
+the Jacobian matrix~$\partial\mathbf{U}/\partial\mathbf{R}$ is again lower triangular.
+The diagonal elements of $\partial\mathbf{U}/\partial\mathbf{R}$ are given by
 \begin{equation}
 \frac{\partial U_{ij}}{\partial R_{ij}} = G_{jj} > 0
 \end{equation}
