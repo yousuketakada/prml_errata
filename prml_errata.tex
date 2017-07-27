@@ -2415,14 +2415,16 @@ p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right) =
     \mathcal{W}\left(\bm{\Lambda}\middle|\mathbf{W}, \nu\right) \mathrm{d}\bm{\Lambda} .
 \label{eq:multivariate_t_marginalized_over_precision}
 \end{equation}
-The above marginal distribution~\eqref{eq:multivariate_t_marginalized_over_precision} is indeed
+The above marginal~\eqref{eq:multivariate_t_marginalized_over_precision} is indeed
 equivalent to (B.68) with some reparameterization.
 However, this result is not so obvious that I would like to show it here.
 Note that such marginalization is also used to derive
 a mixture of Student's t-distributions given by (10.81) in Exercise~10.19.
-The key idea is that the integrand in the right hand side of
-\eqref{eq:multivariate_t_marginalized_over_precision} can be identified as an unnormalized
-Wishart distribution and the marginalization can be done in a symbolic manner.
+
+\parhead{Multivariate Student's t-distribution as a marginal over Wishart}
+The key idea to evaluating the right hand side of
+\eqref{eq:multivariate_t_marginalized_over_precision} is that the integrand can be identified as
+an unnormalized Wishart distribution and the marginalization can be done in a symbolic manner.
 More specifically, we have
 \begin{align}
 p\left(\mathbf{x}\middle|\bm{\mu}, \mathbf{W}, \nu\right)
@@ -2449,9 +2451,11 @@ B\left(\mathbf{W}, \nu\right) \left|\bm{\Lambda}\right|^{(\nu - D - 1)/2}
   2^{\nu D/2} \Gamma_D \left(\frac{\nu}{2}\right) \left|\mathbf{W}\right|^{\nu/2}
 }
 \end{align}
-where we have used the \emph{multivariate gamma function}~$\Gamma_D(\cdot)$ given by
+where we have used the fact that the Wishart distribution~(B.78) is correctly normalized
+(which will be shown later);
+and introduced the \emph{multivariate gamma function}~$\Gamma_D(\cdot)$ given by
 \eqref{eq:multivariate_gamma_function_in_terms_of_univariate_gamma_function},
-which simplifies the normalization constant~$B\left(\mathbf{W}, \nu\right)$
+by which we can simplify the normalization constant~$B\left(\mathbf{W}, \nu\right)$
 in the form~\eqref{eq:wishart_normalization_constant_in_terms_of_multivariate_gamma_function}.
 Finally, we obtain
 \begin{equation}
