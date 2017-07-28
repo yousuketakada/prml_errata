@@ -3052,7 +3052,8 @@ G_{11} \times G_{22}^{\,2} \times \dots \times G_{DD}^{\,D} =
 The \emph{multivariate gamma function}~\citep{Anderson:Multivariate,NIST:DLMF} is defined by
 \begin{equation}
 \Gamma_D (a) \equiv \int_{\mathcal{S}_{+}^{D}}
-\left|\mathbf{X}\right|^{a - (D + 1)/2} \exp(-\operatorname{Tr}(\mathbf{X}))
+\left|\mathbf{X}\right|^{a - (D + 1)/2}
+\exp\left\{-\operatorname{Tr}\left(\mathbf{X}\right)\right\}
 \,\mathrm{d}\mathbf{X}
 \label{eq:definition_of_multivariate_gamma_function}
 \end{equation}
@@ -3062,7 +3063,7 @@ symmetric positive-definite matrices of dimensionality~$D$.
 It is a generalization of the ordinary (univariate) gamma function~$\Gamma(\cdot)$
 defined by (1.141).
 In fact, when $D = 1$, the multivariate gamma function~$\Gamma_D (\cdot)$ reduces to
-the univariate one~$\Gamma(\cdot)$
+the univariate gamma function~$\Gamma(\cdot)$
 so that $\Gamma_1 (a) \equiv \Gamma(a)$.
 
 The multivariate gamma function~$\Gamma_D (\cdot)$
@@ -3095,6 +3096,57 @@ then the log determinant expectation~(B.81) can be written as
 = \psi_D\left(\frac{\nu}{2}\right) + D \ln 2 + \ln \left| \mathbf{W} \right| .
 \label{eq:log_determinant_expectation_of_wishart}
 \end{equation}
+
+Let us now evaluate the integral~\eqref{eq:definition_of_multivariate_gamma_function}
+to show the identity~\eqref{eq:multivariate_gamma_function_in_terms_of_univariate_gamma_function}.
+We first note that,
+since $\mathbf{X} = \left( X_{ij} \right) \in \mathcal{S}_{+}^{D}$ is a symmetric matrix,
+we take the integration only over the $D(D + 1)/2$ upper triangular elements~$X_{ij}$
+where $i \leqslant j$ so that the differential~$\mathrm{d}\mathbf{X}$ means
+\begin{equation}
+\mathrm{d}\mathbf{X} \equiv \prod_{i \leqslant j} \mathrm{d}X_{ij}
+= \mathrm{d}X_{11} \, \mathrm{d}X_{12} \, \cdots \, \mathrm{d}X_{1D} \,
+\mathrm{d}X_{22} \, \cdots \, \mathrm{d}X_{2D} \, \cdots \, \mathrm{d}X_{DD} .
+\end{equation}
+The differential~$\mathrm{d}\mathbf{U}$ of
+an upper triangular matrix~$\mathbf{U} = \left( U_{ij} \right) \in \mathcal{U}_{+}^{D}$
+is defined similarly.
+Making a change of variables from $\mathbf{X} \in \mathcal{S}_{+}^{D}$ to
+the Cholesky factor~$\mathbf{U} \in \mathcal{U}_{+}^{D}$
+such that $\mathbf{X} = \mathbf{U}^{\operatorname{T}} \mathbf{U}$,
+we have
+\begin{align}
+\Gamma_D (a) &=
+\int_{\mathcal{U}_{+}^{D}}
+\left|\mathbf{X}\right|^{a - (D + 1)/2}
+\exp\left\{-\operatorname{Tr}\left(\mathbf{X}\right)\right\}
+\left| \frac{\partial\mathbf{X}}{\partial\mathbf{U}} \right|
+\mathrm{d}\mathbf{U} \\
+&= 2^{D}
+\left[
+\prod_{i} \int_{0}^{\infty} U_{ii}^{2a - i} \exp\left( -U_{ii}^{2} \right) \mathrm{d}U_{ii}
+\right]
+\left[
+\prod_{i < j} \int_{-\infty}^{\infty} \exp\left( -U_{ij}^2 \right) \mathrm{d}U_{ij}
+\right]
+\\
+&= \pi^{D(D - 1)/4} \prod_{i=1}^{D} \Gamma\left(a - \frac{i - 1}{2}\right)
+\end{align}
+where we have used
+\begin{align}
+\left| \mathbf{X} \right| &= \left| \mathbf{U}^{\operatorname{T}} \mathbf{U} \right|
+= \left| \mathbf{U} \right|^2
+= \prod_{i} U_{ii}^2 \\
+\operatorname{Tr}\left( \mathbf{X} \right) &= \sum_{i} X_{ii}
+= \sum_{i} \left( U_{1i}^2 + \dots + U_{ii}^2 \right)
+= \sum_{i \leqslant j} U_{ij}^2
+\end{align}
+together with the result~\eqref{eq:jacobian_of_cholesky_decomposition} and the identities
+\begin{align}
+\int_{0}^{\infty} u^{2a - i} \exp\left( -u^{2} \right) \mathrm{d}u
+&= \frac{1}{2} \Gamma\left(a - \frac{i - 1}{2}\right) \quad \text{if $a > \frac{i - 1}{2}$} \\
+\int_{-\infty}^{\infty} \exp\left( -u^{2} \right) \mathrm{d}u &= \sqrt{\pi} .
+\end{align}
 
 % TODO
 
