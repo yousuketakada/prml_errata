@@ -3049,6 +3049,7 @@ where $i \leqslant j$ so that
 \left| \frac{\partial\mathbf{U}}{\partial\mathbf{R}} \right| =
 G_{11} \times G_{22}^{\,2} \times \dots \times G_{DD}^{\,D} =
 \prod_{i=1}^{D} G_{ii}^{\,i} .
+\label{eq:jacobian_of_upper_triangular_matrix_right_multiplication}
 \end{equation}
 
 \parhead{Multivariate gamma function}
@@ -3124,7 +3125,9 @@ we have
 \left|\mathbf{X}\right|^{a - (D + 1)/2}
 \exp\left\{-\operatorname{Tr}\left(\mathbf{X}\right)\right\}
 \left| \frac{\partial\mathbf{X}}{\partial\mathbf{U}} \right|
-\mathrm{d}\mathbf{U} \\
+\mathrm{d}\mathbf{U}
+\label{eq:multivariate_gamma_function_in_terms_of_integral_over_upper_triangular_matrix}
+\\
 &= 2^{D}
 \left[
 \prod_{i} \int_{0}^{\infty} U_{ii}^{2a - i} \exp\left( -U_{ii}^{2} \right) \mathrm{d}U_{ii}
@@ -3152,6 +3155,97 @@ the integral identities
 &= \frac{1}{2} \Gamma\left(a - \frac{i - 1}{2}\right) \quad \text{if $a > \frac{i - 1}{2}$} \\
 \int_{-\infty}^{\infty} \exp\left( -u^{2} \right) \mathrm{d}u &= \sqrt{\pi} .
 \end{align}
+
+\parhead{Normalization constant of Wishart}
+Let us next show that the Wishart distribution~(B.78) is indeed correctly normalized.
+Specifically, we show the integral identity
+\begin{equation}
+B(\mathbf{W}, \nu)^{-1} =
+\int_{\mathcal{S}_{+}^{D}}
+\left| \bm{\Lambda} \right|^{(v - D - 1)/2}
+\exp\left\{ -\frac{1}{2} \operatorname{Tr}\left(\mathbf{W}^{-1}\bm{\Lambda}\right) \right\}
+\mathrm{d}\bm{\Lambda}
+\label{eq:integral_identity_for_normalization_constant_of_wishart}
+\end{equation}
+where the normalization constant~$B(\mathbf{W}, \nu)$ is given by
+\eqref{eq:wishart_normalization_constant_in_terms_of_multivariate_gamma_function}; and
+we have written the domain of integration explicitly
+so as to make it clear that $\bm{\Lambda} \in \mathcal{S}_{+}^{D}$.
+
+To evaluate the right hand side of
+\eqref{eq:integral_identity_for_normalization_constant_of_wishart},
+we successively make two changes of variables of the forms
+\begin{equation}
+\bm{\Lambda} = \mathbf{U}^{\operatorname{T}}\mathbf{U}, \qquad
+\mathbf{U} = \mathbf{R} \mathbf{G}
+\label{eq:changes_of_variables_for_wishart_normalization}
+\end{equation}
+where $\mathbf{U}, \mathbf{R} \in \mathcal{U}_{+}^{D}$; and
+$\mathbf{G} \in \mathcal{U}_{+}^{D}$ is
+the Cholesky factor of $2\mathbf{W} \in \mathcal{S}_{+}^{D}$
+so that
+\begin{equation}
+2\mathbf{W} = \mathbf{G}^{\operatorname{T}}\mathbf{G} .
+\end{equation}
+The Jacobian factor is given by
+\begin{equation}
+\left| \frac{\partial\bm{\Lambda}}{\partial\mathbf{U}} \right|
+\left| \frac{\partial\mathbf{U}}{\partial\mathbf{R}} \right|
+= 2^{D} \left|\mathbf{G}\right|^{D + 1}
+\prod_{i=1}^{D} R_{ii}^{D + 1 - i}
+\end{equation}
+where we have used the results~\eqref{eq:jacobian_of_cholesky_decomposition} and
+\eqref{eq:jacobian_of_upper_triangular_matrix_right_multiplication}
+together with
+the identities~$U_{ii} = R_{ii} G_{ii}$ and $\left|\mathbf{G}\right| = \prod_{i} G_{ii}$
+for the diagonal elements of
+$\mathbf{U} = \left(U_{ij}\right),
+\mathbf{R} = \left(R_{ij}\right),
+\mathbf{G} = \left(G_{ij}\right)
+\in \mathcal{U}_{+}^{D}$.
+
+Evaluating the right hand side of
+\eqref{eq:integral_identity_for_normalization_constant_of_wishart}
+by making the changes of variables~\eqref{eq:changes_of_variables_for_wishart_normalization} and
+noting that
+\begin{align}
+\left| \bm{\Lambda} \right|
+&= \left| \mathbf{U}^{\operatorname{T}} \mathbf{U} \right|
+= \left| \mathbf{G} \right|^{2} \left| \mathbf{R}^{\operatorname{T}} \mathbf{R} \right| \\
+\frac{1}{2} \operatorname{Tr}\left( \mathbf{W}^{-1} \bm{\Lambda} \right)
+&= \operatorname{Tr}\left(
+\left(
+\mathbf{G}^{\operatorname{T}} \mathbf{G}
+\right)^{-1}
+\mathbf{U}^{\operatorname{T}} \mathbf{U}
+\right)
+= \operatorname{Tr}\left(
+\mathbf{R}^{\operatorname{T}} \mathbf{R}
+\right)
+\end{align}
+we have
+\begin{align}
+&\int_{\mathcal{S}_{+}^{D}}
+\left| \bm{\Lambda} \right|^{(v - D - 1)/2}
+\exp\left\{ -\frac{1}{2} \operatorname{Tr}\left(\mathbf{W}^{-1}\bm{\Lambda}\right) \right\}
+\mathrm{d}\bm{\Lambda} \\
+& \quad =
+\left|\mathbf{G}\right|^{\nu}
+\int_{\mathcal{U}_{+}^{D}}
+\left| \mathbf{R}^{\operatorname{T}} \mathbf{R} \right|^{(\nu - D - 1)/2}
+\exp\left\{ -\operatorname{Tr}\left( \mathbf{R}^{\operatorname{T}} \mathbf{R} \right) \right\}
+\left[ 2^{D} \prod_{i=1}^{D} R_{ii}^{D + 1 - i} \right]
+\mathrm{d}\mathbf{R} \\
+& \quad =
+2^{\nu D/2} \left| \mathbf{W} \right|^{\nu/2} \Gamma_{D}\left(\frac{\nu}{2}\right)
+\end{align}
+where we have used
+the relation~$\left|\mathbf{G}\right| = 2^{D/2} \left| \mathbf{W} \right|^{1/2}$
+between the determinants of
+$\mathbf{W} \in \mathcal{S}_{+}^{D}$ and $\mathbf{G} \in \mathcal{U}_{+}^{D}$; and
+identified the integral in the right hand side with an integral form~%
+\eqref{eq:multivariate_gamma_function_in_terms_of_integral_over_upper_triangular_matrix}
+of the multivariate gamma function~$\Gamma_D(a)$ where $a = \nu/2$.
 
 % TODO
 
