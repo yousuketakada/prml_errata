@@ -2931,7 +2931,7 @@ a simpler domain of integration,
 i.e., $U_{ii} \in (0, \infty)$ and $U_{ij} \in (-\infty, \infty)$ where $i < j$.
 Here, we consider some necessary Jacobians for such matrix transformations.
 
-First, let us find the Jacobian matrix for
+First, let us find the Jacobian for
 the Cholesky decomposition~\eqref{eq:cholesky_decomposition} between
 $\mathbf{A} \in \mathcal{S}_{+}^{D}$ and $\mathbf{U} \in \mathcal{U}_{+}^{D}$.
 To do so, we work with its element-wise representation given by
@@ -2954,13 +2954,15 @@ A_{ij} &= U_{1i} U_{1j} + \dots + U_{ii} U_{ij} \quad (i \leqslant j) \\
 A_{DD} &= U_{1D}^{2} + U_{2D}^{2} + \dots + U_{DD}^{2} .
 \end{align}
 Since $A_{ij}$ depends only on $U_{ij}$ and its preceding elements in lexicographic order,
-the Jacobian matrix of $\mathbf{A}$ with respect to $\mathbf{U}$ is
+the Jacobian of $\mathbf{A}$ with respect to $\mathbf{U}$ is
 a lower triangular matrix of the form
 \begin{align}
 \frac{\partial\mathbf{A}}{\partial\mathbf{U}}
 &\equiv
 \frac{\partial \left( A_{11}, A_{12}, \dots, A_{1D}, A_{22}, \dots, A_{2D}, \dots, A_{DD} \right)}
-{\partial \left( U_{11}, U_{12}, \dots, U_{1D}, U_{22}, \dots, U_{2D}, \dots, U_{DD} \right)} \\
+{\partial \left( U_{11}, U_{12}, \dots, U_{1D}, U_{22}, \dots, U_{2D}, \dots, U_{DD} \right)}
+\label{eq:definition_of_jacobian_of_cholesky_decomposition}
+\\
 &=
 \bordermatrix{
          &   U_{11} & U_{12} & \cdots & U_{1D} &   U_{22} & \cdots & U_{2D} & \cdots &   U_{DD} \cr
@@ -2981,7 +2983,7 @@ where the diagonal elements are given by
 \frac{\partial A_{ij}}{\partial U_{ij}} = U_{ii} > 0 \quad (i < j)
 \end{equation}
 and the elements denoted by $\ast$ are elements possibly nonzero.
-Thus, we have
+Thus, we obtain the (absolute) determinant of the Jacobian in the form
 \begin{equation}
 \left| \frac{\partial\mathbf{A}}{\partial\mathbf{U}} \right| =
 2 U_{11}^{D} \times 2 U_{22}^{D - 1} \times \dots \times 2 U_{DD} =
@@ -3035,13 +3037,14 @@ U_{ij} &= R_{ii} G_{ij} + \dots + R_{ij} G_{jj} \quad (i \leqslant j) \\
 U_{DD} &= R_{DD} G_{DD} .
 \end{align}
 Since $U_{ij}$ depends only on $R_{ij}$ and its preceding elements in lexicographic order,
-the Jacobian matrix~$\partial\mathbf{U}/\partial\mathbf{R}$ is again lower triangular.
+the Jacobian matrix~$\partial\mathbf{U}/\partial\mathbf{R}$,
+defined similarly to \eqref{eq:definition_of_jacobian_of_cholesky_decomposition},
+is again lower triangular.
 The diagonal elements of $\partial\mathbf{U}/\partial\mathbf{R}$ are given by
 \begin{equation}
 \frac{\partial U_{ij}}{\partial R_{ij}} = G_{jj} > 0
 \end{equation}
-where $i \leqslant j$.
-Thus, we obtain the Jacobian in the form
+where $i \leqslant j$ so that
 \begin{equation}
 \left| \frac{\partial\mathbf{U}}{\partial\mathbf{R}} \right| =
 G_{11} \times G_{22}^{\,2} \times \dots \times G_{DD}^{\,D} =
