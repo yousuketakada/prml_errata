@@ -3032,7 +3032,8 @@ U_{22} &= R_{22} G_{22} \\
 \shortvdotswithin{=}
 U_{2D} &= R_{22} G_{2D} + \dots + R_{2D} G_{DD} \\
 \shortvdotswithin{=}
-U_{ij} &= R_{ii} G_{ij} + \dots + R_{ij} G_{jj} \quad (i \leqslant j) \\
+U_{ij} &= R_{ii} G_{ij} + \dots + R_{ij} G_{jj} \quad (i \leqslant j)
+\label{eq:element_wize_product_of_upper_triangular_matrix} \\
 \shortvdotswithin{=}
 U_{DD} &= R_{DD} G_{DD} .
 \end{align}
@@ -3158,7 +3159,7 @@ the integral identities
 
 \parhead{Normalization constant of Wishart}
 Let us next show that the Wishart distribution~(B.78) is indeed correctly normalized.
-Specifically, we show the integral identity
+Specifically, we show the following integral identity
 \begin{equation}
 B(\mathbf{W}, \nu)^{-1} =
 \int_{\mathcal{S}_{+}^{D}}
@@ -3196,18 +3197,20 @@ The Jacobian factor is given by
 \end{equation}
 where we have used the results~\eqref{eq:jacobian_of_cholesky_decomposition} and
 \eqref{eq:jacobian_of_upper_triangular_matrix_right_multiplication}
-together with
-the identities~$U_{ii} = R_{ii} G_{ii}$ and $\left|\mathbf{G}\right| = \prod_{i} G_{ii}$
-for the diagonal elements of
+together with identities regarding the diagonal elements of
 $\mathbf{U} = \left(U_{ij}\right),
 \mathbf{R} = \left(R_{ij}\right),
 \mathbf{G} = \left(G_{ij}\right)
-\in \mathcal{U}_{+}^{D}$.
+\in \mathcal{U}_{+}^{D}$,
+that is,
+$U_{ii} = R_{ii} G_{ii}$, which follows from
+\eqref{eq:element_wize_product_of_upper_triangular_matrix}, and
+$\left|\mathbf{G}\right| = \prod_{i} G_{ii}$.
 
 Evaluating the right hand side of
 \eqref{eq:integral_identity_for_normalization_constant_of_wishart}
 by making the changes of variables~\eqref{eq:changes_of_variables_for_wishart_normalization} and
-noting that
+noting the identities
 \begin{align}
 \left| \bm{\Lambda} \right|
 &= \left| \mathbf{U}^{\operatorname{T}} \mathbf{U} \right|
@@ -3241,7 +3244,7 @@ we have
 \end{align}
 where we have used
 the relation~$\left|\mathbf{G}\right| = 2^{D/2} \left| \mathbf{W} \right|^{1/2}$
-between the determinants of
+between the (absolute) determinants of
 $\mathbf{W} \in \mathcal{S}_{+}^{D}$ and $\mathbf{G} \in \mathcal{U}_{+}^{D}$; and
 identified the integral in the right hand side with an integral form~%
 \eqref{eq:multivariate_gamma_function_in_terms_of_integral_over_upper_triangular_matrix}
