@@ -3144,7 +3144,7 @@ we have
 \\
 &= 2^{D}
 \left[
-\prod_{i} \int_{0}^{\infty} U_{ii}^{2a - i} \exp\left( -U_{ii}^{2} \right) \mathrm{d}U_{ii}
+\prod_{i=1}^{D} \int_{0}^{\infty} U_{ii}^{2a - i} \exp\left( -U_{ii}^{2} \right) \mathrm{d}U_{ii}
 \right]
 \left[
 \prod_{i < j} \int_{-\infty}^{\infty} \exp\left( -U_{ij}^2 \right) \mathrm{d}U_{ij}
@@ -3156,7 +3156,7 @@ where we have used
 \begin{align}
 \left| \mathbf{X} \right| &= \left| \mathbf{U}^{\operatorname{T}} \mathbf{U} \right|
 = \left| \mathbf{U} \right|^2
-= \prod_{i} U_{ii}^2 \\
+= \prod_{i=1}^{D} U_{ii}^2 \\
 \operatorname{Tr}\left( \mathbf{X} \right) &= \sum_{i} X_{ii}
 = \sum_{i} \left( U_{1i}^2 + \dots + U_{ii}^2 \right)
 = \sum_{i \leqslant j} U_{ij}^2
