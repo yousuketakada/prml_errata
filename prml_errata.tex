@@ -2634,6 +2634,17 @@ for $\mathbf{U} \in \mathcal{U}_{+}^{D}$, consider its \emph{characteristic equa
 from which it readily follows that the eigenvalues of $\mathbf{U} = \left(U_{ij}\right)$ are
 equal to its diagonal elements~$U_{ii} > 0$.
 
+The above observation regarding the eigenvalues of
+$\mathbf{U} = \left(U_{ij}\right) \in \mathcal{U}_{+}^{D}$
+implies that the (absolute) determinant of $\mathbf{U}$ is given by the product of
+its diagonal elements~$U_{ii} > 0$, i.e.,
+\begin{equation}
+\left| \mathbf{U} \right| = \prod_{i=1}^{D} U_{ii}
+\label{eq:determinant_of_upper_triangular_matrix}
+\end{equation}
+which can also be shown directly from the definition~(C.10) of the determinant\footnote{%
+The identity~(C.10) is also known as the \emph{Leibniz formula for determinants}.}.
+
 \parhead{Triangular matrix groups}
 It is worth noting here that
 $\mathcal{U}_{+}^{D}$ forms a \emph{group} with respect to matrix multiplication, i.e.,
@@ -3355,7 +3366,7 @@ it has a flavor of division~\citep{Minka:OldNewMatrixAlgebra}.
 In fact, taking the determinant on both sides of
 \eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_A} and
 \eqref{eq:block_diagonalization_of_partitioned_matrix_with_Schur_complement_wrt_D},
-we have from the \emph{Leibniz formula for determinants}~(C.10) that
+we have from the definition~(C.10) of the determinant that
 \begin{equation}
 \operatorname{det}(\mathbf{M}) =
 \operatorname{det}(\mathbf{A}) \operatorname{det}(\mathbf{M}/\mathbf{A})
