@@ -2556,7 +2556,7 @@ have not been shown either.
 Note however that most multivariate statistics textbooks, including \citet{Anderson:Multivariate},
 motivate the Wishart distribution differently from PRML;
 they typically introduce the Wishart distribution
-as the distribution over a matrix (called the \emph{scatter matrix}) of the form
+as the distribution over a square matrix (called the \emph{scatter matrix}) of the form
 \begin{equation}
 \mathbf{S} = \sum_{n=1}^{\nu} \mathbf{x}_n \mathbf{x}_n^{\operatorname{T}}
 \label{eq:scatter_matrix_of_zero_mean_Gaussian}
@@ -2576,7 +2576,7 @@ showing the identity~(B.80) when $\nu$ is an integer such that $\nu \geqslant D$
 The derivation of the Wishart distribution along this line is indirect for our purpose
 (we are mainly interested in its conjugacy).
 In the following,
-I would rather like to show the normalization~(B.79) as well as the expectations~(B.80) and (B.81)
+I would instead like to show the normalization~(B.79) as well as the expectations~(B.80) and (B.81)
 directly just as we have done for the gamma distribution~(2.146).
 To this end, we first introduce some notation for subsets of the space of square matrices
 such that all the eigenvalues are positive,
@@ -2639,11 +2639,10 @@ $\mathbf{U} = \left(U_{ij}\right) \in \mathcal{U}_{+}^{D}$
 implies that the (absolute) determinant of $\mathbf{U}$ is given by the product of
 its diagonal elements~$U_{ii} > 0$, i.e.,
 \begin{equation}
-\left| \mathbf{U} \right| = \prod_{i=1}^{D} U_{ii} .
+\left| \mathbf{U} \right| = \prod_{i=1}^{D} U_{ii}
 \label{eq:determinant_of_upper_triangular_matrix}
 \end{equation}
-Note that the above identity~\eqref{eq:determinant_of_upper_triangular_matrix}
-can also be shown directly from the definition~(C.10) of the determinant.\footnote{%
+which can also be shown directly from the definition~(C.10) of the determinant.\footnote{%
 The identity~(C.10) is also known as the \emph{Leibniz formula for determinants}.}
 
 \parhead{Triangular matrix groups}
@@ -2701,7 +2700,7 @@ then $\mathbf{x}^{\operatorname{T}}\mathbf{P}\mathbf{x} = -1 < 0$.}
 To see the first part~(1), we use mathematical induction.
 It is trivial to show the case where $D = 1$.
 For $D > 1$, let us write $\mathbf{U}, \mathbf{U}' \in \mathcal{U}_{+}^{D}$
-as partitioned matrices so that
+as partitioned matrices such that
 \begin{equation}
 \mathbf{U} =
 \begin{pmatrix}
@@ -2835,7 +2834,7 @@ $U = \sqrt{A} > 0$ satisfies \eqref{eq:cholesky_decomposition}.
 Next, we consider the general case where $D > 1$.
 As we have done in \eqref{eq:partitioned_matrices_for_proof_of_triangular_matrix_group},
 let us write $\mathbf{A} \in \mathcal{S}_{+}^{D}$ and $\mathbf{U} \in \mathcal{U}_{+}^{D}$
-as partitioned matrices so that
+as partitioned matrices such that
 \begin{equation}
 \mathbf{A} =
 \begin{pmatrix}
@@ -2943,7 +2942,7 @@ a simpler domain, i.e.,
 \begin{equation}
 U_{ii} \in (0, \infty), \qquad U_{ij} \in (-\infty, \infty) \quad (i < j) .
 \end{equation}
-In the following, we consider some necessary Jacobians for such matrix transformations.
+In the following, we review some necessary Jacobians for such matrix transformations.
 
 First, let us find the Jacobian for
 the Cholesky decomposition~\eqref{eq:cholesky_decomposition} between
@@ -2967,7 +2966,8 @@ A_{ij} &= U_{1i} U_{1j} + \dots + U_{ii} U_{ij} \quad (i \leqslant j) \\
 \shortvdotswithin{=}
 A_{DD} &= U_{1D}^{2} + U_{2D}^{2} + \dots + U_{DD}^{2} .
 \end{align}
-Since $A_{ij}$ depends only on $U_{ij}$ and its preceding elements in lexicographic order,
+Since $A_{ij}$ depends only on $U_{ij}$ and the preceding elements of $\mathbf{U}$
+in lexicographic order,
 the Jacobian of $\mathbf{A}$ with respect to $\mathbf{U}$ is
 a lower triangular matrix of the form
 \begin{align}
@@ -3005,7 +3005,7 @@ Thus, we obtain the (absolute) determinant of the Jacobian in the form
 \label{eq:jacobian_of_cholesky_decomposition}
 \end{equation}
 
-Another matrix transformation we consider here is a linear transformation between
+Another matrix transformation of interest here is a linear transformation between
 two upper triangular matrices~$\mathbf{U}, \mathbf{R} \in \mathcal{U}_{+}^{D}$
 of the form
 \begin{equation}
@@ -3014,7 +3014,7 @@ of the form
 where $\mathbf{G} \in \mathcal{U}_{+}^{D}$ is a constant
 (recall that $\mathcal{U}_{+}^{D}$ forms a group with respect to multiplication).
 If these matrices~$\mathbf{U} = \left(U_{ij}\right)$, $\mathbf{R} = \left(R_{ij}\right)$,
-and $\mathbf{G} = \left(G_{ij}\right)$ are written element-wise, we have
+and $\mathbf{G} = \left(G_{ij}\right)$ are written element-wise, then we have
 \begin{equation}
 \begin{pmatrix}
 U_{11} & U_{12} & \cdots & U_{1D} \\
@@ -3050,7 +3050,8 @@ U_{ij} &= R_{ii} G_{ij} + \dots + R_{ij} G_{jj} \quad (i \leqslant j) \\
 \shortvdotswithin{=}
 U_{DD} &= R_{DD} G_{DD} .
 \end{align}
-Since $U_{ij}$ depends only on $R_{ij}$ and its preceding elements in lexicographic order,
+Since $U_{ij}$ depends only on $R_{ij}$ and the preceding elements of $\mathbf{R}$
+in lexicographic order,
 the Jacobian matrix~$\partial\mathbf{U}/\partial\mathbf{R}$,
 defined similarly to \eqref{eq:definition_of_jacobian_of_cholesky_decomposition},
 is again lower triangular.
