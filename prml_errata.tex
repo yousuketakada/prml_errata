@@ -3112,7 +3112,7 @@ where $\psi(\cdot)$ is the (univariate) digamma function defined by \eqref{eq:di
 then the log (absolute) determinant expectation~(B.81) can be written as
 \begin{equation}
 \mathbb{E}\left[ \ln \left| \bm{\Lambda} \right| \right]
-= \psi_D\left(\frac{\nu}{2}\right) + D \ln 2 + \ln \left| \mathbf{W} \right| .
+= D \ln 2 + \ln \left| \mathbf{W} \right| + \psi_D\left(\frac{\nu}{2}\right) .
 \label{eq:log_determinant_expectation_of_wishart}
 \end{equation}
 
@@ -3275,7 +3275,75 @@ identified the integral in the right hand side with an integral form~%
 \eqref{eq:multivariate_gamma_function_in_terms_of_integral_over_upper_triangular_matrix}
 of the multivariate gamma function~$\Gamma_D(a)$ where $a = \nu/2$.
 
-% TODO
+\parhead{Mean and log determinant expectation of Wishart}
+Finally, we show the mean~(B.80) and
+the log (absolute) determinant expectation~\eqref{eq:log_determinant_expectation_of_wishart}
+of the Wishart distribution~(B.78)
+by making use of the general identity~\eqref{eq:expected_score_function_vanishes}.
+To this end, we first evaluate the derivatives of the log probability
+\begin{equation}
+\ln \mathcal{W}\left( \bm{\Lambda} \middle| \mathbf{W}, \nu \right) =
+\ln B(\mathbf{W}, \nu)
++ \frac{\nu + D - 1}{2} \ln \left| \bm{\Lambda} \right|
+- \frac{1}{2} \operatorname{Tr}\left( \mathbf{W}^{-1}\bm{\Lambda} \right)
+\end{equation}
+where
+\begin{equation}
+\ln B(\mathbf{W}, \nu)
+= -\frac{\nu D}{2} \ln 2 - \frac{\nu}{2} \ln \left|\mathbf{W}\right|
+- \ln \Gamma_{D}\left(\frac{\nu}{2}\right)
+\label{eq:log_B_of_wishart}
+\end{equation}
+with respect to the parameters~$\mathbf{W}$ and $\nu$, giving
+\begin{align}
+\nabla_{\mathbf{W}}
+\ln \mathcal{W}\left( \bm{\Lambda} \middle| \mathbf{W}, \nu \right) &=
+-\frac{\nu}{2} \mathbf{W}^{-\operatorname{T}}
++ \frac{1}{2} \mathbf{W}^{-\operatorname{T}} \bm{\Lambda}^{\operatorname{T}}
+\mathbf{W}^{-\operatorname{T}}
+\label{eq:gradient_of_log_wisahrt_wrt_w}
+\\
+\frac{\partial}{\partial \nu}
+\ln \mathcal{W}\left( \bm{\Lambda} \middle| \mathbf{W}, \nu \right) &=
+- \frac{D}{2} \ln 2 - \frac{1}{2} \ln \left| \mathbf{W} \right|
+- \frac{1}{2} \psi_{D}\left(\frac{\nu}{2}\right)
++ \frac{1}{2} \ln \left| \bm{\Lambda} \right|
+\label{eq:derivative_of_log_wisahrt_wrt_nu}
+\end{align}
+where we have used \eqref{eq:gradient_of_log_abs_det_A_wrt_A},
+\eqref{eq:gradient_of_Tr_Ainverse_B},
+and \eqref{eq:multivariate_digamma_function}.
+Substituting the above derivatives~\eqref{eq:gradient_of_log_wisahrt_wrt_w} and
+\eqref{eq:derivative_of_log_wisahrt_wrt_nu} into \eqref{eq:expected_score_function_vanishes},
+we obtain the expectations~(B.80) and
+\eqref{eq:log_determinant_expectation_of_wishart}, respectively.
+
+Note that, since $\mathbf{W}$ is symmetric,
+we should have, strictly speaking, imposed the symmetry constraint on $\mathbf{W}$
+when we evaluate the gradient~\eqref{eq:gradient_of_log_wisahrt_wrt_w}.
+However, since (the expectation of) the gradient~\eqref{eq:gradient_of_log_wisahrt_wrt_w}
+obtained without the symmetry constraint is symmetric,
+the result~\eqref{eq:equivalence_of_expected_gradient_wrt_symmetric_matrix_equal_to_zero}
+allows us to use \eqref{eq:gradient_of_log_wisahrt_wrt_w}
+for evaluating the expectation~(B.80)
+by making use of \eqref{eq:expected_score_function_vanishes}.
+
+Having obtained the expectations~(B.80) and \eqref{eq:log_determinant_expectation_of_wishart},
+it is now easy to evaluate the entropy, which is given by
+$\operatorname{H}\left[\bm{\Lambda}\right] =
+-\mathbb{E}\left[ \ln \mathcal{W}\left( \bm{\Lambda} \middle| \mathbf{W}, \nu \right) \right]$.
+One can easily see that the entropy can be obtained in the form~(B.82)
+by making use of (B.80).
+The entropy~(B.82) can be further simplified to
+\begin{equation}
+\operatorname{H}\left[\bm{\Lambda}\right] =
+\frac{D(D + 1)}{2} \ln 2 + \frac{D + 1}{2} \ln \left|\mathbf{W}\right|
++ \ln\Gamma_{D}\left( \frac{\nu}{2} \right)
+- \frac{\nu - D - 1}{2} \psi_{D}\left( \frac{\nu}{2} \right)
++ \frac{\nu D}{2}
+\end{equation}
+where we have used \eqref{eq:log_B_of_wishart} and
+\eqref{eq:log_determinant_expectation_of_wishart}.
 
 \erratum{Page~693}
 Paragraph~\textminus1, Line~\textminus4:
@@ -4066,9 +4134,8 @@ if the parameters of interest are, say, a symmetric matrix
 (e.g., the scale matrix~$\mathbf{W}$ of the Wishart distribution is symmetric positive definite),
 we must, strictly speaking, impose the symmetry constraint on the parameters.
 The equivalence relation~%
-\eqref{eq:equivalence_of_expected_gradient_wrt_symmetric_matrix_equal_to_zero}
-allows us, if $\mathbb{E}\left[\nabla_{\mathbf{A}} \phi(\mathbf{S})\right]$ is symmetric,
-to safely ignore the symmetry constraint on $\mathbf{S}$ and use
+\eqref{eq:equivalence_of_expected_gradient_wrt_symmetric_matrix_equal_to_zero}, however,
+allows us to safely ignore the symmetry constraint on $\mathbf{S}$ and use
 $\mathbb{E}\left[\nabla_{\mathbf{A}} \phi(\mathbf{S})\right] = \mathbf{O}$ instead.
 
 \erratum{Page~700}
