@@ -3123,7 +3123,7 @@ since $\mathbf{X} = \left( X_{ij} \right) \in \mathcal{S}_{+}^{D}$ is a symmetri
 we take the integration only over the $D(D + 1)/2$ upper triangular elements~$X_{ij}$
 where $i \leqslant j$ so that the differential~$\mathrm{d}\mathbf{X}$ means
 \begin{equation}
-\mathrm{d}\mathbf{X} \equiv \prod_{i \leqslant j} \mathrm{d}X_{ij}
+\mathrm{d}\mathbf{X} \equiv \prod_{1 \leqslant i \leqslant j \leqslant D} \mathrm{d}X_{ij}
 = \mathrm{d}X_{11} \, \mathrm{d}X_{12} \, \cdots \, \mathrm{d}X_{1D} \,
 \mathrm{d}X_{22} \, \cdots \, \mathrm{d}X_{2D} \, \cdots \, \mathrm{d}X_{DD} .
 \end{equation}
@@ -3148,7 +3148,8 @@ we have
 \prod_{i=1}^{D} \int_{0}^{\infty} U_{ii}^{2a - i} \exp\left( -U_{ii}^{2} \right) \mathrm{d}U_{ii}
 \right]
 \left[
-\prod_{i < j} \int_{-\infty}^{\infty} \exp\left( -U_{ij}^2 \right) \mathrm{d}U_{ij}
+\prod_{1 \leqslant i < j \leqslant D}
+\int_{-\infty}^{\infty} \exp\left( -U_{ij}^2 \right) \mathrm{d}U_{ij}
 \right]
 \\
 &= \pi^{D(D - 1)/4} \prod_{i=1}^{D} \Gamma\left(a - \frac{i - 1}{2}\right)
@@ -3158,9 +3159,9 @@ where we have used
 \left| \mathbf{X} \right| &= \left| \mathbf{U}^{\operatorname{T}} \mathbf{U} \right|
 = \left| \mathbf{U} \right|^2
 = \prod_{i=1}^{D} U_{ii}^2 \\
-\operatorname{Tr}\left( \mathbf{X} \right) &= \sum_{i} X_{ii}
-= \sum_{i} \left( U_{1i}^2 + \dots + U_{ii}^2 \right)
-= \sum_{i \leqslant j} U_{ij}^2
+\operatorname{Tr}\left( \mathbf{X} \right) &= \sum_{i=1}^{D} X_{ii}
+= \sum_{i=1}^{D} \left( U_{1i}^2 + \dots + U_{ii}^2 \right)
+= \sum_{1 \leqslant i \leqslant j \leqslant D} U_{ij}^2
 \end{align}
 together with the result~\eqref{eq:jacobian_of_cholesky_decomposition} for
 the Jacobian of the Cholesky decomposition and
@@ -3233,7 +3234,7 @@ p\left(\left\{\tau_i\right\}, \left\{ R_{ij} \mid i < j \right\}\right) =
 \prod_{i=1}^{D} \operatorname{Gam}\left( \tau_{i} \middle| \frac{\nu + 1 - i}{2}, 1 \right)
 \right]
 \left[
-\prod_{i < j} \mathcal{N}\left( R_{ij} \middle| 0, \frac{1}{2} \right)
+\prod_{1 \leqslant i < j \leqslant D} \mathcal{N}\left( R_{ij} \middle| 0, \frac{1}{2} \right)
 \right]
 \end{equation}
 where we have further changed variables for the diagonal elements through
