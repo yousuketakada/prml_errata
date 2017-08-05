@@ -3171,7 +3171,7 @@ the integral identities
 \int_{-\infty}^{\infty} \exp\left( -u^{2} \right) \mathrm{d}u &= \sqrt{\pi} .
 \end{align}
 
-\parhead{Normalization constant of Wishart}
+\parhead{Normalization of Wishart}
 Let us next show that the Wishart distribution~(B.78) is indeed correctly normalized.
 Specifically, we show the following integral identity
 \begin{equation}
@@ -3214,6 +3214,35 @@ is given by
 \end{equation}
 where we have used the results~\eqref{eq:jacobian_of_cholesky_decomposition} and
 \eqref{eq:jacobian_of_upper_triangular_matrix_right_multiplication}.
+
+It is worth noting here that
+the combined change of variables~\eqref{eq:changes_of_variables_for_wishart_normalization}
+from $\bm{\Lambda} \in \mathcal{S}_{+}^{D}$ to $\mathbf{R} \in \mathcal{U}_{+}^{D}$
+effectively makes the resulting random variables~$R_{ij}$
+to be independently distributed so that
+$R_{ii}^{2}$ is distributed according to a gamma distribution; and
+$R_{ij}$ where $i < j$ to a Gaussian.
+More specifically,
+if $\bm{\Lambda} \in \mathcal{S}_{+}^{D}$ follows a Wishart distribution so that
+$p\left(\bm{\Lambda}\right) = \mathcal{W}\left( \bm{\Lambda} \middle| \mathbf{W}, \nu \right)$,
+then we have,
+through the change of variables~\eqref{eq:changes_of_variables_for_wishart_normalization},
+\begin{equation}
+p\left(\left\{\tau_i\right\}, \left\{ R_{ij} \mid i < j \right\}\right) =
+\left[
+\prod_{i=1}^{D} \operatorname{Gam}\left( \tau_{i} \middle| \frac{\nu + 1 - i}{2}, 1 \right)
+\right]
+\left[
+\prod_{i < j} \mathcal{N}\left( R_{ij} \middle| 0, \frac{1}{2} \right)
+\right]
+\end{equation}
+where we have further changed variables for the diagonal elements through
+$\tau_{i} = R_{ii}^{2}$.
+The above observation is useful for sampling (see Chapter~11)
+and also shows that the Wishart distribution is indeed correctly normalized.
+In the following, however, we evaluate
+the integral~\eqref{eq:integral_identity_for_normalization_constant_of_wishart}
+directly by identifying the multivariate gamma function to show the normalization of the Wishart.
 
 Evaluating the right hand side of
 \eqref{eq:integral_identity_for_normalization_constant_of_wishart}
