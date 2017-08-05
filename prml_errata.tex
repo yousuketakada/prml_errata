@@ -3217,10 +3217,10 @@ where we have used the results~\eqref{eq:jacobian_of_cholesky_decomposition} and
 \eqref{eq:jacobian_of_upper_triangular_matrix_right_multiplication}.
 
 It is worth noting here that
-the combined change of variables~\eqref{eq:changes_of_variables_for_wishart_normalization}
+the change of variables~\eqref{eq:changes_of_variables_for_wishart_normalization}
 from $\bm{\Lambda} \in \mathcal{S}_{+}^{D}$ to $\mathbf{R} \in \mathcal{U}_{+}^{D}$
-effectively makes the resulting random variables~$R_{ij}$
-to be independently distributed so that
+effectively makes the resulting random variables~$R_{ij}$ where $i \leqslant j$
+to be independently distributed:
 $R_{ii}^{2}$ is distributed according to a gamma distribution; and
 $R_{ij}$ where $i < j$ to a Gaussian.
 More specifically,
@@ -3247,7 +3247,7 @@ directly by identifying the multivariate gamma function to show the normalizatio
 
 Evaluating the right hand side of
 \eqref{eq:integral_identity_for_normalization_constant_of_wishart}
-by making the changes of variables~\eqref{eq:changes_of_variables_for_wishart_normalization},
+by making the change of variables~\eqref{eq:changes_of_variables_for_wishart_normalization},
 we have
 \begin{align}
 &\int_{\mathcal{S}_{+}^{D}}
