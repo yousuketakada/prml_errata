@@ -2968,7 +2968,12 @@ A_{ij} &= U_{1i} U_{1j} + \dots + U_{ii} U_{ij} \quad (i \leqslant j) \\
 A_{DD} &= U_{1D}^{2} + U_{2D}^{2} + \dots + U_{DD}^{2} .
 \end{align}
 Since $A_{ij}$ depends only on $U_{ij}$ and the preceding elements of $\mathbf{U}$
-in lexicographic order,
+in lexicographic order,\footnote{%
+More specifically, $A_{ij}$ depends on
+$U_{1i}, \dots, U_{ii}$ and
+$U_{1j}, \dots, U_{ij}$ where $i \leqslant j$,
+all of which are contained in the rectangular matrix of dimensionality~$(i, j)$
+aligned at the upper-left corner of $\mathbf{A}$.}
 the Jacobian of $\mathbf{A}$ with respect to $\mathbf{U}$ is
 a lower triangular matrix of the form
 \begin{align}
