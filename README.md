@@ -1,8 +1,9 @@
 # More PRML Errata
 
-This [report](prml_errata.pdf) communicates some more errata and additional comments for PRML (Bishop, 2006).
+This [report](prml_errata.pdf) is an unofficial list of errata for
+_Pattern Recognition and Machine Learning_ or PRML by Bishop (2006).
 
 ## Reference
 
-Bishop, C. M. (2006). Pattern Recognition and Machine Learning. Springer.
+* Bishop, C. M. (2006). _Pattern Recognition and Machine Learning_. Springer.
 
