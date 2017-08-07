@@ -3208,6 +3208,7 @@ the Cholesky factor of $2\mathbf{W} \in \mathcal{S}_{+}^{D}$
 so that
 \begin{equation}
 2\mathbf{W} = \mathbf{G}^{\operatorname{T}}\mathbf{G} .
+\label{eq:cholesky_decomposition_of_scale_matrix}
 \end{equation}
 The overall Jacobian factor for the two successive changes of variables~%
 \eqref{eq:changes_of_variables_for_wishart_normalization}
@@ -3232,8 +3233,8 @@ $R_{ij}$ where $i < j$ to a Gaussian.
 More specifically,
 if $\bm{\Lambda} \in \mathcal{S}_{+}^{D}$ follows a Wishart distribution so that
 $p\left(\bm{\Lambda}\right) = \mathcal{W}\left( \bm{\Lambda} \middle| \mathbf{W}, \nu \right)$,
-then we have,
-through the change of variables~\eqref{eq:changes_of_variables_for_wishart_normalization},
+then it readily follows through
+the change of variables~\eqref{eq:changes_of_variables_for_wishart_normalization} that
 \begin{equation}
 p\left(\left\{\tau_i\right\}, \left\{ R_{ij} \mid i < j \right\}\right) =
 \left[
@@ -3243,8 +3244,19 @@ p\left(\left\{\tau_i\right\}, \left\{ R_{ij} \mid i < j \right\}\right) =
 \prod_{1 \leqslant i < j \leqslant D} \mathcal{N}\left( R_{ij} \middle| 0, \frac{1}{2} \right)
 \right]
 \end{equation}
-where we have further changed variables for the diagonal elements through
-$R_{ii} = \sqrt{\tau_{i}}$.
+where we have further made the change variables~$R_{ii} = \sqrt{\tau_{i}}$
+for the diagonal elements.\footnote{%
+A slightly different change of variables~\eqref{eq:changes_of_variables_for_wishart_normalization}
+where the scale matrix~$\mathbf{W}$ is decomposed into the Cholesky factor of itself as
+$\mathbf{W} = \mathbf{G}^{\operatorname{T}}\mathbf{G}$,
+instead of \eqref{eq:cholesky_decomposition_of_scale_matrix},
+is called the \emph{Bartlett decomposition}~\citep{Anderson:Multivariate},
+in which case $R_{ij}$ where $i < j$ is distributed according to
+the zero-mean, unit-variance Gaussian~$\mathcal{N}\left( \cdot \middle| 0, 1 \right)$; and
+$R_{ii}^2$ to the \emph{chi-squared} distribution (or $\chi^2$-distribution) with
+$\nu + 1 - i$ degrees of freedom or, equivalently,
+a gamma distribution of the form~%
+$\operatorname{Gam}\left( \cdot \middle| (\nu + 1 - i)/2, 1/2 \right)$.}
 The above observation is useful for sampling (see Chapter~11)
 and also shows that the Wishart distribution is indeed correctly normalized.
 In the following, however, we evaluate
