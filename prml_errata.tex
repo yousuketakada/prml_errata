@@ -2554,7 +2554,8 @@ $\bm{\mu}$ and $\bm{\Lambda}$~\citep{Svensen:RobustMixture}.
 \erratum{Page~693}
 Equations~(B.78) through (B.82):
 Some appropriate citation, e.g., \citet{Anderson:Multivariate}, is needed for
-the Wishart distribution~(B.78) because it has been introduced in Section~2.3.6 as
+the Wishart distribution~(B.78);
+it is first introduced in Section~2.3.6 as
 the conjugate prior~(2.155) for the precision matrix~$\bm{\Lambda}$ of
 the multivariate Gaussian distribution~%
 $\mathcal{N}\left(\mathbf{x}\middle|\bm{\mu}, \bm{\Lambda}^{-1}\right)$
@@ -2567,7 +2568,8 @@ have not been shown either.
 Note however that most multivariate statistics textbooks, including \citet{Anderson:Multivariate},
 motivate the Wishart distribution differently from PRML;
 they typically introduce the Wishart distribution
-as the distribution over a square matrix (called the \emph{scatter matrix}) of the form
+as the distribution over a symmetric positive-semidefinite matrix
+(called the \emph{scatter matrix}) of the form
 \begin{equation}
 \mathbf{S} = \sum_{n=1}^{\nu} \mathbf{x}_n \mathbf{x}_n^{\operatorname{T}}
 \label{eq:scatter_matrix_of_zero_mean_Gaussian}
