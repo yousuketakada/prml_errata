@@ -300,7 +300,7 @@ In order to avoid these difficulties,
 we should take a different approach~\citep{MacKay:Information,KullbackLeibler:Information}
 in which we make use of Jensen's inequality~\eqref{eq:Jensen_inequality_continuous}
 with respect to $q(\mathbf{x})$ where
-we identify $f(\xi) = \xi\ln\xi$ (see Figure~\ref{fig:x_ln_x}) and
+we identify $f(\xi) = \xi\ln\xi$ and
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$.
 Note that we can safely proceed with this approach
 because we can assume $q(\mathbf{x}) > 0$
@@ -329,7 +329,8 @@ Assuming the zero-forcing condition, that is,
 $p(\mathbf{x}) = 0$ for all $\mathbf{x}$ such that $q(\mathbf{x}) = 0$,
 we can consider the integration in $\operatorname{KL}\left( p \middle\| q \right)$
 only over $\Omega = \{ \mathbf{x} \mid q(\mathbf{x}) > 0 \}$.
-Identifying $f(\xi) = \xi\ln\xi$ and $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$,
+Identifying $f(\xi) = \xi\ln\xi$ (see Figure~\ref{fig:x_ln_x}) and
+$\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$,
 we have
 \begin{align}
 \operatorname{KL}\left( p \middle\| q \right)
