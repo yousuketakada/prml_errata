@@ -324,10 +324,9 @@ the integrand~\eqref{eq:integrand_of_KL} diverges so that
 $\operatorname{KL}\left( p \middle\| q \right) \to \infty$.
 On the other hand, the integrand~\eqref{eq:integrand_of_KL} always vanishes for $\mathbf{x}$
 such that $p(\mathbf{x}) = 0$ regardless of the values of $q(\mathbf{x})$.\footnote{%
-Recall that we have defined $0 \log_2 0 = 0$ or, equivalently, $0 \ln 0 = 0$ so that
-the entropy~(1.93) in ``bits'' or
-that~\eqref{eq:entropy_in_nats} in ``nats''
-is well-defined.}
+Recall that we have defined $0 \log_2 0 \equiv 0$ or, equivalently, $0 \ln 0 \equiv 0$
+(Page~49, Paragraph~2, Line~\textminus2) so that
+the entropy in ``bits''~(1.93) or ``nats''~\eqref{eq:entropy_in_nats} is well-defined.}
 Therefore, in order for $\operatorname{KL}\left( p \middle\| q \right)$ to be well-defined,
 one must have $p(\mathbf{x}) = 0$ wherever $q(\mathbf{x}) = 0$;
 this property is called \emph{zero-forcing} (see also Section~10.1.2).
@@ -370,7 +369,7 @@ $p(\mathbf{x}) = q(\mathbf{x})$ for all $\mathbf{x}$.
 \input{fig/x_ln_x_plot.tex}
 \caption{Plot of $f(x) = x \ln x$.
 The function~$f(x)$ is a strictly convex function defined over $\left[0, \infty\right)$
-where we have defined $f(0) = 0 \ln 0 = 0$.
+where we have defined $f(0) = 0 \ln 0 \equiv 0$.
 The curve~$y = f(x)$ takes the minimum at $(x, y) = \left(e^{-1}, -e^{-1}\right)$.
 The roots (the values of $x$ such that $f(x) = 0$) are $x = 0$ and $x = 1$.}
 \label{fig:x_ln_x}
