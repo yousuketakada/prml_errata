@@ -185,12 +185,17 @@ A period (.) should terminate (1.85).
 
 \erratum{Page~51}
 Equation~(1.98):
-Following the notation~(1.93),
+Following the notation~(1.93) for \emph{entropy},
 we should write the left hand side of (1.98) as
-$\operatorname{H}[X]$ instead of $\operatorname{H}[p]$.
+$\operatorname{H}[X]$ instead of $\operatorname{H}[p]$ so that
+\begin{equation}
+\operatorname{H}[X] = - \sum_{i} p(x_{i}) \ln p(x_{i}) .
+\label{eq:entropy_in_nats}
+\end{equation}
 As suggested in the first paragraph of Appendix~D on Page~703,
-if we regard the (differential) entropy~$\operatorname{H}[\cdot]$ as a functional,
-we see that ``the entropy could equally well have been written as $\operatorname{H}[p]$.''
+if we regard the (differential) entropy~$\operatorname{H}[\cdot]$ as a \emph{functional},
+then we see that
+``the entropy could equally well have been written as $\operatorname{H}[p]$.''
 However, it is probably better to maintain the notational consistency here.
 
 \erratum{Page~56}
