@@ -324,8 +324,10 @@ the integrand~\eqref{eq:integrand_of_KL} diverges so that
 $\operatorname{KL}\left( p \middle\| q \right) \to \infty$.
 On the other hand, the integrand~\eqref{eq:integrand_of_KL} always vanishes for $\mathbf{x}$
 such that $p(\mathbf{x}) = 0$ regardless of the values of $q(\mathbf{x})$.\footnote{%
-Recall that we have defined $0 \ln 0 = 0$
-so that the entropy~$\operatorname{H}[x]$~(1.93) is well-defined.}
+Recall that we have defined $0 \log_2 0 = 0$ or, equivalently, $0 \ln 0 = 0$
+so that the entropy in ``bits'' given by (1.93) or
+that in ``nats'' given by \eqref{eq:entropy_in_nats}
+is well-defined.}
 Therefore, in order for $\operatorname{KL}\left( p \middle\| q \right)$ to be well-defined,
 one must have $p(\mathbf{x}) = 0$ wherever $q(\mathbf{x}) = 0$;
 this property is called \emph{zero-forcing} (see also Section~10.1.2).
