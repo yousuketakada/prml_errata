@@ -1458,6 +1458,29 @@ Paragraph~2, Line~3:
 $\nabla E(\mathbf{w}) = 0$ should read $\nabla E(\mathbf{w}) = \mathbf{0}$
 (the right hand side should be a zero vector~$\mathbf{0}$).
 
+\erratum{Page~238}
+Equation~(5.32):
+Since we refer to the right hand side of (5.32) later,
+let us write it as, say, $\widetilde{E}(\mathbf{w})$ so that (5.32) reads
+\begin{equation}
+E(\mathbf{w}) \simeq
+\widetilde{E}(\mathbf{w})
+\equiv
+E(\mathbf{w}^{\star})
++ \frac{1}{2} \left( \mathbf{w} - \mathbf{w}^{\star} \right)^{\operatorname{T}} \mathbf{H}
+\left( \mathbf{w} - \mathbf{w}^{\star} \right) .
+\label{eq:quadratic_approx_for_error_function}
+\end{equation}
+Perhaps we should have used another notation
+because we use $\widetilde{E}$ differently in Section 5.5.5,
+though no big confusion will occur if we use $\widetilde{E}(\mathbf{w})$ here.
+
+\erratum{Page~238}
+% Due to Mark-Jan Nederhof
+Equation~(5.36):
+The left hand side should read $\widetilde{E}(\mathbf{w})$
+where $\widetilde{E}(\mathbf{w})$ is given by \eqref{eq:quadratic_approx_for_error_function}.
+
 \erratum{Page~239}
 Figure~5.6:
 The eigenvectors~$\mathbf{u}_{1}$ and $\mathbf{u}_{2}$ are unit vectors so that
