@@ -1425,6 +1425,23 @@ where
 \end{equation}
 and $\mathbf{S}_N$ is given by (4.143).
 
+\erratum{Page~219}
+% Due to Mark-Jan Nederhof
+Equation~(4.150):
+$\mathbf{m}_N$ should read $\mathbf{w}_{\text{MAP}}$.
+Note that
+the notation $\mathbf{m}_N$ is the one used for the mean~(3.50) of the posterior~(3.49)
+for the Bayesian linear regression
+whereas $\mathbf{w}_{\text{MAP}}$, which however cannot be represented analytically, is the mean of
+the approximate posterior~\eqref{eq:approx_posterior_for_Bayesian_logistic_regression}
+for the Bayesian logistic regression.
+Furthermore, if we adopt
+the notation~\eqref{eq:covar_of_approx_posterior_for_Bayesian_logistic_regression},
+we have
+\begin{equation}
+\sigma_{a}^2 = \bm{\phi}^{\operatorname{T}} \mathbf{S}_{\text{MAP}} \bm{\phi} .
+\end{equation}
+
 \erratum{Page~237}
 Equation~(5.26):
 The right hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zero~$0$.
