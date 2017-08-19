@@ -1409,6 +1409,22 @@ The differential operator~$d$ should be an upright~$\mathrm{d}$.
 Paragraph~1, Line~1:
 ``must related'' should be ``must be related.''
 
+\erratum{Page~218}
+Equation~(4.144):
+The covariance should be the one~$\mathbf{S}_N$ evaluated at $\mathbf{w}_{\text{MAP}}$.
+To make this point clear, we can write the approximate posterior in the form
+\begin{equation}
+q(\mathbf{w}) =
+\mathcal{N}\left(\mathbf{w}\middle|\mathbf{w}_{\text{MAP}}, \mathbf{S}_{\text{MAP}}\right)
+\label{eq:approx_posterior_for_Bayesian_logistic_regression}
+\end{equation}
+where
+\begin{equation}
+\mathbf{S}_{\text{MAP}} = \left. \mathbf{S}_N \right|_{\mathbf{w} = \mathbf{w}_{\text{MAP}}}
+\label{eq:covar_of_approx_posterior_for_Bayesian_logistic_regression}
+\end{equation}
+and $\mathbf{S}_N$ is given by (4.143).
+
 \erratum{Page~237}
 Equation~(5.26):
 The right hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zero~$0$.
