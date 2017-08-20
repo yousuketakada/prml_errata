@@ -1599,6 +1599,22 @@ $q(\mathbf{w}; \mathcal{D}, \alpha, \beta)$ or, simply,
 $q(\mathbf{w})$.
 
 \erratum{Page~279}
+% Due to Mark-Jan Nederhof
+Equation~(5.168):
+The equality ($=$) should be approximate ($\approx$ or $\simeq$).\footnote{%
+Although the sign~$\simeq$ is always used for any type of approximate equality in PRML,
+I make some distinction between $\simeq$ and $\approx$ in this report:
+I use $\simeq$ for series expansions where approximation can be exact at some point;
+whereas $\approx$ is used for general approximation.}
+Also, we should again add conditioning on $\alpha$ and $\beta$.
+Thus, (5.168) should read
+\begin{equation}
+p\left(t\middle|\mathbf{x}, \mathcal{D}, \alpha, \beta\right) \approx
+\int p\left(t\middle|\mathbf{x}, \mathbf{w}, \beta\right) q(\mathbf{w}) \, \mathrm{d}\mathbf{w}
+\end{equation}
+where we have written the approximate posterior as $q(\mathbf{w})$.
+
+\erratum{Page~279}
 Equations~(5.169) and (5.171):
 The superscripts~$\mathbf{T}$ (in a bold typeface) should read $\operatorname{T}$
 (in a roman typeface).
