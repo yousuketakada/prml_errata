@@ -1591,12 +1591,11 @@ We should add conditioning on $\alpha$ and $\beta$ so that
 the left hand side reads $\ln p\left( \mathbf{w} \middle| \mathcal{D}, \alpha, \beta \right)$.
 
 \erratum{Page~279}
-Equation~(5.166):
-The conditioning on $\mathcal{D}$ for an approximate distribution does not make sense and
-is best removed (but we can still add $\mathcal{D}$ as a parameter) so that
-the left hand side of (5.167) should read
-$q(\mathbf{w}; \mathcal{D}, \alpha, \beta)$ or, simply,
-$q(\mathbf{w})$.
+Equation~(5.167):
+The conditioning on $\mathcal{D}$ or other variables for an approximate distribution
+does not make sense (unless properly defined) and
+should be removed or specified as parameters so that the left hand side of (5.167) reads
+$q(\mathbf{w})$ or $q(\mathbf{w}; \mathcal{D}, \alpha, \beta)$, respectively.
 
 \erratum{Page~279}
 % Due to Mark-Jan Nederhof
