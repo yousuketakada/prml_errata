@@ -2303,6 +2303,52 @@ Equation~(10.177):
 The factor~$a_N^{b_N}$ in the right hand side should be $b_N^{a_N}$
 (it is probably safe to omit the right hand side at all).
 
+\erratum{Pages~511 and 512}
+Equations~(10.212) and (10.213):
+It is helpful to note here that,
+if we employ the factors~$\widetilde{f}_n(\bm{\theta})$ of the form~(10.213)
+where $n = 1, \dots, N$ together with
+$\widetilde{f}_0(\bm{\theta}) = f_0(\bm{\theta}) = p(\bm{\theta})$
+where $p(\bm{\theta})$ is given by (10.210),
+then we indeed obtain the approximate posterior~$q(\bm{\theta})$ in the form~(10.212).
+To see this, let us evaluate the product of all the factors~$\widetilde{f}_n(\bm{\theta})$
+where $n=0, 1, \dots, N$, giving
+\begin{align}
+\prod_{n=0}^{N} \widetilde{f}_n(\bm{\theta})
+&= f_0(\bm{\theta}) \prod_{n=1}^{N} \widetilde{f}_n(\bm{\theta}) \\
+&= \mathcal{N}\left(\bm{\theta}\middle|\mathbf{0}, b\mathbf{I}\right)
+\prod_{n=1}^{N} s_n \mathcal{N}\left(\bm{\theta}\middle|\mathbf{m}_n, v_n\mathbf{I}\right) \\
+&=
+\frac{1}{(2\pi b)^{D/2}}
+\left[ \prod_{n=1}^{N} \frac{s_n}{(2\pi v_n)^{D/2}} \right]
+\exp\left\{ -\frac{1}{2v}
+\left\| \bm{\theta} - \mathbf{m} \right\|^2
+\right\}
+\exp\left(\frac{B}{2}\right)
+\label{eq:EP_clutter_prod_all_factors}
+\end{align}
+where we have used the fact that an EP update leaves
+the factor~$\widetilde{f}_0(\bm{\theta})$
+unchanged so that $\widetilde{f}_0(\bm{\theta}) = f_0(\bm{\theta}) = p(\bm{\theta})$ holds
+(see Exercise~10.37); and defined $v$, $\mathbf{m}$, and $B$ by
+\begin{align}
+\frac{1}{v} &= \frac{1}{b} + \sum_{n=1}^{N} \frac{1}{v_n} \\
+\frac{\mathbf{m}}{v} &= \sum_{n=1}^{N} \frac{\mathbf{m}_n}{v_n} \\
+B &= \frac{\mathbf{m}^{\operatorname{T}}\mathbf{m}}{v}
+- \sum_{n=1}^{N} \frac{\mathbf{m}_n^{\operatorname{T}}\mathbf{m}_n}{v_n} .
+\label{eq:EP_clutter_B}
+\end{align}
+From \eqref{eq:EP_clutter_prod_all_factors},
+we see that the approximate posterior~(10.203) is given by (10.212); and
+the approximate model evidence~(10.208) by
+\begin{equation}
+p(\mathcal{D}) \approx
+\left(\frac{v}{b}\right)^{D/2}
+\exp\left(\frac{B}{2}\right)
+\left[ \prod_{n=1}^{N} \frac{s_n}{(2\pi v_n)^{D/2}} \right] .
+\label{eq:EP_clutter_approx_evidence}
+\end{equation}
+
 \erratum{Page~512}
 Paragraph~2, Lines~1 and 3:
 $f_n(\bm{\theta})$ and $f_0(\bm{\theta})$ should read
@@ -2314,24 +2360,14 @@ The factor~$\left( 2 \pi v_n \right)^{D/2}$ in the denominator of the right hand
 omitted because it has been already included in the Gaussian in (10.213).
 
 \erratum{Page~513}
-Equations~(10.223) and (10.224):
-The quantities~$v^{\text{new}}$ and $\mathbf{m}^{\text{new}}$ in (10.223) and (10.224) are
-different from those in (10.217) and (10.218).\footnote{See \citet{Svensen:PRML_errata}
-for the errata for (10.217) and (10.218).}
-Thus, we should introduce different notations, say, $v$ and $\mathbf{m}$, with appropriate
-definitions.
-Specifically, one can rewrite the approximation to the model evidence in the form
-\begin{equation}
-p(\mathcal{D}) \simeq \left( 2\pi v \right)^{D/2} \exp\left( B/2 \right)
-  \prod_{n=1}^{N} \left\{ s_n \left( 2\pi v_n \right)^{-D/2} \right\}
-\end{equation}
-where
-\begin{align}
-B &= \frac{\mathbf{m}^{\operatorname{T}}\mathbf{m}}{v}
-  - \sum_{n=1}^{N} \frac{\mathbf{m}_n^{\operatorname{T}}\mathbf{m}_n}{v_n} \\
-v^{-1} &= \sum_{n=1}^{N} v_n^{-1} \\
-v^{-1} \mathbf{m} &= \sum_{n=1}^{N} v_n^{-1} \mathbf{m}_n .
-\end{align}
+Equation~(10.223):
+The right hand side should read that of \eqref{eq:EP_clutter_approx_evidence}
+where $B$ is given by \eqref{eq:EP_clutter_B}; and
+$v, \mathbf{m}$ are replaced by $v^{\text{new}}, \mathbf{m}^{\text{new}}$.
+
+\erratum{Page~513}
+Equation~(10.224):
+$v$ should read $v^{\text{new}}$ for consistency with (10.223).
 
 \erratum{Page~515}
 Equations~(10.228) and (10.229):
