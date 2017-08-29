@@ -2332,22 +2332,27 @@ the factor~$\widetilde{f}_0(\bm{\theta})$
 unchanged so that $\widetilde{f}_0(\bm{\theta}) = f_0(\bm{\theta}) = p(\bm{\theta})$ holds
 (see Exercise~10.37); and defined $v$, $\mathbf{m}$, and $B$ by
 \begin{align}
-\frac{1}{v} &= \frac{1}{b} + \sum_{n=1}^{N} \frac{1}{v_n} \\
-\frac{\mathbf{m}}{v} &= \sum_{n=1}^{N} \frac{\mathbf{m}_n}{v_n} \\
+\frac{1}{v} &= \frac{1}{b} + \sum_{n=1}^{N} \frac{1}{v_n}
+\label{eq:EP_clutter_v} \\
+\frac{\mathbf{m}}{v} &= \sum_{n=1}^{N} \frac{\mathbf{m}_n}{v_n}
+\label{eq:EP_clutter_m_over_v} \\
 B &= \frac{\mathbf{m}^{\operatorname{T}}\mathbf{m}}{v}
 - \sum_{n=1}^{N} \frac{\mathbf{m}_n^{\operatorname{T}}\mathbf{m}_n}{v_n} .
 \label{eq:EP_clutter_B}
 \end{align}
 From \eqref{eq:EP_clutter_prod_all_factors},
-we see that the approximate posterior~(10.203) is given by (10.212); and
-the approximate model evidence~(10.208) by
+we see that the approximate posterior~(10.203) is given by (10.212)
+where $v$ and $\mathbf{m}$ are given by
+\eqref{eq:EP_clutter_v} and \eqref{eq:EP_clutter_m_over_v}.
+Moreover, the model evidence can be approximated in terms of (10.208) so that
 \begin{equation}
 p(\mathcal{D}) \approx
 \left(\frac{v}{b}\right)^{D/2}
 \exp\left(\frac{B}{2}\right)
-\left[ \prod_{n=1}^{N} \frac{s_n}{(2\pi v_n)^{D/2}} \right] .
+\left[ \prod_{n=1}^{N} \frac{s_n}{(2\pi v_n)^{D/2}} \right]
 \label{eq:EP_clutter_approx_evidence}
 \end{equation}
+where $B$ is given by \eqref{eq:EP_clutter_B}.
 
 \erratum{Page~512}
 Paragraph~2, Lines~1 and 3:
