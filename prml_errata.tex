@@ -1213,6 +1213,17 @@ Insert a comma ($,$) after the ellipsis ($\dots$).
 \erratum{Page~116}
 Equation~(2.224):
 The right hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zero~$0$.
+Furthermore, I would like to point out that
+the gradient operator~$\nabla$ used here has not been properly defined yet.
+Actually, although Appendix~C introduces
+the ``vector derivative''~$\frac{\partial}{\partial \mathbf{x}}$,
+which is (perhaps confusingly) used interchangeably with the gradient~$\nabla_{\mathbf{x}}$
+throughout PRML,
+the gradient itself is not defined anywhere in PRML.
+Moreover, the definitions for $\frac{\partial}{\partial \mathbf{x}}$ given in Appendix~C
+are fragile and inappropriate (we shall come back to this issue later in this report).
+See \eqref{eq:gradient_of_vector_wrt_vector} for the definition of the gradient operator~$\nabla$
+adopted in this report.
 
 \erratum{Page~119}
 % Due to Mark-Jan Nederhof
@@ -1275,7 +1286,7 @@ The lower ellipsis ($\ldots$) should be centered ($\cdots$).
 \erratum{Page~141}
 Equation~(3.13):
 The use of the gradient operator~$\nabla$ is not consistent here.
-As in (2.224), the gradient of a scalar function is usually defined as a column vector
+As in, e.g., (2.224), the gradient of a scalar function is usually defined as a column vector
 of derivatives so that (3.13) should read\footnote{%
 Note that we use a different typeface (from a $D$-dimensional target variable~$\mathbf{t}$)
 for the $N$-dimensional
@@ -1283,18 +1294,16 @@ data vector~$\bm{\mathsf{t}} = \left( t_1, \dots, t_N \right)^{\operatorname{T}}
 consisting of one-dimensional target variables~$\left\{t_n\right\}$.
 See ``Mathematical Notation'' for PRML on Pages~xi--xii.}
 \begin{equation}
-\nabla \ln p \left( \bm{\mathsf{t}} \middle| \mathbf{w}, \beta \right) =
+\nabla_{\mathbf{w}} \ln p \left( \bm{\mathsf{t}} \middle| \mathbf{w}, \beta \right) =
 \beta \sum_{n=1}^{N}
 \left\{ t_n - \mathbf{w}^{\operatorname{T}} \bm{\phi}\left( \mathbf{x}_n \right) \right\}
-\bm{\phi}\left( \mathbf{x}_n \right) .
+\bm{\phi}\left( \mathbf{x}_n \right)
 \label{eq:gradient_of_linear_regression_likelihood}
 \end{equation}
-Moreover, I would like to also suggest that we should give a definition for the gradient
-before we use it or, at least, in an appendix.
-Although Appendix~C defines the vector derivative~$\frac{\partial}{\partial \mathbf{x}}$,
-which is used interchangeably with the gradient~$\nabla_{\mathbf{x}}$ throughout PRML,
-there is no mention of the gradient.
-We shall come back to this issue later in this report.
+where we have written the variable~$\mathbf{w}$ to which we take the gradient
+in the subscript of $\nabla$ explicitly.
+See \eqref{eq:gradient_of_vector_wrt_vector} for the definition of the gradient operator~$\nabla$
+adopted in this report.
 
 \erratum{Page~142}
 Equation~(3.14):
