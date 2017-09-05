@@ -1212,18 +1212,18 @@ Insert a comma ($,$) after the ellipsis ($\dots$).
 
 \erratum{Page~116}
 Equation~(2.224):
-The right hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zero~$0$.
+The right hand side should be a zero vector~$\mathbf{0}$ (instead of a scalar zero~$0$).
 Furthermore, I would like to point out that
-the gradient operator~$\nabla$ used here has not been properly defined yet.
+the gradient operator~$\nabla$, which is first used here in PRML, has not been properly defined.
 Actually, although Appendix~C introduces
 the ``vector derivative''~$\frac{\partial}{\partial \mathbf{x}}$,
 which is (perhaps confusingly) used interchangeably with the gradient~$\nabla_{\mathbf{x}}$
 throughout PRML,
 the gradient itself is not defined anywhere in PRML.
-Moreover, the definitions for $\frac{\partial}{\partial \mathbf{x}}$ given in Appendix~C
-are fragile and inappropriate (we shall come back to this issue later in this report).
-See \eqref{eq:gradient_of_vector_wrt_vector} for the definition of the gradient operator~$\nabla$
-adopted in this report.
+Moreover, the vector derivatives given in Appendix~C are not well-defined
+(we shall come back to this issue later in this report).
+See \eqref{eq:gradient_of_vector_wrt_vector} for the definition of the gradient~$\nabla$
+we adopt in this report.
 
 \erratum{Page~119}
 % Due to Mark-Jan Nederhof
