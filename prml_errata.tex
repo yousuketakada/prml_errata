@@ -15,7 +15,7 @@
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{sectsty}
 \allsectionsfont{\sffamily}
-\usepackage[font={sf,small},labelfont=bf,labelsep=quad]{caption}
+\usepackage[font={sf,small},labelfont={bf,color=Red},labelsep=quad]{caption}
 \usepackage{graphicx}
 \graphicspath{{./fig/}}
 \usepackage{booktabs}
@@ -45,7 +45,7 @@ backref=page,colorlinks,allcolors=MidnightBlue,
 \addcontentsline{toc}{subsection}{#1}}
 
 \newcommand{\erratum}[1]{%
-\subsubsection*{#1}
+\subsubsection*{\textcolor{Red}{#1}}
 \addcontentsline{toc}{subsection}{#1}}
 
 % TODO:
