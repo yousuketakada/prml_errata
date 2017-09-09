@@ -1320,6 +1320,45 @@ The left hand side should be a zero vector~$\mathbf{0}$ instead of a scalar zero
 where we have used the gradient of the form~\eqref{eq:gradient_of_linear_regression_likelihood}
 instead of (3.13).
 
+\erratum{Page~142}
+Equation~(3.16):
+Note that the \emph{design matrix}~$\bm{\Phi}$ can be expressed more concisely as
+\begin{equation}
+\bm{\Phi} = \left( \bm{\phi}_1, \bm{\phi}_2, \dots, \bm{\phi}_N \right)^{\operatorname{T}}
+\label{eq:design_matrix_in_terms_of_phi_n}
+\end{equation}
+where we have written $\bm{\phi}_n = \bm{\phi}(\mathbf{x}_n)$.
+Using this representation~\eqref{eq:design_matrix_in_terms_of_phi_n},
+one can more easily see that the likelihood function~(3.10) can also be written as
+a multivariate Gaussian so that
+\begin{equation}
+p\left(\bm{\mathsf{t}}\middle|\mathbf{X}, \mathbf{w}, \beta\right)
+= \mathcal{N}\left(\bm{\mathsf{t}}\middle|\bm{\Phi}\mathbf{w}, \beta^{-1}\mathbf{I}\right)
+\end{equation}
+where the target variables~$\left\{t_n\right\}$ have been grouped into a column vector
+\begin{equation}
+\bm{\mathsf{t}} = \left( t_1, t_2, \dots, t_N \right)^{\operatorname{T}} .
+\end{equation}
+Similarly, the sum-of-squares error function~(3.12) can be written in the form
+\begin{equation}
+E_{D}(\mathbf{w}) = \frac{1}{2} \left\| \bm{\mathsf{t}} - \bm{\Phi}\mathbf{w} \right\|^2
+\label{eq:sum_of_squares_error}
+\end{equation}
+where $\left\| \bm{\varepsilon} \right\| =
+\sqrt{\bm{\varepsilon}^{\operatorname{T}}\bm{\varepsilon}}$ is
+the norm of $\bm{\varepsilon}$.
+Taking the gradient of \eqref{eq:sum_of_squares_error} with respect to $\mathbf{w}$, we have
+\begin{equation}
+\nabla_{\mathbf{w}} E_{D}(\mathbf{w}) =
+-\bm{\Phi}^{\operatorname{T}} \left( \bm{\mathsf{t}} - \bm{\Phi}\mathbf{w} \right)
+\label{eq:gradient_of_sum_of_squares_error}
+\end{equation}
+where we have used the identity~\eqref{eq:gradient_of_squared_norm} together with
+the chain rule~\eqref{eq:chain_rule_for_gradient} and
+the identity~\eqref{eq:gradient_of_matrix_vector_product}.
+Setting the gradient~\eqref{eq:gradient_of_sum_of_squares_error} equal to zero,
+we directly obtain the \emph{normal equations}~(3.15).
+
 \erratum{Page~146}
 Equation~(3.31):
 The left hand side should be $\mathbf{y}\left(\mathbf{x}, \mathbf{W}\right)$ instead of
@@ -4170,25 +4209,16 @@ $\mathbf{A} = \mathbf{A}^{\operatorname{T}}$, in which case we have
 \end{equation}
 Substituting $\mathbf{A} = \mathbf{I}$ gives
 \begin{equation}
-\nabla \left\| \mathbf{x} \right\|^{2} = 2\mathbf{x} \label{eq:gradiet_of_norm}
+\nabla \left\| \mathbf{x} \right\|^{2} = 2\mathbf{x}
+\label{eq:gradient_of_squared_norm}
 \end{equation}
 where $\left\| \mathbf{x} \right\| = \sqrt{\mathbf{x}^{\operatorname{T}}\mathbf{x}}$ is
 the norm of $\mathbf{x}$.
-We make use of the above identity~\eqref{eq:gradiet_of_norm} when, e.g., we take the gradient of
-a sum-of-squares error function of the form (3.12),
-which can be expressed in terms of the design matrix~$\bm{\Phi}$ given by (3.16) as
-\begin{equation}
-E(\mathbf{w}) = \frac{1}{2} \left\| \bm{\mathsf{t}} - \bm{\Phi}\mathbf{w} \right\|^2
-\label{eq:sum_of_squares_error} .
-\end{equation}
-Taking the gradient of \eqref{eq:sum_of_squares_error} with respect to $\mathbf{w}$, we have
-\begin{equation}
-\nabla_{\mathbf{w}} E(\mathbf{w}) =
--\bm{\Phi}^{\operatorname{T}} \left( \bm{\mathsf{t}} - \bm{\Phi}\mathbf{w} \right)
-\end{equation}
-where we have used the identity~\eqref{eq:gradiet_of_norm} together with
-the chain rule~\eqref{eq:chain_rule_for_gradient} and
-the identity~\eqref{eq:gradient_of_matrix_vector_product}.
+We make use of the above identity \eqref{eq:gradient_of_squared_norm}
+together with \eqref{eq:gradient_of_matrix_vector_product}
+when, e.g.,
+we take the gradient~\eqref{eq:gradient_of_sum_of_squares_error} of
+a sum-of-squares error function of the form~\eqref{eq:sum_of_squares_error}.
 The same result can also be obtained by first expanding the square norm in
 \eqref{eq:sum_of_squares_error} and then differentiating it using the gradient identities
 given above.
