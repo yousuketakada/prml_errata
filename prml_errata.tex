@@ -1289,10 +1289,11 @@ The use of the gradient operator~$\nabla$ is not consistent here.
 As in, e.g., (2.224), the gradient of a scalar function is usually defined as a column vector
 of derivatives so that (3.13) should read\footnote{%
 Note that we use a different typeface (from a $D$-dimensional target variable~$\mathbf{t}$)
-for the $N$-dimensional
-data vector~$\bm{\mathsf{t}} = \left( t_1, \dots, t_N \right)^{\operatorname{T}}$
-consisting of one-dimensional target variables~$\left\{t_n\right\}$.
-See ``Mathematical Notation'' for PRML on Pages~xi--xii.}
+for the $N$-dimensional vector~%
+$\bm{\mathsf{t}} = \left( t_1, \dots, t_N \right)^{\operatorname{T}}$
+consisting of one-dimensional target variables~$\left\{t_n\right\}$
+where $n = 1, \dots, N$.
+See also ``Mathematical Notation'' for PRML on Pages~xi--xii.}
 \begin{equation}
 \nabla_{\mathbf{w}} \ln p \left( \bm{\mathsf{t}} \middle| \mathbf{w}, \beta \right) =
 \beta \sum_{n=1}^{N}
