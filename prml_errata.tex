@@ -4195,11 +4195,13 @@ we see that (C.19) should read
 \mathbf{a}
 \end{equation}
 where we have omitted the subscript~$\mathbf{x}$ in what should be $\nabla_{\mathbf{x}}$.
+
+\parhead{Vector derivatives identities}
 Some other useful identities I would suggest to include are
 \begin{align}
 \nabla \left\{ \mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x} \right\} =
 \nabla \operatorname{Tr}\left(\mathbf{x}\mathbf{x}^{\operatorname{T}}\mathbf{A}\right) &=
-\left( \mathbf{A}^{\operatorname{T}} + \mathbf{A} \right)\mathbf{x}
+\left( \mathbf{A} + \mathbf{A}^{\operatorname{T}} \right)\mathbf{x}
 \label{eq:gradient_of_quadratic_form} \\
 \nabla \left\{ \mathbf{B}\mathbf{x} \right\} & = \mathbf{B}^{\operatorname{T}}
 \label{eq:gradient_of_matrix_vector_product} \\
@@ -4223,6 +4225,7 @@ Substituting $\mathbf{A} = \mathbf{I}$ gives
 \end{equation}
 where $\left\| \mathbf{x} \right\| = \sqrt{\mathbf{x}^{\operatorname{T}}\mathbf{x}}$ is
 the norm of $\mathbf{x}$.
+
 We make use of the above identity \eqref{eq:gradient_of_squared_norm}
 together with \eqref{eq:gradient_of_matrix_vector_product}
 when, e.g.,
@@ -4231,15 +4234,18 @@ a sum-of-squares error function of the form~\eqref{eq:sum_of_squares_error}.
 The same result can also be obtained by first expanding the square norm in
 \eqref{eq:sum_of_squares_error} and then differentiating it using the gradient identities
 given above.
-We use \eqref{eq:gradient_of_scalar_vector_product}
-when, e.g., we evaluate the Hessian~(5.83) of a nonlinear sum-of-squares error function
-such as (5.82), which takes the form
+
+The product rule~\eqref{eq:gradient_of_scalar_vector_product} is used
+when, e.g., we evaluate the Hessian~(5.83) of a nonlinear sum-of-squares error function~(5.82),
+which generally takes the form
 \begin{equation}
 J = \frac{1}{2} \sum_{n=1}^{N} \varepsilon_n^{2} = \frac{1}{2} \left\|\bm{\varepsilon}\right\|^2
 \end{equation}
 where we have written
 $\bm{\varepsilon} = \left(\varepsilon_1, \dots, \varepsilon_N\right)^{\operatorname{T}}$.
-The gradient and the Hessian of $J$ are evaluated as
+The gradient and the Hessian of $J$
+(with respect to some parameters on which the errors~$\bm{\varepsilon}$ depend nonlinearly)
+are evaluated as
 \begin{align}
 \nabla J &= \sum_{n=1}^{N} \varepsilon_n \nabla \varepsilon_n
 = \left( \nabla \bm{\varepsilon} \right) \bm{\varepsilon} \\
@@ -4248,11 +4254,13 @@ The gradient and the Hessian of $J$ are evaluated as
 + \sum_{n=1}^{N} \varepsilon_n \nabla\nabla \varepsilon_n \\
 &= \nabla \bm{\varepsilon} \left( \nabla \bm{\varepsilon} \right)^{\operatorname{T}}
 + \sum_{n=1}^{N} \varepsilon_n \nabla\nabla \varepsilon_n
+\label{eq:vector_form_of_Hessian_of_nonlinear_sum_of_squares_error_function}
 \end{align}
 respectively.
-The second form of the Hessian,
+The second form~\eqref{eq:vector_form_of_Hessian_of_nonlinear_sum_of_squares_error_function}
+of the Hessian~$\nabla\nabla J$,
 which, however, does not necessarily result in efficient implementation
-(neither does that of the gradient),
+(neither does that of the gradient~$\nabla J$),
 can be directly obtained by using the identity
 \begin{equation}
 \nabla \left\{ \mathbf{R} \bm{\phi} \right\}
