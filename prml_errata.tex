@@ -4089,16 +4089,21 @@ both $\mathbf{A}$ and $\mathbf{B}$ must be square.
 
 \erratum{Page~697}
 Equation~(C.17):
-It is clear that the definition~(C.17) of the derivative of a scalar with respect to a vector
-and that~(C.18) of the derivative of a vector with respect to a vector contradict each other.
+It is clear that
+the definitions for the ``vector derivative''~(C.17) of a scalar with respect to a vector
+and that~(C.18) of a vector with respect to a vector
+contradict each other.
 The vector derivative of the form~(C.17) is usually called the \emph{gradient}
 whereas (C.18) is called the \emph{Jacobian}~\citep{Minka:OldNewMatrixAlgebra}.
 Note that (C.16) is a special case of (C.18) and thus the Jacobian.
-We should use a different notation, say, $\nabla$ for the gradient to avoid ambiguity.
-More specifically, given a vector function~$\mathbf{y}(\mathbf{x}) =
+We should use a different notation, say, $\nabla$ for the gradient to avoid ambiguity,
+as defined in the following.
+
+\parhead{Gradient and Jacobian}
+Given a vector function~$\mathbf{y}(\mathbf{x}) =
 \left(y_1(\mathbf{x}), \dots, y_M(\mathbf{x})\right)^{\operatorname{T}}$
 where $\mathbf{x} = \left(x_1, \dots, x_D \right)^{\operatorname{T}}$,
-we write the gradient of $\mathbf{y}(\mathbf{x})$ with respect to $\mathbf{x}$ as
+we write the \emph{gradient} of $\mathbf{y}(\mathbf{x})$ with respect to $\mathbf{x}$ as
 \begin{equation}
 \nabla_{\mathbf{x}} \mathbf{y} \equiv \left( \frac{\partial y_j}{\partial x_i} \right) =
 \begin{pmatrix}
@@ -4109,7 +4114,7 @@ we write the gradient of $\mathbf{y}(\mathbf{x})$ with respect to $\mathbf{x}$ a
 \label{eq:gradient_of_vector_wrt_vector}
 \end{equation}
 As a special case, we see that the gradient of a scalar function~$y(\mathbf{x})$ with respect to
-a column vector~$\mathbf{x}$ is again a column vector of the same dimension,
+a column vector~$\mathbf{x}$ is again a column vector of the same dimensionality,
 corresponding to the right hand side of (C.17), i.e.,
 \begin{equation}
 \nabla_{\mathbf{x}} y = \left( \frac{\partial y}{\partial x_i} \right) =
@@ -4119,9 +4124,10 @@ corresponding to the right hand side of (C.17), i.e.,
 \frac{\partial y}{\partial x_D}
 \end{pmatrix} .
 \end{equation}
-Note also that the right hand side of the definition of
+
+Note that the right hand side of the definition of
 the gradient~\eqref{eq:gradient_of_vector_wrt_vector} is identical to
-the transpose of the Jacobian matrix~$\partial\mathbf{y}/\partial\mathbf{x} =
+the transpose of the \emph{Jacobian}~$\partial\mathbf{y}/\partial\mathbf{x} =
 \left( \partial y_i/\partial x_j \right)$
 so that $\nabla_{\mathbf{x}} \mathbf{y} =
 \left( \partial\mathbf{y}/\partial\mathbf{x} \right)^{\operatorname{T}}$,
@@ -4166,7 +4172,7 @@ the gradient vector and the Hessian matrix of $f(\mathbf{x})$, respectively, so 
 \frac{\partial f}{\partial x_{1}} \\
 \vdots \\
 \frac{\partial f}{\partial x_{D}}
-\end{pmatrix} , \qquad
+\end{pmatrix} , \quad
 \mathbf{H}(\mathbf{x}) \equiv \nabla\nabla f(\mathbf{x}) =
 \begin{pmatrix}
 \frac{\partial^{2} f}{\partial x_{1} \partial x_{1}} &
