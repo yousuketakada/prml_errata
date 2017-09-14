@@ -14,7 +14,8 @@
 \usepackage[svgnames]{xcolor}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{sectsty}
-\allsectionsfont{\sffamily}
+\allsectionsfont{\sffamily\color{Red}}
+\paragraphfont{\sffamily}
 \usepackage[font={sf,small},labelfont={bf,color=Red},labelsep=quad]{caption}
 \usepackage{graphicx}
 \graphicspath{{./fig/}}
@@ -45,7 +46,7 @@ backref=page,colorlinks,allcolors=MidnightBlue,
 \addcontentsline{toc}{subsection}{#1}}
 
 \newcommand{\erratum}[1]{%
-\subsubsection*{\textcolor{Red}{#1}}
+\subsubsection*{#1}
 \addcontentsline{toc}{subsection}{#1}}
 
 % TODO:
