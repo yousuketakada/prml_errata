@@ -4195,6 +4195,7 @@ we see that (C.19) should read
 \nabla \left\{ \mathbf{x}^{\operatorname{T}} \mathbf{a} \right\} =
 \nabla \left\{ \mathbf{a}^{\operatorname{T}} \mathbf{x} \right\} =
 \mathbf{a}
+\label{eq:gradient_of_const_inner_product}
 \end{equation}
 where we have omitted the subscript~$\mathbf{x}$ in what should be $\nabla_{\mathbf{x}}$.
 
@@ -4350,11 +4351,25 @@ used the transpose identity of the Kronecker product~\citep{MagnusNeudecker:MDC}
 \mathbf{A}^{\operatorname{T}} \otimes \mathbf{B}^{\operatorname{T}} .
 \end{equation}
 }
-One can see that
+One can easily see that
 \eqref{eq:gradient_of_matrix_vector_product} and
 \eqref{eq:gradient_of_scalar_vector_product}
 are special cases of
 \eqref{eq:gradient_of_matrix_vector_product_general}.
+
+Finally, we note that the gradient of an inner product
+\begin{equation}
+\nabla \left\{ \mathbf{u}^{\operatorname{T}} \mathbf{v} \right\} =
+\nabla \left\{ \mathbf{v}^{\operatorname{T}} \mathbf{u} \right\} =
+\left(\nabla\mathbf{u}\right) \mathbf{v} +
+\left(\nabla\mathbf{v}\right) \mathbf{u}
+\label{eq:gradient_of_general_inner_product}
+\end{equation}
+is another corollary of
+the general product rule~\eqref{eq:gradient_of_matrix_vector_product_general}.
+The identities~\eqref{eq:gradient_of_const_inner_product} and
+\eqref{eq:gradient_of_quadratic_form}
+are special cases of \eqref{eq:gradient_of_general_inner_product}.
 
 \erratum{Page~698}
 Equation~(C.20):
