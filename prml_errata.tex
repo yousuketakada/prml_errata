@@ -4260,8 +4260,10 @@ we have
 + \sum_{n=1}^{N} \varepsilon_n \nabla\nabla \varepsilon_n \\
 &= \nabla \bm{\varepsilon}
 \left( \nabla \bm{\varepsilon} \right)^{\operatorname{T}}
-+ \left[ \nabla
-\operatorname{vec}\left(\nabla \bm{\varepsilon}\right) \right]
++
+\begin{bmatrix}
+\nabla \operatorname{vec}\left(\nabla \bm{\varepsilon}\right)
+\end{bmatrix}
 \left( \bm{\varepsilon} \otimes \mathbf{I}_M \right)
 \label{eq:vector_form_of_Hessian_of_nonlinear_sum_of_squares_error_function}
 \end{align}
