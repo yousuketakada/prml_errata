@@ -4310,14 +4310,21 @@ can be directly obtained by making use of the general product rule
 \\
 &= \sum_{n=1}^{N} \nabla \phi_n \, \mathbf{r}_n^{\operatorname{T}}
 + \sum_{n=1}^{N} \phi_n \nabla \mathbf{r}_n
+\label{eq:gradient_of_matrix_vector_product_general_expanded_form}
 \end{align}
 where $\mathbf{R} = \left(\mathbf{r}_1, \dots, \mathbf{r}_N\right)$ and
 $\bm{\phi} = \left(\phi_1, \dots, \phi_N\right)^{\operatorname{T}}$; and
 $M$ is the dimensionality of the column vectors~$\mathbf{r}_n$
-(or, equivalently, the number of rows of the matrix~$\mathbf{R}$).\footnote{%
-One can see that
-the second term in the right hand side of \eqref{eq:gradient_of_matrix_vector_product_general},
-i.e., the gradient through $\mathbf{R}$, follows from
+(or, equivalently, the number of rows of $\mathbf{R}$).
+The product rule~\eqref{eq:gradient_of_matrix_vector_product_general}
+can be easily shown from its expanded form~%
+\eqref{eq:gradient_of_matrix_vector_product_general_expanded_form}.\footnote{%
+Note also that the first term in the right hand side of
+\eqref{eq:gradient_of_matrix_vector_product_general},
+i.e., the gradient through $\bm{\phi}$, directly follows from
+\eqref{eq:gradient_of_matrix_vector_product};
+and the second term,
+i.e., the gradient through $\mathbf{R}$, directly follows from the identity
 \begin{equation}
 \mathbf{R} \bm{\phi} = \operatorname{vec} \left( \mathbf{R} \bm{\phi} \right)
 = \left( \bm{\phi}^{\operatorname{T}} \otimes \mathbf{I}_M \right)
@@ -4352,13 +4359,13 @@ used the transpose identity of the Kronecker product~\citep{MagnusNeudecker:MDC}
 \mathbf{A}^{\operatorname{T}} \otimes \mathbf{B}^{\operatorname{T}} .
 \end{equation}
 }
-One can easily see that
+Note that
 \eqref{eq:gradient_of_matrix_vector_product} and
 \eqref{eq:gradient_of_scalar_vector_product}
 are special cases of
 \eqref{eq:gradient_of_matrix_vector_product_general}.
 
-Finally, we note that the gradient of an inner product
+Finally, I would like to point out that the gradient of an inner product
 \begin{equation}
 \nabla \left\{ \mathbf{u}^{\operatorname{T}} \mathbf{v} \right\} =
 \nabla \left\{ \mathbf{v}^{\operatorname{T}} \mathbf{u} \right\} =
@@ -4366,11 +4373,11 @@ Finally, we note that the gradient of an inner product
 \left(\nabla\mathbf{v}\right) \mathbf{u}
 \label{eq:gradient_of_general_inner_product}
 \end{equation}
-is another corollary of
+is another special case of
 the general product rule~\eqref{eq:gradient_of_matrix_vector_product_general}.
 The identities~\eqref{eq:gradient_of_const_inner_product} and
 \eqref{eq:gradient_of_quadratic_form}
-are special cases of \eqref{eq:gradient_of_general_inner_product}.
+are, in turn, special cases of \eqref{eq:gradient_of_general_inner_product}.
 
 \erratum{Page~698}
 Equation~(C.20):
