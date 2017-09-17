@@ -4311,7 +4311,44 @@ can be directly obtained by making use of the general product rule
 where $\mathbf{R} = \left(\mathbf{r}_1, \dots, \mathbf{r}_N\right)$ and
 $\bm{\phi} = \left(\phi_1, \dots, \phi_N\right)^{\operatorname{T}}$; and
 $M$ is the dimensionality of the column vectors~$\mathbf{r}_n$
-(or, equivalently, the number of rows of the matrix~$\mathbf{R}$).
+(or, equivalently, the number of rows of the matrix~$\mathbf{R}$).\footnote{%
+One can see that
+the second term in the right hand side of \eqref{eq:gradient_of_matrix_vector_product_general},
+i.e., the gradient through $\mathbf{R}$, follows from
+\begin{equation}
+\mathbf{R} \bm{\phi} = \operatorname{vec} \left( \mathbf{R} \bm{\phi} \right)
+= \left( \bm{\phi}^{\operatorname{T}} \otimes \mathbf{I}_M \right)
+\operatorname{vec} \left( \mathbf{R} \right)
+\label{eq:R_phi_in_terms_of_vec_and_Kronecker_product}
+\end{equation}
+which itself follows from the property of the vectorization operator and the Kronecker product~%
+\citep{MagnusNeudecker:MDC}
+\begin{equation}
+\operatorname{vec}\left( \mathbf{A} \mathbf{B} \mathbf{C} \right)
+= \left( \mathbf{C}^{\operatorname{T}} \otimes \mathbf{A} \right)
+\operatorname{vec}\left( \mathbf{B} \right) .
+\end{equation}
+Taking the gradient of the right hand side of
+\eqref{eq:R_phi_in_terms_of_vec_and_Kronecker_product},
+we obtain
+\begin{equation}
+\nabla
+\left\{
+\left( \bm{\phi}^{\operatorname{T}} \otimes \mathbf{I}_M \right)
+\operatorname{vec} \left( \mathbf{R} \right)
+\right\}
+=
+\nabla
+\operatorname{vec} \left( \mathbf{R} \right)
+\left( \bm{\phi} \otimes \mathbf{I}_M \right)
+\end{equation}
+where we have assumed $\bm{\phi}$ to be constant and
+made use of the transpose of the Kronecker product~\citep{MagnusNeudecker:MDC}
+\begin{equation}
+\left(\mathbf{A}\otimes\mathbf{B}\right)^{\operatorname{T}} =
+\mathbf{A}^{\operatorname{T}} \otimes \mathbf{B}^{\operatorname{T}} .
+\end{equation}
+}
 One can see that
 \eqref{eq:gradient_of_matrix_vector_product} and
 \eqref{eq:gradient_of_scalar_vector_product}
