@@ -4246,11 +4246,12 @@ J = \frac{1}{2} \sum_{n=1}^{N} \varepsilon_n^{2} = \frac{1}{2} \left\|\bm{\varep
 \end{equation}
 where we have written
 $\bm{\varepsilon} = \left(\varepsilon_1, \dots, \varepsilon_N\right)^{\operatorname{T}}$.
-Evaluating the gradient and the Hessian of the error function~$J$
+The gradient~$\nabla_{\bm{\theta}}\, J$ and
+the Hessian~$\nabla_{\bm{\theta}}\nabla_{\bm{\theta}}\, J$ of the error function~$J$
 with respect to some parameters~$\bm{\theta} =
 \left( \theta_1, \dots, \theta_M \right)^{\operatorname{T}}$
-(on which the errors~$\bm{\varepsilon}$ depend nonlinearly),
-we have
+(on which the errors~$\bm{\varepsilon}$ depend nonlinearly)
+are given by
 \begin{align}
 \nabla J &= \sum_{n=1}^{N} \varepsilon_n \nabla \varepsilon_n
 = \left( \nabla \bm{\varepsilon} \right) \bm{\varepsilon} \\
@@ -4271,7 +4272,7 @@ we have
 \left( \bm{\varepsilon} \otimes \mathbf{I}_M \right)
 \label{eq:vector_form_of_Hessian_of_nonlinear_sum_of_squares_error_function}
 \end{align}
-respectively, where we have made the subscript~$\bm{\theta}$ of the gradient operators implicit.
+where we have made the subscript~$\bm{\theta}$ of the gradient operators implicit.
 Here, the \emph{vectorization operator}~$\operatorname{vec}(\cdot)$ and
 the \emph{Kronecker product}~$\otimes$ are defined as
 \begin{equation}
