@@ -4254,10 +4254,14 @@ we have
 \begin{align}
 \nabla J &= \sum_{n=1}^{N} \varepsilon_n \nabla \varepsilon_n
 = \left( \nabla \bm{\varepsilon} \right) \bm{\varepsilon} \\
-\nabla\nabla J &= \sum_{n=1}^{N}
+\nabla\nabla J &=
+\sum_{n=1}^{N}
+\left\{
 \nabla \varepsilon_n
 \left(\nabla \varepsilon_n\right)^{\operatorname{T}}
-+ \sum_{n=1}^{N} \varepsilon_n \nabla\nabla \varepsilon_n \\
++ \varepsilon_n \nabla\nabla \varepsilon_n
+\right\}
+\\
 &= \nabla \bm{\varepsilon}
 \left( \nabla \bm{\varepsilon} \right)^{\operatorname{T}}
 +
