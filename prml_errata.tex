@@ -4213,8 +4213,8 @@ Some other useful identities I would suggest to include are
 \nabla\phi \mathbf{y}^{\operatorname{T}} + \phi \nabla\mathbf{y}
 \label{eq:gradient_of_scalar_vector_product}
 \end{align}
-where matrices~$\mathbf{A}$ and $\mathbf{B}$ are constants.
-Note that $\mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x}$ in
+where the matrices~$\mathbf{A}$ and $\mathbf{B}$ are constant.
+Note that the term~$\mathbf{x}^{\operatorname{T}} \mathbf{A} \mathbf{x}$ in
 \eqref{eq:gradient_of_quadratic_form} is a quadratic form and thus
 the square matrix~$\mathbf{A}$ is usually taken to be symmetric so that
 $\mathbf{A} = \mathbf{A}^{\operatorname{T}}$, in which case we have
@@ -4231,13 +4231,15 @@ where $\left\| \mathbf{x} \right\| = \sqrt{\mathbf{x}^{\operatorname{T}}\mathbf{
 the norm of $\mathbf{x}$.
 
 We make use of the above identity \eqref{eq:gradient_of_squared_norm}
-together with \eqref{eq:gradient_of_matrix_vector_product}
 when, e.g.,
 we take the gradient~\eqref{eq:gradient_of_sum_of_squares_error} of
-a sum-of-squares error function of the form~\eqref{eq:sum_of_squares_error}.
-The same result can also be obtained by first expanding the square norm in
+a sum-of-squares error function of the form~\eqref{eq:sum_of_squares_error}
+where we also make use of \eqref{eq:chain_rule_for_gradient} and
+\eqref{eq:gradient_of_matrix_vector_product}.
+The same result~\eqref{eq:gradient_of_sum_of_squares_error}
+can also be obtained by first expanding the square norm in
 \eqref{eq:sum_of_squares_error} and then differentiating the expanded terms
-using \eqref{eq:gradient_of_quadratic_form_symmetric} and
+with \eqref{eq:gradient_of_quadratic_form_symmetric} and
 \eqref{eq:gradient_of_matrix_vector_product}.
 
 The product rule~\eqref{eq:gradient_of_scalar_vector_product} is used
@@ -4296,7 +4298,8 @@ where $\mathbf{V} = \left(\mathbf{v}_1, \dots, \mathbf{v}_L \right)$;
 and $\mathbf{A} = \left(A_{ij}\right)$ is an $M \times N$ matrix
 \citep{MagnusNeudecker:MDC}.
 
-The second form~\eqref{eq:vector_form_of_Hessian_of_nonlinear_sum_of_squares_error_function}
+Note that
+the second form~\eqref{eq:vector_form_of_Hessian_of_nonlinear_sum_of_squares_error_function}
 of the Hessian~$\nabla\nabla J$ of the nonlinear error function~$J$,
 which, however, does not necessarily lead to an efficient implementation
 (neither does that of the gradient~$\nabla J$),
@@ -4308,6 +4311,7 @@ can be directly obtained by making use of the general product rule
 \left( \bm{\phi} \otimes \mathbf{I}_M \right)
 \label{eq:gradient_of_matrix_vector_product_general}
 \\
+\nabla \left\{ \sum_{n=1}^{N} \phi_n \mathbf{r}_n \right\}
 &= \sum_{n=1}^{N} \nabla \phi_n \, \mathbf{r}_n^{\operatorname{T}}
 + \sum_{n=1}^{N} \phi_n \nabla \mathbf{r}_n
 \label{eq:gradient_of_matrix_vector_product_general_expanded_form}
@@ -4316,15 +4320,15 @@ where $\mathbf{R} = \left(\mathbf{r}_1, \dots, \mathbf{r}_N\right)$ and
 $\bm{\phi} = \left(\phi_1, \dots, \phi_N\right)^{\operatorname{T}}$; and
 $M$ is the dimensionality of the column vectors~$\mathbf{r}_n$
 (or, equivalently, the number of rows of $\mathbf{R}$).
-The product rule~\eqref{eq:gradient_of_matrix_vector_product_general}
-can be easily shown from its expanded form~%
+One can easily show the product rule~\eqref{eq:gradient_of_matrix_vector_product_general}
+through its expanded form~%
 \eqref{eq:gradient_of_matrix_vector_product_general_expanded_form}.\footnote{%
-Note also that the first term in the right hand side of
+For interested readers, I would like to note that
+the first term in the right hand side of
 \eqref{eq:gradient_of_matrix_vector_product_general},
 i.e., the gradient through $\bm{\phi}$, directly follows from
-\eqref{eq:gradient_of_matrix_vector_product};
-and the second term,
-i.e., the gradient through $\mathbf{R}$, directly follows from the identity
+\eqref{eq:gradient_of_matrix_vector_product}; and
+the second term, i.e., the gradient through $\mathbf{R}$, follows from the identity
 \begin{equation}
 \mathbf{R} \bm{\phi} = \operatorname{vec} \left( \mathbf{R} \bm{\phi} \right)
 = \left( \bm{\phi}^{\operatorname{T}} \otimes \mathbf{I}_M \right)
@@ -4359,13 +4363,13 @@ used the transpose identity of the Kronecker product~\citep{MagnusNeudecker:MDC}
 \mathbf{A}^{\operatorname{T}} \otimes \mathbf{B}^{\operatorname{T}} .
 \end{equation}
 }
-Note that
-\eqref{eq:gradient_of_matrix_vector_product} and
+Note also that
+the identities~\eqref{eq:gradient_of_matrix_vector_product} and
 \eqref{eq:gradient_of_scalar_vector_product}
 are special cases of
 \eqref{eq:gradient_of_matrix_vector_product_general}.
 
-Finally, I would like to point out that the gradient of an inner product
+Finally, I would like to point out that the gradient of the inner product
 \begin{equation}
 \nabla \left\{ \mathbf{u}^{\operatorname{T}} \mathbf{v} \right\} =
 \nabla \left\{ \mathbf{v}^{\operatorname{T}} \mathbf{u} \right\} =
