@@ -2800,11 +2800,11 @@ Of these terms, I would prefer the term~\emph{multinoulli}
 because it naturally suggests that it is
 a generalization of the \emph{Bernoulli} distribution~(B.1) to multiple categories~$K > 2$ and
 also a special case of the \emph{multinomial} distribution~(B.59)
-where we have only a single observation~$N = 1$
-(see Figure~\ref{fig:relationship_between_discrete_distributions}
-for the relationship between the discrete distributions found in PRML).
+where we have only a single observation~$N = 1$.
 Since we often make use of this discrete distribution,
 we shall introduce some notation for the right hand side of (B.54).
+See Figure~\ref{fig:relationship_between_discrete_distributions}
+for the relationship between the discrete distributions found in PRML.
 
 \begin{figure}
 \centering
@@ -2846,10 +2846,18 @@ $\operatorname{Mult}\left(m_1, \dots, m_K\middle|\bm{\mu}, N\right)$}
 }
 \end{equation*}}
 \caption{The relationship between discrete distributions and their conjugate priors.
-Here, $\text{A} \Rightarrow \text{B}$ denotes
-``A generalizes to B with multiple categories concerned''; and
-$\text{A} \rightarrow \text{B}$ ``A to B with multiple observations.''
-Note also that $\text{A} \dashrightarrow \text{B}$ denotes ``A is the conjugate prior for B.''}
+Here, ``$\text{A} \Rightarrow \text{B}$'' (respectively, ``$\text{A} \rightarrow \text{B}$'')
+denotes ``A generalizes to B with multiple categories (observations) concerned''; and
+``$\text{A} \dashrightarrow \text{B}$'' denotes ``A is the conjugate prior for B.''
+Note also that, as this diagram suggests, there are some inconsistencies in parameterization;
+it is probably better for consistency to write the binomial as
+$\operatorname{Bin}\left(m\middle|\mu, N\right)$ instead of
+$\operatorname{Bin}\left(m\middle|N, \mu\right)$
+and the multinomial as
+$\operatorname{Mult}\left(\mathbf{m}\middle|\bm{\mu}, N\right)$ instead of
+$\operatorname{Mult}\left(m_1, \dots, m_K\middle|\bm{\mu}, N\right)$
+where $\mathbf{m} = \left(m_1, \dots, m_K\right)^{\operatorname{T}}$,
+for example.}
 \label{fig:relationship_between_discrete_distributions}
 \end{figure}
 
