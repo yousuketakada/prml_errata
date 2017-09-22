@@ -4111,11 +4111,13 @@ In order to avoid ambiguity,
 we should use a different notation, say, $\nabla$ for the gradient,
 as defined in the following.
 
-\parhead{Gradient and Jacobian}
+\parhead{Gradient with respect to a vector}
 Given a vector function~$\mathbf{y}(\mathbf{x}) =
-\left(y_1(\mathbf{x}), \dots, y_M(\mathbf{x})\right)^{\operatorname{T}}$
-where $\mathbf{x} = \left(x_1, \dots, x_D \right)^{\operatorname{T}}$,
-we write the \emph{gradient} of $\mathbf{y}(\mathbf{x})$ with respect to $\mathbf{x}$ as
+\left( y_1(\mathbf{x}), \dots, y_M(\mathbf{x}) \right)^{\operatorname{T}}$
+of a vector~$\mathbf{x} =
+\left( x_1, \dots, x_D \right)^{\operatorname{T}}$,
+we write the \emph{gradient}~$\nabla_{\mathbf{x}} \mathbf{y}$ of $\mathbf{y}(\mathbf{x})$
+with respect to $\mathbf{x}$ as a $D \times M$ matrix of partial derivatives so that
 \begin{equation}
 \nabla_{\mathbf{x}} \mathbf{y} \equiv \left( \frac{\partial y_j}{\partial x_i} \right) =
 \begin{pmatrix}
@@ -4125,8 +4127,9 @@ we write the \emph{gradient} of $\mathbf{y}(\mathbf{x})$ with respect to $\mathb
 \end{pmatrix} .
 \label{eq:gradient_of_vector_wrt_vector}
 \end{equation}
-As a special case, we see that the gradient of a scalar function~$y(\mathbf{x})$ with respect to
-a column vector~$\mathbf{x}$ is again a column vector of the same dimensionality,
+As a special case, we see that the gradient~$\nabla_{\mathbf{x}} y$ of
+a scalar function~$y(\mathbf{x})$ with respect to
+a column vector~$\mathbf{x}$ is again a column vector of the same dimensionality as $\mathbf{x}$,
 corresponding to the right hand side of (C.17), i.e.,
 \begin{equation}
 \nabla_{\mathbf{x}} y = \left( \frac{\partial y}{\partial x_i} \right) =
@@ -4137,12 +4140,16 @@ corresponding to the right hand side of (C.17), i.e.,
 \end{pmatrix} .
 \end{equation}
 
+\parhead{Chain rule for gradient}
 Note that the right hand side of the definition of
 the gradient~\eqref{eq:gradient_of_vector_wrt_vector} is identical to
 the transpose of the \emph{Jacobian}~$\partial\mathbf{y}/\partial\mathbf{x} =
 \left( \partial y_i/\partial x_j \right)$
-so that $\nabla_{\mathbf{x}} \mathbf{y} =
-\left( \partial\mathbf{y}/\partial\mathbf{x} \right)^{\operatorname{T}}$,
+so that
+\begin{equation}
+\nabla_{\mathbf{x}} \mathbf{y} =
+\left( \frac{\partial\mathbf{y}}{\partial\mathbf{x}} \right)^{\operatorname{T}}
+\end{equation}
 as a consequence of which the chain rule for the gradient is such that the intermediate gradients
 are built up ``towards the left,'' i.e.,
 \begin{equation}
@@ -4159,6 +4166,7 @@ when we compute the gradients of composite functions (see below),
 I would suggest that it should also be pointed out in
 the ``(Vector and) Matrix Derivatives'' section of Appendix~C.
 
+\parhead{Taylor series in terms of gradients}
 At this point,
 one might wonder why we use the two different forms of vector derivative that are identical
 up to the transposed layout, i.e.,
