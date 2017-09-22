@@ -4322,25 +4322,25 @@ of the Hessian~$\nabla\nabla J$ of the nonlinear error function~$J$,
 which, however, does not necessarily lead to an efficient implementation
 (neither does that of the gradient~$\nabla J$),
 can be directly obtained by making use of the general product rule
-\begin{align}
+\begin{equation}
 \nabla \left\{ \mathbf{R} \bm{\phi} \right\}
-&= \nabla \bm{\phi} \, \mathbf{R}^{\operatorname{T}}
+= \nabla \bm{\phi} \, \mathbf{R}^{\operatorname{T}}
 + \nabla \operatorname{vec}\left( \mathbf{R} \right)
 \left( \bm{\phi} \otimes \mathbf{I}_M \right)
 \label{eq:gradient_of_matrix_vector_product_general}
-\\
+\end{equation}
+where $M$ is the number of rows of $\mathbf{R}$.
+One can easily show the product rule~\eqref{eq:gradient_of_matrix_vector_product_general}
+through its expanded form
+\begin{equation}
 \nabla \left\{ \sum_{n=1}^{N} \phi_n \mathbf{r}_n \right\}
-&= \sum_{n=1}^{N} \nabla \phi_n \, \mathbf{r}_n^{\operatorname{T}}
+= \sum_{n=1}^{N} \nabla \phi_n \, \mathbf{r}_n^{\operatorname{T}}
 + \sum_{n=1}^{N} \phi_n \nabla \mathbf{r}_n
 \label{eq:gradient_of_matrix_vector_product_general_expanded_form}
-\end{align}
+\end{equation}
 where $\mathbf{R} = \left(\mathbf{r}_1, \dots, \mathbf{r}_N\right)$ and
-$\bm{\phi} = \left(\phi_1, \dots, \phi_N\right)^{\operatorname{T}}$; and
-$M$ is the dimensionality of the column vectors~$\mathbf{r}_n$
-(or, equivalently, the number of rows of $\mathbf{R}$).
-One can easily show the product rule~\eqref{eq:gradient_of_matrix_vector_product_general}
-through its expanded form~%
-\eqref{eq:gradient_of_matrix_vector_product_general_expanded_form}.\footnote{%
+$\bm{\phi} = \left(\phi_1, \dots, \phi_N\right)^{\operatorname{T}}$.\footnote{%
+The product rule~\eqref{eq:gradient_of_matrix_vector_product_general} can also be shown directly.
 For interested readers, I would like to note that
 the first term in the right hand side of
 \eqref{eq:gradient_of_matrix_vector_product_general},
