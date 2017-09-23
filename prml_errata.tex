@@ -2426,14 +2426,21 @@ $\widetilde{f}_n(\bm{\theta})$ and $\widetilde{f}_0(\bm{\theta})$, respectively.
 
 \erratum{Page~512}
 Equation~(10.222):
-The factor~$\left( 2 \pi v_n \right)^{D/2}$ in the denominator of the right hand side should be
-omitted because it has been already included in the Gaussian in (10.213).
+The factor~$\left( 2 \pi v_n \right)^{D/2}$ in the denominator of the right hand side of (10.222)
+should be removed because it has been already included in
+the normalization constant of the Gaussian in the approximate factors~(10.213).\footnote{%
+Note that, in PRML, we use the approximate factors~(10.213) slightly different from those used by
+\citet{Minka:EP}.}
 
 \erratum{Page~513}
 Equation~(10.223):
 The right hand side should read that of \eqref{eq:EP_clutter_approx_evidence}
 where $v$ and $\mathbf{m}$ are replaced by $v^{\text{new}}$ and $\mathbf{m}^{\text{new}}$,
-respectively.
+respectively.\footnote{%
+One might notice that the approximate evidence derived in \citet{Minka:EP} looks more like
+the original (10.223);
+this is however due to the different definition for the factors~(10.213) and
+the fact that the product begins from $n = 0$ (not $n = 1$) in \citet{Minka:EP}.}
 
 \erratum{Page~513}
 Equation~(10.224):
