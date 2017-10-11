@@ -1433,6 +1433,21 @@ Equation~(3.31):
 The left hand side should be $\mathbf{y}\left(\mathbf{x}, \mathbf{W}\right)$ instead of
 $\mathbf{y}\left(\mathbf{x}, \mathbf{w}\right)$.
 
+\erratum{Page~147}
+Paragraph~\textminus2:
+The argument that ``the phenomenon of over-fitting \dots does not arise
+when we marginalize over parameters in a Bayesian setting''
+is simply an overstatement;
+Bayesian methods, like any other machine learning methods, can over-fit
+because, in general, the ``true'' model from which the data set has been generated is unknown
+so that we cannot calculate the ``true'' model evidence.
+Moreover,
+(a) the generalization error measured by cross-validation and
+(b) the model evidence (or the marginal likelihood)
+are closely related but different criteria,
+though, in practice, a high model evidence often implies a low generalization error.
+For more (advanced) discussions, see \citet{Watanabe:WBIC}.
+
 \erratum{Page~166}
 Paragraph~2, Line~1:
 ``Gamma'' should read ``gamma'' (without capitalization).
