@@ -1439,11 +1439,13 @@ The argument that ``the phenomenon of over-fitting \dots does not arise
 when we marginalize over parameters in a Bayesian setting''
 is simply an overstatement.
 Bayesian methods, like any other machine learning methods, can over-fit
-because, in general, the ``true'' model from which the data set has been generated is unknown
-so that we cannot calculate the ``true'' model evidence.
-Moreover,
-(a) the generalization error, which can be measured by cross-validation, and
-(b) the model evidence (or the marginal likelihood)
+because the ``true'' model from which the data set has been generated is unknown in general
+so that one could possibly assume an inappropriate model, e.g.,
+a Bayesian regression model of Section~3.3 where the prior distribution~(3.52) is too broad,
+which effectively leads to insufficient regularization.
+Moreover, one should also be aware of a subtlety here that
+(a) the \emph{generalization error}, which can be measured by cross-validation, and
+(b) the \emph{model evidence} (or the \emph{marginal likelihood})
 are closely related but different criteria,
 although, in practice, a high model evidence often implies a low generalization error and
 vice versa.
