@@ -268,17 +268,64 @@ then we see that
 ``the entropy could equally well have been written as $\operatorname{H}[p]$.''
 However, it is probably better to maintain the notational consistency here.
 
-\erratum{Page~56}
-The first sentence after (1.114):
-Since a convex function is not necessarily differentiable
-(consider, e.g., the absolute value function~$f(x) = |x|$, which is not differentiable but convex),
-we should restrict the class of the function considered here
-in order to make the statement valid.
-Moreover, strict positivity of the second derivative is also not necessary for convexity.
-Specifically, the first sentence after (1.114) should read, e.g.,
-``If the function~$f(x)$ is twice differentiable,
-then the inequality condition~(1.114) for any pair of $a$ and $b$ is equivalent to
-the requirement that the second derivative~$f''(x)$ be everywhere nonnegative.''
+\erratum{Pages~55 and 56}
+The text around (1.114):
+There are some inaccuracies in the definitions and the properties of
+\emph{convex} and \emph{strict convex} functions.
+First, a convex function is not necessarily differentiable
+(consider, e.g., the absolute value function~$f(x) = |x|$, which is not differentiable but convex).
+Second, even for twice differentiable functions,
+strict positivity of the second derivative is not necessary for convexity nor for strict convexity.
+Third, the condition for strict convexity that
+``the equality [in (1.114)] is satisfied only for $\lambda = 0$ and $\lambda = 1$''
+(Page~56, Paragraph~1, Line~\textminus4)
+is meaningless because the equality holds for any $\lambda$ when $a = b$.
+In the following,
+instead of correcting these errors one by one,
+I would like to present slightly more general definitions for
+convex and strict convex functions
+where we let the parameter~$\lambda$ vary only on the open set~$(0, 1)$,
+rather than on the closed set~$[0, 1]$ as in PRML,
+in order to avoid edge cases.
+I also give some useful properties for convex and strict convex functions that are differentiable.
+
+\parhead{Convexity and strict convexity}
+Let $f : \mathcal{X} \to \mathbb{R}$ be a real-valued, continuous\footnote{%
+Strictly speaking, we do not need to assume continuity here
+because convexity implies continuity (except on the boundary~$\partial\mathcal{X}$ if any).
+To see this, consider three points~$A, B, C$ on the convex curve~$y = f(x)$
+whose $x$ values are $x_0, x_1, x_2 \in \mathcal{X}$, respectively, where $x_0 < x_1 < x_2$.
+First, we see from convexity that $B$ lies below the line~$AC$.
+Again from convexity, we have that:
+(i)~on the interval~$[x_0, x_1]$, the curve must be below $AB$ and above $BC$; and
+(ii)~on $[x_1, x_2]$, the curve must be below $BC$ and above $AB$.
+These requirements~(i) and (ii) imply continuity of $f(x)$ on $x = x_1$.
+Since $x_1$ can be any element in $\mathcal{X}$ (except $\partial\mathcal{X}$),
+we see that $f(x)$ is continuous (except on $\partial\mathcal{X}$).}
+function defined on a \emph{convex set}~$\mathcal{X}$ such that,
+if $x_0, x_1 \in \mathcal{X}$,
+then $\lambda x_0 + (1 - \lambda) x_1 \in \mathcal{X}$
+for any $0 < \lambda < 1$.
+The function~$f(x)$ is said to be \emph{convex} if
+\begin{equation}
+f(\lambda x_0 + (1 - \lambda) x_1)
+\leqslant
+\lambda f(x_0) + (1 - \lambda) f(x_1)
+\label{eq:inequality_for_convexity}
+\end{equation}
+for any $x_0, x_1 \in \mathcal{X}$ and $0 < \lambda < 1$.
+If the equality in \eqref{eq:inequality_for_convexity} holds only if $x_0 = x_1$,
+then $f(x)$ is said to be \emph{strictly convex}.
+If $f(x)$ is twice differentiable, the following properties hold.
+\begin{itemize}
+\item
+The inequality condition~\eqref{eq:inequality_for_convexity} for convexity is equivalent to
+the requirement that the second derivative~$f''(x)$ be everywhere nonnegative.
+\item
+If $f''(x)$ is (strictly) positive everywhere, then $f(x)$ is strictly convex.
+Note however that the converse of this does not hold (consider, e.g., $f(x) = x^4$,
+which is stritly convex but $f''(0) = 0$).
+\end{itemize}
 
 \erratum{Page~56}
 Equation~(1.116):
