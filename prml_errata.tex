@@ -271,10 +271,10 @@ However, it is probably better to maintain the notational consistency here.
 \erratum{Pages~55 and 56}
 The text around (1.114):
 There are some inaccuracies in the definitions and the properties of
-\emph{convex} and \emph{strict convex} functions.
+\emph{convex} and \emph{strictly convex} functions.
 First, a convex function is not necessarily differentiable
-(consider, e.g., the absolute value function~$f(x) = |x|$, which is not differentiable at $x = 0$
-but convex).
+(consider, e.g., the absolute value function~$f(x) = |x|$, which is convex
+but not differentiable at $x = 0$).
 Second, even for twice differentiable functions,
 strict positivity of the second derivative is not necessary for convexity nor for strict convexity.
 Third, the condition for strict convexity that
@@ -284,25 +284,30 @@ is meaningless because the equality holds for any $\lambda$ when $a = b$.
 In the following,
 instead of correcting these errors one by one,
 I would like to present slightly more general definitions for
-convex and strict convex functions
+convex and strictly convex functions
 where we let the parameter~$\lambda$ vary only on the open set~$(0, 1)$,
 rather than on the closed set~$[0, 1]$ as in PRML,
 in order to avoid edge cases.
-I also give some useful properties for convex and strict convex functions that are differentiable.
+I also give some well-known properties regarding
+convex and strictly convex functions that are twice differentiable
+(which I think are intended to be addressed in PRML).
 
 \parhead{Convexity and strict convexity}
 Let $f : \mathcal{X} \to \mathbb{R}$ be a real-valued, continuous\footnote{%
 Strictly speaking, we do not need to assume continuity here
-because convexity implies continuity (except on the boundary~$\partial\mathcal{X}$ if any).
+because convexity implies continuity
+(on $\mathcal{X} \setminus \partial\mathcal{X}$ if $\mathcal{X}$ is not an open set
+where $\partial\mathcal{X}$ is the boundary of $\mathcal{X}$).
 To see this, consider three points~$A, B, C$ on the convex curve~$y = f(x)$
-whose $x$ values are $x_0, x_1, x_2 \in \mathcal{X}$, respectively, where $x_0 < x_1 < x_2$.
+whose $x$ values are $x_0, x_1, x_2 \in \mathcal{X}$, respectively,
+where we assume that $x_0 < x_1 < x_2$.
 First, we see from convexity that $B$ lies below the line~$AC$.
 Again from convexity, we have that:
 (i)~on the interval~$[x_0, x_1]$, the curve must be below $AB$ and above $BC$; and
 (ii)~on $[x_1, x_2]$, the curve must be below $BC$ and above $AB$.
 These requirements~(i) and (ii) imply continuity of $f(x)$ on $x = x_1$.
 Since $x_1$ can be any element in $\mathcal{X}$ (except $\partial\mathcal{X}$),
-we see that $f(x)$ is continuous (except on $\partial\mathcal{X}$).}
+we see that $f(x)$ is continuous (on $\mathcal{X} \setminus \partial\mathcal{X}$).}
 function defined on a \emph{convex set}~$\mathcal{X}$ such that,
 if $x_0, x_1 \in \mathcal{X}$,
 then $\lambda x_0 + (1 - \lambda) x_1 \in \mathcal{X}$
@@ -323,9 +328,9 @@ If $f(x)$ is twice differentiable, the following properties hold.
 The inequality condition~\eqref{eq:inequality_for_convexity} for convexity is equivalent to
 the requirement that the second derivative~$f''(x)$ be everywhere nonnegative.
 \item
-If $f''(x)$ is (strictly) positive everywhere, then $f(x)$ is strictly convex.
+If $f''(x)$ is strictly positive everywhere, then $f(x)$ is strictly convex.
 Note however that the converse of this does not hold (consider, e.g., $f(x) = x^4$,
-which is stritly convex but $f''(0) = 0$).
+which is strictly convex but $f''(0) = 0$).
 \end{itemize}
 
 \erratum{Page~56}
