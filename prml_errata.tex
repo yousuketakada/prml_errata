@@ -337,6 +337,37 @@ If $f''(x)$ is strictly positive for all $x$, then $f(x)$ is strictly convex.
 Note however that the converse of this does not hold (consider, e.g., $f(x) = x^4$,
 which is strictly convex but $f''(0) = 0$).
 \end{itemize}
+It is easy to see that convexity implies $f''(x) \geqslant 0$.
+In fact, from \emph{Taylor's theorem}~\citep{AS:Handbook},
+we can write $f''(x)$ in the form\footnote{%
+Taylor's theorem states that a differentiable function~$f(x)$
+can be expanded as a \emph{Taylor series} such that
+\begin{equation}
+f(x) = f(x_0) + (x - x_0) f'(x_0) +\frac{(x - x_0)^2}{2} f''(x_0) + \dots +
+\frac{(x - x_0)^n}{n!} f^{(n)}(x_0) + R_n(x)
+\label{eq:Taylor_series_with_remainder_term}
+\end{equation}
+where the remainder term~$R_n(x)$ can be written as
+\begin{equation}
+R_n(x) = \int_{x_0}^{x} \frac{(x - t)^n}{n!} f^{(n + 1)}(t) \, \mathrm{d}t
+= \frac{(x - x_0)^{n + 1}}{(n + 1)!} f^{(n + 1)}(\xi)
+\end{equation}
+for some $\xi$ between $x_0$ and $x$.
+If we expand $f(x)$ around $x$ and write the displacement by $\pm h$,
+then the Taylor series~\eqref{eq:Taylor_series_with_remainder_term} up to the third order term
+is given by
+\begin{equation}
+f(x \pm h) =
+f(x) \pm h f'(x) + \frac{h^2}{2} f''(x) \pm \frac{h^3}{3!} f^{(3)}(x) + O\left(x^4\right) .
+\end{equation}
+}
+\begin{equation}
+f''(x) = \lim_{h \to 0} \frac{f(x - h) - 2 f(x) + f(x + h)}{h^2}
+\end{equation}
+where we see that the right hand side is nonnegative
+from the inequality condition~\eqref{eq:inequality_for_convexity}
+by setting $x_i = x + (2i - 1) h$ and $\lambda = 1/2$.
+% TODO
 
 \erratum{Page~56}
 Equation~(1.116):
