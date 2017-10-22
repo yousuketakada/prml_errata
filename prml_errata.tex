@@ -277,11 +277,13 @@ First, a convex function is not necessarily differentiable
 (consider, e.g., the absolute value function~$f(x) = |x|$, which is convex
 but not differentiable at $x = 0$).
 Second, even for twice differentiable functions,
-strict positivity of the second derivative is not necessary for convexity nor for strict convexity.
+strict positivity of the second derivative is not necessary
+for convexity nor for strict convexity.
 Third, the condition for strict convexity that
 ``the equality [in (1.114)] is satisfied only for $\lambda = 0$ and $\lambda = 1$''
 (Page~56, Paragraph~1, Line~\textminus4)
 is meaningless because the equality holds for any $\lambda$ when $a = b$.
+
 In the following,
 instead of correcting these errors one by one,
 I would like to present slightly more general definitions for
@@ -310,27 +312,28 @@ Again from convexity, we have
 These requirements~(i) and (ii) imply continuity of $f(x)$ at $x = x_1$.
 Since $x_1$ can be any element in $\mathcal{X}$ (except $\partial\mathcal{X}$),
 we see that $f(x)$ is continuous (on $\mathcal{X} \setminus \partial\mathcal{X}$).}
-function defined on a \emph{convex set}~$\mathcal{X}$ such that,
+function defined on some \emph{convex set}~$\mathcal{X}$ such that,
 if $x_0, x_1 \in \mathcal{X}$,
-then $\lambda x_0 + (1 - \lambda) x_1 \in \mathcal{X}$
+then $(1 - \lambda) x_0 + \lambda x_1 \in \mathcal{X}$
 for any $0 < \lambda < 1$.
 The function~$f(x)$ is said to be \emph{convex} if
 \begin{equation}
-f(\lambda x_0 + (1 - \lambda) x_1)
+f((1 - \lambda) x_0 + \lambda x_1)
 \leqslant
-\lambda f(x_0) + (1 - \lambda) f(x_1)
+(1 - \lambda) f(x_0) + \lambda f(x_1)
 \label{eq:inequality_for_convexity}
 \end{equation}
 for any $x_0, x_1 \in \mathcal{X}$ and $0 < \lambda < 1$.
 If the equality in \eqref{eq:inequality_for_convexity} holds only if $x_0 = x_1$,
 then $f(x)$ is said to be \emph{strictly convex}.
-If $f(x)$ is twice differentiable, the following properties hold.
+
+If $f(x)$ is twice differentiable, the following properties hold:
 \begin{itemize}
-\item
-The inequality condition~\eqref{eq:inequality_for_convexity} for convexity is equivalent to
-the requirement that the second derivative~$f''(x)$ be everywhere nonnegative.
-\item
-If $f''(x)$ is strictly positive everywhere, then $f(x)$ is strictly convex.
+\item[(i)]
+The function~$f(x)$ is convex if and only if the second derivative~$f''(x)$ is nonnegative
+for all $x$.
+\item[(ii)]
+If $f''(x)$ is strictly positive for all $x$, then $f(x)$ is strictly convex.
 Note however that the converse of this does not hold (consider, e.g., $f(x) = x^4$,
 which is strictly convex but $f''(0) = 0$).
 \end{itemize}
