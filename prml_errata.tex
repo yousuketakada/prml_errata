@@ -296,17 +296,18 @@ convex and strictly convex functions that are twice differentiable
 \parhead{Convexity and strict convexity}
 Let $f : \mathcal{X} \to \mathbb{R}$ be a real-valued, continuous\footnote{%
 Strictly speaking, we do not need to assume continuity here
-because convexity implies continuity
-(on $\mathcal{X} \setminus \partial\mathcal{X}$ if $\mathcal{X}$ is not an open set
-where $\partial\mathcal{X}$ is the boundary of $\mathcal{X}$).
+because convexity implies continuity.
+More specifically, a convex function~$f : \mathcal{X} \to \mathbb{R}$ is continuous
+on the entire domain~$\mathcal{X}$
+(except the boundary~$\partial\mathcal{X}$).
 To see this, consider three points~$A, B, C$ on the convex curve~$y = f(x)$
 whose $x$ values are $x_0, x_1, x_2 \in \mathcal{X}$, respectively,
 where we assume that $x_0 < x_1 < x_2$.
 First, we see from convexity that $B$ lies below the line~$AC$.
-Again from convexity, we have that:
-(i)~on the interval~$[x_0, x_1]$, the curve must be below $AB$ and above $BC$; and
-(ii)~on $[x_1, x_2]$, the curve must be below $BC$ and above $AB$.
-These requirements~(i) and (ii) imply continuity of $f(x)$ on $x = x_1$.
+Again from convexity, we have
+(i) that, on the interval~$[x_0, x_1]$, the curve must be below $AB$ and above $BC$; and
+(ii) that, on the interval~$[x_1, x_2]$, the curve must be below $BC$ and above $AB$.
+These requirements~(i) and (ii) imply continuity of $f(x)$ at $x = x_1$.
 Since $x_1$ can be any element in $\mathcal{X}$ (except $\partial\mathcal{X}$),
 we see that $f(x)$ is continuous (on $\mathcal{X} \setminus \partial\mathcal{X}$).}
 function defined on a \emph{convex set}~$\mathcal{X}$ such that,
