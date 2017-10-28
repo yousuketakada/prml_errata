@@ -1554,22 +1554,22 @@ $\mathbf{y}\left(\mathbf{x}, \mathbf{w}\right)$.
 
 \erratum{Page~147}
 Paragraph~\textminus2:
-The argument that ``the phenomenon of over-fitting \dots does not arise
+The argument that ``the phenomenon of [overfitting] does not arise
 when we marginalize over parameters in a Bayesian setting''
 is simply an overstatement.
-Bayesian methods, like any other machine learning methods, can over-fit
+Bayesian methods, like any other machine learning methods, can overfit
 because the \emph{true} model from which the data set has been generated is unknown in general
 so that one could possibly assume an inappropriate model.
-For example,
+For instance,
 if too broad the prior distribution~(3.52) is used in the Bayesian regression model of Section~3.3,
-this effectively leads to insufficient regularization and thus over-fitting.
+this effectively leads to insufficient regularization and thus overfitting.
 
 Moreover, one should also be aware of a subtlety here, that is,
 (i) the \emph{generalization error}, which can be measured by cross-validation, and
 (ii) the \emph{model evidence} (or the \emph{marginal likelihood})
 are closely related but different criteria,
-although, in practice, a high model evidence often tends to imply a low generalization error and
-vice versa.
+although, in practice, a higher model evidence often tends to imply a lower generalization error
+and vice versa.
 For more (advanced) discussions, see \citet{Watanabe:WAIC,Watanabe:WBIC}.
 
 \erratum{Page~166}
