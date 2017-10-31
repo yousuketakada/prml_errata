@@ -491,16 +491,24 @@ such that $p(\mathbf{x}) = 0$.
 Second, the convex function~$f(\xi) = -\ln\xi$ is undefined for $\xi = 0$,
 which occurs where $q(\mathbf{x}) = 0$ and $p(\mathbf{x}) > 0$.
 In order to avoid these difficulties,
-we should take a different approach~\citep{MacKay:Information,KullbackLeibler:Information}
+we shall take a different approach~\citep{MacKay:Information,KullbackLeibler:Information}
 in which we make use of Jensen's inequality~\eqref{eq:Jensen_inequality_continuous}
 with respect to $q(\mathbf{x})$ where
 we identify $f(\xi) = \xi\ln\xi$ and
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$.
 Note that we can safely proceed with this approach
-because we can assume $q(\mathbf{x}) > 0$
-without loss of generality as we shall see in the following.
+because we can assume $q(\mathbf{x}) > 0$ without loss of generality.
 
-\parhead{A proof of Gibbs's inequality}
+In the following, we first show Gibbs's inequality~\eqref{eq:Gibbs_inequality} along this line,
+after which we also see that
+the Kullback-Leibler divergence~$\operatorname{KL}\left(p\middle\|q\right)$ is convex
+in the sense that it satisfies the inequality~\eqref{eq:inequality_for_convexity}
+with respect to the pair of the distributions~$(p, q)$.
+Finally, we give an alternative proof of Gibbs's inequality~\eqref{eq:Gibbs_inequality}
+in terms of a generalized version of the Kullback-Leibler divergence such that
+it is extended for unnormalized distributions.
+
+\parhead{A proof of Gibbs's inequality in terms of Jensen's inequality}
 Let us first examine the behavior of the integrand of
 the Kullback-Leibler divergence~$\operatorname{KL}\left( p \middle\| q \right)$
 \begin{equation}
@@ -522,7 +530,7 @@ this property is called \emph{zero-forcing} (see also Section~10.1.2).
 
 Assuming the zero-forcing condition, that is,
 $p(\mathbf{x}) = 0$ for all $\mathbf{x}$ such that $q(\mathbf{x}) = 0$,
-we can consider the integration in $\operatorname{KL}\left( p \middle\| q \right)$
+we can restrict the integration in $\operatorname{KL}\left( p \middle\| q \right)$
 only over the \emph{support}~$\Omega = \{ \mathbf{x} \mid q(\mathbf{x}) > 0 \}$ of $q(\mathbf{x})$.
 Identifying $f(\xi) = \xi\ln\xi$ (see Figure~\ref{fig:x_ln_x}) and
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$,
@@ -563,6 +571,124 @@ The curve~$y = f(x)$ takes the minimum at $(x, y) = \left(e^{-1}, -e^{-1}\right)
 The roots (the values of $x$ such that $f(x) = 0$) are $x = 0$ and $x = 1$.}
 \label{fig:x_ln_x}
 \end{figure}
+
+\parhead{Convexity of Kullback-Leibler divergence}
+Let us next consider the weighted sum of two well-defined Kullback-Leibler divergences~%
+$\operatorname{KL}\left(p_1\middle\|q_1\right), \operatorname{KL}\left(p_2\middle\|q_2\right)
+< \infty$
+\begin{align}
+S &\equiv
+\lambda \operatorname{KL}\left(p_1\middle\|q_1\right)
++ (1 - \lambda) \operatorname{KL}\left(p_2\middle\|q_2\right) \\
+&=
+\lambda
+\int_{\Omega_1} p_1(\mathbf{x}) \ln\left\{\frac{p_1(\mathbf{x})}{q_1(\mathbf{x})}\right\}
+\mathrm{d}\mathbf{x}
++ (1 - \lambda)
+\int_{\Omega_2} p_2(\mathbf{x}) \ln\left\{\frac{p_2(\mathbf{x})}{q_2(\mathbf{x})}\right\}
+\mathrm{d}\mathbf{x}
+\end{align}
+where $0 < \lambda < 1$.
+Here, we again assume that the zero-forcing condition holds
+for each pair of the distributions~$(p_i, q_i)$
+so that $p_i(\mathbf{x}) = 0$
+outside the support~$\Omega_i = \{ \mathbf{x} \mid q_i(\mathbf{x}) > 0 \}$ of $q_i(\mathbf{x})$
+where $i = 1, 2$.
+
+Writing
+\begin{align}
+\begin{aligned}
+a_1 &\equiv \lambda p_1(\mathbf{x}), &
+a_2 &\equiv (1 - \lambda) p_2(\mathbf{x}) \\
+b_1 &\equiv \lambda q_1(\mathbf{x}), &
+b_2 &\equiv (1 - \lambda) q_2(\mathbf{x})
+\end{aligned}
+\end{align}
+and noting that $a_i = b_i = 0$ outside $\Omega_i$ and $b_i > 0$ otherwise, we have
+\begin{align}
+S &=
+\int_{\Omega_1} a_1 \ln \frac{a_1}{b_1} \,\mathrm{d}\mathbf{x} +
+\int_{\Omega_2} a_2 \ln \frac{a_2}{b_2} \,\mathrm{d}\mathbf{x} \\
+&=
+\int_{\Omega_1\setminus\Omega_2} a_1 \ln\frac{a_1}{b_1} \,\mathrm{d}\mathbf{x} +
+\int_{\Omega_2\setminus\Omega_1} a_2 \ln\frac{a_2}{b_2} \,\mathrm{d}\mathbf{x} +
+\int_{\Omega_1 \cap \Omega_2}
+\left[
+a_1 \ln\frac{a_1}{b_1} +
+a_2 \ln\frac{a_2}{b_2}
+\right]
+\mathrm{d}\mathbf{x}
+\\
+&\geqslant
+\int_{\Omega_1 \cup \Omega_2}
+\left(a_1 + a_2\right) \ln\frac{a_1 + a_2}{b_1 + b_2}
+\,\mathrm{d}\mathbf{x}
+\\
+&=
+\operatorname{KL}\left(
+\lambda p_1 + (1 - \lambda) p_2
+\middle\|
+\lambda q_1 + (1 - \lambda) q_2
+\right)
+\end{align}
+where we have again used Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}
+with $f(\xi) = \xi \ln \xi$
+so that we have\footnote{%
+The inequality used here is a special case of the \emph{log sum inequality},
+which states that, for nonnegative $a_i, b_i$,
+\begin{equation}
+\sum_i a_i \ln \frac{a_i}{b_i} \geqslant a \ln \frac{a}{b}
+\end{equation}
+with equality if and only if $a_i/b_i$ is constant for all $i$
+where $a = \sum_i a_i$ and $b = \sum_i b_i$.}
+\begin{align}
+a_1 \ln\frac{a_1}{b_1} +
+a_2 \ln\frac{a_2}{b_2}
+&=
+\left( b_1 + b_2 \right)
+\left[
+\frac{b_1}{ b_1 + b_2 } f\left(\frac{a_1}{b_1}\right) +
+\frac{b_2}{ b_1 + b_2 } f\left(\frac{a_2}{b_2}\right)
+\right]
+\\
+&\geqslant
+\left( b_1 + b_2 \right)
+f\left(\frac{ a_1 + a_2 }{ b_1 + b_2 }\right)
+\\
+&=
+\left( a_1 + a_2 \right)
+\ln \frac{ a_1 + a_2 }{ b_1 + b_2 } .
+\end{align}
+Thus, we see that $\operatorname{KL}\left(p\middle\|q\right)$ is convex with respect to $(p, q)$
+so that
+\begin{equation}
+\lambda \operatorname{KL}\left( p_1 \middle\| q_1 \right) +
+(1 - \lambda) \operatorname{KL}\left( p_2 \middle\| q_2 \right)
+\geqslant \operatorname{KL}\left(
+\lambda p_1 + (1 - \lambda) p_2 \middle\|
+\lambda q_1 + (1 - \lambda) q_2
+\right) ,
+\quad 0 < \lambda < 1 .
+\label{eq:strict_convexity_of_KL_wrt_pair_of_p_and_q}
+\end{equation}
+Note however that the convexity~\eqref{eq:strict_convexity_of_KL_wrt_pair_of_p_and_q}
+is not strict in general
+(consider, e.g., the case where $\Omega_1 \cap \Omega_2 = \emptyset$).
+
+We also see that
+the convexity~\eqref{eq:strict_convexity_of_KL_wrt_pair_of_p_and_q} with respect to $(p, q)$
+implies that with respect to $p$,
+which, in fact, can be shown to be strict with a similar derivation as above, i.e.,
+we have that $\operatorname{KL}\left(p\middle\|q\right)$ is strictly convex with respect to $p$
+so that
+\begin{equation}
+\lambda \operatorname{KL}\left( p_1 \middle\| q \right) +
+(1 - \lambda) \operatorname{KL}\left( p_2 \middle\| q \right)
+\geqslant \operatorname{KL}\left( \lambda p_1 + (1 - \lambda) p_2 \middle\|q\right) ,
+\quad 0 < \lambda < 1
+\label{eq:strict_convexity_of_KL_wrt_p}
+\end{equation}
+with equality if and only if $p_1 = p_2$.
 
 \erratum{Page~59}
 % Due to Mark-Jan Nederhof
@@ -2408,8 +2534,8 @@ Paragraph~3, Line~\textminus2:
 Also, the (lower) bound~$\mathcal{L}(q)$ is concave (\emph{not} convex) with respect to
 each of the factors~$q_i(\mathbf{Z}_i)$.
 The concavity of the bound~$\mathcal{L}(q)$
-follows from the convexity of the Kullback-Leibler divergence.
-% TODO: Add a reference for the convexity of the Kullback-Leibler divergence.
+follows from the convexity~\eqref{eq:strict_convexity_of_KL_wrt_p}
+of the Kullback-Leibler divergence.
 To see this, recall that $\mathcal{L}(q)$ can be written
 in the form~\eqref{eq:variational_optimization_of_lower_bound_wrt_q_j}.
 
