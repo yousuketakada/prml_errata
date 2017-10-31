@@ -38,13 +38,13 @@ polygon('#0000ff','',5,[
 	168,72,172,72,172,68,168,68,168,72],0,1,0,0,1174,0,0,0,0,0,'1',0,
     "00",[
 ]),
-xbm('black','',168,68,178,82,0,1213,0,10,14,0,0,1,418000,763000,424000,771000,0,0,1,0,1,0,0,
-    "Thu Oct 20 06:28:28 2016","/tmp/Tgif0sQl5R.eps",533,[
+xbm('black','',168,68,178,82,2,2038,0,10,14,0,0,1,418000,763000,424000,771000,0,0,1,0,1,0,0,
+    "Wed Nov  1 00:29:36 2017","/tmp/TgifU0LCHG.eps",533,[
     "%!PS-Adobe-2.0 EPSF-2.0",
     "%DVIPSWebPage: (www.radicaleye.com)",
-    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/Tgif0sQl5R.ps /tmp/Tgif0sQl5R",
+    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/TgifU0LCHG.ps /tmp/TgifU0LCHG",
     "%DVIPSParameters: dpi=600",
-    "%DVIPSSource:  TeX output 2016.10.20:0628",
+    "%DVIPSSource:  TeX output 2017.11.01:0029",
     "%!",
     "/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S",
     "N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72",
@@ -563,7 +563,7 @@ xbm('black','',168,68,178,82,0,1213,0,10,14,0,0,1,418000,763000,424000,771000,0,
     "0000000000000000000000000000000000000000000000000000000000000000",
     "cleartomark",
     "{restore}if",
-    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/Tgif0sQl5R.dvi)",
+    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/TgifU0LCHG.dvi)",
     "@start /Fa 134[48 121[{ enclmmathit ReEncodeFont }1 99.6264",
     "/LMMathItalic12-Regular rf end",
     "TeXDict begin",
@@ -598,8 +598,8 @@ str_seg('#0000ff','Courier',0,80640,126,13,3,0,-4,0,0,0,0,0,
 ])
 ])])),
 attr("header=", "", 0, 1, 1,
-text('#0000ff',344,-81,21,0,1,423,336,1181,13,3,0,0,0,0,2,423,336,0,0,"",0,0,0,0,-68,'',[
-minilines(423,336,0,0,0,0,0,[
+text('#0000ff',344,-81,22,0,1,423,352,2015,13,3,0,0,0,0,2,423,352,0,0,"",0,0,0,0,-68,'',[
+minilines(423,352,0,0,0,0,0,[
 mini_line(63,13,3,0,0,0,[
 str_block(0,63,13,3,0,-1,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,63,13,3,0,-1,0,0,0,0,0,
@@ -625,10 +625,20 @@ str_block(0,180,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{lmodern}")])
 ]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{newtxtext}")])
+mini_line(207,13,3,0,0,0,[
+str_block(0,207,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,207,13,3,0,-4,0,0,0,0,0,
+	"%\\usepackage{newtxtext}")])
+]),
+mini_line(306,13,3,0,0,0,[
+str_block(0,306,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,306,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage[scaled=.95]{newpxtext}")])
+]),
+mini_line(180,13,3,0,0,0,[
+str_block(0,180,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage{exscale}")])
 ]),
 mini_line(189,13,3,0,0,0,[
 str_block(0,189,13,3,0,-4,0,0,0,[
@@ -654,11 +664,6 @@ mini_line(135,13,3,0,0,0,[
 str_block(0,135,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,135,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{bm}")])
-]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{microtype}")])
 ]),
 mini_line(261,13,3,0,0,0,[
 str_block(0,261,13,3,0,-4,0,0,0,[
@@ -798,13 +803,13 @@ str_seg('#0000ff','Courier',0,80640,513,13,3,0,-2,0,0,0,0,0,
 	"        $(file_name).log $(file_name).ps $(file_name).eps")])
 ])
 ])])),
-attr("file_name=", "/tmp/Tgif0sQl5R", 0, 1, 1,
+attr("file_name=", "/tmp/TgifU0LCHG", 0, 1, 1,
 text('blue',168,-28,1,0,1,225,16,1177,13,3,0,0,0,0,2,225,16,0,0,"",0,0,0,0,-15,'',[
 minilines(225,16,0,0,0,0,0,[
 mini_line(225,13,3,0,0,0,[
 str_block(0,225,13,3,0,-1,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,225,13,3,0,-1,0,0,0,0,0,
-	"file_name=/tmp/Tgif0sQl5R")])
+	"file_name=/tmp/TgifU0LCHG")])
 ])
 ])])),
 attr("eq=", "", 0, 1, 1,
@@ -846,13 +851,13 @@ polygon('#0000ff','',5,[
 	372,256,376,256,376,252,372,252,372,256],0,1,0,0,1226,0,0,0,0,0,'1',0,
     "00",[
 ]),
-xbm('black','',372,252,413,266,1,2002,0,41,14,0,0,1,409000,763000,433000,771000,0,0,1,0,1,0,0,
-    "Wed Oct 26 23:13:45 2016","/tmp/Tgif7AqIJl.eps",541,[
+xbm('black','',372,252,413,266,2,2213,0,41,14,0,0,1,409000,763000,433000,771000,0,0,1,0,1,0,0,
+    "Wed Nov  1 00:33:19 2017","/tmp/Tgif5b0nqf.eps",541,[
     "%!PS-Adobe-2.0 EPSF-2.0",
     "%DVIPSWebPage: (www.radicaleye.com)",
-    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/Tgif7AqIJl.ps /tmp/Tgif7AqIJl",
+    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/Tgif5b0nqf.ps /tmp/Tgif5b0nqf",
     "%DVIPSParameters: dpi=600",
-    "%DVIPSSource:  TeX output 2016.10.26:2313",
+    "%DVIPSSource:  TeX output 2017.11.01:0033",
     "%!",
     "/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S",
     "N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72",
@@ -1379,7 +1384,7 @@ xbm('black','',372,252,413,266,1,2002,0,41,14,0,0,1,409000,763000,433000,771000,
     "0000000000000000000000000000000000000000000000000000000000000000",
     "cleartomark",
     "{restore}if",
-    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/Tgif7AqIJl.dvi)",
+    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/Tgif5b0nqf.dvi)",
     "@start /Fa 134[48 55 120[{ enclmmathit ReEncodeFont }2",
     "99.6264 /LMMathItalic12-Regular rf end",
     "TeXDict begin",
@@ -1416,8 +1421,8 @@ str_seg('#0000ff','Courier',0,80640,126,13,3,0,-4,0,0,0,0,0,
 ])
 ])])),
 attr("header=", "", 0, 1, 1,
-text('#0000ff',548,103,21,0,1,423,336,1229,13,3,0,0,0,0,2,423,336,0,0,"",0,0,0,0,116,'',[
-minilines(423,336,0,0,0,0,0,[
+text('#0000ff',548,103,22,0,1,423,352,2190,13,3,0,0,0,0,2,423,352,0,0,"",0,0,0,0,116,'',[
+minilines(423,352,0,0,0,0,0,[
 mini_line(63,13,3,0,0,0,[
 str_block(0,63,13,3,0,-1,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,63,13,3,0,-1,0,0,0,0,0,
@@ -1443,10 +1448,20 @@ str_block(0,180,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{lmodern}")])
 ]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{newtxtext}")])
+mini_line(207,13,3,0,0,0,[
+str_block(0,207,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,207,13,3,0,-4,0,0,0,0,0,
+	"%\\usepackage{newtxtext}")])
+]),
+mini_line(306,13,3,0,0,0,[
+str_block(0,306,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,306,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage[scaled=.95]{newpxtext}")])
+]),
+mini_line(180,13,3,0,0,0,[
+str_block(0,180,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage{exscale}")])
 ]),
 mini_line(189,13,3,0,0,0,[
 str_block(0,189,13,3,0,-4,0,0,0,[
@@ -1472,11 +1487,6 @@ mini_line(135,13,3,0,0,0,[
 str_block(0,135,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,135,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{bm}")])
-]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{microtype}")])
 ]),
 mini_line(261,13,3,0,0,0,[
 str_block(0,261,13,3,0,-4,0,0,0,[
@@ -1616,13 +1626,13 @@ str_seg('#0000ff','Courier',0,80640,513,13,3,0,-2,0,0,0,0,0,
 	"        $(file_name).log $(file_name).ps $(file_name).eps")])
 ])
 ])])),
-attr("file_name=", "/tmp/Tgif7AqIJl", 0, 1, 1,
+attr("file_name=", "/tmp/Tgif5b0nqf", 0, 1, 1,
 text('blue',372,156,1,0,1,225,16,1233,13,3,0,0,0,0,2,225,16,0,0,"",0,0,0,0,169,'',[
 minilines(225,16,0,0,0,0,0,[
 mini_line(225,13,3,0,0,0,[
-str_block(0,225,13,3,0,-2,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,225,13,3,0,-2,0,0,0,0,0,
-	"file_name=/tmp/Tgif7AqIJl")])
+str_block(0,225,13,3,0,-1,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,225,13,3,0,-1,0,0,0,0,0,
+	"file_name=/tmp/Tgif5b0nqf")])
 ])
 ])])),
 attr("eq=", "", 0, 1, 1,
@@ -1664,13 +1674,13 @@ polygon('#0000ff','',5,[
 	364,116,368,116,368,112,364,112,364,116],0,1,0,0,1334,0,0,0,0,0,'1',0,
     "00",[
 ]),
-xbm('black','',364,112,441,133,0,1373,0,77,21,0,0,1,398000,762000,443000,775000,0,0,1,0,1,0,0,
-    "Thu Oct 20 22:40:18 2016","/tmp/TgifbN0Cpc.eps",1387,[
+xbm('black','',364,112,441,133,2,2236,0,77,21,0,0,1,398000,762000,443000,775000,0,0,1,0,1,0,0,
+    "Wed Nov  1 00:33:23 2017","/tmp/TgifFfGfXI.eps",1387,[
     "%!PS-Adobe-2.0 EPSF-2.0",
     "%DVIPSWebPage: (www.radicaleye.com)",
-    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/TgifbN0Cpc.ps /tmp/TgifbN0Cpc",
+    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/TgifFfGfXI.ps /tmp/TgifFfGfXI",
     "%DVIPSParameters: dpi=600",
-    "%DVIPSSource:  TeX output 2016.10.20:2240",
+    "%DVIPSSource:  TeX output 2017.11.01:0033",
     "%!",
     "/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S",
     "N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72",
@@ -3041,7 +3051,7 @@ xbm('black','',364,112,441,133,0,1373,0,77,21,0,0,1,398000,762000,443000,775000,
     "0000000000000000000000000000000000000000000000000000000000000000",
     "cleartomark",
     "{restore}if",
-    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/TgifbN0Cpc.dvi)",
+    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/TgifFfGfXI.dvi)",
     "@start /Fa 194[76 19[38 38 40[{ enclmrm ReEncodeFont }3",
     "99.6264 /LMRoman12-Regular rf /Fb 134[48 55 17[48 102[{",
     " enclmmathit ReEncodeFont }3 99.6264 /LMMathItalic12-Regular",
@@ -3084,8 +3094,8 @@ str_seg('#0000ff','Courier',0,80640,126,13,3,0,-4,0,0,0,0,0,
 ])
 ])])),
 attr("header=", "", 0, 1, 1,
-text('#0000ff',540,-37,21,0,1,423,336,1341,13,3,0,0,0,0,2,423,336,0,0,"",0,0,0,0,-24,'',[
-minilines(423,336,0,0,0,0,0,[
+text('#0000ff',540,-37,22,0,1,423,352,2155,13,3,0,0,0,0,2,423,352,0,0,"",0,0,0,0,-24,'',[
+minilines(423,352,0,0,0,0,0,[
 mini_line(63,13,3,0,0,0,[
 str_block(0,63,13,3,0,-1,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,63,13,3,0,-1,0,0,0,0,0,
@@ -3111,10 +3121,20 @@ str_block(0,180,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{lmodern}")])
 ]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{newtxtext}")])
+mini_line(207,13,3,0,0,0,[
+str_block(0,207,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,207,13,3,0,-4,0,0,0,0,0,
+	"%\\usepackage{newtxtext}")])
+]),
+mini_line(306,13,3,0,0,0,[
+str_block(0,306,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,306,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage[scaled=.95]{newpxtext}")])
+]),
+mini_line(180,13,3,0,0,0,[
+str_block(0,180,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage{exscale}")])
 ]),
 mini_line(189,13,3,0,0,0,[
 str_block(0,189,13,3,0,-4,0,0,0,[
@@ -3140,11 +3160,6 @@ mini_line(135,13,3,0,0,0,[
 str_block(0,135,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,135,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{bm}")])
-]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{microtype}")])
 ]),
 mini_line(261,13,3,0,0,0,[
 str_block(0,261,13,3,0,-4,0,0,0,[
@@ -3284,13 +3299,13 @@ str_seg('#0000ff','Courier',0,80640,513,13,3,0,-2,0,0,0,0,0,
 	"        $(file_name).log $(file_name).ps $(file_name).eps")])
 ])
 ])])),
-attr("file_name=", "/tmp/TgifbN0Cpc", 0, 1, 1,
+attr("file_name=", "/tmp/TgifFfGfXI", 0, 1, 1,
 text('blue',364,16,1,0,1,225,16,1337,13,3,0,0,0,0,2,225,16,0,0,"",0,0,0,0,29,'',[
 minilines(225,16,0,0,0,0,0,[
 mini_line(225,13,3,0,0,0,[
-str_block(0,225,13,3,0,-1,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,225,13,3,0,-1,0,0,0,0,0,
-	"file_name=/tmp/TgifbN0Cpc")])
+str_block(0,225,13,3,0,-2,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,225,13,3,0,-2,0,0,0,0,0,
+	"file_name=/tmp/TgifFfGfXI")])
 ])
 ])])),
 attr("eq=", "", 0, 1, 1,
@@ -3369,13 +3384,13 @@ polygon('#0000ff','',5,[
 	248,252,252,252,252,248,248,248,248,252],0,1,0,0,1609,0,0,0,0,0,'1',0,
     "00",[
 ]),
-xbm('black','',248,248,320,269,0,1658,0,72,21,0,0,1,400000,762000,441000,775000,0,0,1,0,1,0,0,
-    "Thu Oct 20 23:06:29 2016","/tmp/Tgify9Q4Qx.eps",2429,[
+xbm('black','',248,248,320,269,2,2143,0,72,21,0,0,1,400000,762000,441000,775000,0,0,1,0,1,0,0,
+    "Wed Nov  1 00:31:52 2017","/tmp/TgifevETY3.eps",2429,[
     "%!PS-Adobe-2.0 EPSF-2.0",
     "%DVIPSWebPage: (www.radicaleye.com)",
-    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/Tgify9Q4Qx.ps /tmp/Tgify9Q4Qx",
+    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/TgifevETY3.ps /tmp/TgifevETY3",
     "%DVIPSParameters: dpi=600",
-    "%DVIPSSource:  TeX output 2016.10.20:2306",
+    "%DVIPSSource:  TeX output 2017.11.01:0031",
     "%!",
     "/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S",
     "N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72",
@@ -5785,7 +5800,7 @@ xbm('black','',248,248,320,269,0,1658,0,72,21,0,0,1,400000,762000,441000,775000,
     "0000000000000000000000000000000000000000000000000000000000000000",
     "cleartomark",
     "{restore}if",
-    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/Tgify9Q4Qx.dvi)",
+    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/TgifevETY3.dvi)",
     "@start /Fa 133[50 122[{ enclmrm ReEncodeFont }1 99.6264",
     "/LMRoman12-Bold rf /Fb 231[43 24[{ enclmmathit ReEncodeFont }1",
     "99.6264 /LMMathItalic12-Regular rf /Fc 162[27 1[27 49[38",
@@ -5830,8 +5845,8 @@ str_seg('#0000ff','Courier',0,80640,126,13,3,0,-4,0,0,0,0,0,
 ])
 ])])),
 attr("header=", "", 0, 1, 1,
-text('#0000ff',424,99,21,0,1,423,336,1616,13,3,0,0,0,0,2,423,336,0,0,"",0,0,0,0,112,'',[
-minilines(423,336,0,0,0,0,0,[
+text('#0000ff',424,99,22,0,1,423,352,2120,13,3,0,0,0,0,2,423,352,0,0,"",0,0,0,0,112,'',[
+minilines(423,352,0,0,0,0,0,[
 mini_line(63,13,3,0,0,0,[
 str_block(0,63,13,3,0,-1,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,63,13,3,0,-1,0,0,0,0,0,
@@ -5857,10 +5872,20 @@ str_block(0,180,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{lmodern}")])
 ]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{newtxtext}")])
+mini_line(207,13,3,0,0,0,[
+str_block(0,207,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,207,13,3,0,-4,0,0,0,0,0,
+	"%\\usepackage{newtxtext}")])
+]),
+mini_line(306,13,3,0,0,0,[
+str_block(0,306,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,306,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage[scaled=.95]{newpxtext}")])
+]),
+mini_line(180,13,3,0,0,0,[
+str_block(0,180,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage{exscale}")])
 ]),
 mini_line(189,13,3,0,0,0,[
 str_block(0,189,13,3,0,-4,0,0,0,[
@@ -5886,11 +5911,6 @@ mini_line(135,13,3,0,0,0,[
 str_block(0,135,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,135,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{bm}")])
-]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{microtype}")])
 ]),
 mini_line(261,13,3,0,0,0,[
 str_block(0,261,13,3,0,-4,0,0,0,[
@@ -6030,13 +6050,13 @@ str_seg('#0000ff','Courier',0,80640,513,13,3,0,-2,0,0,0,0,0,
 	"        $(file_name).log $(file_name).ps $(file_name).eps")])
 ])
 ])])),
-attr("file_name=", "/tmp/Tgify9Q4Qx", 0, 1, 1,
+attr("file_name=", "/tmp/TgifevETY3", 0, 1, 1,
 text('blue',248,152,1,0,1,225,16,1612,13,3,0,0,0,0,2,225,16,0,0,"",0,0,0,0,165,'',[
 minilines(225,16,0,0,0,0,0,[
 mini_line(225,13,3,0,0,0,[
-str_block(0,225,13,3,0,-1,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,225,13,3,0,-1,0,0,0,0,0,
-	"file_name=/tmp/Tgify9Q4Qx")])
+str_block(0,225,13,3,0,-2,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,225,13,3,0,-2,0,0,0,0,0,
+	"file_name=/tmp/TgifevETY3")])
 ])
 ])])),
 attr("eq=", "", 0, 1, 1,
@@ -6078,13 +6098,13 @@ polygon('#0000ff','',5,[
 	72,128,76,128,76,124,72,124,72,128],0,1,0,0,1672,0,0,0,0,0,'1',0,
     "00",[
 ]),
-xbm('black','',72,124,176,145,0,1711,0,104,21,0,0,1,391000,762000,450000,775000,0,0,1,0,1,0,0,
-    "Thu Oct 20 23:07:15 2016","/tmp/TgifCFwwnX.eps",2435,[
+xbm('black','',72,124,176,145,2,2073,0,104,21,0,0,1,391000,762000,450000,775000,0,0,1,0,1,0,0,
+    "Wed Nov  1 00:30:15 2017","/tmp/TgifZU4gHE.eps",2435,[
     "%!PS-Adobe-2.0 EPSF-2.0",
     "%DVIPSWebPage: (www.radicaleye.com)",
-    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/TgifCFwwnX.ps /tmp/TgifCFwwnX",
+    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/TgifZU4gHE.ps /tmp/TgifZU4gHE",
     "%DVIPSParameters: dpi=600",
-    "%DVIPSSource:  TeX output 2016.10.20:2307",
+    "%DVIPSSource:  TeX output 2017.11.01:0030",
     "%!",
     "/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S",
     "N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72",
@@ -8500,7 +8520,7 @@ xbm('black','',72,124,176,145,0,1711,0,104,21,0,0,1,391000,762000,450000,775000,
     "0000000000000000000000000000000000000000000000000000000000000000",
     "cleartomark",
     "{restore}if",
-    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/TgifCFwwnX.dvi)",
+    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/TgifZU4gHE.dvi)",
     "@start /Fa 133[50 122[{ enclmrm ReEncodeFont }1 99.6264",
     "/LMRoman12-Bold rf /Fb 153[48 77[43 24[{ enclmmathit ReEncodeFont }2",
     "99.6264 /LMMathItalic12-Regular rf /Fc 162[27 1[27 49[38",
@@ -8548,8 +8568,8 @@ str_seg('#0000ff','Courier',0,80640,126,13,3,0,-4,0,0,0,0,0,
 ])
 ])])),
 attr("header=", "", 0, 1, 1,
-text('#0000ff',248,-25,21,0,1,423,336,1679,13,3,0,0,0,0,2,423,336,0,0,"",0,0,0,0,-12,'',[
-minilines(423,336,0,0,0,0,0,[
+text('#0000ff',248,-25,22,0,1,423,352,2050,13,3,0,0,0,0,2,423,352,0,0,"",0,0,0,0,-12,'',[
+minilines(423,352,0,0,0,0,0,[
 mini_line(63,13,3,0,0,0,[
 str_block(0,63,13,3,0,-1,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,63,13,3,0,-1,0,0,0,0,0,
@@ -8575,10 +8595,20 @@ str_block(0,180,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{lmodern}")])
 ]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{newtxtext}")])
+mini_line(207,13,3,0,0,0,[
+str_block(0,207,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,207,13,3,0,-4,0,0,0,0,0,
+	"%\\usepackage{newtxtext}")])
+]),
+mini_line(306,13,3,0,0,0,[
+str_block(0,306,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,306,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage[scaled=.95]{newpxtext}")])
+]),
+mini_line(180,13,3,0,0,0,[
+str_block(0,180,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage{exscale}")])
 ]),
 mini_line(189,13,3,0,0,0,[
 str_block(0,189,13,3,0,-4,0,0,0,[
@@ -8604,11 +8634,6 @@ mini_line(135,13,3,0,0,0,[
 str_block(0,135,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,135,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{bm}")])
-]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{microtype}")])
 ]),
 mini_line(261,13,3,0,0,0,[
 str_block(0,261,13,3,0,-4,0,0,0,[
@@ -8748,13 +8773,13 @@ str_seg('#0000ff','Courier',0,80640,513,13,3,0,-2,0,0,0,0,0,
 	"        $(file_name).log $(file_name).ps $(file_name).eps")])
 ])
 ])])),
-attr("file_name=", "/tmp/TgifCFwwnX", 0, 1, 1,
+attr("file_name=", "/tmp/TgifZU4gHE", 0, 1, 1,
 text('blue',72,28,1,0,1,225,16,1675,13,3,0,0,0,0,2,225,16,0,0,"",0,0,0,0,41,'',[
 minilines(225,16,0,0,0,0,0,[
 mini_line(225,13,3,0,0,0,[
 str_block(0,225,13,3,0,-1,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,225,13,3,0,-1,0,0,0,0,0,
-	"file_name=/tmp/TgifCFwwnX")])
+	"file_name=/tmp/TgifZU4gHE")])
 ])
 ])])),
 attr("eq=", "", 0, 1, 1,
@@ -8796,13 +8821,13 @@ polygon('#0000ff','',5,[
 	72,224,76,224,76,220,72,220,72,224],0,1,0,0,1725,0,0,0,0,0,'1',0,
     "00",[
 ]),
-xbm('black','',72,220,176,241,0,1798,0,104,21,0,0,1,391000,762000,450000,775000,0,0,1,0,1,0,0,
-    "Thu Oct 20 23:08:50 2016","/tmp/TgifTkuQPe.eps",2436,[
+xbm('black','',72,220,176,241,2,2108,0,104,21,0,0,1,391000,762000,450000,775000,0,0,1,0,1,0,0,
+    "Wed Nov  1 00:31:19 2017","/tmp/TgifeyCo7t.eps",2436,[
     "%!PS-Adobe-2.0 EPSF-2.0",
     "%DVIPSWebPage: (www.radicaleye.com)",
-    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/TgifTkuQPe.ps /tmp/TgifTkuQPe",
+    "%DVIPSCommandLine: dvips -E -n 1 -o /tmp/TgifeyCo7t.ps /tmp/TgifeyCo7t",
     "%DVIPSParameters: dpi=600",
-    "%DVIPSSource:  TeX output 2016.10.20:2308",
+    "%DVIPSSource:  TeX output 2017.11.01:0031",
     "%!",
     "/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S",
     "N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72",
@@ -11218,7 +11243,7 @@ xbm('black','',72,220,176,241,0,1798,0,104,21,0,0,1,391000,762000,450000,775000,
     "0000000000000000000000000000000000000000000000000000000000000000",
     "cleartomark",
     "{restore}if",
-    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/TgifTkuQPe.dvi)",
+    "TeXDict begin 40258437 52099154 1000 600 600 (/tmp/TgifeyCo7t.dvi)",
     "@start /Fa 133[50 122[{ enclmrm ReEncodeFont }1 99.6264",
     "/LMRoman12-Bold rf /Fb 133[36 122[{ enclmrm ReEncodeFont }1",
     "66.4176 /LMRoman8-Bold rf /Fc 186[66 69[{}1 99.6264 /MSBM10",
@@ -11267,8 +11292,8 @@ str_seg('#0000ff','Courier',0,80640,126,13,3,0,-4,0,0,0,0,0,
 ])
 ])])),
 attr("header=", "", 0, 1, 1,
-text('#0000ff',248,71,21,0,1,423,336,1732,13,3,0,0,0,0,2,423,336,0,0,"",0,0,0,0,84,'',[
-minilines(423,336,0,0,0,0,0,[
+text('#0000ff',248,71,22,0,1,423,352,2085,13,3,0,0,0,0,2,423,352,0,0,"",0,0,0,0,84,'',[
+minilines(423,352,0,0,0,0,0,[
 mini_line(63,13,3,0,0,0,[
 str_block(0,63,13,3,0,-1,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,63,13,3,0,-1,0,0,0,0,0,
@@ -11294,10 +11319,20 @@ str_block(0,180,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{lmodern}")])
 ]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{newtxtext}")])
+mini_line(207,13,3,0,0,0,[
+str_block(0,207,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,207,13,3,0,-4,0,0,0,0,0,
+	"%\\usepackage{newtxtext}")])
+]),
+mini_line(306,13,3,0,0,0,[
+str_block(0,306,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,306,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage[scaled=.95]{newpxtext}")])
+]),
+mini_line(180,13,3,0,0,0,[
+str_block(0,180,13,3,0,-4,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,180,13,3,0,-4,0,0,0,0,0,
+	"\\usepackage{exscale}")])
 ]),
 mini_line(189,13,3,0,0,0,[
 str_block(0,189,13,3,0,-4,0,0,0,[
@@ -11323,11 +11358,6 @@ mini_line(135,13,3,0,0,0,[
 str_block(0,135,13,3,0,-4,0,0,0,[
 str_seg('#0000ff','Courier',0,80640,135,13,3,0,-4,0,0,0,0,0,
 	"\\usepackage{bm}")])
-]),
-mini_line(198,13,3,0,0,0,[
-str_block(0,198,13,3,0,-4,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,198,13,3,0,-4,0,0,0,0,0,
-	"\\usepackage{microtype}")])
 ]),
 mini_line(261,13,3,0,0,0,[
 str_block(0,261,13,3,0,-4,0,0,0,[
@@ -11467,13 +11497,13 @@ str_seg('#0000ff','Courier',0,80640,513,13,3,0,-2,0,0,0,0,0,
 	"        $(file_name).log $(file_name).ps $(file_name).eps")])
 ])
 ])])),
-attr("file_name=", "/tmp/TgifTkuQPe", 0, 1, 1,
+attr("file_name=", "/tmp/TgifeyCo7t", 0, 1, 1,
 text('blue',72,124,1,0,1,225,16,1728,13,3,0,0,0,0,2,225,16,0,0,"",0,0,0,0,137,'',[
 minilines(225,16,0,0,0,0,0,[
 mini_line(225,13,3,0,0,0,[
-str_block(0,225,13,3,0,-1,0,0,0,[
-str_seg('#0000ff','Courier',0,80640,225,13,3,0,-1,0,0,0,0,0,
-	"file_name=/tmp/TgifTkuQPe")])
+str_block(0,225,13,3,0,-2,0,0,0,[
+str_seg('#0000ff','Courier',0,80640,225,13,3,0,-2,0,0,0,0,0,
+	"file_name=/tmp/TgifeyCo7t")])
 ])
 ])])),
 attr("eq=", "", 0, 1, 1,
