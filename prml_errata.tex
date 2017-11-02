@@ -594,7 +594,6 @@ for each pair of the distributions~$(p_i, q_i)$
 so that $p_i(\mathbf{x}) = 0$
 outside the support~$\Omega_i = \{ \mathbf{x} \mid q_i(\mathbf{x}) > 0 \}$ of $q_i(\mathbf{x})$
 where $i = 1, 2$.
-
 Writing
 \begin{align}
 \begin{aligned}
@@ -631,9 +630,9 @@ a_2 \ln\frac{a_2}{b_2}
 \lambda q_1 + (1 - \lambda) q_2
 \right)
 \end{align}
-where we have again used Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}
-with $f(\xi) = \xi \ln \xi$
-so that we have\footnote{%
+from which we see that
+$\operatorname{KL}\left(p\middle\|q\right)$ is convex with respect to $(p, q)$.
+Here, we have used the inequality\footnote{%
 The inequality used here is a special case of the \emph{log sum inequality},
 which states that, for nonnegative $a_i, b_i$,
 \begin{equation}
@@ -657,29 +656,19 @@ f\left(\frac{ a_1 + a_2 }{ b_1 + b_2 }\right)
 \\
 &=
 \left( a_1 + a_2 \right)
-\ln \frac{ a_1 + a_2 }{ b_1 + b_2 } .
+\ln \frac{ a_1 + a_2 }{ b_1 + b_2 }
 \end{align}
-Thus, we see that $\operatorname{KL}\left(p\middle\|q\right)$ is convex with respect to $(p, q)$
-so that
-\begin{equation}
-\lambda \operatorname{KL}\left( p_1 \middle\| q_1 \right) +
-(1 - \lambda) \operatorname{KL}\left( p_2 \middle\| q_2 \right)
-\geqslant \operatorname{KL}\left(
-\lambda p_1 + (1 - \lambda) p_2 \middle\|
-\lambda q_1 + (1 - \lambda) q_2
-\right) ,
-\quad 0 < \lambda < 1 .
-\label{eq:strict_convexity_of_KL_wrt_pair_of_p_and_q}
-\end{equation}
-Note however that the convexity~\eqref{eq:strict_convexity_of_KL_wrt_pair_of_p_and_q}
-is not strict in general
-(consider, e.g., the case where $\Omega_1 \cap \Omega_2 = \emptyset$).
+where we have again used Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z}
+with $f(\xi) = \xi \ln \xi$.
 
 We also see that
-the convexity~\eqref{eq:strict_convexity_of_KL_wrt_pair_of_p_and_q} with respect to $(p, q)$
-implies that with respect to $p$,
-which, in fact, can be shown to be strict with a similar derivation as above, i.e.,
-we have that $\operatorname{KL}\left(p\middle\|q\right)$ is strictly convex with respect to $p$
+(i)~convexity of $\operatorname{KL}\left(p\middle\|q\right)$ with respect to $(p, q)$ implies
+(ii)~convexity of $\operatorname{KL}\left(p\middle\|q\right)$ with respect to $p$.
+Although the former convexity~(i) is not strict in general
+(consider, e.g., the case where $\Omega_1 \cap \Omega_2 = \emptyset$),
+the latter convexity~(ii) can be shown to be strict with a similar discussion as above
+(where we let $q_1 = q_2$ and thus $\Omega_1 = \Omega_2$), i.e.,
+$\operatorname{KL}\left(p\middle\|q\right)$ is strictly convex with respect to $p$
 so that
 \begin{equation}
 \lambda \operatorname{KL}\left( p_1 \middle\| q \right) +
