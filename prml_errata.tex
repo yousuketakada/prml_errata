@@ -3048,9 +3048,15 @@ Paragraph~1, Line~\textminus2:
 
 \erratum{Pages~621 and 622}
 Figures~13.12 and 13.13:
-It should be clarified that, similarly to the notations~$\alpha(z_{nk})$ and $\beta(z_{nk})$,
+It should be clarified that,
+similarly to the notations~$\alpha(z_{nk})$ and $\beta(z_{nk})$ defined in Section~13.2.2,
 the notation~$p\left(\mathbf{x}_n \middle| z_{nk}\right)$ denotes
-the value of $p\left(\mathbf{x}_n \middle| \mathbf{z}_{n}\right)$ when $z_{nk} = 1$.
+the value of $p\left(\mathbf{x}_n \middle| \mathbf{z}_{n}\right)$ when $z_{nk} = 1$ so that
+\begin{equation}
+p\left(\mathbf{x}_n \middle| z_{nk}\right) \equiv
+p\left(\mathbf{x}_n \middle| z_{nk} = 1\right) .
+\label{eq:HMM_emission_density_notation}
+\end{equation}
 
 \erratum{Page~622}
 % Due to Mark-Jan Nederhof
