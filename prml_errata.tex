@@ -769,7 +769,12 @@ p(\mathbf{x})
 \mathrm{d}\mathbf{x}
 \end{equation}
 where we have again used \eqref{eq:KL_as_EKL} and
-the Taylor expansion~$F(t) \simeq t^2/2$ of $F(t)$ around $t = 0$.
+the Taylor expansion~$F(t) \simeq t^2/2$ of $F(t)$ around $t = 0$.\footnote{%
+Although the sign~$\simeq$ is used for any type of approximate equality in PRML,
+I make some (soft) distinction between $\simeq$ and $\approx$ in this report:
+I use $\simeq$ for series expansions where approximation can be exact at some point; and
+$\approx$ for general (e.g., numerical) approximation including the Laplace approximation
+(see Section~4.4).}
 
 \erratum{Page~59}
 % Due to Mark-Jan Nederhof
@@ -2080,11 +2085,7 @@ $q(\mathbf{w})$ or $q(\mathbf{w}; \mathcal{D}, \alpha, \beta)$, respectively.
 \erratum{Page~279}
 % Due to Mark-Jan Nederhof
 Equation~(5.168):
-The equality ($=$) should be approximate ($\approx$ or $\simeq$).\footnote{%
-Although the sign~$\simeq$ is used for any type of approximate equality in PRML,
-I make some (soft) distinction between $\simeq$ and $\approx$ in this report:
-I use $\simeq$ for series expansions where approximation can be exact at some point; and
-$\approx$ for general (e.g., numerical) approximation including the Laplace approximation.}
+The equality ($=$) should be approximate ($\approx$).
 Also, we should again add conditioning on $\alpha$ and $\beta$.
 Thus, (5.168) should read
 \begin{equation}
