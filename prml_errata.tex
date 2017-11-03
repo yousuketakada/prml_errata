@@ -711,16 +711,19 @@ between unnormalized distributions~$\widetilde{p}(\mathbf{x})$ and $\widetilde{q
 \label{eq:extended_Kullback_Leibler_divergence}
 \end{equation}
 Note that
-the extended Kullback-Leibler divergence~\eqref{eq:extended_Kullback_Leibler_divergence}
-is the ordinary Kullback-Leibler divergence~(1.113) plus a correction term of the form~$
+the definition~\eqref{eq:extended_Kullback_Leibler_divergence} of
+the extended Kullback-Leibler divergence
+includes a correction term of the form~$
 \int
 \left\{
 \widetilde{q}(\mathbf{x}) -
 \widetilde{p}(\mathbf{x})
 \right\}
 \mathrm{d}\mathbf{x}
-$.
-It is easy to see that, for correctly normalized distributions~$p(\mathbf{x})$ and $q(\mathbf{x})$,
+$
+so that it applies to unnormalized distributions.
+One can easily see that,
+for correctly normalized distributions~$p(\mathbf{x})$ and $q(\mathbf{x})$,
 the correction term vanishes so that
 \begin{equation}
 \operatorname{KL} \left(p\middle\|q\right) =
@@ -729,7 +732,7 @@ the correction term vanishes so that
 \end{equation}
 
 The extended Kullback-Leibler divergence~\eqref{eq:extended_Kullback_Leibler_divergence}
-can also be written as
+can also be written in the form
 \begin{equation}
 \operatorname{EKL}\left(\widetilde{p}\middle\|\widetilde{q}\right)
 =
@@ -757,7 +760,7 @@ via the relationship~\eqref{eq:KL_as_EKL}.
 
 It is interesting to note that,
 if the two distributions are close so that $p(\mathbf{x}) \approx q(\mathbf{x})$,
-then we can approximate the Kullback-Leibler divergence~(1.113) as
+then we can approximate the Kullback-Leibler divergence as
 \begin{equation}
 \operatorname{KL}\left(p\middle\|q\right) \approx
 \frac{1}{2} \int
