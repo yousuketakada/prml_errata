@@ -690,6 +690,87 @@ so that
 \end{equation}
 with equality if and only if $p_1 = p_2$.
 
+\parhead{Extended Kullback-Leibler divergence}
+Let us define the \emph{extended Kullback-Leibler divergence}~%
+\citep{Minka:DivergenceMeasures,Zhu:InformationGeometric}
+between unnormalized distributions~$\widetilde{p}(\mathbf{x})$ and $\widetilde{q}(\mathbf{x})$ as
+\begin{equation}
+\operatorname{EKL}\left(\widetilde{p}\middle\|\widetilde{q}\right)
+\equiv
+\int
+\widetilde{p}(\mathbf{x})
+\ln\left\{ \frac{\widetilde{p}(\mathbf{x})}{\widetilde{q}(\mathbf{x})} \right\}
+\mathrm{d}\mathbf{x}
++
+\int
+\left\{
+\widetilde{q}(\mathbf{x}) -
+\widetilde{p}(\mathbf{x})
+\right\}
+\mathrm{d}\mathbf{x} .
+\label{eq:extended_Kullback_Leibler_divergence}
+\end{equation}
+Note that
+the extended Kullback-Leibler divergence~\eqref{eq:extended_Kullback_Leibler_divergence}
+is the ordinary Kullback-Leibler divergence~(1.113) plus a correction term of the form~$
+\int
+\left\{
+\widetilde{q}(\mathbf{x}) -
+\widetilde{p}(\mathbf{x})
+\right\}
+\mathrm{d}\mathbf{x}
+$.
+It is easy to see that, for correctly normalized distributions~$p(\mathbf{x})$ and $q(\mathbf{x})$,
+the correction term vanishes so that
+\begin{equation}
+\operatorname{KL} \left(p\middle\|q\right) =
+\operatorname{EKL}\left(p\middle\|q\right) .
+\label{eq:KL_as_EKL}
+\end{equation}
+
+The extended Kullback-Leibler divergence~\eqref{eq:extended_Kullback_Leibler_divergence}
+can also be written as
+\begin{equation}
+\operatorname{EKL}\left(\widetilde{p}\middle\|\widetilde{q}\right)
+=
+\int \widetilde{p}(\mathbf{x})
+F\left(
+\ln\left\{ \frac{\widetilde{p}(\mathbf{x})}{\widetilde{q}(\mathbf{x})} \right\}
+\right)
+\mathrm{d}\mathbf{x}
+\end{equation}
+where
+\begin{equation}
+F(t) = t + e^{-t} - 1, \quad -\infty < t < \infty .
+\end{equation}
+Since $F(t)$ is a strictly convex function (because $F''(t) > 0$) and
+takes the minimum~$F(0) = 0$ at $t = 0$
+so that $F(t) \geqslant 0$ with equality if and only if $t = 0$,
+we see that an analogue of Gibbs's inequality~\eqref{eq:Gibbs_inequality} holds also for
+the extended Kullback-Leibler divergence~\eqref{eq:extended_Kullback_Leibler_divergence},
+i.e., $\operatorname{EKL}\left(\widetilde{p}\middle\|\widetilde{q}\right) \geqslant 0$
+with equality if and only if $\widetilde{p}(\mathbf{x}) = \widetilde{q}(\mathbf{x})$
+for all $\mathbf{x}$.
+Thus, we see that Gibbs's inequality~\eqref{eq:Gibbs_inequality} for
+the ordinary Kullback-Leibler divergence~(1.113) can also be shown
+via the relationship~\eqref{eq:KL_as_EKL}.
+
+It is interesting to note that,
+if the two distributions are close so that $p(\mathbf{x}) \approx q(\mathbf{x})$,
+then we can approximate the Kullback-Leibler divergence~(1.113) as
+\begin{equation}
+\operatorname{KL}\left(p\middle\|q\right) \approx
+\frac{1}{2} \int
+p(\mathbf{x})
+\left\{
+\ln p(\mathbf{x}) -
+\ln q(\mathbf{x})
+\right\}^2
+\mathrm{d}\mathbf{x}
+\end{equation}
+where we have again used \eqref{eq:KL_as_EKL} and
+the Taylor expansion~$F(t) \simeq t^2/2$ of $F(t)$ around $t = 0$.
+
 \erratum{Page~59}
 % Due to Mark-Jan Nederhof
 Exercise~1.7, Line~2:
