@@ -536,13 +536,12 @@ the average information wasted to encode samples generated from the source~$p$
 with an encoder optimized for $q$.
 In order for this relative entropy~$\operatorname{KL}\left( p \middle\| q \right)$
 to be well-defined (i.e., in order that we can encode every sample),
-the source~$p$ must be somewhat ``localized'' within the encoder~$q$
-so that $p$ is always narrower than $q$ if not identical.}
+the support of the source~$p$ must be contained in that of the encoder~$q$.}
 
 Assuming the zero-forcing condition, that is,
 $p(\mathbf{x}) = 0$ for all $\mathbf{x}$ such that $q(\mathbf{x}) = 0$,
 we can restrict the integration in $\operatorname{KL}\left( p \middle\| q \right)$
-only over the \emph{support}~$\Omega = \{ \mathbf{x} \mid q(\mathbf{x}) > 0 \}$ of $q(\mathbf{x})$.
+only over the support~$\Omega = \{ \mathbf{x} \mid q(\mathbf{x}) > 0 \}$ of $q(\mathbf{x})$.
 Identifying $f(\xi) = \xi\ln\xi$ (see Figure~\ref{fig:x_ln_x}) and
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$,
 we have
