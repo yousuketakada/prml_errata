@@ -690,11 +690,10 @@ so that
 with equality if and only if $p_1 = p_2$.
 
 \parhead{Extended Kullback-Leibler divergence}
-Let us define the \emph{extended Kullback-Leibler divergence}~%
-\citep{Minka:DivergenceMeasures,Zhu:InformationGeometric}
-between unnormalized distributions~$\widetilde{p}(\mathbf{x})$ and $\widetilde{q}(\mathbf{x})$ as
+Let us now define what we call the \emph{extended Kullback-Leibler divergence}~%
+\citep{Minka:DivergenceMeasures,Zhu:InformationGeometric} as
 \begin{equation}
-\operatorname{EKL}\left(\widetilde{p}\middle\|\widetilde{q}\right)
+\operatorname{EKL}\left(\widetilde{p}^{\,}\middle\|\widetilde{q}^{\,}\right)
 \equiv
 \int
 \widetilde{p}(\mathbf{x})
@@ -720,7 +719,8 @@ includes a correction term of the form~$
 \right\}
 \mathrm{d}\mathbf{x}
 $
-so that it applies to unnormalized distributions.
+so that it applies to
+unnormalized distributions~$\widetilde{p}(\mathbf{x})$ and $\widetilde{q}(\mathbf{x})$.
 One can easily see that,
 for correctly normalized distributions~$p(\mathbf{x})$ and $q(\mathbf{x})$,
 the correction term vanishes so that
@@ -733,7 +733,7 @@ the correction term vanishes so that
 The extended Kullback-Leibler divergence~\eqref{eq:extended_Kullback_Leibler_divergence}
 can also be written in the form
 \begin{equation}
-\operatorname{EKL}\left(\widetilde{p}\middle\|\widetilde{q}\right)
+\operatorname{EKL}\left(\widetilde{p}^{\,}\middle\|\widetilde{q}^{\,}\right)
 =
 \int \widetilde{p}(\mathbf{x})
 F\left(
@@ -750,11 +750,16 @@ takes the minimum~$F(0) = 0$ at $t = 0$
 so that $F(t) \geqslant 0$ with equality if and only if $t = 0$,
 we see that an analogue of Gibbs's inequality~\eqref{eq:Gibbs_inequality} holds also for
 the extended Kullback-Leibler divergence~\eqref{eq:extended_Kullback_Leibler_divergence},
-i.e., $\operatorname{EKL}\left(\widetilde{p}\middle\|\widetilde{q}\right) \geqslant 0$
+i.e., we have
+\begin{equation}
+\operatorname{EKL}\left(\widetilde{p}^{\,}\middle\|\widetilde{q}^{\,}\right) \geqslant 0
+\label{eq:Gibbs_inequality_for_EKL}
+\end{equation}
 with equality if and only if $\widetilde{p}(\mathbf{x}) = \widetilde{q}(\mathbf{x})$
 for all $\mathbf{x}$.
 Thus, we see that Gibbs's inequality~\eqref{eq:Gibbs_inequality} for
 the ordinary Kullback-Leibler divergence~(1.113) can also be shown
+from the inequality~\eqref{eq:Gibbs_inequality_for_EKL}
 via the relationship~\eqref{eq:KL_as_EKL}.
 
 It is interesting to note that,
