@@ -5261,7 +5261,7 @@ which itself follows from (C.21).
 
 \parhead{Symmetric matrix derivatives}
 So far, we have considered derivatives with respect to
-a matrix that is not necessary symmetric.
+a matrix that is not symmetric in general.
 However, matrices for which we take derivatives in order to, say,
 perform optimization (e.g., maximum likelihood) or
 evaluate expectations by making use of \eqref{eq:expected_score_function_vanishes}
@@ -5283,7 +5283,7 @@ by considering derivatives with respect to a symmetric matrix
 in more general terms as follows.
 
 Let $\phi(\mathbf{A})$ be a scalar function of a square matrix~$\mathbf{A}$
-where $\mathbf{A} = \left(A_{ij}\right)$ is not a symmetric matrix so that
+where $\mathbf{A} = \left(A_{ij}\right)$ is not symmetric in general so that
 $A_{ij} \not\equiv A_{ji}$.
 As usual, we write the gradient of $\phi(\mathbf{A})$ with respect to $\mathbf{A}$ as
 \begin{equation}
@@ -5291,7 +5291,7 @@ As usual, we write the gradient of $\phi(\mathbf{A})$ with respect to $\mathbf{A
 = \left( \frac{\partial}{\partial A_{ij}} \phi(\mathbf{A}) \right) .
 \end{equation}
 Suppose that we want to evaluate the gradient of $\phi(\mathbf{S})$ where
-$\mathbf{S} = \left(S_{ij}\right)$ is a symmetric matrix so that $S_{ij} \equiv S_{ji}$.
+$\mathbf{S} = \left(S_{ij}\right)$ is symmetric so that $S_{ij} \equiv S_{ji}$.
 The derivative of $\phi(\mathbf{S})$ with respect to
 an off-diagonal element~$S_{ij}$ where $i \neq j$
 consists of two derivatives through $A_{ij}$ and $A_{ji}$ so that
