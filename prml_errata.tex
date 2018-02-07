@@ -3473,27 +3473,22 @@ write the multinoulli as
 \exp\left\{ \sum_{k=1}^{K} x_k \ln \mu_k \right\}
 \label{eq:multinoulli_distribution}
 \end{equation}
-where $\bm{\mu} = (\mu_1, \dots, \mu_K)^{\operatorname{T}}$ are probabilities such that
-$0 \leqslant \mu_k \leqslant 1$ and $\sum_k \mu_k = 1$.\footnote{%
-Strictly speaking, we cannot take the logarithm~$\ln \mu_k$ for $\mu_k = 0$
-in the right hand side of \eqref{eq:multinoulli_distribution}.
-However, in the context of Bayesian inference in which we regard $\bm{\mu}$ as random variables,
-this will not be a problem because we have $0 < \mu_k < 1$ with probability one
-(unless the distribution is singular).}
+where the parameter~$\bm{\mu} = (\mu_1, \dots, \mu_K)^{\operatorname{T}}$ consists of
+(normalized) probabilities~$\mu_k \in (0, 1)$ such that $\sum_k \mu_k = 1$.
 
 When we identify a multinoulli distribution from its functional form, e.g.,
 in the posterior distribution~\eqref{eq:posterior_of_Gaussian_mixture} for
 the Gaussian mixture model~\eqref{eq:joint_distribution_of_Gaussian_mixture} of Section~9.2,
 one will find it helpful to know that
 the multinoulli distribution~\eqref{eq:multinoulli_distribution} can also be expressed
-in terms of unnormalized probabilities~$\widetilde{\mu}_k \geqslant 0$, i.e.,
+in terms of unnormalized probabilities~$\widetilde{\mu}_k > 0$, i.e.,
 \begin{equation}
 \operatorname{Mult}\left(\mathbf{x}\middle|\bm{\mu}\right) \propto
 \prod_{k=1}^{K} \widetilde{\mu}_{k}^{\,x_k} =
 \exp\left\{ \sum_{k=1}^{K} x_k \ln \widetilde{\mu}_k \right\}
 \label{eq:multinoulli_distribution_w_unnormalized_mu}
 \end{equation}
-where the normalized probabilities~$\mu_k$ can be found
+where the normalized probabilities~$\mu_k$ can be found by
 \begin{equation}
 \mu_k = p(x_k = 1) = \frac{\widetilde{\mu}_k}{\sum_{j} \widetilde{\mu}_j} .
 \label{eq:normalized_mu_from_unnormalized_mu}
