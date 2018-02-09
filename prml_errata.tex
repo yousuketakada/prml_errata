@@ -819,6 +819,54 @@ Exercise~1.28, Lines~3 and 4:
 ``the information~$h(\cdot)$ is additive so that\dots''
 (see also the previous erratum).
 
+\erratum{Page~69}
+Equation~(2.2):
+Although the \emph{Bernoulli} distribution~$\operatorname{Bern}\left( x \middle| \mu \right)$
+is a valid, correctly normalized probability distribution for any value of
+the parameter~$0 \leqslant \mu \leqslant 1$ (Page~69, Paragraph~1, Line~1),
+it becomes \emph{degenerate} if $\mu = 0$ or $\mu = 1$, i.e.,
+$x$ is fixed to a single value so that $x = 0$ or $x = 1$, respectively.\footnote{%
+Note however that, in the context of Bayesian inference
+in which we regard the parameter~$\mu$ as a random variable,
+the distribution will not be degenerate because we have $0 < \mu < 1$ almost surely
+so that the edge cases, i.e., $\mu = 0$ and $\mu = 1$, do not matter after all.}
+Such degenerate distributions are often difficult to treat with some generality so that
+they actually seem to have been excluded (implicitly or explicitly)
+in most of the discussions in PRML.
+For example, we should be unable to take the logarithm of
+the Bernoulli likelihood~(2.5) to give (2.6)
+if the distribution can be degenerate
+(because the logarithm diverges if $\mu = 0$ or $\mu = 1$).
+More generally, one cannot identify a degenerate distribution with
+any member of the \emph{exponential family} (see Section~2.4).
+For instance, the degenerate Bernoulli cannot be expressed
+as the exponential of the logarithm as in (2.197)
+because its \emph{natural parameter}~(2.198) is again not well-defined for $\mu = 0$ or $\mu = 1$.
+
+\parhead{Restriction on probability of success}
+In order for the Bernoulli distribution~$\operatorname{Bern}\left( x \middle| \mu \right)$
+not to be degenerate,
+we assume in this report that the parameter~$\mu$ (called the \emph{probability of success})
+is restricted on the open set~$(0, 1)$, rather than on the closed set~$[0, 1]$ as in PRML,
+so that we can write\footnote{%
+Yet, we can still consider the degenerate case as the limit~$\mu \to 0$ or $\mu \to 1$.}
+\begin{equation}
+\operatorname{Bern}\left( x \middle| \mu \right) = \mu^{x} (1 - \mu)^{1 - x}
+= \exp\left\{ x \ln \mu + (1 - x) \ln (1 - \mu) \right\},
+\quad \mu \in (0, 1) .
+\label{eq:Bernoulli_in_exponential_of_logarithm}
+\end{equation}
+Similar discussions also apply to other discrete distributions, i.e.,
+the \emph{binomial} distribution~(2.9) and the \emph{multinomial} distribution~(2.34).
+See also the \emph{multinoulli} distribution~\eqref{eq:multinoulli_distribution}.
+
+Accordingly, we also assume similar restrictions $\mu \in (0, 1)$ and $\mu_k \in (0, 1)$
+on the domains of the (conjugate) prior distributions, i.e.,
+the \emph{beta} distribution~(2.13) and the \emph{Dirichlet} distribution~(2.38)
+so that we can avoid potential difficulty that
+the density function diverges at the boundary of the domain (see Figures~2.2 and 2.5)
+while this does not affect their correct normalization.
+
 \erratum{Page~70}
 Paragraph~\textminus1, Line~\textminus1:
 The lower ellipsis ($\ldots$) should be centered ($\cdots$).
