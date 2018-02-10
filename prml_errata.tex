@@ -849,14 +849,14 @@ In order for the Bernoulli distribution~$\operatorname{Bern}\left( x \middle| \m
 not to be degenerate,
 we assume in this report that the parameter~$\mu$ (called the \emph{probability of success})
 is restricted on the open set~$(0, 1)$, rather than on the closed set~$[0, 1]$ as in PRML,
-so that we can write\footnote{%
-Yet, we can still consider the degenerate case as the limit~$\mu \to 0$ or $\mu \to 1$.}
+so that we can write
 \begin{equation}
 \operatorname{Bern}\left( x \middle| \mu \right) = \mu^{x} (1 - \mu)^{1 - x}
 = \exp\left\{ x \ln \mu + (1 - x) \ln (1 - \mu) \right\},
-\quad \mu \in (0, 1) .
+\quad \mu \in (0, 1)
 \label{eq:Bernoulli_in_exponential_of_logarithm}
 \end{equation}
+while we can still consider the degenerate case as the limit~$\mu \to 0$ or $\mu \to 1$.
 Similar discussions also apply to other discrete distributions, i.e.,
 the \emph{binomial} distribution~(2.9) and the \emph{multinomial} distribution~(2.34).
 See also the \emph{multinoulli} distribution~\eqref{eq:multinoulli_distribution}.
