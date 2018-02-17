@@ -1254,6 +1254,7 @@ Substituting \eqref{eq:derivative_of_log_gamma_distribution_wrt_a} into
 we obtain
 \begin{equation}
 \mathbb{E}\left[ \ln \lambda \right] = \psi(a) - \ln b
+\label{eq:log_expectation_of_gamma}
 \end{equation}
 showing (B.30).
 Similarly, one can reproduce the result~(2.147) for the mean~$\mathbb{E}\left[ \lambda \right]$
@@ -1264,20 +1265,21 @@ into \eqref{eq:expected_score_function_vanishes}.
 It follows from Jensen's inequality~\eqref{eq:Jensen_inequality_expectation_with_z} that
 the log expectation~$\mathbb{E}\left[ \ln \lambda \right]$ is less than
 the logarithm of the mean $\ln \mathbb{E}\left[ \lambda \right]$
-because $\ln\xi$ is strictly concave where $\xi > 0$
-so that we have
+because $\ln\xi$ is strictly concave where $\xi > 0$ so that
 \begin{equation}
-\mathbb{E}\left[ \ln \lambda \right] < \ln \mathbb{E}\left[ \lambda \right] = \ln \frac{a}{b} .
+\mathbb{E}\left[ \ln \lambda \right] < \ln \mathbb{E}\left[ \lambda \right] = \ln \frac{a}{b}
 \end{equation}
+where we have used (2.147).
 The difference between $\ln \mathbb{E}\left[ \lambda \right]$ and
 $\mathbb{E}\left[ \ln \lambda \right]$
-can be evaluated analytically in this case so that
+can be evaluated analytically in this case
+by noting \eqref{eq:log_expectation_of_gamma} or (B.30) so that
 \begin{equation}
 \mathbb{E}\left[ \ln \lambda \right] = \ln \mathbb{E}\left[ \lambda \right] - \varphi(a)
 \end{equation}
 where $\varphi(a) > 0$ is what we call the \emph{log minus digamma function} defined by
 \begin{equation}
-\varphi(a) \equiv \ln a - \psi(a) .
+\varphi(a) \equiv \ln a - \psi(a) , \quad a > 0 .
 \label{eq:log_minus_digamma_function}
 \end{equation}
 The log minus digamma function~\eqref{eq:log_minus_digamma_function} naturally arises also in
