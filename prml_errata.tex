@@ -528,13 +528,20 @@ Recall that we have defined $0 \log_2 0 \equiv 0$ or, equivalently, $0 \ln 0 \eq
 (Page~49, Paragraph~2, Line~\textminus2) so that
 the entropy in ``bits''~(1.93) or ``nats''~\eqref{eq:entropy_in_nats} is well-defined.}
 Therefore, in order for $\operatorname{KL}\left( p \middle\| q \right)$ to be well-defined,
-$p(\mathbf{x})$ must be \emph{absolutely continuous} with respect to $q(\mathbf{x})$,
-meaning that $p(\mathbf{x}) = 0$ wherever $q(\mathbf{x}) = 0$;
-this property is known as \emph{zero-forcing} in the context of variational inference
-(see Section~10.1.2).\footnote{%
-The \emph{zero-forcing} property
-(i.e., the requirement of \emph{absolute continuity} of $p$ with respect to $q$)
-can be understood intuitively
+we must have $p(\mathbf{x}) = 0$ for all $\mathbf{x}$ such that $q(\mathbf{x}) = 0$ or,
+stated differently,
+\begin{equation}
+\operatorname{supp}(p) \subset \operatorname{supp}(q)
+\label{eq:supp_p_contained_in_supp_q}
+\end{equation}
+where we have defined the \emph{support}~$\operatorname{supp}(\phi)$ of
+a real-valued function~$\phi : \mathcal{X} \to \mathbb{R}$ by
+\begin{equation}
+\operatorname{supp}(\phi) \equiv \{ \mathbf{x} \in \mathcal{X} \mid \phi(\mathbf{x}) \neq 0 \}
+\end{equation}
+so that $\operatorname{supp}(p) = \{ \mathbf{x} \in \mathcal{X} \mid p(\mathbf{x}) > 0 \}$
+if $p : \mathcal{X} \to [0, \infty)$ is a probability density function.\footnote{%
+One can understand \eqref{eq:supp_p_contained_in_supp_q} intuitively
 from the perspective of information theory as follows.
 As we have seen in Section~1.6.1,
 the Kullback-Leibler divergence~$\operatorname{KL}\left( p \middle\| q \right)$
@@ -543,11 +550,23 @@ the average information wasted to encode samples generated from the source~$p$
 with an encoder optimized for $q$.
 In order for this relative entropy~$\operatorname{KL}\left( p \middle\| q \right)$
 to be well-defined (i.e., in order that we can encode every sample),
-the support of the source~$p$ must be contained in that of the encoder~$q$.}
+the support of the source~$p$ must be contained in that of the encoder~$q$.
+Note also that, in the context of variational inference
+in which we optimize $p$ or $q$ given $q$ or $p$, respectively,
+so as to minimize $\operatorname{KL}\left( p \middle\| q \right)$,
+the property~\eqref{eq:supp_p_contained_in_supp_q} is referred to as
+\emph{zero-forcing} or \emph{zero-avoiding}
+because $q = 0$ implies $p = 0$ or, equivalently, $p > 0$ implies $q > 0$
+(see Section~10.1.2).}
+Notice here a subtlety regarding the set inclusion notation that
+we write $A \subset B$ or $B \supset A$ when $a \in B$ for all $a \in A$
+so that $A$ may equal $B$.\footnote{%
+In fact, a set~$A$ equals another set~$B$ or $A = B$
+if and only if $A \subset B$ or $A \supset B$.}
 
-Assuming absolute continuity of $p(\mathbf{x})$ with respect to $q(\mathbf{x})$,
+Assuming \eqref{eq:supp_p_contained_in_supp_q},
 we can restrict the integration in $\operatorname{KL}\left( p \middle\| q \right)$
-only over the \emph{support}~$\Omega = \{ \mathbf{x} \mid q(\mathbf{x}) > 0 \}$ of $q(\mathbf{x})$.
+only over the support~$\Omega \equiv \operatorname{supp}(q)$ of $q(\mathbf{x})$.
 Identifying $f(\xi) = \xi\ln\xi$ (see Figure~\ref{fig:x_ln_x}) and
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$,
 we have
@@ -568,13 +587,14 @@ f\left(\xi(\mathbf{x})\right)
 \end{align}
 where we have used \eqref{eq:Jensen_inequality_continuous} with respect to $q(\mathbf{x})$
 (instead of $p(\mathbf{x})$).
-Note that, since $q(\mathbf{x}) > 0$ over $\Omega$, we see that
-$\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x}) \geqslant 0$ is well-defined over $\Omega$ and
+Note that, since $q(\mathbf{x}) > 0$ for all $\mathbf{x} \in \Omega$, we see that
+$\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x}) \geqslant 0$ is well-defined
+for all $\mathbf{x} \in \Omega$ and
 so is $f\left(\xi(\mathbf{x})\right) = \xi(\mathbf{x})\ln\xi(\mathbf{x})$.
 Since $f(\xi)$ is strictly convex,
 the equality~$\operatorname{KL}\left( p \middle\| q \right) = 0$ holds if and only if
-$\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$ is constant over $\Omega$,
-which, together with the assumed absolute continuity, yields the equality condition that
+$\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$ is constant for all $\mathbf{x} \in \Omega$,
+which, together with \eqref{eq:supp_p_contained_in_supp_q}, yields the equality condition that
 $p(\mathbf{x}) = q(\mathbf{x})$ for all $\mathbf{x}$.
 
 \begin{figure}
@@ -605,9 +625,9 @@ S &\equiv
 \mathrm{d}\mathbf{x}
 \end{align}
 where $0 < \lambda < 1$.
-Here, we again assume absolute continuity for each pair of the distributions~$(p_i, q_i)$,
-i.e., $p_i(\mathbf{x}) = 0$
-outside the support~$\Omega_i = \{ \mathbf{x} \mid q_i(\mathbf{x}) > 0 \}$ of $q_i(\mathbf{x})$
+Here, we again assume \eqref{eq:supp_p_contained_in_supp_q} for each pair of
+the distributions~$(p_i, q_i)$, i.e.,
+$p_i(\mathbf{x}) = 0$ for all $\mathbf{x} \notin \Omega_i \equiv \operatorname{supp}(q_i)$
 where $i = 1, 2$.
 Writing
 \begin{align}
