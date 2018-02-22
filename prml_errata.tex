@@ -566,7 +566,9 @@ so that $A$ may equal $B$.\footnote{%
 In fact, a set~$A$ equals another set~$B$ or $A = B$
 if and only if $A \subset B$ and $A \supset B$.}
 
-Assuming \eqref{eq:supp_p_contained_in_supp_q},
+Assuming the condition~\eqref{eq:supp_p_contained_in_supp_q} under which
+the Kullback-Leibler divergence~$\operatorname{KL}\left( p \middle\| q \right)$
+is well-defined,
 we can restrict the integration in $\operatorname{KL}\left( p \middle\| q \right)$
 only over the support~$\Omega \equiv \operatorname{supp}(q)$ of $q(\mathbf{x})$.
 Identifying $f(\xi) = \xi\ln\xi$ (see Figure~\ref{fig:x_ln_x}) and
@@ -587,8 +589,8 @@ f\left(\xi(\mathbf{x})\right)
 &= f\left(\int_{\Omega} p(\mathbf{x}) \, \mathrm{d}\mathbf{x} \right) \\
 &= f(1) = 0
 \end{align}
-where we have used \eqref{eq:Jensen_inequality_continuous} with respect to $q(\mathbf{x})$
-(instead of $p(\mathbf{x})$).
+where we have used Jensen's inequality~\eqref{eq:Jensen_inequality_continuous}
+with respect to $q(\mathbf{x})$ (instead of $p(\mathbf{x})$).
 Note that, since $q(\mathbf{x}) > 0$ for all $\mathbf{x} \in \Omega$, we see that
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x}) \geqslant 0$ is well-defined
 for all $\mathbf{x} \in \Omega$ and
