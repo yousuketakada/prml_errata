@@ -552,8 +552,9 @@ In order for this relative entropy~$\operatorname{KL}\left( p \middle\| q \right
 to be well-defined (i.e., in order that we can encode every sample),
 the support of the source~$p$ must be contained in that of the encoder~$q$.
 Note also that, in the context of variational inference
-in which we optimize $p$ or $q$ given $q$ or $p$, respectively,
-so as to minimize $\operatorname{KL}\left( p \middle\| q \right)$,
+in which we minimize $\operatorname{KL}\left( p \middle\| q \right)$
+by optimizing $p$ given $q$ (\emph{variational Bayes}) or
+$q$ given $p$ (\emph{expectation propagation}),
 the property~\eqref{eq:supp_p_contained_in_supp_q} is referred to as
 \emph{zero-forcing} or \emph{zero-avoiding}
 because $q = 0$ implies $p = 0$ or, equivalently, $p > 0$ implies $q > 0$
