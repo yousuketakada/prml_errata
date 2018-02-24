@@ -529,18 +529,8 @@ Recall that we have defined $0 \log_2 0 \equiv 0$ or, equivalently, $0 \ln 0 \eq
 the entropy in ``bits''~(1.93) or ``nats''~\eqref{eq:entropy_in_nats} is well-defined.}
 Therefore, in order for $\operatorname{KL}\left( p \middle\| q \right)$ to be well-defined,
 we must have $p(\mathbf{x}) = 0$ for all $\mathbf{x}$ such that $q(\mathbf{x}) = 0$ or,
-stated differently,
-\begin{equation}
-\operatorname{supp}(p) \subset \operatorname{supp}(q)
-\label{eq:supp_p_contained_in_supp_q}
-\end{equation}
-where we have defined the \emph{support}~$\operatorname{supp}(f)$ of
-a real-valued function~$f : \mathcal{X} \to \mathbb{R}$ by
-\begin{equation}
-\operatorname{supp}(f) \equiv \{ \mathbf{x} \in \mathcal{X} \mid f(\mathbf{x}) \neq 0 \}
-\end{equation}
-so that $\operatorname{supp}(p) = \{ \mathbf{x} \in \mathcal{X} \mid p(\mathbf{x}) > 0 \}$
-if $p : \mathcal{X} \to [0, \infty)$ is a probability density function.\footnote{%
+stated differently, the \emph{support} of $p(\mathbf{x})$ must be contained in
+that of $q(\mathbf{x})$, i.e.,\footnote{%
 One can understand \eqref{eq:supp_p_contained_in_supp_q} intuitively
 from the perspective of information theory as follows.
 As we have seen in Section~1.6.1,
@@ -559,6 +549,18 @@ the property~\eqref{eq:supp_p_contained_in_supp_q} is referred to as
 \emph{zero-forcing} or \emph{zero-avoiding}
 because $q = 0$ implies $p = 0$ or, equivalently, $p > 0$ implies $q > 0$
 (see Section~10.1.2).}
+\begin{equation}
+\operatorname{supp}(p) \subset \operatorname{supp}(q)
+\label{eq:supp_p_contained_in_supp_q}
+\end{equation}
+where $\operatorname{supp}(p) = \{ \mathbf{x} \mid p(\mathbf{x}) > 0 \}$ and so on.\footnote{%
+Here, we define the \emph{support}~$\operatorname{supp}(f)$ of
+a real-valued function~$f : \mathcal{X} \to \mathbb{R}$ by
+\begin{equation}
+\operatorname{supp}(f) \equiv \{ \mathbf{x} \in \mathcal{X} \mid f(\mathbf{x}) \neq 0 \}
+\end{equation}
+so that, for a probability density function~$p : \mathcal{X} \to [0, \infty)$, we have
+$\operatorname{supp}(p) = \{ \mathbf{x} \in \mathcal{X} \mid p(\mathbf{x}) > 0 \}$.}
 Note that, for two sets~$A$ and $B$,
 we write $A \subset B$ or $B \supset A$ if $a \in B$ for all $a \in A$
 so that $\operatorname{supp}(p)$ may equal $\operatorname{supp}(q)$ in
