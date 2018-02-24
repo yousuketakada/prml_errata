@@ -183,7 +183,36 @@ i.e., there exists an \emph{inverse function}~$f^{-1} : \mathcal{Y} \to \mathcal
 such that $f^{-1} \circ f$ is the identity function on $\mathcal{X}$
 and $f \circ f^{-1}$ is the identity function on $\mathcal{Y}$
 (an identity function is a function that maps every input to itself).}
-This can be easily understood by noting that, if we have
+This can be easily understood by noting that,
+if, for any \emph{measurable}\footnote{%
+A \emph{measurable} set is such that
+we can consider its ``size'' (or \emph{measure}) in some sense
+so that the integration over it is meaningful;
+this is a concept formally defined in a branch of mathematics called
+\emph{measure theory} (see, e.g., \citet{Tao:MeasureTheory}),
+which however ``lies outside the scope of [PRML]'' (Page~19, Paragraph~3, Line~\textminus5).
+The reason why we restrict ourselves to measurable subsets here is, of course, that
+we indeed have ``pathological'' ones that are not measurable.
+However, since it is safe to say that all the sets we meet in practice are measurable
+(for example, measurable subsets of $\mathbb{R}$ include
+all the open sets~$(a_1, b_1), (a_2, b_2), \dots$ and
+their countable unions~$(a_1, b_1) \cup (a_2, b_2) \cup \dots$),
+we omit such ``measurable'' qualifier for brevity in the rest of this report.}
+subset~$\mathcal{X}_0 \subset \mathcal{X}$,
+the \emph{preimage}\footnote{%
+Let $f : \mathcal{X} \to \mathcal{Y}$ be some function
+from a set~$\mathcal{X}$ (the \emph{domain})
+to another set~$\mathcal{Y}$ (the \emph{codomain}).
+The \emph{preimage} (or \emph{inverse image}) of
+a subset~$\mathcal{Y}_0 \subset \mathcal{Y}$ of the codomain~$\mathcal{Y}$
+under $f$ is defined by
+\begin{equation}
+f^{-1}(\mathcal{Y}_0) \equiv \{ x \in \mathcal{X} \mid f(x) \in \mathcal{Y}_0 \}
+\end{equation}
+so that $f^{-1}(\mathcal{Y}_0) \subset \mathcal{X}$ is a subset of the domain~$\mathcal{X}$.}~%
+$\mathcal{Y}_0 = g^{-1}(\mathcal{X}_0)$
+is again measurable and
+we can make the change of variable~$x = g(y)$ as
 \begin{align}
 \int_{\mathcal{X}_0} p_x(x) \, \mathrm{d}x &=
 \int_{\mathcal{Y}_0} p_x(x)
@@ -193,16 +222,6 @@ This can be easily understood by noting that, if we have
 \int_{\mathcal{Y}_0} p_x(g(y))
 \left| g'(y) \right| \mathrm{d}y
 \end{align}
-for any pair of $\mathcal{X}_0 \subset \mathcal{X}$ and $\mathcal{Y}_0 \subset \mathcal{Y}$
-such that $\mathcal{X}_0 = g(\mathcal{Y}_0)$ or $\mathcal{Y}_0 = g^{-1}(\mathcal{X}_0)$,\footnote{%
-Let $f : \mathcal{X} \to \mathcal{Y}$ be some function
-from a set~$\mathcal{X}$ (the \emph{domain})
-to another set~$\mathcal{Y}$ (the \emph{codomain}).
-The \emph{image} of a subset~$\mathcal{X}_0 \subset \mathcal{X}$ of the domain~$\mathcal{X}$
-under $f$ is a subset of the codomain~$\mathcal{Y}$ denoted by
-$f(\mathcal{X}_0) \subset \mathcal{Y}$ so that
-$f(\mathcal{X}_0) \equiv
-\{ y \in \mathcal{Y} \mid \text{$y = f(x) $ for some $ x \in \mathcal{X}_0 $}\}$.}
 then we can identify the integrand of the right hand side as $p_y(y)$.
 
 \parhead{Multivariate change of variables}
@@ -422,8 +441,8 @@ Here, the proviso~\emph{almost surely} (often abbreviated as a.s.) or
 \emph{almost everywhere} (a.e.) means that
 there may be some exceptions but they can occur only with probability zero (or \emph{measure} zero)
 so that we can safely ignore them;
-it is a concept formally defined in a branch of mathematics called \emph{measure theory},
-which however ``lies outside the scope of [PRML]'' (Page~19, Paragraph~3, Line~\textminus5).
+this is a concept formally defined in a branch of mathematics called
+\emph{measure theory} (see, e.g., \citet{Tao:MeasureTheory}).
 As in PRML, we omit such ``almost'' provisos for brevity in the rest of this report.}
 meaning that there exists some constant~$\xi_0$ such that
 $\xi(\mathbf{z}) = \xi_0$ on the range of $\mathbf{z}$ \emph{almost everywhere},
