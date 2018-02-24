@@ -530,7 +530,7 @@ the entropy in ``bits''~(1.93) or ``nats''~\eqref{eq:entropy_in_nats} is well-de
 Therefore, in order for $\operatorname{KL}\left( p \middle\| q \right)$ to be well-defined,
 we must have $p(\mathbf{x}) = 0$ for all $\mathbf{x}$ such that $q(\mathbf{x}) = 0$ or,
 stated differently, the \emph{support} of $p(\mathbf{x})$ must be contained in
-that of $q(\mathbf{x})$, i.e.,\footnote{%
+that of $q(\mathbf{x})$,\footnote{%
 One can understand \eqref{eq:supp_p_contained_in_supp_q} intuitively
 from the perspective of information theory as follows.
 As we have seen in Section~1.6.1,
@@ -548,7 +548,7 @@ $q$ given $p$ (\emph{expectation propagation}),
 the property~\eqref{eq:supp_p_contained_in_supp_q} is referred to as
 \emph{zero-forcing} or \emph{zero-avoiding}
 because $q = 0$ implies $p = 0$ or, equivalently, $p > 0$ implies $q > 0$
-(see Section~10.1.2).}
+(see Section~10.1.2).} i.e.,
 \begin{equation}
 \operatorname{supp}(p) \subset \operatorname{supp}(q)
 \label{eq:supp_p_contained_in_supp_q}
