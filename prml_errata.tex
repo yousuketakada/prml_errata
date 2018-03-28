@@ -1938,6 +1938,22 @@ although, in practice, a higher model evidence often tends to imply a lower gene
 and vice versa.
 For more (advanced) discussions, see \citet{Watanabe:WAIC,Watanabe:WBIC}.
 
+\erratum{Page~156}
+Equation~(3.57):
+The new input vector~$\mathbf{x}$ is omitted in (3.57) as in, e.g., (3.74).
+However, this is inconsistent with (3.58).
+Equation~(3.57) should read
+\begin{equation}
+p\left( t \middle| \mathbf{x}, \bm{\mathsf{t}}, \alpha, \beta \right)
+= \int
+p\left( t \middle| \mathbf{x}, \mathbf{w}, \beta \right)
+p\left( \mathbf{w} \middle| \bm{\mathsf{t}}, \alpha, \beta \right)
+\mathrm{d}\mathbf{w}
+\end{equation}
+where we have omitted the previous input vectors~$\mathbf{X}$
+corresponding to the targets~$\bm{\mathsf{t}}$
+as we have done in (3.11).
+
 \erratum{Page~166}
 Paragraph~2, Line~1:
 ``Gamma'' should read ``gamma'' (without capitalization).
