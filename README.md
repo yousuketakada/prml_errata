@@ -1,10 +1,11 @@
 # More PRML Errata
 
-This [report](prml_errata.pdf) is an unofficial list of errata for
+This [report](prml_errata.pdf) (a link to the compiled PDF) is an unofficial list of errata for
 _Pattern Recognition and Machine Learning_ or PRML by Bishop (2006).
 
+Looking for the official errata document?
 Consult the [support page](https://www.microsoft.com/en-us/research/people/cmbishop/#prml-book)
-to find the official errata document.
+to find out a version that suits your copy of PRML.
 
 ## Reference
 
