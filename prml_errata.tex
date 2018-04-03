@@ -248,12 +248,16 @@ the transformation between $\mathbf{x}$ and $\mathbf{y}$ is bijective as well as
 
 \erratum{Page~19}
 Equation~(1.32):
-Note that, similarly to the discrete case, the conditional probability density
+Similarly to the discrete case~(1.8), the conditional probability density
 \begin{equation}
 p(y|x) = \frac{p(x, y)}{p(x)}
 \label{eq:conditional_density}
 \end{equation}
 is well-defined only for $x$ such that $p(x) > 0$.
+Note however that, since the conditional~$p(y|x)$ can be considered
+a random variable that is dependent on $x$,
+there is no particular problem if $p(y|x)$ is undefined for $x$ such that $p(x) = 0$
+and it is safe to say that the product rule~(1.32) holds in general.
 
 \erratum{Page~42}
 % Due to Mark-Jan Nederhof
