@@ -1959,16 +1959,18 @@ so that one could possibly assume an inappropriate (too expressive) model
 that would give a terribly wrong prediction very confidently.
 This is true even when we take a ``fully'' Bayesian approach as discussed in the following.
 
+\parhead{A Bayesian model that exhibits overfitting}
 Let us take a Bayesian linear regression model of Section~3.3 as an example and
 suppose that the precision~$\beta$ of the target~$t$ in the likelihood~(3.8) is very large
 whereas the precision~$\alpha$ of the parameters~$\mathbf{w}$ in the prior~(3.52) is very small
 (i.e., the conditional distribution of $t$ given $\mathbf{w}$ is narrow whereas
 the prior over $\mathbf{w}$ is broad so that the regularization is insufficient).
 Then, the posterior~$p(\mathbf{w}|\bm{\mathsf{t}})$ given the data set~$\bm{\mathsf{t}}$ is
-sharply peaked around the ML estimate~$\mathbf{w}_{\text{ML}}$ and
+sharply peaked around the maximum likelihood estimate~$\mathbf{w}_{\text{ML}}$ and
 the predictive~$p(t|\bm{\mathsf{t}})$ is also sharply peaked
 (well approximated by the likelihood conditioned on $\mathbf{w}_{\text{ML}}$)
-so that the assumed model reduces to least squares.
+so that the assumed model reduces to the least squares method,
+which is known to suffer from overfitting (see Section~1.1).
 Of course, we can extend the model by incorporating hyperpriors over $\beta$ and $\alpha$,
 thus introducing more Bayesian averaging.
 However, if the extended model is not sensible
@@ -1979,7 +1981,7 @@ The point here is that, since we do not know the true model,
 we cannot know whether the assumed model is sensible in advance
 (i.e., without any knowledge about the data).
 We can however assess whether a model is better than another
-in terms of, say, \emph{Bayesian model comparison} (Section~3.4),
+in terms of, say, \emph{Bayesian model comparison} (see Section~3.4),
 though a caveat is that we still need some (implicit) assumptions for this procedure to work;
 see the discussion around (3.73).
 
