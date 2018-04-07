@@ -1970,7 +1970,8 @@ Let us take a Bayesian linear regression model of Section~3.3 as an example and
 suppose that the precision~$\beta$ of the target~$t$ in the likelihood~(3.8) is very large
 whereas the precision~$\alpha$ of the parameters~$\mathbf{w}$ in the prior~(3.52) is very small
 (i.e., the conditional distribution of $t$ given $\mathbf{w}$ is narrow whereas
-the prior over $\mathbf{w}$ is broad so that the regularization is insufficient).
+the prior over $\mathbf{w}$ is broad), leading to insufficient \emph{regularization}
+(see also Section~3.1.4).
 Then, the posterior~$p(\mathbf{w}|\bm{\mathsf{t}})$ given the data set~$\bm{\mathsf{t}}$ is
 sharply peaked around the maximum likelihood estimate~$\mathbf{w}_{\text{ML}}$ and
 the predictive~$p(t|\bm{\mathsf{t}})$ is also sharply peaked
