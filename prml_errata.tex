@@ -1956,8 +1956,14 @@ is simply an overstatement.
 Bayesian methods, like any other machine learning methods, can overfit
 because the \emph{true} model from which the data set has been generated is unknown in general
 so that one could possibly assume an inappropriate (too expressive) model
-that would give a terribly wrong prediction very confidently.
-This is true even when we take a ``fully'' Bayesian approach as discussed in the following.
+that would give a terribly wrong prediction very confidently;
+this is true even when we take a ``fully'' Bayesian approach
+(i.e., \emph{not} maximum likelihood, MAP, or whatever) as discussed shortly.
+We also discuss in what follows
+the difference between the two criteria for assessing model complexity, namely,
+the \emph{generalization error} (see Section~3.2) and
+the \emph{marginal likelihood} (Section~3.4),
+which is not well recognized in PRML.
 
 \parhead{A Bayesian model that exhibits overfitting}
 Let us take a Bayesian linear regression model of Section~3.3 as an example and
