@@ -1971,18 +1971,20 @@ the predictive~$p(t|\bm{\mathsf{t}})$ is also sharply peaked
 (well approximated by the likelihood conditioned on $\mathbf{w}_{\text{ML}}$)
 so that the assumed model reduces to the least squares method,
 which is known to suffer from overfitting (see Section~1.1).
+
 Of course, we can extend the model by incorporating hyperpriors over $\beta$ and $\alpha$,
 thus introducing more Bayesian averaging.
 However, if the extended model is not sensible
 (e.g., the hyperpriors are sharply peaked around wrong values),
 we shall again end up with a wrong posterior and a wrong predictive.
 
-The point here is that, since we do not know the true model,
+The point here is that, since we do not know the true model (if any),
 we cannot know whether the assumed model is sensible in advance
-(i.e., without any knowledge about the data).
-We can however assess whether a model is better than another
-in terms of, say, \emph{Bayesian model comparison} (see Section~3.4),
-though a caveat is that we still need some (implicit) assumptions for this procedure to work;
+(i.e., without any knowledge about data to be generated).
+We can however assess, given a data set, whether a model is better than another
+by, say, \emph{Bayesian model comparison} (see Section~3.4),
+though a caveat is that we still need some (implicit) assumptions for the framework of
+Bayesian model comparison to work;
 see the discussion around (3.73).
 
 Moreover, one should also be aware of a subtlety here, that is,
