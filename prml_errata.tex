@@ -1971,12 +1971,12 @@ suppose that the precision~$\beta$ of the target~$t$ in the likelihood~(3.8) is 
 whereas the precision~$\alpha$ of the parameters~$\mathbf{w}$ in the prior~(3.52) is very small
 (i.e., the conditional distribution of $t$ given $\mathbf{w}$ is narrow whereas
 the prior over $\mathbf{w}$ is broad), leading to insufficient \emph{regularization}
-(see also Section~3.1.4).
-Then, the posterior~$p(\mathbf{w}|\bm{\mathsf{t}})$ given the data set~$\bm{\mathsf{t}}$ is
+(see Section~3.1.4).
+Then, the posterior~$p(\mathbf{w}|\bm{\mathsf{t}})$ given the data set~$\bm{\mathsf{t}}$ will be
 sharply peaked around the maximum likelihood estimate~$\mathbf{w}_{\text{ML}}$ and
-the predictive~$p(t|\bm{\mathsf{t}})$ is also sharply peaked
-(well approximated by the likelihood conditioned on $\mathbf{w}_{\text{ML}}$)
-so that the assumed model reduces to the least squares method,
+the predictive~$p(t|\bm{\mathsf{t}})$ be also sharply peaked
+(well approximated by the likelihood conditioned on $\mathbf{w}_{\text{ML}}$).
+Stated differently, the assumed model reduces to the least squares method,
 which is known to suffer from overfitting (see Section~1.1).
 
 Of course, we can extend the model by incorporating hyperpriors over $\beta$ and $\alpha$,
