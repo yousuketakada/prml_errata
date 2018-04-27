@@ -255,10 +255,14 @@ p(y|x) = \frac{p(x, y)}{p(x)}
 \label{eq:conditional_density}
 \end{equation}
 is well-defined only for $x$ such that $p(x) > 0$.
-Note however that, since the conditional~$p(y|x)$ can be considered
-a random variable dependent on the random variable~$x$ on which it is conditioned,
+
+\parhead{Conditional as a random variable}
+The conditional~$p(y|x)$ can be regarded as
+a random variable dependent on the random variable~$x$ on which it is conditioned.
+As such, we see that
 there is no particular problem if $p(y|x)$ is undefined for $x$ such that $p(x) = 0$
-and it is safe to say that the \emph{product rule}~(1.32) holds in general.
+and the \emph{product rule}~(1.32) holds in general.
+
 Note also that, if $y$ is independent of $x$,
 then the conditional~$p(y|x)$ is well-defined regardless of $x$ so that $p(y|x) = p(y)$ and,
 again, the product rule~(1.32) holds, which in this case reduces to $p(x, y) = p(x) p(y)$.
