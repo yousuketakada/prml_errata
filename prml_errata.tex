@@ -269,10 +269,16 @@ again, the product rule~(1.32) holds, which in this case reduces to $p(x, y) = p
 
 \erratum{Page~33}
 Paragraph~3:
-Note that
-the \emph{Akaike information criterion} (AIC) and
-the Schwartz's \emph{Bayesian information criterion} (BIC)
-have different goals and thus are different criteria for model selection.
+Note that the two information criteria for model selection mentioned here, namely,
+(i)~the \emph{Akaike information criterion} (AIC) and
+(ii)~Schwartz's \emph{Bayesian information criterion} (BIC; see Section~4.4.1)
+are different criteria with different goals, i.e.,
+(i)~to make better prediction given the data (an ability called \emph{generalization}) and
+(ii)~to guess the ``true'' model that has generated the data
+(in terms of the \emph{marginal likelihood}; see Section~3.4), respectively.\footnote{%
+Since we cannot tell which goal (generalization or to guess the ``true'' model)
+is more ``Bayesian'' than the other,
+the term ``Bayesian information criteria'' is a misnomer.}
 However, the difference is not well-recognized in PRML.
 We shall come back to this issue later in this report.
 
