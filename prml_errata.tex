@@ -234,6 +234,22 @@ we can make the change of variables~$x = g(y)$ as
 \end{align}
 then we can identify the integrand of the right hand side as $p_y(y)$.
 
+It is interesting to note here that we can represent the change of variables
+in terms of expectation~\citep{Watanabe:BayesStatistics} so that
+\begin{equation}
+p_y(y) &= \mathbb{E}_{x}\left[ \delta\left( y - g^{-1}(x) \right) \right]
+\end{equation}
+where $\delta(\cdot)$ is the \emph{Dirac delta function}~\citep{NIST:DLMF} and
+$y = g^{-1}(x)$ is the inverse function of $x = g(y)$.\footnote{%
+In fact, we have
+\begin{align}
+\mathbb{E}_{x}\left[ \delta\left( y_0 - g^{-1}(x) \right) \right]
+&= \int \delta\left( y_0 - g^{-1}(x) \right) p_x(x) \, \mathrm{d}x \\
+&= \int \delta\left( y_0 - y \right) p_x(g(y)) \left| g'(y) \right| \mathrm{d}y \\
+&= p_x(g(y_0)) \left| g'(y_0) \right|
+\end{align}
+where we have made the change of variables~$x = g(y)$.}
+
 \parhead{Multivariate change of variables}
 Similarly to the univariate case,
 the multivariate version of the change of variables formula is given by
