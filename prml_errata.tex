@@ -2058,9 +2058,12 @@ Moreover, one should also be aware of a subtlety that
 which can be estimated by cross-validation (Section~3.2), and
 (ii)~the \emph{marginal likelihood},
 which is used in the Bayesian model comparison framework (Section~3.4),
-are closely related but different criteria for model selection,
-although, in practice, a higher marginal likelihood often tends to imply
-a lower generalization error and vice versa.
+are closely related but different criteria for model selection
+(although, in practice, a higher marginal likelihood often tends to imply
+a lower generalization error and vice versa).
+Generally speaking, one should use:
+(i)~the generalization error if they want to make better prediction given the data; and
+(ii)~the marginal likelihood if they want to guess the ``true'' model that has generated the data.
 For more (advanced) discussions, see \citet{Watanabe:WAIC,Watanabe:WBIC}.
 
 \erratum{Page~156}
