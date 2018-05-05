@@ -1552,32 +1552,7 @@ i.e.,
 (\mathbf{x}_n - \bm{\mu}_{\text{ML}})^{\operatorname{T}}
 \end{equation}
 respectively.
-Evaluating the posterior, we have
-\begin{align}
-p\left(\bm{\mu}, \bm{\Lambda}\middle|\mathbf{X}\right) &\propto
-p\left(\mathbf{X}\middle|\bm{\mu}, \bm{\Lambda}\right)
-p\left(\bm{\mu}, \bm{\Lambda}\right) \\
-&\propto
-\left|\bm{\Lambda}\right|^{N/2}
-\exp\left\{-\frac{1}{2}\sum_{n=1}^{N}
-  \left(\mathbf{x}_n - \bm{\mu}\right)^{\operatorname{T}} \bm{\Lambda}
-  \left(\mathbf{x}_n - \bm{\mu}\right)
-\right\} \nonumber \\
-&\phantom{\propto} \times
-\left|\bm{\Lambda}\right|^{(\nu_0 - D)/2}
-\exp\left\{-\frac{1}{2}\operatorname{Tr}\left(\left\{
-\mathbf{W}_{0}^{-1} +
-\beta_0\left(\bm{\mu} - \bm{\mu}_0\right)\left(\bm{\mu} - \bm{\mu}_0\right)^{\operatorname{T}}
-\right\}\bm{\Lambda}\right)\right\}
-\label{eq:Gaussian-Wishart_posterior_expanded} \\
-&=
-\left|\bm{\Lambda}\right|^{(\nu_N - D)/2}
-\exp\left\{-\frac{1}{2}\operatorname{Tr}\left(\left\{
-\mathbf{W}_{N}^{-1} +
-\beta_N\left(\bm{\mu} - \bm{\mu}_N\right)\left(\bm{\mu} - \bm{\mu}_N\right)^{\operatorname{T}}
-\right\}\bm{\Lambda}\right)\right\}
-\end{align}
-where\footnote{%
+After some algebra,\footnote{%
 The form~\eqref{eq:Gaussian-Wishart_W_N} of $\mathbf{W}_N^{-1}$ is a little tricky to obtain
 so that I would like to show a more detailed derivation here.
 Collecting and evaluating the coefficients of $\bm{\Lambda}$ inside $\operatorname{Tr}(\cdot)$
@@ -1617,8 +1592,33 @@ N \bm{\Sigma}_{\text{ML}} +
 \frac{\beta_0 N}{\beta_0 + N}
 \left(\bm{\mu}_{\text{ML}} - \bm{\mu}_0\right)
 \left(\bm{\mu}_{\text{ML}} - \bm{\mu}_0\right)^{\operatorname{T}} .
+\end{align}}
+we can evaluate the posterior as
+\begin{align}
+p\left(\bm{\mu}, \bm{\Lambda}\middle|\mathbf{X}\right) &\propto
+p\left(\mathbf{X}\middle|\bm{\mu}, \bm{\Lambda}\right)
+p\left(\bm{\mu}, \bm{\Lambda}\right) \\
+&\propto
+\left|\bm{\Lambda}\right|^{N/2}
+\exp\left\{-\frac{1}{2}\sum_{n=1}^{N}
+  \left(\mathbf{x}_n - \bm{\mu}\right)^{\operatorname{T}} \bm{\Lambda}
+  \left(\mathbf{x}_n - \bm{\mu}\right)
+\right\} \nonumber \\
+&\phantom{\propto} \times
+\left|\bm{\Lambda}\right|^{(\nu_0 - D)/2}
+\exp\left\{-\frac{1}{2}\operatorname{Tr}\left(\left\{
+\mathbf{W}_{0}^{-1} +
+\beta_0\left(\bm{\mu} - \bm{\mu}_0\right)\left(\bm{\mu} - \bm{\mu}_0\right)^{\operatorname{T}}
+\right\}\bm{\Lambda}\right)\right\}
+\label{eq:Gaussian-Wishart_posterior_expanded} \\
+&=
+\left|\bm{\Lambda}\right|^{(\nu_N - D)/2}
+\exp\left\{-\frac{1}{2}\operatorname{Tr}\left(\left\{
+\mathbf{W}_{N}^{-1} +
+\beta_N\left(\bm{\mu} - \bm{\mu}_N\right)\left(\bm{\mu} - \bm{\mu}_N\right)^{\operatorname{T}}
+\right\}\bm{\Lambda}\right)\right\}
 \end{align}
-}
+where
 \begin{align}
 \beta_N &= \beta_0 + N \\
 \beta_N\bm{\mu}_N &= \beta_0\bm{\mu}_0 + N\bm{\mu}_{\text{ML}} \\
