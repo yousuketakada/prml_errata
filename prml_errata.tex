@@ -577,14 +577,14 @@ First, the quantity~$\xi(\mathbf{x}) = q(\mathbf{x})/p(\mathbf{x})$ is undefined
 such that $p(\mathbf{x}) = 0$.
 Second, the convex function~$f(\xi) = -\ln\xi$ is undefined for $\xi = 0$,
 which occurs where $q(\mathbf{x}) = 0$ and $p(\mathbf{x}) > 0$.
-In order to avoid these difficulties,
+In order to avoid these (potential) difficulties,
 we shall take a different approach~\citep{MacKay:Information,KullbackLeibler:Information}
 in which we make use of Jensen's inequality~\eqref{eq:Jensen_inequality_continuous}
 with respect to $q(\mathbf{x})$ where
 we identify $f(\xi) = \xi\ln\xi$ and
 $\xi(\mathbf{x}) = p(\mathbf{x})/q(\mathbf{x})$.
 Note that we can safely proceed with this approach
-because we can assume $q(\mathbf{x}) > 0$ without loss of generality.
+because we can assume $q(\mathbf{x}) > 0$ without loss of generality (see below).
 
 In the following, we first show Gibbs's inequality~\eqref{eq:Gibbs_inequality} along this line,
 after which we also see that
