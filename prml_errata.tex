@@ -272,7 +272,7 @@ p(y|x) = \frac{p(x, y)}{p(x)}
 \label{eq:conditional_density}
 \end{equation}
 is well-defined only for $x$ such that $p(x) > 0$.
-Note however that it is safe to say that the \emph{product rule}~(1.32) itself holds in general
+Note however that we can assume that the \emph{product rule}~(1.32) itself holds in general
 (see below).
 
 \parhead{Conditional as a random variable}
@@ -287,9 +287,9 @@ where $\delta(\cdot)$ is the \emph{Dirac delta function}~\citep{NIST:DLMF}.})
 can be regarded as
 a random variable dependent on the random variable~$x$ on which conditioned.
 As such, we see that
-there is no particular problem if $p(y|x)$ is undefined for $x$ such that $p(x) = 0$
-(for which we can define $p(y|x)$ arbitrarily, say, $p(y|x) \equiv 0$
-though it is not a valid probability because $\int p(y|x) \, \mathrm{d}y = 0 \neq 1$).
+there is no particular problem if $p(y|x)$ is undefined for $x$ such that $p(x) = 0$;
+for such $x$, we can define $p(y|x)$ arbitrarily, say, $p(y|x) \equiv 0$
+(although this is not a valid probability because $\int p(y|x) \, \mathrm{d}y = 0 \neq 1$).
 
 Note also that, if $y$ is independent of $x$,
 then the conditional~$p(y|x)$ is well-defined regardless of $x$ so that $p(y|x) = p(y)$ and,
