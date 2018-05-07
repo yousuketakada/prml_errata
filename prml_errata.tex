@@ -141,7 +141,7 @@ Paragraph~\textminus2, Line~1:
 $\left|f(x)/g(x)\right|$ should read $\left|g(x)/f(x)\right|$ (with the functions swapped).
 Moreover, the limit we take is \emph{not} necessarily the one specified in the text,
 i.e., $x \to \infty$,
-but is often implied by the context as follows.
+but is often implied by the context (see below).
 
 \parhead{Big O notation}
 The big O notation~$g(x) = O\left(f(x)\right)$ generally denotes that
@@ -272,7 +272,7 @@ p(y|x) = \frac{p(x, y)}{p(x)}
 \label{eq:conditional_density}
 \end{equation}
 is well-defined only for $x$ such that $p(x) > 0$.
-Note however that it is safe to say that the \emph{product rule}~(1.32) itself holds in general
+Note however that we can assume that the \emph{product rule}~(1.32) itself holds in general
 (see below).
 
 \parhead{Conditional as a random variable}
@@ -287,9 +287,9 @@ where $\delta(\cdot)$ is the \emph{Dirac delta function}~\citep{NIST:DLMF}.})
 can be regarded as
 a random variable dependent on the random variable~$x$ on which conditioned.
 As such, we see that
-there is no particular problem if $p(y|x)$ is undefined for $x$ such that $p(x) = 0$
-(for which we can define $p(y|x)$ arbitrarily, say, $p(y|x) \equiv 0$
-though it is not a valid probability because $\int p(y|x) \, \mathrm{d}y = 0 \neq 1$).
+there is no particular problem if $p(y|x)$ is undefined for $x$ such that $p(x) = 0$;
+for such $x$, we can define $p(y|x)$ arbitrarily, say, $p(y|x) \equiv 0$
+(although this is not a valid probability because $\int p(y|x) \, \mathrm{d}y = 0 \neq 1$).
 
 Note also that, if $y$ is independent of $x$,
 then the conditional~$p(y|x)$ is well-defined regardless of $x$ so that $p(y|x) = p(y)$ and,
@@ -2262,7 +2262,7 @@ E(\mathbf{w}^{\star})
 \end{equation}
 Perhaps we should have used different notation
 because we use $\widetilde{E}$ differently in Section 5.5.5,
-though no big confusion will occur even if we use $\widetilde{E}(\mathbf{w})$ here.
+though this will not cause any great confusion even if we use $\widetilde{E}(\mathbf{w})$ here.
 
 \erratum{Page~238}
 Equation~(5.34):
