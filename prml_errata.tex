@@ -1157,7 +1157,7 @@ for consistency with other part of PRML (see, e.g., Section~8.1.4).
 Equation~(2.120):
 The vector derivative operator~$\frac{\partial}{\partial \bm{\mu}}$ should read
 the \emph{gradient}~$\nabla_{\bm{\mu}}$
-if we use the notation~\eqref{eq:gradient_of_vector_wrt_vector} we adopt in this report.
+if we adopt the notation~\eqref{eq:gradient_of_vector_wrt_vector} as we do in this report.
 
 \erratum{Pages~93 and 94}
 Equations~(2.121) and (2.122):
@@ -1846,15 +1846,17 @@ See \eqref{eq:Bernoulli_in_exponential_of_logarithm}.
 Equation~(2.224):
 The right hand side should be a zero vector~$\mathbf{0}$ (instead of a scalar zero~$0$).
 Furthermore, I would like to point out that
-the gradient operator~$\nabla$, which is first used here in PRML, has not been properly defined.
+the gradient operator~$\nabla$ found on the left hand side,
+which is first used here in PRML, has not been properly defined.
 Actually, although Appendix~C introduces
-the ``vector derivative''~$\frac{\partial}{\partial \mathbf{x}}$,
-which is (perhaps confusingly) used interchangeably with the gradient~$\nabla_{\mathbf{x}}$
+the ``vector derivative'' operator~$\frac{\partial}{\partial \mathbf{x}}$,
+which is (perhaps confusingly) used interchangeably with
+the gradient operator~$\nabla_{\mathbf{x}}$
 throughout PRML,
 the gradient itself is not defined anywhere in PRML.
-Moreover, the vector derivatives given in Appendix~C are not well-defined
-(we shall come back to this issue later in this report).
-See \eqref{eq:gradient_of_vector_wrt_vector} for the definition of the gradient~$\nabla$
+Moreover, the ``vector derivative'' operator is, unfortunately, not well-defined in Appendix~C;
+we shall come back to this issue later in this report.
+See \eqref{eq:gradient_of_vector_wrt_vector} for the proper definition of the gradient~$\nabla$
 we adopt in this report.
 
 \erratum{Page~119}
