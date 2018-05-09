@@ -2036,7 +2036,9 @@ so that the predictive distribution~(3.58) over $t$ given $\bm{\mathsf{t}}$ will
 well approximated by the likelihood~(3.8) conditioned on $\mathbf{w}_{\text{ML}}$
 and also sharply peaked around the regression function~(3.3).
 Stated differently, learning the thus assumed model reduces to the least squares method,
-which is known to suffer from overfitting (see Section~1.1).
+which is known to suffer from overfitting, i.e.,
+the \emph{generalization error} becomes large if the model is too expressive
+(see Section~1.1).
 
 Of course, one can extend the model by incorporating hyperpriors over $\alpha$ and $\beta$,
 thus introducing more Bayesian averaging.
@@ -2048,9 +2050,9 @@ The point here is that, since we do not know the ``true'' model (if any),
 we cannot know if the assumed model is sensible in advance
 (i.e., without any knowledge about data to be generated).
 We can however assess, given a data set, whether a model is better than another
-by, say, \emph{Bayesian model comparison} (see Section~3.4),
-though a caveat is that we still need some (implicit) assumptions for the framework of
-Bayesian model comparison to work;
+in terms of, say, the \emph{marginal likelihood} (see Section~3.4),
+though a caveat is that we still need some (implicit) assumptions for
+the Bayesian model comparison framework to work;
 see the discussion around (3.73).
 
 \parhead{Generalization error vs.\ marginal likelihood}
