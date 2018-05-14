@@ -162,6 +162,7 @@ with the \texttt{amsmath} or \texttt{mathtools} package,
 Specifically, (1.1) should read
 \begin{equation}
 y(x, \mathbf{w}) = w_0 + w_1 x + w_2 x^2 + \dots + w_M x^M = \sum_{j=0}^{M} w_j x^j .
+\label{eq:polynomial_regression_function}
 \end{equation}
 
 \erratum{Page~10}
@@ -2039,8 +2040,8 @@ and also sharply peaked around the regression function~(3.3).
 Stated differently, learning thus assumed a Bayesian model reduces to the least squares method,
 which is known to suffer from overfitting so that
 the \emph{generalization error} can be very large if the regression function is too expressive,
-e.g., the order~$M$ of the polynomial regression function~(1.1) is large compared to
-the size of the training data set as we have seen in Section~1.1.
+e.g., the order~$M$ of the polynomial regression function~\eqref{eq:polynomial_regression_function}
+is large compared to the size of the training data set as we have seen in Section~1.1.
 
 Of course, one can extend the model by incorporating hyperpriors over $\alpha$ and $\beta$,
 thus introducing more Bayesian averaging.
