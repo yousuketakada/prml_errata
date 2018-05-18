@@ -2093,6 +2093,21 @@ To avoid such confusion, we also introduce some notation.
 The terminology and the notation to be introduced here are somewhat different from
 those of PRML or other part of this report.
 
+First of all, we should point out that
+so far we have used the term \emph{generalization error} somewhat loosely;
+it is used primarily in the context of a frequentist inference
+(such as the one in Section~3.2; see also Section~1.5.5)
+and is appeared to be defined as
+the expected loss evaluated for the predicted target values (i.e., point estimates)
+with some arbitrary loss function given (e.g., the squared error for regression).
+Motivated from a Bayesian point of view, we can define it differently
+so as to be a better criterion for assessing a model's predictive ability, i.e.,
+as the expected negative log predictive distribution (see below for a precise definition),
+which, to avoid ambiguity, we hereafter call the \emph{generalization loss}.
+We shall also define another criterion called the \emph{Bayes free energy},
+which is nothing but the negative log \emph{marginal likelihood}.
+The Bayes free energy is better compared with the generalization loss as we shall see shortly.
+
 \erratum{Page~156}
 Equation~(3.57):
 The new input vector~$\mathbf{x}$ is omitted in (3.57) as in, e.g., (3.74).
