@@ -2078,6 +2078,21 @@ we can gain more information from both of them than from one of them.
 If we have learned that both the criteria do or do not prefer a model,
 then we would be more confident that the model is sensible or not, respectively.
 
+\parhead{More on generalization error vs.\ marginal likelihood
+(or generalization loss vs.\ Bayes free energy)}
+In what follows, I would like to further elaborate on
+the difference between the two criteria for model selection.
+In order to facilitate the discussion,
+we first introduce some terminology due to \citet{Watanabe:BayesStatistics}.
+Throughout the discussion,
+special care must be taken about the distribution with which we take expectation
+because the ``true'' distribution is unknown in general
+and, therefore, we must assume some model (i.e., hypothetical) distributions
+so that confusion can easily arise about which distribution is concerned.
+To avoid such confusion, we also introduce some notation.
+The terminology and the notation to be introduced here are somewhat different from
+those of PRML or other part of this report.
+
 \erratum{Page~156}
 Equation~(3.57):
 The new input vector~$\mathbf{x}$ is omitted in (3.57) as in, e.g., (3.74).
