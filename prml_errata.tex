@@ -2112,6 +2112,38 @@ We shall also define another criterion called the \emph{Bayes free energy},
 which is nothing but the negative log \emph{marginal likelihood}.
 The Bayes free energy is better compared with the generalization loss as we shall see shortly.
 
+Let us now introduce some notation.
+First, let $\mathbf{X} = \{ \mathbf{x}_1, \dots, \mathbf{x}_N \}$ be the training data
+(we use a vector~$\mathbf{x}$ instead of a scalar~$t$ for the target variable here).
+They are assumed to be i.i.d.\ and
+have been generated from some true distribution $p(\mathbf{x})$ so that
+\begin{equation}
+p(\mathbf{X}) = p(\mathbf{x}_1, \dots, \mathbf{x}_N) = \prod_{n=1}^{N} p(\mathbf{x}_n).
+\end{equation}
+Let $\mathcal{M}$ be the assumed model we wish to learn.
+As a shorthand, the probability distribution of our assumed model~$\mathcal{M}$ is denoted by
+\begin{equation}
+q(\cdot) = p(\cdot|\mathcal{M})
+\end{equation}
+i.e., the conditioning on $\mathcal{M}$ is implicit for $q(\cdot)$.\footnote{%
+We define $p(\cdot|a|b) \equiv p(\cdot|a, b)$ so that
+we can write the conditional~$q(\cdot|\cdot)$.}
+If there exists a true model~$\mathcal{M}^{\star}$,
+then we can write the true distribution as
+\begin{equation}
+p(\cdot) = p(\cdot|\mathcal{M}^{\star}).
+\end{equation}
+The model~$\mathcal{M}$ consists of a pair of the likelihood~$q(\mathbf{x}|\mathbf{w})$ and
+the prior~$q(\mathbf{w})$ where $\mathbf{w}$ is a set of parameters
+(including hyperparameters and so on).
+The marginal likelihood of the model~$\mathcal{M}$ is given by
+\begin{equation}
+q(\mathbf{X}) = \int \mathrm{d}\mathbf{w} \, q(\mathbf{w}) \, q(\mathbf{X}|\mathbf{w}) =
+\int \mathrm{d}\mathbf{w} \, q(\mathbf{w}) \prod_{n=1}^{N} q(\mathbf{x}_n|\mathbf{w}).
+\end{equation}
+Note that $q(\mathbf{X})$ does not factorize in general because we have some unknown
+parameters~$\mathbf{w}$ in the model~$\mathcal{M}$.
+
 \erratum{Page~156}
 Equation~(3.57):
 The new input vector~$\mathbf{x}$ is omitted in (3.57) as in, e.g., (3.74).
