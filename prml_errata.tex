@@ -2085,8 +2085,7 @@ then we would be more confident that the model is sensible or not, respectively.
 (or generalization loss vs.\ Bayes free energy)}
 In what follows, I would like to further elaborate on
 the difference between the two criteria for model selection.
-In order to facilitate the discussion,
-we first introduce some terminology due to \citet{Watanabe:BayesStatistics}.
+In order to facilitate the discussion, we first introduce some terminology.
 Throughout the discussion,
 special care must be taken about the distribution with which we take expectation
 because the ``true'' distribution is unknown in general
@@ -2097,23 +2096,25 @@ The terminology and the notation to be introduced here are somewhat different fr
 those of PRML or other part of this report.
 
 First of all, we should point out that
-so far we have used the term \emph{generalization error} somewhat loosely;
+so far we have used the term \emph{generalization error} somewhat loosely
+(in this report and also in PRML);
 it is used primarily in the context of a frequentist inference
-(such as the one in Section~3.2; see also Section~1.5.5)
-and is appeared to be defined as
-the expected loss evaluated for the predicted target value (i.e., a point estimate)
+(such as the one in Section~3.2)
+and can be generally defined as the \emph{expected loss}~(see Section~1.5.5)
+evaluated for the predicted target value (i.e., a point estimate)
 with some arbitrary loss function given (e.g., the squared error for regression).
-Although this definition can be considered fairly general,
-an alternative definition from a Bayesian point of view would be in terms of
+An alternative definition from a Bayesian point of view would be in terms of
 the predictive distribution.
 Specifically, we can define the generalization error as
-the expected negative log predictive distribution (see below for a precise definition);
+the expected negative log predictive distribution;
 to avoid ambiguity, we hereafter call this particular criterion for
-assessing a model's predictive ability
-the \emph{generalization loss}.
-We shall also define another criterion called the \emph{Bayes free energy},
+assessing a model's predictive performance the \emph{generalization loss}
+(see below for a precise definition).
+We shall also define another criterion called
+the \emph{Bayes free energy},
 which is nothing but the negative log \emph{marginal likelihood}.
 The Bayes free energy is better compared with the generalization loss as we shall see shortly.
+The terminology here is due to \citet{Watanabe:BayesStatistics}.
 
 Let us now introduce some notation.
 First, let $\mathbf{X} = \{ \mathbf{x}_1, \dots, \mathbf{x}_N \}$ be the training data
