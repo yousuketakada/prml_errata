@@ -289,8 +289,9 @@ can be regarded as
 a random variable dependent on the random variable~$x$ on which conditioned.
 As such, we see that
 there is no particular problem if $p(y|x)$ is undefined for $x$ such that $p(x) = 0$;
-for such $x$, we can define $p(y|x)$ arbitrarily, say, $p(y|x) \equiv 0$
-(although this is not a valid probability because $\int p(y|x) \, \mathrm{d}y = 0 \neq 1$).
+for such $x$, we can define $p(y|x)$ arbitrarily as long as we have $p(y|x)p(x) = 0$,
+say, $p(y|x) \equiv 0$
+although this is clearly not a valid probability because $\int p(y|x) \, \mathrm{d}y = 0 \neq 1$.
 
 Note also that, if $y$ is independent of $x$,
 then the conditional~$p(y|x)$ is well-defined regardless of $x$ so that $p(y|x) = p(y)$ and,
