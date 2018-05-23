@@ -2092,8 +2092,7 @@ then we would be more confident that the model is sensible or not, respectively.
 (or generalization loss vs.\ Bayes free energy)}
 In what follows, I would like to further elaborate on
 the difference between the two criteria for model selection.
-In order to facilitate the discussion,
-we first introduce some terminology due to \citet{Watanabe:BayesStatistics}.
+In order to facilitate the discussion, we first introduce some terminology.
 Throughout the discussion,
 special care must be taken about the distribution with which we take expectation
 because the ``true'' distribution is unknown in general
@@ -2111,17 +2110,19 @@ it is used primarily in the context of a frequentist inference
 and can be generally defined as the \emph{expected loss}~(see Section~1.5.5)
 evaluated for the predicted target value (i.e., a point estimate)
 with some arbitrary loss function given (e.g., the squared error for regression).
-An alternative definition from a Bayesian point of view would be in terms of
-the predictive distribution.
-Specifically, we can define the generalization error as
-the expected negative log predictive distribution;
+An alternative definition of the generalization error from a Bayesian point of view would be
+in terms of the predictive distribution.
+Specifically, we can define it as the expected negative log predictive distribution;
 to avoid ambiguity, we hereafter call this particular criterion for
 assessing a model's predictive performance the \emph{generalization loss}
 (see below for a precise definition).
 We shall also define another criterion called
 the \emph{Bayes free energy},
-which is nothing but the negative log \emph{marginal likelihood}.
-The Bayes free energy is better compared with the generalization loss as we shall see shortly.
+which is nothing but the negative log marginal likelihood.
+The Bayes free energy is better compared with the generalization loss
+as we shall see shortly.\footnote{%
+The terms~\emph{Bayes free energy} and \emph{generalization loss} are
+due to \citet{Watanabe:BayesStatistics}.}
 
 Let us now introduce some notation.
 First, let $\mathbf{X} = \{ \mathbf{x}_1, \dots, \mathbf{x}_N \}$ be the training data
