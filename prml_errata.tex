@@ -2126,10 +2126,10 @@ The terms~\emph{Bayes free energy} and \emph{generalization loss} are
 due to \citet{Watanabe:BayesStatistics}.}
 
 Let us now introduce some notation.
-First, let $\mathbf{X} = \{ \mathbf{x}_1, \dots, \mathbf{x}_N \}$ be the training data
+First, let $\mathbf{X} = \{ \mathbf{x}_1, \dots, \mathbf{x}_N \}$ be the training data set
 (we use a vector~$\mathbf{x}$ instead of a scalar~$t$ for the target variable here).
-They are assumed to be i.i.d.\ and
-have been generated from some true distribution $p(\mathbf{x})$ so that
+We assume that the data set~$\mathbf{X}$ is i.i.d.\ and
+has been generated from some true distribution~$p(\cdot)$ so that
 \begin{equation}
 p(\mathbf{X}) = p(\mathbf{x}_1, \dots, \mathbf{x}_N) = \prod_{n=1}^{N} p(\mathbf{x}_n).
 \end{equation}
@@ -2141,8 +2141,7 @@ q(\cdot) = p(\cdot|\mathcal{M})
 i.e., the conditioning on $\mathcal{M}$ is implicit for $q(\cdot)$.\footnote{%
 We define $p(\cdot|a|b) \equiv p(\cdot|a, b)$ so that
 we can write the conditional~$q(\cdot|\cdot)$.}
-If there exists a true model~$\mathcal{M}^{\star}$,
-then we can write the true distribution as
+If there exists some true model~$\mathcal{M}^{\star}$, then we have
 \begin{equation}
 p(\cdot) = p(\cdot|\mathcal{M}^{\star}).
 \end{equation}
