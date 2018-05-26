@@ -2100,8 +2100,12 @@ because the ``true'' distribution is unknown in general
 and, therefore, we must assume some model (i.e., hypothetical) distributions
 so that confusion can easily arise about which distribution is concerned.
 To avoid such confusion, we also introduce some notation.
-The terminology and the notation to be introduced here are somewhat different from
+
+Note that the terminology and the notation to be introduced here are somewhat different from
 those of PRML or other part of this report.
+The terminology and the discussion are largely due to \citet{Watanabe:BayesStatistics},
+though the notation is not because, as always,
+I have tried to follow that of PRML as closely as possible.
 
 First of all, we should point out that
 so far we have used the term \emph{generalization error} somewhat loosely
@@ -2121,9 +2125,7 @@ We shall also define another criterion called
 the \emph{Bayes free energy},
 which is nothing but the negative log marginal likelihood.
 The Bayes free energy is better compared with the generalization loss
-as we shall see shortly.\footnote{%
-The terms~\emph{generalization loss} and (Bayes) \emph{free energy}
-are due to \citet{Watanabe:BayesStatistics}.}
+as we shall see shortly.
 
 Let us now introduce some notation.
 First, let $\mathbf{X} = \{ \mathbf{x}_1, \dots, \mathbf{x}_N \}$ be the training data set
