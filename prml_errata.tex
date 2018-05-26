@@ -2159,7 +2159,8 @@ The marginal likelihood (or the evidence) of the model~$\mathcal{M}$ is given by
 q(\mathbf{X}) = \int \mathrm{d}\mathbf{w} \, q(\mathbf{w}) \, q(\mathbf{X}|\mathbf{w}) =
 \int \mathrm{d}\mathbf{w} \, q(\mathbf{w}) \prod_{n=1}^{N} q(\mathbf{x}_n|\mathbf{w}).
 \end{equation}
-Note that $q(\mathbf{X})$ does not factorize in general because we have some unknown
+Note that, although the conditional~$q(\mathbf{X}|\mathbf{w})$ does factorize,
+the marginal likelihood~$q(\mathbf{X})$ does not in general because we have some unknown
 parameters~$\mathbf{w}$ in the model~$\mathcal{M}$.
 
 \erratum{Page~156}
