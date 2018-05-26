@@ -2137,14 +2137,14 @@ p(\mathbf{X}) = p(\mathbf{x}_1, \dots, \mathbf{x}_N) = \prod_{n=1}^{N} p(\mathbf
 Let $\mathcal{M}$ be the assumed model we wish to learn.
 As a shorthand, the probability distribution of our assumed model~$\mathcal{M}$ is denoted by
 \begin{equation}
-q(\cdot) = p(\cdot|\mathcal{M})
+q(\cdot) \equiv p(\cdot|\mathcal{M})
 \end{equation}
 i.e., the conditioning on $\mathcal{M}$ is implicit for $q(\cdot)$.\footnote{%
 We define $p(\cdot|a|b) \equiv p(\cdot|a, b)$ so that
 we can write the conditional~$q(\cdot|\cdot)$.}
-If there exists some true model~$\mathcal{M}^{\star}$, then we have
+If there exists some true model~$\mathcal{M}^{\star}$, then
 \begin{equation}
-p(\cdot) = p(\cdot|\mathcal{M}^{\star}).
+p(\cdot) \equiv p(\cdot|\mathcal{M}^{\star}).
 \end{equation}
 The model~$\mathcal{M}$ consists of a pair of
 (i)~the prior~$q(\mathbf{w})$ over a set of parameters~$\mathbf{w}$ and
