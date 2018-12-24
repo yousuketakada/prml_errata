@@ -263,6 +263,7 @@ p(\mathbf{x})
 \end{equation}
 where we have again assumed that
 the transformation between $\mathbf{x}$ and $\mathbf{y}$ is bijective as well as differentiable.
+The matrix $\partial\mathbf{x} / \partial\mathbf{y}$ is called the Jacobian.
 
 \erratum{Page~19}
 Equation~(1.32):
@@ -498,7 +499,7 @@ f\left(\mathbb{E}_{\mathbf{z}}\left[\xi(\mathbf{z})\right]\right)
 \leqslant \mathbb{E}_{\mathbf{z}}\left[f\left(\xi(\mathbf{z})\right)\right]
 \label{eq:Jensen_inequality_expectation_with_z}
 \end{equation}
-where $f(\cdot)$ is a convex function but $\xi(\cdot)$ can be any.
+where $f(\cdot)$ is a convex function, but $\xi(\cdot)$ can be any function.
 Moreover, if $f(\cdot)$ is strictly convex,
 the equality in \eqref{eq:Jensen_inequality_expectation_with_z} holds if and only if
 $\xi(\mathbf{z})$ is constant with probability one or \emph{almost surely},\footnote{%
