@@ -35,6 +35,7 @@ backref=page,colorlinks,allcolors=MidnightBlue,
 
 \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
 \newcommand{\twitter}[1]{\href{https://twitter.com/#1}{\texttt{@#1}}}
+\newcommand{\github}[1]{\href{https://github.com/#1}{\texttt{@#1}}}
 
 \newcommand{\www}{\colorbox{MediumBlue}{\textcolor{White}{\textbf{\textsf{www}}}}}
 
@@ -129,8 +130,9 @@ by informing me of yet more errata and clarifications
 (for PRML and also for this report itself).
 In particular, I am grateful to
 Christopher Sahnwaldt,
-Mark-Jan Nederhof, and
-David Rosenberg
+Mark-Jan Nederhof,
+David Rosenberg, and
+Tommy (\github{tommyod})
 for their invaluable comments and discussions.
 
 \Section{Corrections and Comments}
@@ -263,6 +265,7 @@ p(\mathbf{x})
 \end{equation}
 where we have again assumed that
 the transformation between $\mathbf{x}$ and $\mathbf{y}$ is bijective as well as differentiable;
+% See https://github.com/yousuketakada/prml_errata/pull/13
 and $\partial\mathbf{x}/\partial\mathbf{y} = (\partial x_i / \partial y_j )$ is
 the \emph{Jacobian matrix}~(C.18).
 
