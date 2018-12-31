@@ -1833,6 +1833,16 @@ We assume in this report that $\mu_k \in (0, 1)$ for all $k$ and thus
 $\sum_{k=1}^{K - 1} \mu_k \in (0, 1)$.
 See \eqref{eq:Bernoulli_in_exponential_of_logarithm}.
 
+\erratum{Page~115}
+% Due to Tommy (@tommyod)
+The line before (2.215):
+$\bm{\eta} = \left( \eta_{1}, \dots, \eta_{M-1} \right)^{\operatorname{T}}$ should be
+$\bm{\eta} = \left( \eta_{1}, \dots, \eta_{M-1}, 0 \right)^{\operatorname{T}}$
+(\emph{the third printing only}).\footnote{%
+Note that this erratum is taken from the official errata~\citep{Svensen:PRML_errata}
+for the first and the second printings,
+which is however missing in the errata for the third printing.}
+
 \erratum{Page~116}
 Equation~(2.224):
 The right hand side should be a zero vector~$\mathbf{0}$ (instead of a scalar zero~$0$).
@@ -2099,6 +2109,12 @@ where $I_{ij}$ is the $(i, j)$-th element of the identity matrix~$\mathbf{I}$
 Paragraph~1, Line~\textminus4:
 The decision surfaces are defined by linear \emph{equations} of the input vector~$\mathbf{x}$ and
 thus are $(D - 1)$-dimensional hyperplanes within the $D$-dimensional input space.
+
+\erratum{Page~180}
+% Due to Tommy (@tommyod)
+The lines before and after (4.3):
+$f(\, \cdot\, )$ should be $f(\cdot)$
+(the spaces around the dot should be removed to conform with notation elsewhere in PRML).
 
 \erratum{Page~186}
 % Due to Mark-Jan Nederhof
