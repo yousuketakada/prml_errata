@@ -1812,7 +1812,8 @@ in a consistent way without the need for an evaluation data set,
 while avoiding overfitting.
 
 \erratum{Page~104}
-Equation~(2.160): The extra space between $\mathcal{N}\left(x\middle|\mu,  (\eta \lambda)^{-1}\right )$ and $\operatorname{Gam}\left(\eta \middle| \nu /2, /nu/2\right )$ should be removed to be consistent with other equations, such as (2.161) and (2.158).
+% Due to Tommy (@tommyod)
+Equation~(2.160): The extra space between $\mathcal{N}\left(x\middle|\mu,  (\eta \lambda)^{-1}\right )$ and $\operatorname{Gam}\left(\eta \middle| \nu /2, \nu /2\right )$ should be removed to be consistent with other equations, such as (2.161) and (2.158).
 
 \erratum{Page~104}
 The text after (2.160):
@@ -1924,7 +1925,7 @@ The lower ellipsis ($\ldots$) should be centered ($\cdots$).
 \erratum{Page~141}
 Equation~(3.13):
 The use of the gradient operator~$\nabla$ is not consistent here.
-As in, e.g., (2.224), the gradient of a scalar function is usually defined as a column vector
+As in, e.g. (2.224), the gradient of a scalar function is usually defined as a column vector
 of derivatives so that (3.13) should read\footnote{%
 Note that we use a different typeface (from a $D$-dimensional target variable~$\mathbf{t}$)
 for the $N$-dimensional vector~%
@@ -2118,6 +2119,20 @@ thus are $(D - 1)$-dimensional hyperplanes within the $D$-dimensional input spac
 The lines before and after (4.3):
 $f(\, \cdot\, )$ should be $f(\cdot)$
 (the spaces around the dot should be removed to conform with notation elsewhere in PRML).
+
+\erratum{Page~182}
+% Due to Tommy (@tommyod)
+The line before (4.8):
+The definitions should read 
+$\widetilde{\mathbf{w}}^{\operatorname{T}} = (w_0, \mathbf{w}^{\operatorname{T}})$
+and
+$\widetilde{\mathbf{x}}^{\operatorname{T}} = (x_0, \mathbf{x}^{\operatorname{T}})$.
+
+\erratum{Page~186}
+% Due to Tommy (@tommyod)
+The caption of Figure~4.4:
+A period should be added after ``Section 4.3.2,''
+and the phrase ``bottom left'' should be replaced with ``bottom right.''
 
 \erratum{Page~186}
 % Due to Mark-Jan Nederhof
