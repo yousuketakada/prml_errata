@@ -164,6 +164,7 @@ with the \texttt{amsmath} or \texttt{mathtools} package,
 Specifically, (1.1) should read
 \begin{equation}
 y(x, \mathbf{w}) = w_0 + w_1 x + w_2 x^2 + \dots + w_M x^M = \sum_{j=0}^{M} w_j x^j .
+\label{eq:polynomial_regression_function}
 \end{equation}
 
 \erratum{Page~10}
@@ -300,6 +301,32 @@ although this is clearly not a valid probability because $\int p(y|x) \, \mathrm
 Note also that, if $y$ is independent of $x$,
 then the conditional~$p(y|x)$ is well-defined regardless of $x$ so that $p(y|x) = p(y)$ and,
 again, the product rule~(1.32) holds, which, in this case, reduces to $p(x, y) = p(x) p(y)$.
+
+\erratum{Page~33}
+Paragraph~3:
+Note that the two information criteria for model selection mentioned here, namely, AIC and BIC
+are different criteria with different goals (see below).
+However, the difference between the two criteria (i.e., AIC and BIC) or, more generally,
+the difference between their goals
+(i.e., generalization and to identify the ``true'' model, respectively)
+seems not to be well-recognized in PRML;
+we shall come back to this issue later in this report.
+
+\parhead{AIC vs.\ BIC}
+(i)~The \emph{Akaike information criterion} (AIC) and
+(ii)~Schwartz's \emph{Bayesian information criterion} (BIC; see Section~4.4.1)
+are different criteria with different goals, i.e.,
+(i)~to make better prediction given the training data set
+(an ability called \emph{generalization}) and
+(ii)~to identify the ``true'' model from which the data set has been generated
+(or to better explain the data set in terms of the \emph{marginal likelihood}; see Section~3.4),
+respectively.\footnote{%
+Since we cannot tell which goal (i.e., generalization or to identify the ``true'' model)
+is more ``Bayesian'' than the other,
+``Bayesian information criterion'' is a misnomer.}
+Although the two criteria are often seen as competing,
+one can see from the above that, since their goals are different,
+there is no point in asking which criterion is optimal unconditionally.
 
 \erratum{Page~33}
 The line after (1.73):
@@ -2005,62 +2032,172 @@ Insert a comma ($,$) after the ellipsis ($\dots$).
 
 \erratum{Page~147}
 Paragraph~\textminus2:
-The argument that ``the phenomenon of [overfitting\footnote{%
+The argument that ``the phenomenon of [overfitting]\footnote{%
 In this report, we use the term ``overfitting'' without hyphenation
-(i.e., instead of ``over-fitting'' as in PRML).}]
+(i.e., instead of ``over-fitting'' as in PRML).}
+\dots
 does not arise when we marginalize over parameters in a Bayesian setting''
 is simply an overstatement.
 Bayesian methods, like any other machine learning methods, can overfit
-because the \emph{true} model from which the data set has been generated is unknown in general
-so that one could possibly assume an inappropriate (too expressive) model
-that would give a terribly wrong prediction very confidently;
-this is true even when we take a ``fully'' Bayesian approach
-(i.e., \emph{not} maximum likelihood, MAP, or whatever) as discussed shortly.
-We also discuss in what follows
-the difference between the two criteria for assessing model complexity, namely,
-the \emph{generalization error} (see Section~3.2) and
-the \emph{marginal likelihood} (or the \emph{model evidence}; see Section~3.4),
-which is not well recognized in PRML.
+because the ``true'' model from which the data set has been generated is unknown in general
+so that one could possibly assume an inappropriate model,
+say, too expressive a model that would make terribly wrong predictions very confidently;
+this is true even when we take a ``fully Bayesian'' approach
+(i.e., \emph{not} maximum likelihood, MAP, or whatever).
+
+In the following, we first show that there exists such a Bayesian model that exhibits overfitting,
+after which we discuss in some detail the difference between
+the two criteria for model selection (or model comparison)
+concerned in Sections~3.2 and 3.4, namely,
+(i)~the \emph{generalization error} and
+(ii)~the \emph{marginal likelihood} (or the \emph{model evidence}), respectively.
 
 \parhead{A Bayesian model that exhibits overfitting}
 Let us take a Bayesian linear regression model of Section~3.3 as an example and
-suppose that the precision~$\beta$ of the target~$t$ in the likelihood~(3.8) is very large
-whereas the precision~$\alpha$ of the parameters~$\mathbf{w}$ in the prior~(3.52) is very small
-(i.e., the conditional distribution of $t$ given $\mathbf{w}$ is narrow whereas
-the prior over $\mathbf{w}$ is broad), leading to insufficient \emph{regularization}
-(see Section~3.1.4).
-Then, the posterior~$p(\mathbf{w}|\bm{\mathsf{t}})$ given the data set~$\bm{\mathsf{t}}$ will be
-sharply peaked around the maximum likelihood estimate~$\mathbf{w}_{\text{ML}}$ and
-the predictive~$p(t|\bm{\mathsf{t}})$ be also sharply peaked
-(well approximated by the likelihood conditioned on $\mathbf{w}_{\text{ML}}$).
-Stated differently, the assumed model reduces to the least squares method,
-which is known to suffer from overfitting (see Section~1.1).
+show that it can overfit.
+Suppose that the prior~(3.52) over the parameters~$\mathbf{w}$ is broad
+whereas the conditional~(3.8) over the target~$t$ given $\mathbf{w}$ is narrow,
+i.e., the precision~$\alpha$ of $\mathbf{w}$ is very small
+whereas the precision~$\beta$ of $t$ given $\mathbf{w}$ is very large,
+leading to insufficient \emph{regularization} (see Section~3.1.4).
+Then, the posterior~(3.49) over $\mathbf{w}$ given the data set~$\bm{\mathsf{t}}$ will be
+sharply peaked around the maximum likelihood estimate~$\mathbf{w}_{\text{ML}}$ given by (3.15)
+so that the predictive distribution~(3.58) over $t$ given $\bm{\mathsf{t}}$ will be
+well approximated by the conditional~(3.8) conditioned on $\mathbf{w}_{\text{ML}}$
+and also sharply peaked around the regression function~(3.3).
+Stated differently, learning thus assumed a Bayesian model reduces to the least squares method,
+which is known to suffer from overfitting so that
+the \emph{generalization error} can be very large if the regression function is too expressive,
+e.g., the order~$M$ of the polynomial regression function~\eqref{eq:polynomial_regression_function}
+is large compared to the size of the training data set as we have seen in Section~1.1.
 
-Of course, we can extend the model by incorporating hyperpriors over $\beta$ and $\alpha$,
+Of course, one can extend the model by incorporating hyperpriors over $\alpha$ and $\beta$,
 thus introducing more Bayesian averaging.
 However, if the extended model is not sensible
-(e.g., the hyperpriors are sharply peaked around wrong values),
+(e.g., the hyperpriors are tuned to wrong values),
 we shall again end up with a wrong posterior and a wrong predictive.
 
-The point here is that, since we do not know the true model (if any),
-we cannot know whether the assumed model is sensible in advance
+The point here is that, since we do not know the ``true'' model (if any),
+we cannot know if the assumed model is sensible in advance
 (i.e., without any knowledge about data to be generated).
 We can however assess, given a data set, whether a model is better than another
-by, say, \emph{Bayesian model comparison} (see Section~3.4),
-though a caveat is that we still need some (implicit) assumptions for the framework of
-Bayesian model comparison to work;
+in terms of, say, the \emph{marginal likelihood} as discussed in Section~3.4,
+though a caveat is that we still need some (implicit) assumptions for
+this Bayesian model comparison framework to work;
 see the discussion around (3.73).
 
 \parhead{Generalization error vs.\ marginal likelihood}
-Moreover, one should also be aware of a subtlety that
-(i)~the \emph{generalization error},
-which can be estimated by cross-validation (Section~3.2), and
-(ii)~the \emph{marginal likelihood},
-which is used in the Bayesian model comparison framework (Section~3.4),
-are closely related but different criteria for assessing model complexity,
-although, in practice, a higher marginal likelihood often tends to imply
-a lower generalization error and vice versa.
-For more (advanced) discussions, see \citet{Watanabe:WAIC,Watanabe:WBIC}.
+Moreover, we should also be aware of a subtlety here that
+(i)~the \emph{generalization error} and (ii)~the \emph{marginal likelihood}
+are closely related but different criteria for model selection
+(although, in practice, a higher marginal likelihood often tends to imply
+a lower generalization error and vice versa).
+
+As a general rule, one should adopt:
+(i)~the generalization error
+if they want to make better prediction given the data set; and
+(ii)~the marginal likelihood
+if they want to identify the ``true'' model from which the data set has been generated
+(see below for more discussion).
+
+Of course, nothing prevents us from examining the behavior of \emph{both} the two criteria,
+if possible, to assess the model concerned;
+it is even worth the effort to do so because, since the two criteria are different,
+we can gain more information from both of them than from one of them.
+If, say, we have learned that both the criteria do or do not prefer a model,
+then we would be more confident that the model is sensible or not, respectively.
+
+\parhead{More on generalization error vs.\ marginal likelihood
+(or generalization loss vs.\ Bayes free energy)}
+In what follows, I would like to further elaborate on
+the difference between the two criteria for model selection.
+In order to facilitate the discussion, we first introduce some terminology.
+Throughout the discussion,
+special care must be taken about the distribution with which we take expectation
+because the ``true'' distribution is unknown in general
+and, therefore, we must assume some model (i.e., hypothetical) distributions
+so that confusion can easily arise about which distribution is concerned.
+To avoid such confusion, we also introduce some notation.
+
+Note that the terminology and the notation to be introduced here are somewhat different from
+those of PRML or other part of this report.
+The terminology and the discussion here are largely due to \citet{Watanabe:BayesStatistics},
+though the notation is not because I have yet tried to follow that of PRML as closely as possible.
+
+First of all, we should point out that
+so far we have used the term \emph{generalization error} somewhat loosely
+in this report and also in PRML;
+it is used primarily in the context of a frequentist inference
+(such as the one in Section~3.2)
+and can generally be defined as the \emph{expected loss}~(see Section~1.5.5)
+evaluated for the predicted target value (i.e., a point estimate)
+with some arbitrary loss function given (e.g., the squared error for regression).
+An alternative definition of the generalization error from a Bayesian perspective would be
+in terms of the predictive distribution.
+Specifically, we can define it as the expected negative log predictive distribution;
+to avoid ambiguity, we hereafter call this particular criterion for
+assessing a model's predictive performance the \emph{generalization loss}
+(see below for a precise definition).
+We shall also define another criterion called
+the \emph{Bayes free energy},
+which is nothing but the negative log marginal likelihood.
+The generalization loss is better compared with the Bayes free energy as we shall see shortly.
+
+Let us now introduce some notation.
+First, let $\mathbf{X} = \{ \mathbf{x}_1, \dots, \mathbf{x}_N \}$ be the training data set
+(we use a vector~$\mathbf{x}$ instead of a scalar~$t$ for the target variable here).
+We assume that the data set~$\mathbf{X}$ has been generated from
+some true distribution~$p(\cdot)$ and
+is i.i.d.\ so that
+\begin{equation}
+p(\mathbf{X}) = p(\mathbf{x}_1, \dots, \mathbf{x}_N) = \prod_{n=1}^{N} p(\mathbf{x}_n).
+\end{equation}
+Let $\mathcal{M}$ be the assumed model we wish to learn.
+As a shorthand, the probability distribution of our assumed model~$\mathcal{M}$ is denoted by
+\begin{equation}
+q(\cdot) \equiv p(\cdot|\mathcal{M})
+\end{equation}
+i.e., the conditioning on $\mathcal{M}$ is implicit for $q(\cdot)$.\footnote{%
+We define $p(\cdot|a|b) \equiv p(\cdot|a, b)$ so that
+we can write the conditional~$q(\cdot|\cdot)$.}
+If there exists some true model~$\mathcal{M}^{\star}$, then
+\begin{equation}
+p(\cdot) \equiv p(\cdot|\mathcal{M}^{\star}).
+\end{equation}
+The model~$\mathcal{M}$ consists of a pair of:
+(i)~a prior~$q(\mathbf{w})$ over a set of parameters~$\mathbf{w}$; and
+(ii)~a conditional~$q(\mathbf{x}|\mathbf{w})$ over $\mathbf{x}$ given $\mathbf{w}$.\footnote{%
+The model~$\mathcal{M}$ may include
+a hyperprior~$q(\bm{\xi})$ over a set of hyperparameters~$\bm{\xi}$ and so on.
+It is easy to see that the discussion here is applicable also to such a hierarchical model
+because we can consider the joint prior of the form~$q(\mathbf{w}, \bm{\xi}) =
+q(\mathbf{w}|\bm{\xi}) q(\bm{\xi})$ and, therefore, $\bm{\xi}$ can be absorbed into $\mathbf{w}$.}
+The marginal likelihood (or the evidence) of the model~$\mathcal{M}$ is given by
+\begin{equation}
+q(\mathbf{X}) = \int \mathrm{d}\mathbf{w} \, q(\mathbf{w}) \, q(\mathbf{X}|\mathbf{w}) =
+\int \mathrm{d}\mathbf{w} \, q(\mathbf{w}) \prod_{n=1}^{N} q(\mathbf{x}_n|\mathbf{w}).
+\end{equation}
+Note that, although the conditional~$q(\mathbf{X}|\mathbf{w})$ does factorize,
+the marginal likelihood~$q(\mathbf{X})$ does not in general because we have some unknown
+parameters~$\mathbf{w}$ in the model~$\mathcal{M}$.
+
+% TODO
+
+%[cf. \emph{cross-validation} (see Section~1.3)]
+
+%In \citet{Watanabe:BayesStatistics},
+%the generalization error is defined as the Kullback-Leibler divergence~$
+%\operatorname{KL}\left(p(\mathbf{x})\middle\|q(\mathbf{x}|\mathbf{X})\right)$
+%between the true distribution~$p(\mathbf{x})$ and
+%the predictive distribution~$q(\mathbf{x}|\mathbf{X})$.
+
+% TODO:
+% Section 3.5.1, generalization loss and evidence
+% Section 1.5.5
+
+%For WAIC and WBIC, see \citet{Watanabe:WAIC,Watanabe:WBIC}.
+
+% F_N is, as the subscript N suggests, a function of X
 
 \erratum{Page~156}
 Equation~(3.57):
@@ -2212,6 +2349,18 @@ The differential operator~$d$ should be an upright~$\mathrm{d}$.
 % Due to Mark-Jan Nederhof
 Paragraph~1, Line~1:
 ``must related'' should be ``must be related.''
+
+\erratum{Page~217}
+Paragraph~3:
+Here, it is pointed out that information criteria such as AIC and BIC are no longer valid
+if the posterior cannot be approximated by a Gaussian;
+such a model is called \emph{singular} and, in fact,
+many practical models are known to be singular
+\citep{Watanabe:BayesStatistics,Watanabe:WAIC}.
+It is also worth noting here that there have been recently proposed
+new information criteria applicable to singular models, namely,
+WAIC~\citep{Watanabe:WAIC,Watanabe:BayesStatistics} and WBIC~\citep{Watanabe:WBIC},
+which are generalized versions of AIC and BIC, respectively.
 
 \erratum{Page~218}
 Equation~(4.144):
