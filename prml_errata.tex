@@ -8,6 +8,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage[lite]{mtpro2}
 \usepackage{bm}
 \usepackage[all]{xy}
 \usepackage{microtype}
@@ -3245,6 +3246,62 @@ where $y_0 = f(z_0)$.
 % Due to Mark-Jan Nederhof
 Paragraph~\textminus2, Lines~1, 2, and 4:
 $\mathbf{z}$ should be $z$ for consistency with (11.13).
+
+\erratum{Page~529}
+Paragraph~\textminus1, Line~\textminus2: To resolve conflict symbol $b$ between gamma and Cauchy
+distribution, change $b$ in $z=b \tan y + c$ to $\gamma$. 
+So, this should read $z=\gamma \tan y + c$. 
+
+\erratum{Page~530}
+Equation~(11.16):
+To be more clear, $q(z)$ should be $k q(z)$ with symbol change as corrected in previous page.
+So, (11.16) should read
+\begin{equation}
+k q(z) = \frac{k}{\gamma \pi (1 + (z - c)^2 / \gamma^2)}
+\label{eq:k_cauchy_definition} 
+\end{equation}
+
+\erratum{Page~530}
+The text after (11.16): $c = a-1$, $b^2 = 2a -1$ should read $c = (a - 1)/b$ and 
+$\gamma^2 = (2a -1)/b^2$ respectively. $c = (a - 1)/b$ can be easily postulated by
+matching mode between gamma and Cauchy distribution. 
+%So, the equations in the text hold when $b=1$.
+So, remaining thing is to show $\gamma^2 = (2a -1)/b^2$ and get optimal $k$.
+For this, we need to prove following inequality.
+For $a > 1$ and $b > 0$,
+\begin{equation}
+k q(z) = \frac{b ~ e^{-(a-1)} ~ (a-1)^{a-1}}{\Gamma(a) \big\{1+ (z - \frac{a-1}{b})^2 / \left(\frac{2a-1}{b^2}\right)\big\}} 
+\ge \frac{b^a ~ z^{a-1} ~ e^{-bz}}{\Gamma(a)} = \operatorname{Gam}(z|a,b) 
+\label{eq:cauchy_gamma_inequality}
+\end{equation}
+Let $x = b z$, then
+\begin{equation}
+\frac{e^{-(a-1)} ~ (a-1)^{a-1}}{\Gamma(a) \big\{1+ (\frac{x}{b} - \frac{a-1}{b})^2 / \left(\frac{2a-1}{b^2}\right)\big\}} 
+\ge \frac{x^{a-1} ~ e^{-x}}{\Gamma(a)}
+\end{equation}
+The inequality \eqref{eq:cauchy_gamma_inequality} is equivalent to \eqref{eq:cauchy_gamma_inequality_reduced}. 
+\begin{equation}
+\hat{k} \hat{q}(x) = \frac{e^{-(a-1)} ~ (a-1)^{a-1}}{\Gamma(a) \big\{1+ (x - (a-1))^2 / (2a-1)\big\}} 
+\ge \frac{x^{a-1} ~ e^{-x}}{\Gamma(a)} = \operatorname{Gam}(x|a,1)
+\label{eq:cauchy_gamma_inequality_reduced}
+\end{equation}
+In \eqref{eq:cauchy_gamma_inequality_reduced}, for proving $2a -1$ is optimal, one may
+even prove that
+\begin{equation}
+\varphi(x) = x^{a-1} ~ e^{-x} \big\{1+ (x - (a-1))^2/\hat{\gamma}^{2}\big\} \le e^{-(a-1)} ~ (a-1)^{a-1} 
+\end{equation}
+is true for all $\hat{\gamma}^{2} \ge 2a -1$ and all $x \ge 0$. Obviously for $x = a - 1$ the equality holds.
+The derivative of $\varphi(x)$ is
+\begin{equation}
+\varphi'(x) = - \hat{\gamma}^{-2} ~ e^{-x} ~ x^{a-2} ~ (x-(a-1)) ~ ((x-a)^2 + \hat{\gamma}^2 - (2a - 1))
+\end{equation}
+Since $\hat{\gamma}^2 \ge 2a -1 > 0$, $\varphi'(x)$ changes sign only at $x = a - 1$. Therefore
+$\varphi(x)$ has its only maximum at $x = a - 1$ and cannot exceed $e^{-(a-1)} ~ (a-1)^{a-1}$.
+From \eqref{eq:k_cauchy_definition} and \eqref{eq:cauchy_gamma_inequality}, the optimal $k$ is
+\begin{equation}
+k = \frac{\sqrt{2a - 1} ~ \pi ~ e^{-(a-1)} ~(a-1)^{a-1}}{\Gamma(a)}
+\end{equation}
+For more detail see \cite{Ahrens:1974dx}.
 
 \erratum{Page~539}
 % Due to Mark-Jan Nederhof
