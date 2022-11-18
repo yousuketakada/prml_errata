@@ -8,7 +8,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{mathtools}
-\usepackage[lite]{mtpro2}
+%\usepackage[lite]{mtpro2}
 \usepackage{bm}
 \usepackage[all]{xy}
 \usepackage{microtype}
@@ -3367,6 +3367,250 @@ Paragraph~\textminus1, Line~2:
 $\mathbf{u}_i = 0$ should read $\mathbf{u}_i = \mathbf{0}$
 (the right hand side should be a zero vector~$\mathbf{0}$).
 
+\erratum{Page~574}
+Equation~(12.45):
+To get this result, we need to refer to the paper, \cite{Tipping:Mixtures}.
+In the paper, the gradient of the log-likelihood (12.44) with respect to
+$\mathbf{W}$, is given by
+\begin{equation}
+  \frac{\partial \mathcal{L}}{\partial \mathbf{W}} =
+  N(\mathbf{C}^{-1}\mathbf{S}\mathbf{C}^{-1}\mathbf{W} - 
+  \mathbf{C}^{-1}\mathbf{W})
+  \label{eq:matrix_diff_log_likelihood} 
+\end{equation}
+
+This can be get from matrix differental calculus according to the rule in
+\cite{Minka:OldNewMatrixAlgebra}. From (12.44),
+\begin{align}
+  \mathrm{d}\ln p(\mathbf{X}|\mathbf{\mu}, \mathbf{W}, \sigma^2) 
+  &= - \frac{N}{2}
+  \left\{
+    \mathrm{d} \ln |\mathbf{C}| + 
+    \mathrm{d} \operatorname{Tr}(\mathbf{C}^{-1} \mathbf{S})
+  \right\} \\
+  &= - \frac{N}{2}
+  \left\{
+    \frac{1}{|\mathbf{C}|} \mathrm{d} |\mathbf{C}| +
+    \operatorname{Tr}\left((\mathrm{d}\mathbf{C}^{-1})\mathbf{S}\right)
+  \right\} \\
+  &= - \frac{N}{2}
+  \left\{
+    \frac{1}{|\mathbf{C}|} |\mathbf{C}|
+    \operatorname{Tr}(\mathbf{C}^{-1}\mathrm{d}\mathbf{C}) +
+    \operatorname{Tr}
+    \left(
+      -\mathbf{C}^{-1}(\mathrm{d}\mathbf{C})\mathbf{C}^{-1}
+      \mathbf{S})
+    \right)
+  \right\} \\
+  &= - \frac{N}{2}
+    \operatorname{Tr}
+    \left(
+      \mathbf{C}^{-1}\mathrm{d}\mathbf{C}
+      (\mathbf{I} - \mathbf{C}^{-1}\mathbf{S})
+    \right) \\
+  &= \frac{N}{2}
+    \operatorname{Tr}
+    \left(
+      (\mathbf{C}^{-1}\mathbf{S} - \mathbf{I})
+      \mathbf{C}^{-1}\mathrm{d}\mathbf{C}
+    \right) \\
+  &= \frac{N}{2}
+    \operatorname{Tr}
+    \left(
+      (\mathbf{C}^{-1}\mathbf{S} - \mathbf{I})
+      \mathbf{C}^{-1}
+      ((\mathrm{d}\mathbf{W})\mathbf{W}^{\operatorname{T}}
+      + \mathbf{W}\mathrm{d}\mathbf{W}^{\operatorname{T}})
+    \right) \\
+  &= \frac{N}{2}
+  \left\{
+    \operatorname{Tr}
+      \left(
+        \mathbf{W}^{\operatorname{T}}
+        (\mathbf{C}^{-1}\mathbf{S} - \mathbf{I})\mathbf{C}^{-1}
+        \mathrm{d}\mathbf{W}
+      \right) +
+    \operatorname{Tr}
+      \left(
+        (\mathbf{C}^{-1}\mathbf{S} - \mathbf{I})\mathbf{C}^{-1}
+        \mathbf{W} \mathrm{d}\mathbf{W}^{\operatorname{T}}
+      \right)
+  \right\} \\
+  &= \frac{N}{2}
+  \left\{
+    \operatorname{Tr}
+      \left(
+        \mathbf{W}^{\operatorname{T}}
+        (\mathbf{C}^{-1}\mathbf{S} - \mathbf{I})\mathbf{C}^{-1}
+        \mathrm{d}\mathbf{W}
+      \right) +
+    \operatorname{Tr}
+      \left(
+        (\mathrm{d}\mathbf{W})\mathbf{W}^{\operatorname{T}}
+        \mathbf{C}^{-1}(\mathbf{S}\mathbf{C}^{-1} - \mathbf{I})
+      \right)
+  \right\} \\
+  &= \operatorname{Tr}
+    (
+      \underbrace{
+        N
+        \mathbf{W}^{\operatorname{T}}
+        (\mathbf{C}^{-1}\mathbf{S} - \mathbf{I})\mathbf{C}^{-1}
+      }_{= A}
+      \mathrm{d}\mathbf{W}
+    )
+  \label{eq:matrix_diff_transpose} 
+\end{align}
+
+Because $A$ in \eqref{eq:matrix_diff_transpose} is
+numerator-layout \cite{Wikipedia:MatrixCalculus},
+after transpose it, we can finally get the result, 
+\eqref{eq:matrix_diff_log_likelihood}.
+To get the equation, \eqref{eq:log_likelihood_with_w} in the paper,
+we need to substitute following $\mathbf{W}$ into the log-likelihood
+function (12.44). 
+\begin{equation}
+  \mathbf{W} = 
+  \mathbf{U}_q(\mathbf{K}_q - \sigma^2 \mathbf{I})^{1/2} \mathbf{R}
+  \label{eq:optimal_w}
+\end{equation}
+
+\begin{equation}
+  \mathcal{L} = -\frac{N}{2}
+  \left\{
+    d \ln(2\pi) + \sum_{j=1}^{q'}\ln(\lambda_j)
+    + \frac{1}{\sigma^2}\sum_{j=q'+1}^{d}\lambda_j
+    + (d-q')\ln\sigma^2 + q'
+  \right\}
+  \label{eq:log_likelihood_with_w}
+\end{equation}
+In (12.44), $\ln|\mathbf{C}|$ can be simplified as following
+and \eqref{eq:use_c_14} uses (C.14).
+\begin{align}
+  \ln |\mathbf{C}| &= \ln \left|\sigma^2\left(
+    \mathbf{I} + \frac{1}{\sigma^2}\mathbf{W}\mathbf{W}^{\operatorname{T}}
+  \right)\right| \\
+  &= d \ln{\sigma^2} + \ln \left|
+    \mathbf{I} + \frac{1}{\sigma^2}\mathbf{W}^{\operatorname{T}}\mathbf{W}
+  \right| 
+  \label{eq:use_c_14}
+  \\
+  &= d \ln{\sigma^2} -q \ln{\sigma^2} + \ln \left|
+    \sigma^2 \mathbf{I} + \mathbf{W}^{\operatorname{T}}\mathbf{W}
+  \right| \\
+  &= (d - q) \ln{\sigma^2} + \ln \left|
+    \mathbf{R}^{\operatorname{T}}\mathbf{K}_{q}\mathbf{R}
+  \right| \\
+  &= (d - q) \ln{\sigma^2} + 
+  \sum_{j=1}^{q'}\ln(\lambda_j) + \sum_{j=q'+1}^{q}\ln(\sigma^2)
+  \\
+  &= (d - q') \ln{\sigma^2} + \sum_{j=1}^{q'}\ln(\lambda_j)
+\end{align}
+
+For $\operatorname{Tr}(\mathbf{C}^{-1}\mathbf{S})$,
+\begin{align}
+  \operatorname{Tr}(\mathbf{C}^{-1}\mathbf{S})
+  &= \operatorname{Tr}\left(
+    \frac{1}{\sigma^2}(
+    \mathbf{I} - \mathbf{W}\mathbf{M}^{-1}\mathbf{W}^{\operatorname{T}}
+    )\mathbf{S}
+  \right) \\
+  &= \frac{1}{\sigma^2} \left\{
+    \operatorname{Tr}(\mathbf{S}) - \operatorname{Tr}\left(
+    \mathbf{W}^{\operatorname{T}}\mathbf{S}\mathbf{W}\mathbf{M}^{-1}
+    \right)
+  \right\} \\
+  &= \frac{1}{\sigma^2} \left\{
+    \sum_{j=1}^{d}\lambda_j - \operatorname{Tr}\left(
+    \mathbf{R}^{\operatorname{T}}\mathbf{\Lambda}_q(\mathbf{K}_q 
+    - \sigma^2\mathbf{I})\mathbf{R} \mathbf{M}^{-1}
+    \right)
+  \right\} \\
+  &= \frac{1}{\sigma^2} \left\{
+    \sum_{j=1}^{d}\lambda_j - \operatorname{Tr}\left(
+    \mathbf{R}^{\operatorname{T}}\mathbf{\Lambda}_q(\mathbf{K}_q 
+    - \sigma^2\mathbf{I})\mathbf{R}
+    \mathbf{R}^{\operatorname{T}}\mathbf{K}^{-1}_q\mathbf{R}
+    \right)
+  \right\} \\
+  &= \frac{1}{\sigma^2} \left\{
+    \sum_{j=1}^{d}\lambda_j 
+    - \operatorname{Tr}(
+      \mathbf{R}^{\operatorname{T}}\mathbf{\Lambda}_q\mathbf{R}
+      )
+    +\sigma^2\operatorname{Tr}(
+    \mathbf{R}^{\operatorname{T}}\mathbf{\Lambda}_q\mathbf{K}^{-1}_q\mathbf{R}
+    )
+  \right\} \\
+  &= \frac{1}{\sigma^2} \left\{
+    \sum_{j=1}^{d}\lambda_j 
+    - \sum_{j=1}^{q}\lambda_j 
+    + \sigma^2 q' + \sigma^2\sum_{j=q'+1}^{q}\frac{\lambda_j}{\sigma^2}
+  \right\} \\
+  &= \frac{1}{\sigma^2}\sum_{j=q'+1}^{d}\lambda_j + q' 
+\end{align}
+\parhead{Jensen gap and data variance} 
+To maximize \eqref{eq:log_likelihood_with_w}, as author said in the paper,
+by exploiting the constancy of the sum of all eignvalues of $\mathbf{S}$,
+we can equivalently minimizing the following quantity, $E$,
+\begin{equation}
+  E = \ln\left(\frac{1}{d-q'}\sum_{j=q'+1}^{d}\lambda_j\right)
+  - \frac{1}{d-q'}\sum_{j=q'+1}^{d}\ln(\lambda_j).
+  \label{eq:jensen_gap}
+\end{equation}
+This $E$ is Jensen gap \cite{Becker:2012dd} which has following relatation.
+For twice continuously differentiable concave function
+$f: [a, b] \to \mathbb{R}$, likes $\ln(x)$, if there are finite bounds $m$ and $M$ such that
+\begin{equation}
+  m \le f''(x) \le M \le 0 \quad \text{for each} \quad x \in [a, b],
+\end{equation}
+there exists a real value $\tau \in [m, M]$ such that
+\begin{equation}
+  f(\mathbb{E}[X]) - \mathbb{E}[f(X)] = \frac{-1}{2}\tau\operatorname{Var}(X).
+  \label{eq:general_jensen_gap}
+\end{equation}
+This means that Jansen gap have relation with variance.
+To investigate this relation more deeply, we need to think about 
+the change of variance, $\sigma^2$ with data size, $N$
+and its recusive relation \cite{mathworld:sampleVarianceComputation}. 
+\begin{equation}
+  \sigma_{n+1}^2 = \frac{n}{n+1}\sigma_{n}^2 + n(\mu_{n+1} - \mu_n)^2
+\end{equation}
+If we add a new sample, $x_{n+1}$, in existing data, for incresing variance,
+\begin{align}
+  \sigma_{n+1}^2 - \sigma_{n}^2 
+  &= \frac{-1}{n+1}\sigma_{n}^2 + n(\mu_{n+1} - \mu_n)^2 \\
+  &= \frac{-1}{n+1}\sigma_{n}^2 +
+  n \left(\frac{x_{n+1} - \mu_{n}}{n+1}\right)^2 > 0 \\
+  x_{n+1} > \mu_n + \sqrt{\frac{n+1}{n}}\sigma_n & \quad \text{or} \quad
+  x_{n+1} < \mu_n - \sqrt{\frac{n+1}{n}}\sigma_n
+\end{align}
+When removing one sample from data, to decrese variance, 
+\begin{align}
+  \sigma_{n+1}^2 - \sigma_{n}^2
+  &= \frac{n+1}{n^2}(x_{n+1} - \mu_{n+1})^2 - \frac{1}{n}\sigma_{n+1}^2 > 0 \\
+  x_{n+1} > \mu_{n+1} + \sqrt{\frac{n}{n+1}}\sigma_{n+1} 
+  & \quad \text{or} \quad x_{n+1} < \mu_{n+1}
+  - \sqrt{\frac{n}{n+1}}\sigma_{n+1}
+  \label{eq:inc_var_range}
+\end{align}
+The result, \eqref{eq:inc_var_range} means, if we remove a sample from data
+that is outside of $\sigma$ from $\mu$, the variance always decrease.
+From the definition of variance, we can always find at least one sample from
+the outside of this range. We can easily show this as like this.
+If all data is within the range $\sigma$ from $\mu$, then
+\begin{align}
+  \sigma_{n}^2 = \frac{1}{n}\sum_{i=1}^{n}(x_n-\mu_n)^2
+  & < \frac{1}{n}n (\sigma_n + \mu_n - \mu_n)^2 = \sigma_{n}^2
+\end{align}
+This is impossible, so there is at least one data from the outside
+of this range.
+So, by using above results, we can postulate that \eqref{eq:jensen_gap}
+can be minimized by removing sample which has largest distance from mean.
+However, this is still not clear because of the existence of $\tau$ in 
+\eqref{eq:general_jensen_gap}.
+
 \erratum{Page~575}
 Paragraph~\textminus2, Line~5:
 The zero vector should be a row vector instead of a column vector so that we have
@@ -3822,7 +4066,7 @@ for the relationship between the discrete distributions found in PRML.
 
 \begin{figure}
 \centering
-{\fontfamily{\sfdefault}\selectfont
+\fontfamily{\sfdefault}\selectfont
 \begin{equation*}
 \xymatrix@R-2ex@C-5ex{
 \txt{\textbf{Beta}~(B.6) \\
